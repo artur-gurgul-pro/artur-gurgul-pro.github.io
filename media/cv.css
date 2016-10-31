@@ -1,19 +1,19 @@
 h2 {
-    font-size: medium;
+    font-size: 22px;
     text-align: left;
-    float: left;
+    clear: left;
     display: inline;
 }
 
 .cv-date {
     text-align: right;
-    float: right;
+    clear: right;
     height: 30px;
 }
 
 .contact-box {
     text-align: right;
-    float: right;
+    clear: right;
 }
 
 .job-description {
