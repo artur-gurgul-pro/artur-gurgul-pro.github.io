@@ -1,6 +1,7 @@
 h2 {
     font-size: large;
     text-align: left;
+    display: inline;
 }
 
 .cv-date {
