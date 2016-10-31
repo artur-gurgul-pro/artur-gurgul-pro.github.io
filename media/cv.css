@@ -16,7 +16,7 @@ h2 {
 
 .contact-box {
     text-align: left;
-    clear: right;
+    float: right;
     display: inline-block;
 }
 
