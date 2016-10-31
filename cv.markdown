@@ -13,7 +13,7 @@ artur.gurgul@gmail.com
 
 May - 2016 - present
 
-### Swift/iOS developer at RST IT
+*** Swift/iOS developer at RST IT ***
 
   Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
 
