@@ -7,7 +7,7 @@ h2 {
 
 .cv-date {
     text-align: right;
-    clear: right;
+    float: right;
     height: 30px;
 }
 
