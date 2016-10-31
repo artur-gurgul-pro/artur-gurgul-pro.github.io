@@ -4,6 +4,8 @@ title: CV - Artur Gurgul
 permalink: /cv/
 ---
 
+<link href="madia/cv.css" type="text/css" rel="stylesheet"></link>
+
 Wola Dębińska 58,
 32-852 Dębno
 +48.510509533
@@ -12,12 +14,7 @@ artur.gurgul@gmail.com
 # Professional experience
 
 May - 2016 - present
-
-## Company Name 1 (City, State)
-*[Company 1][] description, particularly if not well-known.*
-
-
-#### Swift/iOS developer at RST IT
+## Swift/iOS developer at RST IT
   Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
 
 Dec 2013 - Nov 2015
