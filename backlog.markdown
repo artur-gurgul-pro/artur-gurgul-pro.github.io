@@ -144,6 +144,9 @@ func someFunction(a: inout Int) -> () -> Int {
   * https://www.youtube.com/watch?v=3TX3kV3TICU
 * https://github.com/easymotion/vim-easymotion
 
+* Execute script in background on save
+* wite file when editin without command `:w`
+
 ## RxSwift
 
 let arrayOfObservables: [Observable<E>] = ...
