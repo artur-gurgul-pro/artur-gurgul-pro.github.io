@@ -11,3 +11,7 @@ h2 {
     height: 30px;
 }
 
+.contact-box {
+    text-align: right;
+    float: right;
+}
