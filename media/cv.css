@@ -17,6 +17,7 @@ h2 {
 }
 
 .job-description {
-    float: left;
+    /*float: left;*/
+    clear: left;
     font-color: #333;
 }
