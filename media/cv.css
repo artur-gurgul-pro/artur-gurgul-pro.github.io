@@ -1,5 +1,8 @@
 h2 {
-    font-size: 22px;
+
+    font-size: large !important;
+    font-weight: bold !important;
+
     text-align: left;
     clear: left;
     display: inline-block;
