@@ -2,6 +2,7 @@ h2 {
 
     font-size: large !important;
     font-weight: bold !important;
+    padding-top: 30px;
 
     text-align: left;
     clear: left;
@@ -14,6 +15,7 @@ h2 {
     float: right;
     display: inline-block;
     vertical-align: bottom;
+    padding-top: 30px;
 }
 
 .contact-box {
