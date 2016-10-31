@@ -13,7 +13,7 @@ artur.gurgul@gmail.com
 
 # Professional experience
 
-<span class="cv-date">May - 2016 - present</span>
+May - 2016 - present{:.cv-date}
 ## Swift/iOS developer at RST IT
   Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
 
@@ -48,7 +48,7 @@ Bachelor of science degree
 
 # Skills Languange
 
-*English* - A communicative level that allows me to work in international team. When I worked in Sweden I used this language on daily basis.
+**English** - A communicative level that allows me to work in international team. When I worked in Sweden I used this language on daily basis.
 
 # Technical
 
