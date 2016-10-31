@@ -2,13 +2,16 @@ h2 {
     font-size: 22px;
     text-align: left;
     clear: left;
-    display: inline;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
 .cv-date {
     text-align: right;
     float: right;
     height: 30px;
+    display: inline-block;
+    vertical-align: bottom;
 }
 
 .contact-box {
