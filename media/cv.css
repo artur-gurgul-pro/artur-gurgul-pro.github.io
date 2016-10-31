@@ -1,10 +1,12 @@
 h2 {
     font-size: large;
     text-align: left;
+    float: left;
     display: inline;
 }
 
 .cv-date {
     text-align: right;
+    float: right;
 }
 
