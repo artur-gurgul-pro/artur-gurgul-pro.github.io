@@ -4,7 +4,7 @@ title: CV - Artur Gurgul
 permalink: /cv/
 ---
 
-<link href="madia/cv.css" type="text/css" rel="stylesheet"></link>
+{% include /madia/cv.css %}
 
 Wola Dębińska 58,
 32-852 Dębno
