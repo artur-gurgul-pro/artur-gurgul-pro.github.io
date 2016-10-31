@@ -17,12 +17,14 @@ artur.gurgul@gmail.com
 {:.cv-date}
 May - 2016 - present
 ## Swift/iOS developer at RST IT
+
 {:.job-description}
 Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
 
 {:.cv-date}
 Dec 2013 - Nov 2015
 ## Objc/iOS developer at SMSGrupp
+
 {:.job-description}
 Supertext - I was responsible for fixing the bugs and publishing the app. I have partially rewritten the code from Objc to Swift.
 
