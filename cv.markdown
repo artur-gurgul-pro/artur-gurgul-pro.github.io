@@ -13,7 +13,8 @@ artur.gurgul@gmail.com
 
 # Professional experience
 
-May - 2016 - present{:.cv-date}
+{:.cv-date}
+May - 2016 - present
 ## Swift/iOS developer at RST IT
   Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
 
