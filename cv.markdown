@@ -53,7 +53,7 @@ Aug2011-Dec2011
 
 {:.cv-date}
 Mar 2011 - Sept 2011
-# Objc/iOS developer at Altconnect
+## Objc/iOS developer at Altconnect
 
 {:.job-description}
 I worked on a content management for iOS. The main goal was to create and gather all useful tools, controllers, views and libraries into a single project, so they can be easily use to produce cheap application for the clients.
