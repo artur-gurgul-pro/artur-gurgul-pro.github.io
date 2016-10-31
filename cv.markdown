@@ -7,9 +7,9 @@ permalink: /cv/
 <link rel="stylesheet" href="/media/cv.css">
 
 {:.contact-box}
-Wola Dębińska 58,
-32-852 Dębno
-+48.510509533
+Wola Dębińska 58,\\
+32-852 Dębno\\
++48.510509533\\
 artur.gurgul@gmail.com
 
 # Professional experience
