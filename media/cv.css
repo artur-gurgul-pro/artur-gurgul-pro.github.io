@@ -1,5 +1,5 @@
 h2 {
-    font-size: large;
+    font-size: medium;
     text-align: left;
     float: left;
     display: inline;
@@ -8,5 +8,6 @@ h2 {
 .cv-date {
     text-align: right;
     float: right;
+    height: 30px;
 }
 
