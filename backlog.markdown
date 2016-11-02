@@ -6,6 +6,8 @@ permalink: /backlog/
 
 There is a list of things i want to write the articles about
 
+(if you want me to spend more time on the blog, donate me. you can make suggestion what article to write next)
+
 # Functional programming
 * Functory
 * prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
