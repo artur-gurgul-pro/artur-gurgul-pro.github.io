@@ -151,6 +151,7 @@ FreeBSD, Debian, macOS
 
 # Work organization and planning - how to make stuff done
 * https://medium.freecodecamp.com/live-asynchronously-c8e7172fe7ea#.bn0vyq31h
+* compariosion of task managmant systems 
 
 # Tips on how to create a documentation
 * comparison of tools
@@ -272,12 +273,14 @@ Themes:
 * http://dbtek.github.io/dbyll/
 * http://lagom.mdswanson.com/blog/2013/08/20/sample-post.html
 
+Creating documentation with jekyll:
+http://idratherbewriting.com/documentation-theme-jekyll/index.html
 
 spisac liste rzeczy jakie chce sie nauczyc
 
-# Algotithmics
+# Algorithms
 * Sorting
-* Seartching 
+* Searching 
 
 # Data structures 
 
