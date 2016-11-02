@@ -130,15 +130,22 @@ func someFunction(a: inout Int) -> () -> Int {
 * http://www.monkey-x.com/
 * https://en.wikipedia.org/wiki/YAML
 
-## iOS design patterns
+## iOS - Architectural design patterns
 * https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52#.i1b1ttas5
 * https://ghotiphud.github.io/design/2016/06/26/factoring-code-what-and-when.html
+* https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/
+
+# General design patterns
+* creational
+* structural
+* behavioral
 
 ## Work organization - how to make stuff done
 * https://medium.freecodecamp.com/live-asynchronously-c8e7172fe7ea#.bn0vyq31h
 
 # Memory tricks and how to learn fast
 * https://www.youtube.com/watch?v=eVajQPuRmk8
+* Copy on write
 
 # Vim as an IDE 
 
@@ -168,7 +175,6 @@ RunLoop.main.add(timer, forMode: .commonModes)
 {% endhighlight %}
 
 ## Mocking and testing
-
 * OCMock
 * http://www.hpique.com/2013/12/nsnotificationcenter-part-3/
 * http://stackoverflow.com/questions/26918593/unit-testing-http-traffic-in-alamofire-app
@@ -177,19 +183,23 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Self-testing code
 
 # unclassified 
-
-* https://pl.wikipedia.org/wiki/Programowanie_obiektowe
 * https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/
 * https://github.com/square/Cleanse
 * https://github.com/Swinject/SwinjectMVVMExample
-* Swift on Android: https://github.com/Ecco/HelloSwift/blob/master/jni/hello-swift.c
 * https://github.com/Wolg/awesome-swift
-* https://en.wikipedia.org/wiki/Programming_paradigm
-* https://en.wikipedia.org/wiki/Imperative_programming
-* https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms
 * https://developer.apple.com/swift/blog/
 * https://developer.apple.com/videos/play/wwdc2016/207/
-* Copy on write
+
+# Make Android swifty
+* https://github.com/Ecco/HelloSwift/blob/master/jni/hello-swift.c
+
+# overview of programming languages
+* Paradigms
+  * https://en.wikipedia.org/wiki/Comparison_of_programming_paradigms
+  * https://pl.wikipedia.org/wiki/Programowanie_obiektowe
+  * https://en.wikipedia.org/wiki/Imperative_programming
+  * https://en.wikipedia.org/wiki/Programming_paradigm
+* Speed test bunch mark
 
 # Favourite list of libraries 
 * https://github.com/Hearst-DD/ObjectMapper
@@ -200,7 +210,6 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * https://github.com/Moya/Moya
 
 # Productivity and time managment
-
 * Robienie notatek (takze z otaczajacych rozmow)
 * Zarządzanie kalendarzem i planowanie czasu
 * Zarządzanie kontaktami
@@ -208,7 +217,6 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Apple style of talk presentation
 
 ## Static webpages
-
 * https://gohugo.io/
 * http://jekyllrb.com/
 * http://mashable.com/2014/08/28/static-website-generators/#QS4BGTmNEkq6
@@ -220,14 +228,21 @@ RunLoop.main.add(timer, forMode: .commonModes)
 
 spisac liste rzeczy jakie chce sie nauczyc
 
-# form of the blog
+# Sorting
 
+# Data structures 
+
+# form of the blog
 Things you need to know about the subject
 
 # How to work with people
 look for books described how to analise what people say
 
 # psychology - the things you might to know
+
+# MongoDB and noSQL databases
+
+# SQL Databases
 
 # Books that must to read
 
