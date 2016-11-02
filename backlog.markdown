@@ -7,6 +7,7 @@ permalink: /backlog/
 There is a list of things i want to write the articles about
 
 # Functional programming
+* Functory
 * prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
 * `map` vs `flatMap`
   * Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
@@ -215,6 +216,8 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Zarządzanie kontaktami
 * Organizacja emaili
 * Apple style of talk presentation
+* break down the problem. smaller progress but stable, is more important than hudge steps without thinking. Old issues will be back and hit hunderd times stronger.
+* how to create usefull issue/task. The way to despribe a problem.
 
 # Doing personal static webpage with Github
 * https://gohugo.io/
@@ -228,10 +231,13 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Slides on your site: https://github.com/hakimel/reveal.js
 * Commenting using disqus
 * Linking the blog with social services
+* Doing documentation
 
 spisac liste rzeczy jakie chce sie nauczyc
 
-# Sorting
+# Algotithmics
+* Sorting
+* Seartching 
 
 # Data structures 
 
@@ -252,6 +258,8 @@ look for books described how to analise what people say
 # Books that must to read
 
 # Series articles about haioku
+
+# AI - introdution
 
 https://www.amazon.co.uk/Cloud-Computing-Patterns-Fundamentals-Applications/dp/3709115671/ref=sr_1_61?s=books&ie=UTF8&qid=1476275288&sr=1-61
 https://www.amazon.co.uk/Agile-Testing-Practical-Addison-Wesley-Signature/dp/0321534468/ref=sr_1_54?s=books&ie=UTF8&qid=1476275288&sr=1-54
