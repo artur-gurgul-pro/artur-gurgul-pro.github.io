@@ -25,6 +25,7 @@ github_username:  gurgul
 show_drafts: true
 
 show_drafts: true
+comments: true
 
 # Build settings
 markdown: kramdown

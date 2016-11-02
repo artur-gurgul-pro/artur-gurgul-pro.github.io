@@ -67,12 +67,18 @@ Carthage vs Cocoa-pods
 
 # API handling best practices
 
+# Cacheing and store data
+
 # Error handling 
 And How to write no errous code
 * How optional's work
 * throw-catch 
 * Anti patterns
   https://en.wikipedia.org/wiki/Anti-pattern
+
+# Drawing and animating
+* Core animations
+* Code text
 
 # ARC vs MRC - Memory menagment
 Does arc manage releases/retains in runtime or compiler cares about it
@@ -110,7 +116,7 @@ func someFunction(a: inout Int) -> () -> Int {
 
 # keyboard handling
 * Handling keyboard with `scrollView.keyboardDismissMode = .Interactive`
-  * http://stackoverflow.com/questions/30042352/dismiss-keyboard-with-swipe-gesture 
+  * [Dismiss keyboard with swipe gesture](http://stackoverflow.com/questions/30042352/dismiss-keyboard-with-swipe-gesture) 
   * http://stackoverflow.com/questions/24634795/keyboard-handling-just-like-in-messages-app-in-ios-7
 
 # VIPER
@@ -151,7 +157,7 @@ FreeBSD, Debian, macOS
 * https://www.youtube.com/watch?v=eVajQPuRmk8
 * Copy on write
 
-# Vim as an IDE
+# Vim as an IDE for iOS development
 Mention that opeope don't like to share theirs RC files
 * https://github.com/xmementoit/vim-ide
 * http://vimawesome.com/
@@ -170,8 +176,22 @@ Mention that opeope don't like to share theirs RC files
 * wite file when editin without command `:w`
 * Searching and navigating the code
 
-## RxSwift
+# Vim as an Email client
+* http://danielchoi.com/software/vmail.html
 
+# Console applications
+The most significat advantego of using the commendline tools is that we can script them up. 
+
+# Comparision of console IMs
+* http://profanity.im/userguide.html
+* http://www.tuxarena.com/2011/11/im-from-the-terminal-2-great-applications/
+
+# Build systems - overview
+* Cmake
+* Xcode configs
+* Ninja
+
+## RxSwift
 let arrayOfObservables: [Observable<E>] = ...
 let singleObservable: Observable<E> = arrayOfObservables.toObservable().merge()
 let wholeSequence: Observable<[E]> = singleObservable.toArray()
@@ -220,6 +240,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 
 # Productivity and time managment
 * Robienie notatek (takze z otaczajacych rozmow)
+* https://chrome.google.com/webstore/detail/voicenote-ii-speech-to-te/hfknjgplnkgjihghcidajejfmldhibfm
 * Zarządzanie kalendarzem i planowanie czasu
 * Zarządzanie kontaktami
 * Organizacja emaili
@@ -242,6 +263,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Doing documentation
 * https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/
 * http://jmcglone.com/guides/github-pages/
+* https://github.com/ddbullfrog/resumecard/
 
 spisac liste rzeczy jakie chce sie nauczyc
 
@@ -255,6 +277,8 @@ spisac liste rzeczy jakie chce sie nauczyc
 * Things you need to know about the subject
 * links to sources to each post
 * Topic type an index - each subtopic points to that index
+
+I will ask users for contribution in `current draft`
 
 # How to work with people
 look for books described how to analise what people say
@@ -272,6 +296,7 @@ look for books described how to analise what people say
 # Series articles about haioku
 
 # AI - introdution
+
 
 https://www.amazon.com/dp/0596007124//ref=cm_sw_su_dp?tag=nethta-20
 https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/ref=pd_sim_14_8?_encoding=UTF8&pd_rd_i=0201485672&pd_rd_r=6YCAVGVAZXR28TXW2FA6&pd_rd_w=wa8dL&pd_rd_wg=HWssO&psc=1&refRID=6YCAVGVAZXR28TXW2FA6
