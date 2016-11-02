@@ -22,6 +22,10 @@ url: "artgur.net" # the base hostname & protocol for your site, e.g. http://exam
 twitter_username: ArturGurgul
 github_username:  gurgul
 
+show_drafts: true
+
+show_drafts: true
+
 # Build settings
 markdown: kramdown
 theme: minima

@@ -11,6 +11,7 @@ There is a list of things i want to write the articles about
 * prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
 * `map` vs `flatMap`
   * Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
+* Curring: https://robots.thoughtbot.com/introduction-to-function-currying-in-swift
 
 # Reactive programming
 * RxSwift/Zip
@@ -48,6 +49,7 @@ Carthage vs Cocoa-pods
 # Working with code
 * GIT
 * Code review
+* Gitkraken
 
 # Release flow and CI 
 * Fastlane
@@ -61,6 +63,7 @@ Carthage vs Cocoa-pods
 * How to create a widget to use it in Interface Builder
 * Auto-layouts under the hood
 * Stack view, why Apple introduced such thing
+* https://developer.apple.com/videos/play/wwdc2016/216/
 
 # API handling best practices
 
@@ -159,11 +162,13 @@ Mention that opeope don't like to share theirs RC files
   * https://www.youtube.com/watch?v=wh_WGWii7UE
   * https://www.youtube.com/watch?v=3TX3kV3TICU
 * https://github.com/easymotion/vim-easymotion
+* http://exvim.github.io/docs/config-vimrc/
+* http://vim.spf13.com/
+* http://nodnod.net/2009/feb/09/projects-vim-using-projectsvim/
 
 * Execute script in background on save
 * wite file when editin without command `:w`
 * Searching and navigating the code
-
 
 ## RxSwift
 
@@ -209,6 +214,9 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * https://github.com/layerhq/Atlas-iOS
 * NERDTreeToggle
 * https://github.com/Moya/Moya
+* https://github.com/robrix/Prelude
+* https://cocoapods.org/pods/Prelude
+* https://antitypical.github.io/
 
 # Productivity and time managment
 * Robienie notatek (takze z otaczajacych rozmow)
@@ -232,6 +240,8 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Commenting using disqus
 * Linking the blog with social services
 * Doing documentation
+* https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/
+* http://jmcglone.com/guides/github-pages/
 
 spisac liste rzeczy jakie chce sie nauczyc
 
@@ -257,10 +267,18 @@ look for books described how to analise what people say
 
 # Books that must to read
 
+# LLVM - description of the architecture
+
 # Series articles about haioku
 
 # AI - introdution
 
+https://www.amazon.com/dp/0596007124//ref=cm_sw_su_dp?tag=nethta-20
+https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/ref=pd_sim_14_8?_encoding=UTF8&pd_rd_i=0201485672&pd_rd_r=6YCAVGVAZXR28TXW2FA6&pd_rd_w=wa8dL&pd_rd_wg=HWssO&psc=1&refRID=6YCAVGVAZXR28TXW2FA6
+https://www.amazon.com/Head-First-Software-Development-Pilone/dp/0596527357/ref=pd_sim_14_6?_encoding=UTF8&pd_rd_i=0596527357&pd_rd_r=J93WXMN7G0YG321H24ZJ&pd_rd_w=nCSyx&pd_rd_wg=Orv8H&psc=1&refRID=J93WXMN7G0YG321H24ZJ
+https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882/ref=pd_sim_14_3?_encoding=UTF8&pd_rd_i=0132350882&pd_rd_r=J93WXMN7G0YG321H24ZJ&pd_rd_w=nCSyx&pd_rd_wg=Orv8H&psc=1&refRID=J93WXMN7G0YG321H24ZJ
+https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/ref=pd_sim_14_5?_encoding=UTF8&pd_rd_i=0201633612&pd_rd_r=6TK8S7S2YA3526XV7EKV&pd_rd_w=sgOkv&pd_rd_wg=0j82q&psc=1&refRID=6TK8S7S2YA3526XV7EKV
+https://www.amazon.com/Working-Effectively-Legacy-Michael-Feathers/dp/0131177052/ref=pd_sim_14_15?_encoding=UTF8&pd_rd_i=0131177052&pd_rd_r=TZ4WRGKZEA1HGV0PSBDN&pd_rd_w=oeNpL&pd_rd_wg=UHhCh&psc=1&refRID=TZ4WRGKZEA1HGV0PSBDN
 https://www.amazon.co.uk/Cloud-Computing-Patterns-Fundamentals-Applications/dp/3709115671/ref=sr_1_61?s=books&ie=UTF8&qid=1476275288&sr=1-61
 https://www.amazon.co.uk/Agile-Testing-Practical-Addison-Wesley-Signature/dp/0321534468/ref=sr_1_54?s=books&ie=UTF8&qid=1476275288&sr=1-54
 https://www.amazon.co.uk/Enterprise-Integration-Patterns-Designing-Addison-Wesley/dp/0321200683/ref=sr_1_47?s=books&ie=UTF8&qid=1476275235&sr=1-47
