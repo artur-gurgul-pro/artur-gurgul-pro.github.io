@@ -216,7 +216,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Organizacja emaili
 * Apple style of talk presentation
 
-## Static webpages
+# Doing personal static webpage with Github
 * https://gohugo.io/
 * http://jekyllrb.com/
 * http://mashable.com/2014/08/28/static-website-generators/#QS4BGTmNEkq6
@@ -225,6 +225,9 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Implement skin like markdown from github
   * https://github.com/johnotander/pixyll
 * https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/
+* Slides on your site: https://github.com/hakimel/reveal.js
+* Commenting using disqus
+* Linking the blog with social services
 
 spisac liste rzeczy jakie chce sie nauczyc
 
@@ -247,6 +250,8 @@ look for books described how to analise what people say
 # SQL Databases
 
 # Books that must to read
+
+# Series articles about haioku
 
 https://www.amazon.co.uk/Cloud-Computing-Patterns-Fundamentals-Applications/dp/3709115671/ref=sr_1_61?s=books&ie=UTF8&qid=1476275288&sr=1-61
 https://www.amazon.co.uk/Agile-Testing-Practical-Addison-Wesley-Signature/dp/0321534468/ref=sr_1_54?s=books&ie=UTF8&qid=1476275288&sr=1-54
