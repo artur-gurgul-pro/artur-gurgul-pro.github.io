@@ -7,8 +7,9 @@ permalink: /backlog/
 There is a list of things i want to write the articles about
 
 # Functional programming
-
 * prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
+* `map` vs `flatMap`
+  * Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
 
 # Reactive programming
 * RxSwift/Zip
@@ -51,18 +52,16 @@ Carthage vs Cocoa-pods
 * Fastlane
 
 # Interface Builder
-
 * Size classes
 * Visual Format Language
 * Empty view for padding handling
 * Segue
     https://www.appcoda.com/custom-segue-animations/
-
-# API handling best practices
-
 * How to create a widget to use it in Interface Builder
 * Auto-layouts under the hood
 * Stack view, why Apple introduced such thing
+
+# API handling best practices
 
 # Error handling 
 And How to write no errous code
@@ -77,9 +76,6 @@ Does arc manage releases/retains in runtime or compiler cares about it
 * Why all drawing has to be done on the main theread
 
 # Generics
-
-* `map` vs `flatMap`
-  Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
 
 # S.O.L.I.D. principles
 * https://www.youtube.com/watch?v=gwIS9cZlrhk
@@ -117,9 +113,12 @@ func someFunction(a: inout Int) -> () -> Int {
 * https://www.objc.io/issues/13-architecture/viper/
 
 # Unix - command line tools
-
-## Networking 
+*  Networking 
 `dig artgur.net +nostats +nocomments +nocmd`
+
+# Unix in general
+FreeBSD, Debian, macOS 
+* lunching the scripts on start
 
 ## interface builder
 * https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/ModifyingConstraints.html#//apple_ref/doc/uid/TP40010853-CH29-SW1
@@ -134,6 +133,7 @@ func someFunction(a: inout Int) -> () -> Int {
 * https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52#.i1b1ttas5
 * https://ghotiphud.github.io/design/2016/06/26/factoring-code-what-and-when.html
 * https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/
+* https://github.com/Swinject/SwinjectMVVMExamp
 
 # General design patterns
 * creational
@@ -147,8 +147,8 @@ func someFunction(a: inout Int) -> () -> Int {
 * https://www.youtube.com/watch?v=eVajQPuRmk8
 * Copy on write
 
-# Vim as an IDE 
-
+# Vim as an IDE
+Mention that opeope don't like to share theirs RC files
 * https://github.com/xmementoit/vim-ide
 * http://vimawesome.com/
 * http://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim#answer-1220118
@@ -161,6 +161,8 @@ func someFunction(a: inout Int) -> () -> Int {
 
 * Execute script in background on save
 * wite file when editin without command `:w`
+* Searching and navigating the code
+
 
 ## RxSwift
 
@@ -183,9 +185,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * Self-testing code
 
 # unclassified 
-* https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/
 * https://github.com/square/Cleanse
-* https://github.com/Swinject/SwinjectMVVMExample
 * https://github.com/Wolg/awesome-swift
 * https://developer.apple.com/swift/blog/
 * https://developer.apple.com/videos/play/wwdc2016/207/
@@ -233,7 +233,9 @@ spisac liste rzeczy jakie chce sie nauczyc
 # Data structures 
 
 # form of the blog
-Things you need to know about the subject
+* Things you need to know about the subject
+* links to sources to each post
+* Topic type an index - each subtopic points to that index
 
 # How to work with people
 look for books described how to analise what people say
