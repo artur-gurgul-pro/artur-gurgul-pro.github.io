@@ -130,11 +130,10 @@ func someFunction(a: inout Int) -> () -> Int {
 FreeBSD, Debian, macOS 
 * lunching the scripts on start
 
-## interface builder
+# interface builder
 * https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/ModifyingConstraints.html#//apple_ref/doc/uid/TP40010853-CH29-SW1
 
-## Links to browse
-
+# Links to browse
 * https://love2d.org/
 * http://www.monkey-x.com/
 * https://en.wikipedia.org/wiki/YAML
@@ -150,8 +149,12 @@ FreeBSD, Debian, macOS
 * structural
 * behavioral
 
-## Work organization - how to make stuff done
+# Work organization and planning - how to make stuff done
 * https://medium.freecodecamp.com/live-asynchronously-c8e7172fe7ea#.bn0vyq31h
+
+# Tips on how to create a documentation
+* comparison of tools
+* Advices
 
 # Memory tricks and how to learn fast
 * https://www.youtube.com/watch?v=eVajQPuRmk8
@@ -191,7 +194,7 @@ The most significat advantego of using the commendline tools is that we can scri
 * Xcode configs
 * Ninja
 
-## RxSwift
+# RxSwift
 let arrayOfObservables: [Observable<E>] = ...
 let singleObservable: Observable<E> = arrayOfObservables.toObservable().merge()
 let wholeSequence: Observable<[E]> = singleObservable.toArray()
@@ -202,7 +205,7 @@ timr = Timer(fireDate: when, interval: 0, repeats: false) {
 RunLoop.main.add(timer, forMode: .commonModes)
 {% endhighlight %}
 
-## Mocking and testing
+# Mocking and testing
 * OCMock
 * http://www.hpique.com/2013/12/nsnotificationcenter-part-3/
 * http://stackoverflow.com/questions/26918593/unit-testing-http-traffic-in-alamofire-app
@@ -265,6 +268,11 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * http://jmcglone.com/guides/github-pages/
 * https://github.com/ddbullfrog/resumecard/
 
+Themes:
+* http://dbtek.github.io/dbyll/
+* http://lagom.mdswanson.com/blog/2013/08/20/sample-post.html
+
+
 spisac liste rzeczy jakie chce sie nauczyc
 
 # Algotithmics
@@ -279,6 +287,8 @@ spisac liste rzeczy jakie chce sie nauczyc
 * Topic type an index - each subtopic points to that index
 
 I will ask users for contribution in `current draft`
+
+# Communication at work - how to embrace the daily buzz
 
 # How to work with people
 look for books described how to analise what people say
