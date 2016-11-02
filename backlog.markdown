@@ -27,59 +27,72 @@ openMenu.onNext()
 reactive programming blog
 https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 
-# Git rebase and magange branches
+# Git - tricks and tips
+* rebase and magange branches
 * Git interactive rebase
 * squash the lastests commints
 
-* GDC vs NSOperationQueue
-  * In particular how to manage sync calls
-  * How to cancel NSOperationQueue
-* Notification center vs delegate
-* Empty view for padding handling
+# GDC vs NSOperationQueue
+* In particular how to manage sync calls
+* How to cancel NSOperationQueue
 
-# Varsion and package managment 
+# Notification center vs delegate
+
+# Version and package managment 
 Carthage vs Cocoa-pods
 
 ## branch memangment
 
-# GIT and code review (code flow)
+# Working with code
+* GIT
+* Code review
 
+# Release flow and CI 
+* Fastlane
 
+# Interface Builder
 
-* IB/Visual Format Language / pros and cons
+* Size classes
+* Visual Format Language
+* Empty view for padding handling
+* Segue
+    https://www.appcoda.com/custom-segue-animations/
+
+# API handling best practices
+
 * How to create a widget to use it in Interface Builder
 * Auto-layouts under the hood
 * Stack view, why Apple introduced such thing
+
+# Error handling 
+And How to write no errous code
 * How optional's work
-* Fastlane
-* ARC vs MRC, Does arc manage releases/retains in runtime or compiler cares about it
+* throw-catch 
+* Anti patterns
+  https://en.wikipedia.org/wiki/Anti-pattern
+
+# ARC vs MRC - Memory menagment
+Does arc manage releases/retains in runtime or compiler cares about it
+
 * Why all drawing has to be done on the main theread
 
-* generics
-
-* Error handling
+# Generics
 
 * `map` vs `flatMap`
   Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
 
-
-* https://en.wikipedia.org/wiki/Anti-pattern
-
 # S.O.L.I.D. principles
-
 * https://www.youtube.com/watch?v=gwIS9cZlrhk
 * https://www.youtube.com/watch?v=TMuno5RZNeE
 
 # Design patterns
-
 * Repository pattern: https://www.youtube.com/watch?v=rtXpYpZdOzM
 * Mixin: https://pypi.python.org/pypi/mixin/1.1
 
 # Dependency injections
-
 https://www.youtube.com/watch?v=RVpADaFIlRw
 
-# Swift syntax
+# Swift syntax and useful snippsets
 * typealias StringDictionary<Value> = Dictionary<String, Value>
 * returning bloks: 
 
@@ -96,11 +109,11 @@ func someFunction(a: inout Int) -> () -> Int {
 * https://github.com/apple/swift-protobuf/
 
 # keyboard handling
-
 * Handling keyboard with `scrollView.keyboardDismissMode = .Interactive`
   * http://stackoverflow.com/questions/30042352/dismiss-keyboard-with-swipe-gesture 
   * http://stackoverflow.com/questions/24634795/keyboard-handling-just-like-in-messages-app-in-ios-7
 
+# VIPER
 * https://www.objc.io/issues/13-architecture/viper/
 
 # Unix - command line tools
@@ -110,10 +123,6 @@ func someFunction(a: inout Int) -> () -> Int {
 
 ## interface builder
 * https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/ModifyingConstraints.html#//apple_ref/doc/uid/TP40010853-CH29-SW1
-
-## Segue
-
-* https://www.appcoda.com/custom-segue-animations/
 
 ## Links to browse
 
@@ -125,11 +134,10 @@ func someFunction(a: inout Int) -> () -> Int {
 * https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52#.i1b1ttas5
 * https://ghotiphud.github.io/design/2016/06/26/factoring-code-what-and-when.html
 
-## Work organization
-
+## Work organization - how to make stuff done
 * https://medium.freecodecamp.com/live-asynchronously-c8e7172fe7ea#.bn0vyq31h
 
-## memory trick and how to learn fast
+# Memory tricks and how to learn fast
 * https://www.youtube.com/watch?v=eVajQPuRmk8
 
 # Vim as an IDE 
@@ -160,6 +168,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 {% endhighlight %}
 
 ## Mocking and testing
+
 * OCMock
 * http://www.hpique.com/2013/12/nsnotificationcenter-part-3/
 * http://stackoverflow.com/questions/26918593/unit-testing-http-traffic-in-alamofire-app
@@ -167,7 +176,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * https://en.wikipedia.org/wiki/Software_testing
 * Self-testing code
 
-## unclassified 
+# unclassified 
 
 * https://pl.wikipedia.org/wiki/Programowanie_obiektowe
 * https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/
@@ -182,7 +191,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * https://developer.apple.com/videos/play/wwdc2016/207/
 * Copy on write
 
-## Favourite list of libraries 
+# Favourite list of libraries 
 * https://github.com/Hearst-DD/ObjectMapper
 * https://github.com/jessesquires/JSQMessagesViewController
 * https://cocoapods.org/pods/QMChatViewController
@@ -190,7 +199,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * NERDTreeToggle
 * https://github.com/Moya/Moya
 
-# productivity and time managment
+# Productivity and time managment
 
 * Robienie notatek (takze z otaczajacych rozmow)
 * Zarządzanie kalendarzem i planowanie czasu
@@ -215,9 +224,12 @@ spisac liste rzeczy jakie chce sie nauczyc
 
 Things you need to know about the subject
 
-# Books htat mast to read
-
+# How to work with people
 look for books described how to analise what people say
+
+# psychology - the things you might to know
+
+# Books that must to read
 
 https://www.amazon.co.uk/Cloud-Computing-Patterns-Fundamentals-Applications/dp/3709115671/ref=sr_1_61?s=books&ie=UTF8&qid=1476275288&sr=1-61
 https://www.amazon.co.uk/Agile-Testing-Practical-Addison-Wesley-Signature/dp/0321534468/ref=sr_1_54?s=books&ie=UTF8&qid=1476275288&sr=1-54
