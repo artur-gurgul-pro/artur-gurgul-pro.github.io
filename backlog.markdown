@@ -46,7 +46,7 @@ https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 # Version and package managment 
 Carthage vs Cocoa-pods
 
-## branch memangment
+# branch memangment
 
 # Working with code
 * GIT
@@ -100,7 +100,7 @@ Does arc manage releases/retains in runtime or compiler cares about it
 # Dependency injections
 https://www.youtube.com/watch?v=RVpADaFIlRw
 
-# Swift syntax and useful snippsets
+# Swift syntax and useful snippet
 * typealias StringDictionary<Value> = Dictionary<String, Value>
 * returning bloks: 
 
@@ -110,13 +110,13 @@ func someFunction(a: inout Int) -> () -> Int {
 }
 {% endhighlight %}
 
-## `@infix`
+# `@infix`
 
 * https://github.com/apple/swift/tree/master/docs
 
 * https://github.com/apple/swift-protobuf/
 
-# keyboard handling
+# iOS - Keyboard handling
 * Handling keyboard with `scrollView.keyboardDismissMode = .Interactive`
   * [Dismiss keyboard with swipe gesture](http://stackoverflow.com/questions/30042352/dismiss-keyboard-with-swipe-gesture) 
   * http://stackoverflow.com/questions/24634795/keyboard-handling-just-like-in-messages-app-in-ios-7
@@ -133,12 +133,14 @@ FreeBSD, Debian, macOS
 * lunching the scripts on start
 
 # interface builder
+######################################## this has not been copied
 * https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/AutolayoutPG/ModifyingConstraints.html#//apple_ref/doc/uid/TP40010853-CH29-SW1
 
 # Links to browse
 * https://love2d.org/
 * http://www.monkey-x.com/
 * https://en.wikipedia.org/wiki/YAML
+###########################################################################################################################################
 
 ## iOS - Architectural design patterns
 * https://medium.com/ios-os-x-development/ios-architecture-patterns-ecba4c38de52#.i1b1ttas5
@@ -146,12 +148,16 @@ FreeBSD, Debian, macOS
 * https://yoichitgy.github.io/post/dependency-injection-in-mvvm-architecture-with-reactivecocoa-part-1-introduction/
 * https://github.com/Swinject/SwinjectMVVMExamp
 
-# General design patterns
-* creational
-* structural
-* behavioral
+# Design patterns
+* Creational: Abstract factory Builder Factory method Prototype Singleton
+* Structural: Adapter Bridge Composite Decorator Facade Flyweight Proxy
+* Behavioral: Chain of responsibility Command Interpreter Iterator Mediator Memento Observer State Strategy Template method Visitor
+and
+* Concurrency patterns: Active object Balking Binding properties Double-checked locking Event-based asynchronous Guarded suspension Join Lock Monitor Proactor Reactor Read write lock Scheduler Thread pool Thread-local storage
+* Architectural patterns: Front controller Interceptor MVC n-tier Specification Publish–subscribe Naked objects Service locator Active record Identity map Data access object Data transfer object ADR Inversion of control
+* Other patterns: Blackboard Business delegate Composite entity Dependency injection Intercepting filter Lazy loading Mock object Null object Object pool Servant Twin Type tunnel
 
-# Work organization and planning - how to make stuff done
+# Work planning and schedule useful meetings - in other words how to make stuff done
 * https://medium.freecodecamp.com/live-asynchronously-c8e7172fe7ea#.bn0vyq31h
 * compariosion of task managmant systems 
 
@@ -159,9 +165,12 @@ FreeBSD, Debian, macOS
 * comparison of tools
 * Advices
 
-# Memory tricks and how to learn fast
-* https://www.youtube.com/watch?v=eVajQPuRmk8
+# Memory memagment 
 * Copy on write
+* https://www.youtube.com/watch?v=eVajQPuRmk8
+
+# Memory tricks and how to learn fast
+* Creating notes - Mark Down and tips how make notes right
 
 # Vim as an IDE for iOS development
 Mention that opeope don't like to share theirs RC files
@@ -179,6 +188,8 @@ Mention that opeope don't like to share theirs RC files
 * http://nodnod.net/2009/feb/09/projects-vim-using-projectsvim/
 
 * Execute script in background on save
+  * http://stackoverflow.com/questions/4627701/vim-how-to-execute-automatically-execute-a-shell-command-after-saving-a-file
+  * http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
 * wite file when editin without command `:w`
 * Searching and navigating the code
 
@@ -197,6 +208,7 @@ The most significat advantego of using the commendline tools is that we can scri
 * Xcode configs
 * Ninja
 
+##################################################### move this to one of created topics
 # RxSwift
 let arrayOfObservables: [Observable<E>] = ...
 let singleObservable: Observable<E> = arrayOfObservables.toObservable().merge()
@@ -207,6 +219,7 @@ timr = Timer(fireDate: when, interval: 0, repeats: false) {
 }
 RunLoop.main.add(timer, forMode: .commonModes)
 {% endhighlight %}
+########################################################################################
 
 # Mocking and testing
 * OCMock
@@ -216,11 +229,14 @@ RunLoop.main.add(timer, forMode: .commonModes)
 * https://en.wikipedia.org/wiki/Software_testing
 * Self-testing code
 
+######################################################### take cere of it
 # unclassified 
 * https://github.com/square/Cleanse
 * https://github.com/Wolg/awesome-swift
 * https://developer.apple.com/swift/blog/
 * https://developer.apple.com/videos/play/wwdc2016/207/
+############################################################################
+
 
 # Make Android swifty
 * https://github.com/Ecco/HelloSwift/blob/master/jni/hello-swift.c
@@ -233,7 +249,7 @@ RunLoop.main.add(timer, forMode: .commonModes)
   * https://en.wikipedia.org/wiki/Programming_paradigm
 * Speed test bunch mark
 
-# Favourite list of libraries 
+# List of favourite libraries 
 * https://github.com/Hearst-DD/ObjectMapper
 * https://github.com/jessesquires/JSQMessagesViewController
 * https://cocoapods.org/pods/QMChatViewController
@@ -286,12 +302,14 @@ spisac liste rzeczy jakie chce sie nauczyc
 
 # Data structures 
 
+########################################### not coppied
 # form of the blog
 * Things you need to know about the subject
 * links to sources to each post
 * Topic type an index - each subtopic points to that index
 
 I will ask users for contribution in `current draft`
+#####################################################
 
 # Communication at work - how to embrace the daily buzz
 
@@ -304,14 +322,18 @@ look for books described how to analise what people say
 
 # SQL Databases
 
-# Books that must to read
-
 # LLVM - description of the architecture
 
 # Series articles about haioku
 
-# AI - introdution
+# AI - introduction
 
+# Being a jerk vs being a kind
+* How earn respect
+
+# Books that must to read
+
+http://learnvimscriptthehardway.stevelosh.com/chapters/12.html
 
 https://www.amazon.com/dp/0596007124//ref=cm_sw_su_dp?tag=nethta-20
 https://www.amazon.com/Refactoring-Improving-Design-Existing-Code/dp/0201485672/ref=pd_sim_14_8?_encoding=UTF8&pd_rd_i=0201485672&pd_rd_r=6YCAVGVAZXR28TXW2FA6&pd_rd_w=wa8dL&pd_rd_wg=HWssO&psc=1&refRID=6YCAVGVAZXR28TXW2FA6
