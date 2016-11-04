@@ -9,3 +9,4 @@
 * https://cocoapods.org/pods/Prelude
 * https://antitypical.github.io/
 
+* Vector graphics library: https://github.com/exyte/Macaw

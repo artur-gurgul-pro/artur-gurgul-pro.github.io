@@ -23,3 +23,7 @@
 
 * Tuple as a function argument
 [medium.com](https://medium.com/swift-programming/tuple-as-function-argument-619523b6e06b#.kq5xuezc7)
+
+* Great blog with new stuff from ios world
+[iosdevweekly](https://iosdevweekly.com/)
+

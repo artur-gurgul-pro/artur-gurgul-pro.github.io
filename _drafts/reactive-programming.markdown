@@ -1,4 +1,13 @@
+---
+layout: post
+title:  "Reactive programming"
+date:   2016-10-19 12:09:07 +0200
+categories: swift reactive-programming
+---
+
 # Reactive programming
+
+List of operators
 
 # binding with the UI
 http://rx-marin.com/post/rxswift-rxcocoa-custom-bindings/
