@@ -27,3 +27,5 @@
 * Great blog with new stuff from ios world
 [iosdevweekly](https://iosdevweekly.com/)
 
+* Repository pattern by
+[Microsoft doc](https://msdn.microsoft.com/en-us/library/ff649690.aspx)
