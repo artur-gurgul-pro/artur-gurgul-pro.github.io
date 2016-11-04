@@ -1,4 +1,9 @@
 # Reactive programming
+
+# binding with the UI
+http://rx-marin.com/post/rxswift-rxcocoa-custom-bindings/
+http://nshipster.com/reactivecocoa/
+
 * RxSwift/Zip
 
 {% highlight swift %}

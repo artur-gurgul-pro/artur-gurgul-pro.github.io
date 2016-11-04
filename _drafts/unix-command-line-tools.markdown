@@ -2,3 +2,5 @@
 *  Networking 
 `dig artgur.net +nostats +nocomments +nocmd`
 
+`iostat`
+
