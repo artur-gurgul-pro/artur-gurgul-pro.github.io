@@ -29,3 +29,32 @@ openMenu.onNext()
 reactive programming blog
 https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 
+
+# Zip
+
+{% highlight swift %}
+func imagesStream() -> Observable<Int> {
+    return Observable.of(1, 2, 3)
+}
+{% endhighlight %}
+
+{% highlight swift %}
+func descriptionsStream() -> Observable<String> {
+    return Observable.of("A", "B", "C")
+}
+{% endhighlight %}
+
+{% highlight swift %}
+func getImagesWithDescriptions() -> Observable<(String, String)> {
+    Observable.zip(imagesStream(), descriptionsStream()) {imageNo, imageDescription in
+        return ("image #\(imageNo)", imageDescription)
+    }
+}
+{% endhighlight %}
+
+{% highlight swift %}
+getImagesWithDescriptions().subscribe(onNext: {image, imageDesc in
+    print("\(image) with description \(imageDesc)")
+}).addDisposableTo(disposeBag)
+{% endhighlight %}
+
