@@ -61,7 +61,7 @@ func getImagesWithDescriptions() -> Observable<(String, String)> {
 }
 {% endhighlight %}
 
-So what this example does is that we wait for an item form each stream, and both have an item we triger the new stream with combined two items into one (in this example it is tuple)
+The last thing is to use the stream for displaying the data. When the zip callback returns a tuple we can strip the values out and use them as it is shown below. 
 
 {% highlight swift %}
 getImagesWithDescriptions().subscribe(onNext: {image, imageDesc in
@@ -69,7 +69,7 @@ getImagesWithDescriptions().subscribe(onNext: {image, imageDesc in
 }).addDisposableTo(disposeBag)
 {% endhighlight %}
 
-And the result 
+Finally we can see the result 
 
 {% highlight plaintext %}
 image #1 with description A
