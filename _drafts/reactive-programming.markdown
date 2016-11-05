@@ -55,7 +55,7 @@ And there is an example how to zip the stream together
 
 {% highlight swift %}
 func getImagesWithDescriptions() -> Observable<(String, String)> {
-    Observable.zip(imagesStream(), descriptionsStream()) {imageNo, imageDescription in
+    return Observable.zip(imagesStream(), descriptionsStream()) {imageNo, imageDescription in
         return ("image #\(imageNo)", imageDescription)
     }
 }
