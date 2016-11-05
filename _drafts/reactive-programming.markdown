@@ -31,9 +31,9 @@ https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 
 
 # Zip
-Zip is a function that creates a new stream that joins the elements from original streams and triggers the next event forward taking one by one item from each
+Zip is a function that creates a new stream that combines the elements from original streams and put them together the way a zipper in your jacket does. For more information how it works look at [documentation](http://reactivex.io/documentation/operators/zip.html).
 
-Take this as an example, we want to download list of images and description, but we don't want to show a picture without a description, we would rather wait for completion 
+For better understanding how it works I want to show you an example. Lets say we want to download a list of images and descriptions and show them to the user, but we also want to treat corresponding picture and image as one entity and show it at once, so the image never will be shown without description.
 
 Lets create a stream with that contains images from the server. To simplyfy the example I will put just the numbers. 
 {% highlight swift %}
