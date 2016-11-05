@@ -38,7 +38,7 @@ extension DBEntity where Self: NSManagedObject {
 {% endhighlight %}
 
 # String utils
-getting a sub-sting with a range (solution copied from Stack Overflow)[http://stackoverflow.com/questions/24092884/get-nth-character-of-a-string-in-swift-programming-language]
+getting a sub-sting with a range [(Solution copied from Stack Overflow)](http://stackoverflow.com/questions/24092884/get-nth-character-of-a-string-in-swift-programming-language)
 {% highlight swift %}
 extension String {
     subscript (i: Int) -> Character {
