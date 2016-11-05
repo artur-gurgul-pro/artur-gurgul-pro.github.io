@@ -38,3 +38,27 @@ extension DBEntity where Self: NSManagedObject {
 {% endhighlight %}
 
 # String utils
+getting a sub-sting with a range (solution copied from Stack Overflow)[http://stackoverflow.com/questions/24092884/get-nth-character-of-a-string-in-swift-programming-language]
+{% highlight swift %}
+extension String {
+    subscript (i: Int) -> Character {
+        return self[self.startIndex.advancedBy(i)]
+  
+    }
+    subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+
+    subscript (r: Range<Int>) -> String {
+        let start = startIndex.advancedBy(r.startIndex)
+        let end = start.advancedBy(r.endIndex - r.startIndex)
+        return self[Range(start ..< end)]
+    }
+}
+{% endhighlight %}
+and the usage
+{% highlight plaintext %}
+"abcde"[0] == "a"
+"abcde"[0...2] == "abc"
+"abcde"[2..<4] == "cd"
+{% endhighlight %}
