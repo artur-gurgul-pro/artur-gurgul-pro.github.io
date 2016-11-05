@@ -69,3 +69,10 @@ getImagesWithDescriptions().subscribe(onNext: {image, imageDesc in
 }).addDisposableTo(disposeBag)
 {% endhighlight %}
 
+And the result 
+
+{% highlight plaintext %}
+image #1 with description A
+image #2 with description B
+image #3 with description C
+{% endhighlight %}
