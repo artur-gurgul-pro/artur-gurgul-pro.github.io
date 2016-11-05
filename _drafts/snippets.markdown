@@ -67,7 +67,7 @@ and the usage
 # UIColor
 Creating a color object like `UIColor(hex:0x223344)`
 
-{% endhighlight %}
+{% highlight swift %}
 extension UIColor {
     convenience init(hex:uint) {
     
