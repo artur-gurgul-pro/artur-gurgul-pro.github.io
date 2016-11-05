@@ -62,3 +62,21 @@ and the usage
 "abcde"[0...2] == "abc"
 "abcde"[2..<4] == "cd"
 {% endhighlight %}
+
+
+# UIColor
+Creating a color object like `UIColor(hex:0x223344)`
+
+{% endhighlight %}
+extension UIColor {
+    convenience init(hex:uint) {
+    
+        let r = CGFloat((hex >> 16) & 0xFF)/255
+        let g = CGFloat((hex >> 8) & 0xFF)/255
+        let b = CGFloat(hex & 0xFF)/255
+    
+        return self.init(red: r, green: g, blue: b, alpha: 1)
+    
+    }
+}
+{% endhighlight %}
