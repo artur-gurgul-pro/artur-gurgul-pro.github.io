@@ -35,14 +35,15 @@ Zip is a function that creates a new stream that combines the elements from orig
 
 For better understanding how it works I want to show you an example. Lets say we want to download a list of images and descriptions and show them to the user, but we also want to treat corresponding picture and image as one entity and show it at once, so the image never will be shown without the description.
 
-Lets create a stream with that contains images from the server. To simplyfy the example I will put just the numbers. 
+Lets create a stream which contains images from the server. To simplify the example I am going to use just a simple observable that emits just the numbers. 
 {% highlight swift %}
 func imagesStream() -> Observable<Int> {
     return Observable.of(1, 2, 3)
 }
 {% endhighlight %}
+I have written another article that threats about [getting images from the Internet](/swift/cache/)
 
-and then the descritions stream
+The next step is to create the second stream with descriptions.
 
 {% highlight swift %}
 func descriptionsStream() -> Observable<String> {
