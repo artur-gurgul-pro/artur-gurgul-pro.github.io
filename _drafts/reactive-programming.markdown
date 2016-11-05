@@ -13,7 +13,12 @@ List of operators
 http://rx-marin.com/post/rxswift-rxcocoa-custom-bindings/
 http://nshipster.com/reactivecocoa/
 
-* RxSwift/Zip
+# Publishes
+Are the objects we can listen to. It is in fact an observer. There are a few types of them:
+* `AsyncSubject`: Emits only last item from the stream to the subscriber
+* `BehaviorSubject`: Emits items to the subscriber and if no value has been emited at the time of subscription, the default value will be passed through
+* `PublishSubject`: Works almost the same as `BehaviorSubject` except has no default value
+* `ReplaySubject` Reply all items that ever has been emited by the stream to the subscriber
 
 {% highlight swift %}
 let openMenu = PublishSubject<Void>()
