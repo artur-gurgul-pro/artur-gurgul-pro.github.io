@@ -51,7 +51,7 @@ func descriptionsStream() -> Observable<String> {
 }
 {% endhighlight %}
 
-There is an example how to zip the stream together
+And there is an example how to zip the stream together
 
 {% highlight swift %}
 func getImagesWithDescriptions() -> Observable<(String, String)> {
