@@ -1,3 +1,10 @@
+---
+layout: post
+title:  "Functional programming"
+date:   2016-10-19 12:09:07 +0200
+categories: swift functional-programming
+---
+
 # Functional programming
 * Functory
 * prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
