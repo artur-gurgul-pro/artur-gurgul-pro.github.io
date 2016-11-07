@@ -14,7 +14,7 @@ func isPrime(number: Int) -> Bool {
         return true
     }
     for i in 2...number-1 {
-        if number % i == 0 && i != number {
+        if number % i == 0 {
             return false
         }
     }
