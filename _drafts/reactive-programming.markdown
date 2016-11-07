@@ -6,7 +6,7 @@ categories: swift reactive-programming
 ---
 
 Reactive programming paradigm is concentrated around data flows and the propagation of changes.
-The data and events in that style of coding are are treated as a stream which can be mapped or filtered. 
+In that style of programming there is no distinction between the data and the events and they are are treated as a stream which can be mapped or filtered. 
 
 # Strong sides of reactive programming
 *  With reactive programming approach you can easily integrate fallowing things as a stream  
