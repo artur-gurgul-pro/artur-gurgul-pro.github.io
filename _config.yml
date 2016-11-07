@@ -27,7 +27,7 @@ show_drafts: true
 show_drafts: true
 comments: true
 
-highlighter: pygments
+# highlighter: pygments
 # Build settings
 markdown: kramdown
 theme: minima
