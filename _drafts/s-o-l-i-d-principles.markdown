@@ -29,6 +29,7 @@ Many client-specific interfaces are better than one general-purpose interface.
 * D **DIP** Dependency inversion principle
 One should “Depend upon Abstractions. Do not depend upon concretions.
 
+# The uncle Bob's example
 
 Another rules that not belongs to SOLID, but still worth to mention is KISS and DRY
 
