@@ -5,16 +5,9 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift reactive-programming
 ---
 
-# Reactive programming
 
-you can stop reimplementing the same patterns over and over again and abstract them as operators on observable sequences. Probably the most common ones are:
-retry
-* `combineLatest` - combine latest values of multiple stateful objects, similar to what Excel or some other spreadsheets do when calculating formulas
-* `flatMapLatest` (automatically cancel previous async operation when next computation request arrives)
-refCount (in case you want to download something and want to make sure that if at least somebody needs that download result, then download should continue, but if nobody needs the download result then download needs to be cancelled automatically)
-
-
-With reactive programming approach you can easily integrate fallowing things as a stream  
+# What are string sides of reactive programming
+### With reactive programming approach you can easily integrate fallowing things as a stream  
 * Delegates
 * `NSNotificationCenter`
 * KVO
@@ -22,11 +15,46 @@ With reactive programming approach you can easily integrate fallowing things as 
 
 # Handling massive amount of events
 
-# List of that can be applied to items from a stream
+# List of operators that can be applied to the items from a stream
 
-### `map` - transform sequence of values into another sequence
+* `map` - transform sequence of values into another sequence
+* `flatMap` - as above, but this operator can return 0 or more elements and the results will be flatten.
+* `filter` - transform a sequence of into a filtered sequence 
 
-### `filter` - transform a sequence of into a filtered sequence 
+
+# Creating Observables
+Operators that originate new Observables.
+
+### Create — create an Observable from scratch by calling observer methods programmatically
+{% highlight swift %}
+func squaredNumbersStream(range: Range<Int>) -> Observable<Int> {
+    return Observable.create { (observer) -> Disposable in
+        for i in range {
+            observer.onNext(i*i)  
+        }
+        observer.onCompleted()
+        return NopDisposable.instance
+     }
+}
+{% endhighlight %}
+
+
+And the usage
+{% highlight swift %}
+squaredNumbersStream(1...20).subscribe { number in
+    print(number)
+}.addDisposableTo(disposeBag)
+{% endhighlight %}
+
+### Defer — do not create the Observable until the observer subscribes, and create a fresh Observable for each observer
+### Empty/Never/Throw — create Observables that have very precise and limited behavior
+### From — convert some other object or data structure into an Observable
+### Interval — create an Observable that emits a sequence of integers spaced by a particular time interval
+### Just — convert an object or a set of objects into an Observable that emits that or those objects
+### Range — create an Observable that emits a range of sequential integers
+### Repeat — create an Observable that emits a particular item or sequence of items repeatedly
+### Start — create an Observable that emits the return value of a function
+### Timer — create an Observable that emits a single item after a given delay
 
 # links binding with the UI
 
@@ -59,7 +87,7 @@ openMenu.onNext()
 reactive programming blog
 https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 
-# Functions regarding operations on stream 
+# Functions regarding operations on a stream 
 
 ## Zip
 Zip is a function that creates a new stream that combines the elements from original streams and put them together the way a zipper in your jacket does. For more information look at [documentation](http://reactivex.io/documentation/operators/zip.html).
