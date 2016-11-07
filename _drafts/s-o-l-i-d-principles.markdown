@@ -21,3 +21,8 @@ Objects in a program should be replaceable with instances of their subtypes with
 Many client-specific interfaces are better than one general-purpose interface.
 * D *DIP* Dependency inversion principle
 One should “Depend upon Abstractions. Do not depend upon concretions.
+
+
+Another rules that not belongs to SOLID, but still worth to mention is KISS and DRY
+
+[Package principles](https://en.wikipedia.org/wiki/Package_principles)
