@@ -191,3 +191,6 @@ func searchBook(query: String) -> Observable<BookResponse> {
     })
 }
 {% endhighlight %}
+
+Look at: https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Examples.md
+
