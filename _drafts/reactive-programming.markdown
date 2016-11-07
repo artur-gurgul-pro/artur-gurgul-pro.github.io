@@ -7,6 +7,42 @@ categories: swift reactive-programming
 
 # Reactive programming
 
+Filter function we will use for filtering
+{% highlight swift %}
+func isPrime(number: Int) -> Bool {
+    if number < 3 {
+        return true
+    }
+    for i in 2...number-1 {
+        if number % i == 0 && i != number {
+            return false
+        }
+    }
+    return true
+}
+{% endhighlight %}
+
+### imperative approach (how to do) 
+
+{% highlight swift %}
+let numbers = 1...100
+var squerdPrimaryNumbers = [Int]()
+        
+for number in numbers {
+    if isPrime(number) {
+        squerdPrimaryNumbers.append(number*number)    
+    }
+        
+}
+{% endhighlight %}
+The sample below tells how to do this, but with functional approuch we can tell just what to do
+
+### functional approach (what to do)
+
+{% highlight swift %}
+let squerdPrimaryNumbers = numbers.filter(isPrime).map{$0*$0}
+{% endhighlight %}
+
 
 you can stop reimplementing the same patterns over and over again and abstract them as operators on observable sequences. Probably the most common ones are:
 retry
@@ -24,8 +60,13 @@ With reactive programming approach you can easily integrate fallowing things as 
 * KVO
 * Target/Action pattern.
 
+# Handling massive amount of events
 
 # List of operators
+
+### `map` - transform sequence of values into another sequence
+
+### `filter` - transform a sequence of into a filtered sequence 
 
 # links binding with the UI
 
