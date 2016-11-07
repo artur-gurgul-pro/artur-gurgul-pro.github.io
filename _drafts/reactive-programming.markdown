@@ -83,7 +83,6 @@ retry
 * `combineLatest` - combine latest values of multiple stateful objects, similar to what Excel or some other spreadsheets do when calculating formulas
 * `flatMapLatest` (automatically cancel previous async operation when next computation request arrives)
 refCount (in case you want to download something and want to make sure that if at least somebody needs that download result, then download should continue, but if nobody needs the download result then download needs to be cancelled automatically)
-* `zip` (want to make N network requests, wait until they are all completed and map the result?, yep, out of the box)
 
 
 With reactive programming approach you can easily integrate fallowing things as a stream  
@@ -94,7 +93,7 @@ With reactive programming approach you can easily integrate fallowing things as 
 
 # Handling massive amount of events
 
-# List of operators
+# List of that can be applied to items from a stream
 
 ### `map` - transform sequence of values into another sequence
 
@@ -131,8 +130,9 @@ openMenu.onNext()
 reactive programming blog
 https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 
+# Functions regarding operations on stream 
 
-# Zip
+## Zip
 Zip is a function that creates a new stream that combines the elements from original streams and put them together the way a zipper in your jacket does. For more information look at [documentation](http://reactivex.io/documentation/operators/zip.html).
 
 For better understanding how it works I want to show you an example. Lets say we want to download a list of images and descriptions and show them to the user, but we also want to treat corresponding picture and image as one entity and show it at once, so the image never will be shown without the description.
