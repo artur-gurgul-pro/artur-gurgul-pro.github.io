@@ -22,5 +22,7 @@ Themes:
 Creating documentation with jekyll:
 http://idratherbewriting.com/documentation-theme-jekyll/index.html
 
+A description how to do the tags: http://charliepark.org/tags-in-jekyll/
+
 spisac liste rzeczy jakie chce sie nauczyc
 

@@ -7,6 +7,14 @@ categories: swift reactive-programming
 
 # Reactive programming
 
+
+With reactive programming approach you can easily integrate fallowing things as a stream  
+* Delegates
+* `NSNotificationCenter`
+* KVO
+* Target/Action pattern.
+
+
 # List of operators
 
 # links binding with the UI
