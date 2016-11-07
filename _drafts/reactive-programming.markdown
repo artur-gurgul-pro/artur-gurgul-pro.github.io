@@ -28,6 +28,9 @@ With reactive programming approach you can easily integrate fallowing things as 
 # List of operators
 
 # links binding with the UI
+
+A class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
+* https://www.infoq.com/news/2016/02/rxswift-reactive-swift
 * http://rx-marin.com/post/rxswift-rxcocoa-custom-bindings/
 * http://nshipster.com/reactivecocoa/
 * https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
