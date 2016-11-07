@@ -5,6 +5,12 @@ date:   2016-10-19 12:09:07 +0200
 categories: self-improvement learning
 ---
 
+The title says that learning can be quick, but as everything in a life nothing comes for free.
+The brain capabilities depends on your live of style and food habits.
+When the body shape is poor then blood system does not work well and does not supply the brain with
+sufficient amount of oxygen etc. The food supplies your body with biological elements that might help
+to pass signals in your brain. In short you need to pay attention to your health, and not only because it
+helps your brain, but it also make your life higher quality.
 
 # Memory tricks
 
