@@ -133,7 +133,7 @@ image #3 with description C
 {% endhighlight %}
 
 
-# Examples of RxSwift app
+# Searching for books with RxSwift and RxCocoa
 We are going to implement an app for searching books using Google APIs
 
 first step is to create models for our response
