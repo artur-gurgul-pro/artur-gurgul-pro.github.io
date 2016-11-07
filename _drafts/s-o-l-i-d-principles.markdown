@@ -35,3 +35,7 @@ Another rules that not belongs to SOLID, but still worth to mention is KISS and 
 
 [Package principles](https://en.wikipedia.org/wiki/Package_principles)
 [List of princilpes](https://en.wikipedia.org/wiki/List_of_software_development_philosophies)
+
+
+[google]: http://www.google.com  "Google it!"
+
