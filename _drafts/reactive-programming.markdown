@@ -136,22 +136,58 @@ image #3 with description C
 # Examples of RxSwift app
 We are going to implement an app for searching books using Google APIs
 
-first step is to create a request 
+first step is to create models for our response
 {% highlight swift %}
-func searchBook(query: String) -> Observable<AnyObject> {
+class BookResponse: Mappable {
+    var books: [Book]?
+    
+    required init?(_ map: Map) {
+    }
+
+    func mapping(map: Map) {
+        books <- map["items"]
+    }
+}
+
+class Book: Mappable {
+    var bookID: String?
+    var authors: [String]?
+    var categories: [String]?
+    var title: String?
+    var desc: String?
+
+    required init?(_ map: Map) {
+    }
+
+    func mapping(map: Map) {
+        bookID <- map["id"]
+        authors <- map["volumeInfo.authors"]
+        categories <- map["volumeInfo.categories"]
+        title <- map["volumeInfo.title"]
+        desc <- map["volumeInfo.description"]
+    }
+}
+{% endhighlight %}
+
+and then the function which will call the API
+
+{% highlight swift %}
+func searchBook(query: String) -> Observable<BookResponse> {
     return Observable.create({observer -> Disposable in
         Alamofire.request(.GET, NSURL(string: "https://www.googleapis.com/books/v1/volumes")!, parameters: ["q": query]).responseJSON(completionHandler: { response in
             switch response.result {
             case .Success(let parsedResponse):
-                observer.onNext(parsedResponse)
+                
+            if let bookResponse = BookResponse(JSON: parsedResponse as! [String : AnyObject]) {
+                    observer.onNext(bookResponse)
+                
+            }
                 observer.onCompleted()
             case .Failure(let error):
                 observer.onError(error)
             }
-        })
+         })
         return NopDisposable.instance
     })
 }
 {% endhighlight %}
-
-
