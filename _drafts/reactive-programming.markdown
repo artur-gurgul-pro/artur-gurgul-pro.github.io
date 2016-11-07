@@ -23,9 +23,9 @@ categories: swift reactive-programming
 
 
 # Creating Observables
-Operators that originate new Observables.
+Creating stream with squared numbers
 
-### Create — create an Observable from scratch by calling observer methods programmatically
+### Finite stream
 {% highlight swift %}
 func squaredNumbersStream(range: Range<Int>) -> Observable<Int> {
     return Observable.create { (observer) -> Disposable in
@@ -45,6 +45,8 @@ squaredNumbersStream(1...20).subscribe { number in
     print(number)
 }.addDisposableTo(disposeBag)
 {% endhighlight %}
+
+### Infinite stream
 
 ### Defer — do not create the Observable until the observer subscribes, and create a fresh Observable for each observer
 ### Empty/Never/Throw — create Observables that have very precise and limited behavior
