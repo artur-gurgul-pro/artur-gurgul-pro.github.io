@@ -27,10 +27,13 @@ show_drafts: true
 show_drafts: true
 comments: true
 
+lsi: false
+
 # highlighter: pygments
 # Build settings
 markdown: kramdown
-theme: minima
+#theme: minima
+
 gems:
   - jekyll-feed
 exclude:
