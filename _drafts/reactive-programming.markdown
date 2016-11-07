@@ -8,6 +8,16 @@ categories: swift reactive-programming
 # Reactive programming
 
 
+you can stop reimplementing the same patterns over and over again and abstract them as operators on observable sequences. Probably the most common ones are:
+retry
+* `combineLatest` - combine latest values of multiple stateful objects, similar to what Excel or some other spreadsheets do when calculating formulas
+* `map` - transform sequence of values into another sequence
+* `merge` - combine events from multiple sources into a single one
+* `flatMapLatest` (automatically cancel previous async operation when next computation request arrives)
+refCount (in case you want to download something and want to make sure that if at least somebody needs that download result, then download should continue, but if nobody needs the download result then download needs to be cancelled automatically)
+* `zip` (want to make N network requests, wait until they are all completed and map the result?, yep, out of the box)
+
+
 With reactive programming approach you can easily integrate fallowing things as a stream  
 * Delegates
 * `NSNotificationCenter`
