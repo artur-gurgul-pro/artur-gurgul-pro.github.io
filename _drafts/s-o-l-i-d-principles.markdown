@@ -16,17 +16,22 @@ There are fife following rules
 
 * S **SRP** Single responsibility principle
 
-This mean if the one thing in specification is changed you need to change the code in the single place/class
+This mean if the one thing in specification is changed you only need to change the code in the single place or class
 
 * O **OCP** Open/closed principle
 
 Software entities should be open for extension, but closed for modification.
 
 * L **LSP** Liskov substitution principle
+
 Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
+
 * I **ISP** Interface segregation principle
-Many client-specific interfaces are better than one general-purpose interface.
+
+The interfaces should be small and provide methods that are really needed.
+
 * D **DIP** Dependency inversion principle
+
 One should “Depend upon Abstractions. Do not depend upon concretions.
 
 # The uncle Bob's example

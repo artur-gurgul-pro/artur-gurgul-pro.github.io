@@ -10,10 +10,10 @@ In that style of programming there is no distinction between the data and the ev
 
 # Strong sides of reactive programming
 *  With reactive programming approach you can easily integrate fallowing things as a stream  
-  * Delegates
-  * `NSNotificationCenter`
-  * KVO
-  * Target/Action pattern.
+    * Delegates
+    * `NSNotificationCenter`
+    * KVO
+    * Target/Action pattern.
 * Easier to write tests
 
 # Handling massive amount of events
@@ -133,5 +133,25 @@ image #3 with description C
 {% endhighlight %}
 
 
-# Example how to get twits using `Alamofire`
+# Examples of RxSwift app
+We are going to implement an app for searching books using Google APIs
+
+first step is to create a request 
+{% highlight swift %}
+func searchBook(query: String) -> Observable<AnyObject> {
+    return Observable.create({observer -> Disposable in
+        Alamofire.request(.GET, NSURL(string: "https://www.googleapis.com/books/v1/volumes")!, parameters: ["q": query]).responseJSON(completionHandler: { response in
+            switch response.result {
+            case .Success(let parsedResponse):
+                observer.onNext(parsedResponse)
+                observer.onCompleted()
+            case .Failure(let error):
+                observer.onError(error)
+            }
+        })
+        return NopDisposable.instance
+    })
+}
+{% endhighlight %}
+
 

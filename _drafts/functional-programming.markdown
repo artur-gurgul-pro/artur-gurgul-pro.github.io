@@ -5,6 +5,8 @@
   * Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
 * Curring: https://robots.thoughtbot.com/introduction-to-function-currying-in-swift
 
+* [Difference between Reactive and Event driven programming](http://stackoverflow.com/questions/34495117/how-is-reactive-programming-different-than-event-driven-programming)
+
 Filter function we will use for filtering
 {% highlight swift %}
 func isPrime(number: Int) -> Bool {
