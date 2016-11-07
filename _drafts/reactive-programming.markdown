@@ -41,14 +41,46 @@ The sample below tells how to do this, but with functional approuch we can tell 
 {% highlight swift %}
 let squerdPrimaryNumbers = numbers.filter(isPrime).map{$0*$0}
 {% endhighlight %}
-The code became more clear just tells what to do. Some of implementation that says how to do has been hidden into
-functions. Quite important thing is that we can run the sample parallel without writting complex code. 
+The code became more clear and just tells what-to-do. Some of implementation that says how-to-do has been hidden into
+functions. Quite important thing is that we can run the sample parallel, puttping threading login inside the function. The example implementation:
 
+{% highlight swift %}
+extension Range {
+    public func pfilter(filter: (Element -> Bool)) -> [Element] {
+        var output = [Element]()
+        let group = dispatch_group_create()
+        let lock = dispatch_queue_create("pfilter-queue-for-result", DISPATCH_QUEUE_SERIAL)
+        for obj in self {
+            dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+                if filter(obj) {
+                    dispatch_group_async(group, lock) {
+                        output.append(obj)
+                    }
+                }
+            }
+        }
+        dispatch_group_wait(group, DISPATCH_TIME_FOREVER)
+        return output
+    }
+}
+{% endhighlight %}
+
+and there is an ussage
+
+{% highlight swift %}
+let squerdPrimaryNumbers = numbers.pfilter(isPrime).map{$0*$0}
+{% endhighlight %}
+
+and the output
+
+{% highlight plaintext %}
+[9, 49, 169, 25, 289, 361, 121, 529, 961, 1681, 1369, 1849, 2209, 841, 2809, 3481, 3721, 4489, 5041, 5329, 6241, 6889, 7921, 9409]
+{% endhighlight %}
+
+Notice that the numbers are not in order due to the fact that filtering of each item has been done parallel. 
 you can stop reimplementing the same patterns over and over again and abstract them as operators on observable sequences. Probably the most common ones are:
 retry
 * `combineLatest` - combine latest values of multiple stateful objects, similar to what Excel or some other spreadsheets do when calculating formulas
-* `map` - transform sequence of values into another sequence
-* `merge` - combine events from multiple sources into a single one
 * `flatMapLatest` (automatically cancel previous async operation when next computation request arrives)
 refCount (in case you want to download something and want to make sure that if at least somebody needs that download result, then download should continue, but if nobody needs the download result then download needs to be cancelled automatically)
 * `zip` (want to make N network requests, wait until they are all completed and map the result?, yep, out of the box)
