@@ -31,8 +31,7 @@ var squerdPrimaryNumbers = [Int]()
 for number in numbers {
     if isPrime(number) {
         squerdPrimaryNumbers.append(number*number)    
-    }
-        
+    }    
 }
 {% endhighlight %}
 The sample below tells how to do this, but with functional approuch we can tell just what to do
@@ -42,7 +41,8 @@ The sample below tells how to do this, but with functional approuch we can tell 
 {% highlight swift %}
 let squerdPrimaryNumbers = numbers.filter(isPrime).map{$0*$0}
 {% endhighlight %}
-
+The code became more clear just tells what to do. Some of implementation that says how to do has been hidden into
+functions. Quite important thing is that we can run the sample parallel without writting complex code. 
 
 you can stop reimplementing the same patterns over and over again and abstract them as operators on observable sequences. Probably the most common ones are:
 retry
