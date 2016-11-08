@@ -40,3 +40,5 @@ categories: general
 [PL: Piotr Zieliński's blog](http://www.pzielinski.com/?p=425)
 
 * [Ole Begemann's blog](https://oleb.net/blog/2015/09/swift-ranges-and-intervals/)
+
+* [introtorx](http://www.introtorx.com/content/v1.0.10621.0/04_CreatingObservableSequences.html)
