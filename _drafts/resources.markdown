@@ -38,3 +38,5 @@ categories: general
 
 * Solid inversion control
 [PL: Piotr Zieliński's blog](http://www.pzielinski.com/?p=425)
+
+* [Ole Begemann's blog](https://oleb.net/blog/2015/09/swift-ranges-and-intervals/)
