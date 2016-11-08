@@ -6,10 +6,12 @@ categories: swift functional-programming
 ---
 
 # Functional programming
-* Functory
-* prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
+* Functor
+
+* Prmises: https://www.youtube.com/watch?v=s6SH72uAn3Q
 * `map` vs `flatMap`
-  * Both map and flatMap can be applied to a Stream<T> and they both return a Stream<R>. The difference is that the map operation produces one output value for each input value, whereas the flatMap operation produces an arbitrary number (zero or more) values for each input value.
+  * Works almost the same, the difference is that the `map` transworm one item from the stream to silnge item, however `flatMap` procudes 0 or more items for a single item from the stream
+  .
 * Curring: https://robots.thoughtbot.com/introduction-to-function-currying-in-swift
 
 * [Difference between Reactive and Event driven programming](http://stackoverflow.com/questions/34495117/how-is-reactive-programming-different-than-event-driven-programming)
@@ -17,6 +19,8 @@ categories: swift functional-programming
 * [Example from the documentation how ui bindings work](https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Examples.md)
 * [Explanation on quora what Functor is](https://www.quora.com/Functional-Programming-What-is-a-functor)
 * [An example how to make UITableView reactive](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Examples/SimpleTableViewExample/SimpleTableViewExampleViewController.swift)
+
+
 
 Filter function we will use for filtering
 {% highlight swift %}
@@ -33,20 +37,20 @@ func isPrime(number: Int) -> Bool {
 }
 {% endhighlight %}
 
-### imperative approach (how to do)
+### Traditional way (how to do)
 
 {% highlight swift %}
 let numbers = 2...100
 var squerdPrimaryNumbers = [Int]()
-    for number in numbers {
-        if isPrime(number) {
-        squerdPrimaryNumbers.append(number*number)
-        }
+for number in numbers {
+    if isPrime(number) {
+    squerdPrimaryNumbers.append(number*number)
     }
+}
 {% endhighlight %}
 The sample below tells how to do this, but with functional approuch we can tell just what to do
 
-### functional approach (what to do)
+### Functional approach (what to do)
 
 {% highlight swift %}
 let squerdPrimaryNumbers = numbers.filter(isPrime).map{$0*$0}
