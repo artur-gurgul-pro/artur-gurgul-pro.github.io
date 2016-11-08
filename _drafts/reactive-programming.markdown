@@ -136,6 +136,8 @@ image #3 with description C
 # Searching for books with RxSwift and RxCocoa
 We are going to implement an app for searching books using Google APIs
 
+[There is a repository with working version](https://github.com/artur-gurgul/books-searcher)
+
 first step is to create models for our response
 {% highlight swift %}
 class BookResponse: Mappable {
