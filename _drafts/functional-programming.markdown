@@ -13,6 +13,7 @@ categories: swift functional-programming
 * Curring: https://robots.thoughtbot.com/introduction-to-function-currying-in-swift
 
 * [Difference between Reactive and Event driven programming](http://stackoverflow.com/questions/34495117/how-is-reactive-programming-different-than-event-driven-programming)
+* [Stack overflow discussion about Functors](http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor)
 
 Filter function we will use for filtering
 {% highlight swift %}
