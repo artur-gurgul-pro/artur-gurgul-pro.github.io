@@ -14,3 +14,4 @@ func someFunction(a: inout Int) -> () -> Int {
 
 * https://github.com/apple/swift-protobuf/
 
+Ranges and Intervals: https://oleb.net/blog/2015/09/swift-ranges-and-intervals/

@@ -14,6 +14,9 @@ categories: swift functional-programming
 
 * [Difference between Reactive and Event driven programming](http://stackoverflow.com/questions/34495117/how-is-reactive-programming-different-than-event-driven-programming)
 * [Stack overflow discussion about Functors](http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor)
+* [Example from the documentation how ui bindings work](https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Examples.md)
+* [Explanation on quora what Functor is](https://www.quora.com/Functional-Programming-What-is-a-functor)
+* [An example how to make UITableView reactive](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Examples/SimpleTableViewExample/SimpleTableViewExampleViewController.swift)
 
 Filter function we will use for filtering
 {% highlight swift %}

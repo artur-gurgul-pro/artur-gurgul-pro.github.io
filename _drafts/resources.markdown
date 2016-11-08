@@ -35,3 +35,6 @@ categories: general
 
 * Repository pattern by
 [Microsoft doc](https://msdn.microsoft.com/en-us/library/ff649690.aspx)
+
+* Solid inversion control
+[PL: Piotr Zieliński's blog](http://www.pzielinski.com/?p=425)
