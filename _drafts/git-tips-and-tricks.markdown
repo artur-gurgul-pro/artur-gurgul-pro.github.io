@@ -77,3 +77,6 @@ Push the branch to your local repository
 {% highlight bash %}
 git push origin dev-branch
 {% endhighlight %}
+
+
+* [Git imarative rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
