@@ -14,7 +14,8 @@ categories: swift design-patterns
     * Abstract factory
     * Builder
     * Factory method
-    *Prototype Singleton
+    * Prototype
+    * Singleton
 * Structural:
     * Adapter
     * Bridge
