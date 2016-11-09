@@ -20,8 +20,6 @@ categories: swift functional-programming
 * [Explanation on quora what Functor is](https://www.quora.com/Functional-Programming-What-is-a-functor)
 * [An example how to make UITableView reactive](https://github.com/ReactiveX/RxSwift/blob/master/RxExample/RxExample/Examples/SimpleTableViewExample/SimpleTableViewExampleViewController.swift)
 
-
-
 Filter function we will use for filtering
 {% highlight swift %}
 func isPrime(number: Int) -> Bool {
@@ -93,3 +91,22 @@ and the output
 
 Notice that the numbers are not in order due to the fact that filtering of each item has been done parallel.
 
+## Curring (Code copied from `Prelude` library)
+
+{% highlight swift %}
+public func curry<T, U, V>(f: (T, U) -> V) -> T -> U -> V {
+    return { x in { f(x, $0)   }   }
+}
+
+public func curry<T, U, V, W>(f: (T, U, V) -> W) -> T -> U -> V -> W {
+    return { x in curry { f(x, $0, $1) } }
+}
+
+public func uncurry<T, U, V>(f: T -> U -> V) -> (T, U) -> V {
+    return { f($0)($1) }
+}
+
+public func uncurry<T, U, V, W>(f: T -> U -> V -> W) -> (T, U, V) -> W {
+    return { f($0)($1)($2) }
+}
+{% highlight swift %}

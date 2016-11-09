@@ -1,2 +1,0 @@
-# MongoDB and noSQL databases
-

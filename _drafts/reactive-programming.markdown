@@ -9,6 +9,7 @@ Reactive programming paradigm is concentrated around data flows and the propagat
 In that style of programming there is no distinction between the data and the events and they are are treated as a stream which can be mapped or filtered. 
 
 # Strong sides of reactive programming
+* https://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1
 *  With reactive programming approach you can easily integrate fallowing things as a stream  
     * Delegates
     * `NSNotificationCenter`

@@ -80,3 +80,14 @@ git push origin dev-branch
 
 
 * [Git imarative rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
+
+
+git checkout filename
+
+When file name is the same as branch name
+git checkout -- filename
+
+remove all modifications you have done on working copy
+git reset --hard
+
+

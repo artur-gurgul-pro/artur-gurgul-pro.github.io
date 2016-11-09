@@ -1,4 +1,17 @@
-# List of favourite libraries 
+---
+layout: post
+title:  "[draft] List of tools and libraries"
+date:   2016-10-19 12:09:07 +0200
+categories: ios-development
+---
+
+Here I present the tools I use on daily basis as an iOS developer. If you wish to be a professional in that field you centernly need top loot at the list
+
+## List of software
+
+## List of favourite libraries 
+
+
 * https://github.com/Hearst-DD/ObjectMapper
 * https://github.com/jessesquires/JSQMessagesViewController
 * https://cocoapods.org/pods/QMChatViewController

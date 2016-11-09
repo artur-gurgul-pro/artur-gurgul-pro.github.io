@@ -47,3 +47,9 @@ To make this setting persistent you might want to add to `/etc/fstab` fallowing 
 {% highlight bash %}
 tmpfs       /mnt/ramdisk tmpfs   nodev,nosuid,noexec,nodiratime,size=1024M   0 0
 {% endhighlight %}
+
+
+###  Networking
+`dig artgur.net +nostats +nocomments +nocmd`
+
+`iostat`
