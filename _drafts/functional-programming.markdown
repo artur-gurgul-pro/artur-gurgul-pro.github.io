@@ -109,4 +109,4 @@ public func uncurry<T, U, V>(f: T -> U -> V) -> (T, U) -> V {
 public func uncurry<T, U, V, W>(f: T -> U -> V -> W) -> (T, U, V) -> W {
     return { f($0)($1)($2) }
 }
-{% highlight swift %}
+{% endhighlight %}
