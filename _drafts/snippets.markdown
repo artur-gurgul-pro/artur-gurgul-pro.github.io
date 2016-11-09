@@ -79,7 +79,7 @@ extension UIColor {
     
     }
 }
-{% endhighlight %
+{% endhighlight %}
 
 * typealias StringDictionary<Value> = Dictionary<String, Value>
 * returning bloks:
