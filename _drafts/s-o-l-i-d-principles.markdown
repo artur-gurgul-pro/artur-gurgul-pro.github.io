@@ -28,11 +28,11 @@ Objects in a program should be replaceable with instances of their subtypes with
 
 * I **ISP** Interface segregation principle
 
-The interfaces should be small and provide methods that are really needed.
+The interfaces should be small and provide as little methods as possible.
 
 * D **DIP** Dependency inversion principle
 
-One should “Depend upon Abstractions. Do not depend upon concretions.
+The lower module mast not depends on higher module. In order to achieve this the code mast to relay on abstractions (in other words the code has to use interfaces/protocols)
 
 # The uncle Bob's example
 
