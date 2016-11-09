@@ -10,27 +10,23 @@ categories: swift solid
 
 SOLID is a set of principles that helps you to keep your code more modular, more testable, and easier to extend. 
 
-# List of principles 
-
-There are fife following rules 
-
-* S **SRP** Single responsibility principle
+### Single responsibility principle
 
 This mean if the one thing in specification is changed you only need to change the code in the single place or class
 
-* O **OCP** Open/closed principle
+### Open/closed principle
 
 Software entities should be open for extension, but closed for modification.
 
-* L **LSP** Liskov substitution principle
+### Liskov substitution principle
 
 Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.
 
-* I **ISP** Interface segregation principle
+### Interface segregation principle
 
 The interfaces should be small and provide as little methods as possible.
 
-* D **DIP** Dependency inversion principle
+### Dependency inversion principle
 
 The lower module mast not depends on higher module. In order to achieve this the code mast to relay on abstractions (in other words the code has to use interfaces/protocols)
 
