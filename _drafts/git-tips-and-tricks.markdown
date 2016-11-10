@@ -50,7 +50,7 @@ git commit
 {% endhighlight %}
 
 
-
+create squash repository
 
 
 Checkout the golden repo

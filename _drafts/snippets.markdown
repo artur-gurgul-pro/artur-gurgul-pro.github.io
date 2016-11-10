@@ -119,3 +119,68 @@ func ** (left: Double, right: Double) -> Double {
 * `**` that's the operator we are adding
 * `associativity left` grouped from the left
 * `precedence 160` the priority of execution the operator}
+
+{% highlight swift %}
+extension Variable {
+    func asChangeObservable() -> Observable<Void> {
+        return asObservable().map {_ in
+            return Observable.just()
+        }
+    }
+}
+{% endhighlight %}
+
+// Observable.never()
+
+
+
+### UITextField paddings
+
+sniped copied from: http://stackoverflow.com/questions/21167226/resizing-a-uilabel-to-accomodate-insets
+
+
+Make it configurable from interface builder
+{% highlight swift %}
+@IBDesignable
+extension NRLabel {
+    @IBInspectable
+        var leftTextInset: CGFloat {
+        set { textInsets.left = newValue  }
+        get { return textInsets.left  }
+    }
+}
+{% endhighlight %}
+
+and there is the class
+
+{% highlight swift %}
+class NRLabel : UILabel {
+    
+    var textInsets = UIEdgeInsets.zero {
+        didSet { invalidateIntrinsicContentSize()  }
+    }
+    
+    override func textRect(forBounds bounds: CGRect, limitedToNumberOfLines numberOfLines: Int) -> CGRect {
+        let insetRect = UIEdgeInsetsInsetRect(bounds, textInsets)
+        let textRect = super.textRect(forBounds: insetRect, limitedToNumberOfLines: numberOfLines)
+        let invertedInsets = UIEdgeInsets(top: -textInsets.top,
+                                          left: -textInsets.left,
+                                          bottom: -textInsets.bottom,
+                                          right: -textInsets.right)
+        return UIEdgeInsetsInsetRect(textRect, invertedInsets)
+    }
+    
+    override func drawText(in rect: CGRect) {
+        super.drawText(in: UIEdgeInsetsInsetRect(rect, textInsets))
+    
+    }
+}
+{% endhighlight %}
+
+{% highlight swift %}
+self.variable.asObservable() .throttle(0.33, scheduler: MainScheduler.instance)
+.subscribeNext { [unowned self](searchPhrase) in
+    self.getProducts(withSearchPhrase: searchPhrase, forPage: self.startingPage)
+}.addDisposableTo(disposeBag)
+{% endhighlight %}
+

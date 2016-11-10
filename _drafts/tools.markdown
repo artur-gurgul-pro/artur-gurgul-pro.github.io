@@ -9,6 +9,11 @@ Here I present the tools I use on daily basis as an iOS developer. If you wish t
 
 ## List of software
 
+IMs:
+* Basecamp
+* HipChat
+* Slack 
+
 ## List of favourite libraries 
 
 
