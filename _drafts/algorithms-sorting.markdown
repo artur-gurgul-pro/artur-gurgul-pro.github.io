@@ -60,7 +60,7 @@ for element in self {
 }
 {% endhighlight %}
 
-We can solve the problem even better. Pay attention to the first condition. We check if there the item is equal to the split element. There is small change that the result of comparition result will be true, but if we first will check for grater or lower element will have almost 50-50 change to satysfy the condition and more important to not to check for other possibilities.
+We can solve the problem even better. Pay attention to the first condition. We check if there the item is equal to the split element. There is a small chance that the result of comparition result will be true, but if we will check first for a grater or a lower element will have almost 50-50 change to satysfy the condition, and more important, to not to check for other possibilities.
 
 Another problem is that the comparision might be quite expensive, becouse the class is generic and we do not know what kind of objects we sort, therefore we might compare complex structures of data. When we face this problem we might want to implement a new protocol that confirms to the method such `compare` which returns enum value that has three states `equal`, `greather`, `smaller`. Having that result we can use it like:
 {% highlight swift %}
