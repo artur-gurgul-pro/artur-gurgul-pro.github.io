@@ -60,9 +60,9 @@ for element in self {
 }
 {% endhighlight %}
 
-We can solve the problem even better. Pay attention to the first condition. We check if there the item is equal to the split element. There is a small chance that the result of comparition result will be true, but if we will check first for a grater or a lower element will have almost 50-50 change to satysfy the condition, and more important, to not to check for other possibilities.
+We can solve the problem even better. Pay attention to the first condition. We check if the item is equal to the split element. There is a small chance that the result of the comparition result will be true, but if we will check firstly for a grater or a lower element will have almost 50-50 chance to satysfy the condition, and more important, to not to check for other possibilities.
 
-Another problem is that the comparision might be quite expensive, becouse the class is generic and we do not know what kind of objects we sort, therefore we might compare complex structures of data. When we face this problem we might want to implement a new protocol that confirms to the method such `compare` which returns enum value that has three states `equal`, `greather`, `smaller`. Having that result we can use it like:
+Another problem is that the comparision might be quite expensive, becouse the class is generic and we do not really know what kind of objects we sort, therefore we might compare complex structures of data. When we face this problem we might want to implement a new protocol that confirms to the method such `compare` which returns an enum value that has three states `equal`, `greather`, `smaller`. Having that result we can do this it like:
 {% highlight swift %}
 let result = element.equals(split)
 switch result {
@@ -76,8 +76,10 @@ default:
 {% endhighlight %}
 
 ### Worst case scenario
-* Quick sort is good but not perfect. Sometimes we have sets that are almost sorted but ot quite. In that case when we take first element as a splitter, the left array will be pretty offen empty. In addition the algorythm consumes more memory than ie. `Bubble sort`. We can improve the algorythm by splitting in the first run the set into subsets that are sorted and unsorted, and perform quick sort only for those subsets which requires it.
+* Quick sort is good but not perfect. Sometimes we have sets that are almost sorted but not quite. In that case when we take first element as a splitter then the left array will be pretty offen empty. We can improve the algorythm by splitting in the first run the set into subsets that are sorted and unsorted, and perform quick sort only for those subsets which requires it.
 
-* Swift has also limit of call-stack, so if the quick sort function is called recursively we can reach the limit and the app will crach.
+* Swift has also a limit of the call-stack, so if the quick sort function is called recursively we can reach the limit and the app will crach.
+
+* In addition there is secound reason of a crash. We can run out of memory. In that matter better algorythm is ie. `Bubble sort`.
 
 
