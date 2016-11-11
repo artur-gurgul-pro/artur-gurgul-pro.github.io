@@ -1,4 +1,17 @@
-# Console applications
+---
+layout: post
+title:  "Console applications"
+date:   2016-10-19 12:09:07 +0200
+categories: unix
+---
+
+
+How to work with them
+
+Learning curve 
+
+better productivity 
+
 The most significat advantego of using the commendline tools is that we can script them up. 
 
 tmux - `<C-b> "`

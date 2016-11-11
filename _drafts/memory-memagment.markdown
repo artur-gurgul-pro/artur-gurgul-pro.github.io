@@ -1,9 +1,16 @@
 ---
 layout: post
-title:  "ARC vs MRC - Memory menagment"
+title:  "Memory menagment"
 date:   2016-10-19 12:09:07 +0200
 categories: swift ARC-vs-MRC
 ---
+
+autorelease pool
+
+MRC
+
+ARC 
+
 
 #
 Does arc manage releases/retains in runtime or compiler cares about it
