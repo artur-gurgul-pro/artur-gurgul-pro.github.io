@@ -1,3 +1,11 @@
+---
+layout: post
+title:  "Productivity"
+date:   2016-10-19 12:09:07 +0200
+categories: self-improvement
+---
+
+
 # Work planning and schedule useful meetings - in other words how to make stuff done
 * https://medium.freecodecamp.com/live-asynchronously-c8e7172fe7ea#.bn0vyq31h
 * compariosion of task managmant systems 
