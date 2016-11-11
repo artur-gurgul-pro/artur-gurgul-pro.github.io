@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Unix commands cheat-sheet"
+title:  "[draft] Unix commands cheat-sheet"
 date:   2016-10-19 12:09:07 +0200
 categories: unix
 ---

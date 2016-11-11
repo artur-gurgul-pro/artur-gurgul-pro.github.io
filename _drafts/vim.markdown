@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Vim tricks and tips for beginners"
+title:  "[draft] Vim tricks and tips for beginners"
 date:   2016-10-19 12:09:07 +0200
 categories: vim
 ---
