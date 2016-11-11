@@ -44,4 +44,17 @@ Mention that opeope don't like to share theirs RC files
 * wite file when editin without command `:w`
 * Searching and navigating the code
 
+# Vim as an IDE for iOS development
+
+---
+
+Links:
+* http://www.helpguide.org/articles/memory/how-to-improve-your-memory.htm
+* https://www.youtube.com/watch?v=OI_S_JyJhYQ
+* http://articles.mercola.com/sites/articles/archive/2014/04/24/memory-improvement-tricks.aspx
+* http://www.wikihow.com/Improve-Your-Memory
+* http://www.realsimple.com/health/mind-mood/memory/how-to-improve-memory
+* http://bebrainfit.com/how-to-improve-memory/
+* set of movies describe how to remember well: https://www.youtube.com/playlist?list=PLj1a-CB1pcUbDBg3Lnp2v0G1xi1FgKmeA
+* https://www.supermemo.com/en/articles/20rules 
 
