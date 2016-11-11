@@ -75,7 +75,7 @@ default:
 }
 {% endhighlight %}
 
-### Worst case scenario
+### The worst case scenario
 * Quick sort is good but not perfect. Sometimes we have sets that are almost sorted but not quite. In that case when we take first element as a splitter then the left array will be pretty offen empty. We can improve the algorythm by splitting in the first run the set into subsets that are sorted and unsorted, and perform quick sort only for those subsets which requires it.
 
 * Swift has also a limit of the call-stack, so if the quick sort function is called recursively we can reach the limit and the app will crach.
