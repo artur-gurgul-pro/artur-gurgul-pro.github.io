@@ -1,2 +1,0 @@
-# Notification center vs delegate
-

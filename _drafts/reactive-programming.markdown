@@ -10,11 +10,6 @@ In that style of programming there is no distinction between the data and the ev
 
 # Strong sides of reactive programming
 * https://www.raywenderlich.com/86477/introducing-ios-design-patterns-in-swift-part-1
-*  With reactive programming approach you can easily integrate fallowing things as a stream  
-    * Delegates
-    * `NSNotificationCenter`
-    * KVO
-    * Target/Action pattern.
 * Easier to write tests
 
 # Handling massive amount of events
