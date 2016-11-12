@@ -37,6 +37,7 @@ Mention that opeope don't like to share theirs RC files
 * http://exvim.github.io/docs/config-vimrc/
 * http://vim.spf13.com/
 * http://nodnod.net/2009/feb/09/projects-vim-using-projectsvim/
+* https://www.youtube.com/watch?v=5r6yzFEXajQ&t=875s
 
 * Execute script in background on save
   * http://stackoverflow.com/questions/4627701/vim-how-to-execute-automatically-execute-a-shell-command-after-saving-a-file
