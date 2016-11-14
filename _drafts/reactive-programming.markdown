@@ -22,9 +22,8 @@ In that style of programming there is no distinction between the data and the ev
 
 
 # Creating Observables
-Creating stream with squared numbers
 
-### Finite stream
+### A stream with squared numbers
 {% highlight swift %}
 func squaredNumbersStream(range: Range<Int>) -> Observable<Int> {
     return Observable.create { (observer) -> Disposable in
@@ -45,17 +44,6 @@ squaredNumbersStream(1...20).subscribe { number in
 }.addDisposableTo(disposeBag)
 {% endhighlight %}
 
-### Infinite stream
-
-
-# links binding with the UI
-
-A class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
-* https://www.infoq.com/news/2016/02/rxswift-reactive-swift
-* http://rx-marin.com/post/rxswift-rxcocoa-custom-bindings/
-* http://nshipster.com/reactivecocoa/
-* https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
-
 # Publishes
 Publishes are the objects we can listen to. It is in fact an observer. There are a few types of them:
 * `AsyncSubject`: Emits only last item from the stream to the subscriber
@@ -63,7 +51,7 @@ Publishes are the objects we can listen to. It is in fact an observer. There are
 * `PublishSubject`: Works almost the same as `BehaviorSubject` except has no default value
 * `ReplaySubject` Reply all items that ever has been emited by the stream to the subscriber
 
-There is an example of the publisher which emits event without values
+There is an example of the publisher which emits event without value
 
 {% highlight swift %}
 let openMenu = PublishSubject<Void>()
@@ -79,69 +67,14 @@ openMenu.onNext()
 reactive programming blog
 https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/
 
-# Functions regarding operations on a stream 
 
-
-# Searching for books with RxSwift and RxCocoa
-We are going to implement an app for searching books using Google APIs
-
-[There is a repository with working version](https://github.com/artur-gurgul/books-searcher)
-
-first step is to create models for our response
-{% highlight swift %}
-class BookResponse: Mappable {
-    var books: [Book]?
-    
-    required init?(_ map: Map) {
-    }
-
-    func mapping(map: Map) {
-        books <- map["items"]
-    }
-}
-
-class Book: Mappable {
-    var bookID: String?
-    var authors: [String]?
-    var categories: [String]?
-    var title: String?
-    var desc: String?
-
-    required init?(_ map: Map) {
-    }
-
-    func mapping(map: Map) {
-        bookID <- map["id"]
-        authors <- map["volumeInfo.authors"]
-        categories <- map["volumeInfo.categories"]
-        title <- map["volumeInfo.title"]
-        desc <- map["volumeInfo.description"]
-    }
-}
-{% endhighlight %}
-
-and then the function which will call the API
-
-{% highlight swift %}
-func searchBook(query: String) -> Observable<BookResponse> {
-    return Observable.create({observer -> Disposable in
-        Alamofire.request(.GET, NSURL(string: "https://www.googleapis.com/books/v1/volumes")!, parameters: ["q": query]).responseJSON(completionHandler: { response in
-            switch response.result {
-            case .Success(let parsedResponse):
-                
-            if let bookResponse = BookResponse(JSON: parsedResponse as! [String : AnyObject]) {
-                    observer.onNext(bookResponse)
-                
-            }
-                observer.onCompleted()
-            case .Failure(let error):
-                observer.onError(error)
-            }
-         })
-        return NopDisposable.instance
-    })
-}
-{% endhighlight %}
 
 Look at: https://github.com/ReactiveX/RxSwift/blob/master/Documentation/Examples.md
 
+# links binding with the UI
+
+A class should have only a single responsibility (i.e. only one potential change in the software's specification should be able to affect the specification of the class)
+* https://www.infoq.com/news/2016/02/rxswift-reactive-swift
+* http://rx-marin.com/post/rxswift-rxcocoa-custom-bindings/
+* http://nshipster.com/reactivecocoa/
+* https://realm.io/news/slug-max-alexander-functional-reactive-rxswift/

@@ -79,3 +79,7 @@ Bachelor of science degree
 * Other: CI (Jenkins, bash scripting, fastlane, fabric), Cocoa pods, Unix environment, GIT
 * Very basics of Android development
 
+
+---
+### Demo projects
+* [Searching for the books using `RxSwift`, `Alamofire`, `ObjectMapper` ](https://github.com/artur-gurgul/books-searcher)
