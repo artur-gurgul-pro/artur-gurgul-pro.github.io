@@ -7,3 +7,5 @@ categories: swift haioku
 
 # Series articles about haioku
 
+https://xathrya.id/2015/12/09/installing-haiku-on-qemu/
+
