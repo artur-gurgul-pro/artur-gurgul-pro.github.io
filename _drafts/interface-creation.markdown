@@ -1,4 +1,11 @@
-# Interface Builder
+---
+layout: post
+title:  "[draft] Interface Builder"
+date:   2016-10-19 12:09:07 +0200
+categories: swift
+---
+
+# 
 * Size classes
 * Visual Format Language
 * Empty view for padding handling

@@ -2,7 +2,7 @@
 layout: post
 title:  "How to learn fast"
 date:   2016-10-19 12:09:07 +0200
-categories: self-improvement learning
+categories: self-improvement
 ---
 
 The title says that learning can be quick, but as everything in a life nothing comes for free.

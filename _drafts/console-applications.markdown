@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Console applications"
+title:  "[draft] Console applications"
 date:   2016-10-19 12:09:07 +0200
 categories: unix
 ---
