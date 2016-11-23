@@ -8,11 +8,17 @@ categories: swift
 
 ### Notyfy a user about error occurence
 
-### Restore/resume after an error
+### Resume after an error
 
 And How to write no errous code
 * How optional's work
-* throw-catch 
+
+## Language constructs
+
+### Throw-catch 
+
+### OnError
+
 * Anti patterns
   https://en.wikipedia.org/wiki/Anti-pattern
 

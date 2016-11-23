@@ -5,6 +5,10 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
+
+### A concurrency and the data consistency
+
+
 # GDC 
 
 In particular how to manage sync calls
