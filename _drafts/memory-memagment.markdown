@@ -10,10 +10,14 @@ categories: swift
 The `retain` and `release` increase and decrease reference count. This is a system that keep track of objects and release them from the memory when no other object keep reperence to them. Lets takt this example 
 
 {% highlight objective-c %}
-NSURL *url = [NSURL URLWithString:@"www.google.com"];
-[_url release];
-self.url = url
+NSURL *url = [NSURL URLWithString:@"www.google.com"]; // (1)
+[_url release]; // (2)
+self.url = url; // (3)
 {% endhighlight %}
+
+1. This object has been created and iderded into autorelease pool (see next topic)
+2. Here we tell the system that we do not need old object anymore so the retail counter is going to be decresead. If no other entity keeps reperence to this object the retain counter should be equal to 0 and the object has to be removed from the memory.
+3. This is a little bit tricky part for newers. When we call `self dot someting` the release on the assging object will be called automatically
 
 #### Autorelease Pool
 

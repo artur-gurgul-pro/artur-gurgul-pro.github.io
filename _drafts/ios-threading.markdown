@@ -20,7 +20,7 @@ In particular how to manage sync calls
 
 
 ### Blueprint of NSOperation
-
+{% highlight swift %}
 class ImageDownloader: NSOperation {
   //1
   let photoRecord: PhotoRecord
@@ -56,10 +56,11 @@ class ImageDownloader: NSOperation {
     }
   }
 }
-
+{% endhighlight %}
 
 ### Blueprint of NSOperationQueue
 
+{% highlight swift %}
 class PendingOperations {
   lazy var downloadsInProgress = [NSIndexPath:NSOperation]()
   lazy var downloadQueue:NSOperationQueue = {
@@ -77,4 +78,4 @@ class PendingOperations {
     return queue
     }()
 }
-
+{% endhighlight %}
