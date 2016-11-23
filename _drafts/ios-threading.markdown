@@ -15,6 +15,12 @@ The [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) is a part
 
 In particular how to manage sync calls
 
+
+`dispatch_once`
+`dispatch_sync`
+`dispatch_async`
+
+1. [Raywenderlich article](https://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
 # NSOperationQueue
 
 * How to cancel NSOperationQueue
