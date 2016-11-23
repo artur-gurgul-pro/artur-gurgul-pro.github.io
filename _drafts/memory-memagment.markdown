@@ -17,7 +17,7 @@ self.url = url; // (3)
 
 1. This object has been created and iderded into autorelease pool (see next topic)
 2. Here we tell the system that we do not need old object anymore so the retail counter is going to be decresead. If no other entity keeps reperence to this object the retain counter should be equal to 0 and the object has to be removed from the memory.
-3. This is a little bit tricky part for newers. When we call `self dot someting` the release on the assging object will be called automatically
+3. This is a little bit tricky part for newers. When we call `self dot someting` the release on the assging object will be called automatically. If we assign the new obhject right away we are going to lose the reference to the old object and we will have no chanfe to release it from the memory.
 
 #### Autorelease Pool
 
