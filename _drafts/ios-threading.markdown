@@ -5,11 +5,13 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
+#### Switching context
 
 ### A concurrency and the data consistency
 
 
 # GDC 
+The [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) is a part of core library wchich takes care about threading. 
 
 In particular how to manage sync calls
 
