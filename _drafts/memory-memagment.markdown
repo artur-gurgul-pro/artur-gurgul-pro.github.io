@@ -9,7 +9,7 @@ categories: swift
 
 The `retain` and `release` increase and decrease reference count. This is a system that keep track of objects and release them from the memory when no other object keep reperence to them. Lets takt this example 
 
-{% highlight objective-c %}
+{% highlight objectivec %}
 NSURL *url = [NSURL URLWithString:@"www.google.com"]; // (1)
 [_url release]; // (2)
 self.url = url; // (3)
