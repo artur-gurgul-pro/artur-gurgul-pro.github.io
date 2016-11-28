@@ -43,3 +43,8 @@ Observable-Swift - KVO for Swift - Value Observing and Events
 *  With reactive programming approach you can easily integrate fallowing things as a stream  
 
 * RxSwift
+
+
+# using swift3 with Objc
+* https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html#//apple_ref/doc/uid/TP40014216-CH7-XID_8
+* https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html

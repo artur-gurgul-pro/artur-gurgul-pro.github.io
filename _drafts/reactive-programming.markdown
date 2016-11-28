@@ -20,6 +20,19 @@ In that style of programming there is no distinction between the data and the ev
 * `flatMap` - as above, but this operator can return 0 or more elements and the results will be flatten.
 * `filter` - transform a sequence of into a filtered sequence 
 
+{% highlight swift %}
+    private func prepareCancel() {
+        alert
+            .flatMap { alert in
+                alert.rx_action(Localizations.alert.attachment.cancel, style: .Cancel)
+                    .map { _ in alert }
+            }
+            .subscribeNext {
+                $0.dismissViewControllerAnimated(true, completion: nil)
+            }
+            .addDisposableTo(disposeBag)
+    }
+{% endhighlight %}
 
 # Creating Observables
 
