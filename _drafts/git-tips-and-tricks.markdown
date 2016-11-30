@@ -9,7 +9,7 @@ categories: git
 * rebase and magange branches
 * Git interactive rebase
 
-### squash the lastests commints
+### Squash the lastests commints
 
 {% highlight bash %}
 git rebase -i HEAD~3
