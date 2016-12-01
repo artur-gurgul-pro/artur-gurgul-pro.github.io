@@ -5,6 +5,14 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
+#### kind of jobs
+Computation intensive
+I/O intensive
+
+processes = cores /(1- blocking factor)
+
+
+
 #### Switching context
 
 ### A concurrency and the data consistency
