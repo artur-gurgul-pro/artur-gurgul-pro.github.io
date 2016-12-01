@@ -49,6 +49,9 @@ return_value = pthread_create(&user_interactive_thread, &user_interactive_qos_at
 # NSThread 
 * https://developer.apple.com/reference/foundation/thread
 
+{% highlight swift %}
+let thread = NSThread(target:self, selector:#selector(doSomething), object:nil)
+{% endhighlight %}
 # NSOperationQueue
 
 * How to cancel NSOperationQueue
@@ -115,3 +118,9 @@ class PendingOperations {
     }()
 }
 {% endhighlight %}
+
+
+
+## Mutex
+
+[Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
