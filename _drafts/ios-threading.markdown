@@ -29,6 +29,26 @@ In particular how to manage sync calls
 `dispatch_async`
 
 1. [Raywenderlich article](https://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
+
+
+
+# pthread
+{% highlight swift %}
+var user_interactive_thread: pthread_t?
+var user_interactive_qos_attr = pthread_attr_t()
+
+return_value = pthread_attr_init(&user_interactive_qos_attr)
+return_value = pthread_attr_set_qos_class_np(&user_interactive_qos_attr, QOS_CLASS_USER_INTERACTIVE, 0)
+
+return_value = pthread_create(&user_interactive_thread, &user_interactive_qos_attr, { (x:UnsafeMutableRawPointer) in
+	print("New pthread job")
+	return nil
+}, nil)
+{% endhighlight %}
+
+# NSThread 
+* https://developer.apple.com/reference/foundation/thread
+
 # NSOperationQueue
 
 * How to cancel NSOperationQueue

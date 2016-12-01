@@ -44,3 +44,6 @@ categories: general
 * [introtorx](http://www.introtorx.com/content/v1.0.10621.0/04_CreatingObservableSequences.html)
 
 * my answer to the question regarding passing events [Answer](http://stackoverflow.com/questions/10574362/passing-shake-gesture-event-to-the-app-delegate/10574498#10574498)
+
+
+https://www.youtube.com/channel/UCCBVCTuk6uJrN3iFV_3vurg
