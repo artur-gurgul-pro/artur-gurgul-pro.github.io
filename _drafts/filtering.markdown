@@ -76,4 +76,4 @@ and the output
 [9, 49, 169, 25, 289, 361, 121, 529, 961, 1681, 1369, 1849, 2209, 841, 2809, 3481, 3721, 4489, 5041, 5329, 6241, 6889, 7921, 9409]
 {% endhighlight %}
 
-Notice that the numbers are not in order due to the fact that filtering of each item has been done parallel. Please be also aware that the the example is just a demo, and the code need to be tweaked to be used in any production code. Keep in mind that there is no any sense to do computing on more threads than the processor has cores, becouse switching between contextes is kind of expensive.
+Notice that the numbers are not in order due to the fact that filtering of each item has been done parallel. Please be also aware that the the example is just a demo, and the code need to be tweaked to be used in any production code. Keep in mind that there is no any sense to do computataion sensitive tasks on more threads than the processor has cores, becouse switching between contextes is kind of expensive.

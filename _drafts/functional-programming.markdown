@@ -5,6 +5,8 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift functional-programming
 ---
 
+# observable vs interator
+
 # Functors
 * [Stack overflow discussion about Functors](http://stackoverflow.com/questions/2030863/in-functional-programming-what-is-a-functor)
 
