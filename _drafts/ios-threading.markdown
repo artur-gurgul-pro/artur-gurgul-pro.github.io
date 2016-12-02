@@ -5,6 +5,8 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
+Apple's SDK handles threads exceptionally well in comparisions to another frameworks, at least it is my impression (feel free to arguee or comment on )
+
 #### kind of jobs
 Computation intensive
 I/O intensive
