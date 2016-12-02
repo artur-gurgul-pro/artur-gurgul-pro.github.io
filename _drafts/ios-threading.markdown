@@ -12,6 +12,8 @@ I/O intensive
 processes = cores /(1- blocking factor)
 
 
+#### Bloks/closures
+"Blocks also capture their surrounding state. That is, blocks are closures: they close around variables that are in scope at the time the block is declared." [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
 
 #### Switching context
 
