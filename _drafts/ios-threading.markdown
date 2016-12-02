@@ -29,8 +29,11 @@ In particular how to manage sync calls
 `dispatch_async`
 
 1. [Raywenderlich article](https://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
-
-
+2. [serial vs concurrent queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html)
+3. [This answer on sof says that "`NSOperationQueue` does use GCD on iOS 4.0 and later"](http://stackoverflow.com/questions/7078658/operation-queue-vs-dispatch-queue-for-ios-application)
+it says also quote:
+	* Prefer GCD where task is not much complex and optimum CPU performance is required.
+	* Prefer NSOperationQueue where task is complex and requires canceling or suspending a block and dependency management.
 
 # pthread
 {% highlight swift %}
