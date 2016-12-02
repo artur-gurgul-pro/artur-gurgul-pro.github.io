@@ -18,7 +18,7 @@ processes = cores /(1- blocking factor)
 ### A concurrency and the data consistency
 
 
-# GDC 
+# GCD (Grand Central Dispatch)
 The [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) is a part of core library wchich takes care about threading. 
 
 In particular how to manage sync calls
@@ -33,9 +33,10 @@ In particular how to manage sync calls
 3. [This answer on sof says that "`NSOperationQueue` does use GCD on iOS 4.0 and later"](http://stackoverflow.com/questions/7078658/operation-queue-vs-dispatch-queue-for-ios-application)
 it says also quote:
 	* Prefer GCD where task is not much complex and optimum CPU performance is required.
-	* Prefer NSOperationQueue where task is complex and requires canceling or suspending a block and dependency management.
+	* Prefer NSOperationQueue where task is complex and requires canceling or suspending a block and dependency management.	
+4. [Nice article that TODO: look at examples from the picture](http://www.appcoda.com/ios-concurrency/)
 
-# pthread
+# pthread (advanced/JFYI)
 {% highlight swift %}
 var user_interactive_thread: pthread_t?
 var user_interactive_qos_attr = pthread_attr_t()
