@@ -54,6 +54,25 @@ In particular how to manage sync calls
 * `dispatch_sync`: locks the current thread until the passed block is executed on the separated thread
 * `dispatch_async`: starts executing the passed block on a separate thered, but the current one keeps running
 
+{% highlight swift %}
+let queue = DispatchQueue(label: "important.job", qos: .default, attributes: .concurrent)
+queue.async {
+	// do stuff
+}
+{% endhighlight %}
+
+{% highlight swift %}
+DispatchQueue.main.async {
+	<#code#>
+}
+{% endhighlight %}
+
+{% highlight swift %}
+DispatchQueue.global(qos: .background).async {
+    <#code#>
+}
+{% endhighlight %}
+
 1. [Raywenderlich article](https://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
 2. [serial vs concurrent queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html)
 3. [This answer on sof says that "`NSOperationQueue` does use GCD on iOS 4.0 and later"](http://stackoverflow.com/questions/7078658/operation-queue-vs-dispatch-queue-for-ios-application)
