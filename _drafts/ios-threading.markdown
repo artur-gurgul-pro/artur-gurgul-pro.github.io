@@ -22,7 +22,24 @@ The array will contains two the same items or even wors the app will crash becou
 
 The solution is to use `mutex` for blocking threads in order to avoid override the data.
 
-There is danger of deadlocks
+{% highlight swift %}
+var mutex = pthread_mutex_t()
+pthread_mutex_init(&mutex, nil)
+pthread_mutex_lock(&mutex)
+// do atomic job
+pthread_mutex_unlock(&mutex)
+pthread_mutex_destroy(&mutex)
+{% endhighlight %}
+
+Another mechanism for syncing thread is semaphore, but you need to be aware of potential deadlock. Below you can see one
+
+{% highlight swift %}
+let semaphore = DispatchSemaphore(value: 0)
+semaphore.wait() // DEADLOCK
+semaphore.signal()
+{% endhighlight %}
+
+The current thread stops and wait for a signal that can not be send in this case, becouse we try fto send it from the same thread wich is stopped.
 
 [Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
 
