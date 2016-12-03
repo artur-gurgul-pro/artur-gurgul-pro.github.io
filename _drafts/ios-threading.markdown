@@ -92,7 +92,13 @@ it says also quote:
 * https://developer.apple.com/reference/foundation/thread
 
 {% highlight swift %}
-let thread = NSThread(target:self, selector:#selector(doSomething), object:nil)
+let thread = Thread(target: self, selector: #selector(job), object: nil)
+// or
+let thread = Thread { 
+	<#code#>
+}
+// and then start the tread
+thread.start()
 {% endhighlight %}
 # NSOperationQueue
 [[1]](https://www.raywenderlich.com/76341/use-nsoperation-nsoperationqueue-swift)
