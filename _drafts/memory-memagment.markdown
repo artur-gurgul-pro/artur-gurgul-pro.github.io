@@ -21,9 +21,10 @@ self.url = url; // (3)
 2. Here we tell the system that we do not need old object anymore so the retail counter is going to be decresead. If no other entity keeps reperence to this object the retain counter should be equal to 0 and the object has to be removed from the memory.
 3. This is a little bit tricky part for newers. When we call `self dot someting` the release on the assging object will be called automatically. If we assign the new obhject right away we are going to lose the reference to the old object and we will have no chanfe to release it from the memory.
 
-#### Memory leaks
+#### Memory leaks and bad access 
+* Too many retains or retains cycles. Even if the project uses ARC there is possibility to leaks by keeping strong references to each others by two objects.
 
-`NSZombie`
+* Too many releases. When hetod is called to the object which has been already dealocated we will face the `bad accsess`. For debugging purpose we can set up `NSZombie`. This will replace each dealocated object witch placeholder wchich throws exceptions each time then any metchod is called.
 
 #### Autorelease Pool
 
