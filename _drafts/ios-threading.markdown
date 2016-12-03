@@ -5,7 +5,7 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
-Threading is one og the most difficult things wehn you do programming. Fortunatelly the Apple's SDK handles the proglem exceptionally well in comparisions to another frameworks, at least it is my impression (feel free to arguee or comment on github)
+Threading is one of the most difficult things wehn you do programming. Fortunatelly the Apple's SDK handles the proglem exceptionally well in comparisions to another frameworks, at least it is my impression (feel free to arguee or comment on github)
 
 All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like to mention that the `Blocks` have ability to capture their surrounding state. They close variables around that are in scope at the time the block is declared that's why we call them aslo `Closures` [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
 
@@ -13,13 +13,15 @@ All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like t
 Computation intensive
 I/O intensive
 
-processes = cores /(1- blocking factor)
+`Threads` = `Cores` / (1-`Blocking Factor`)
 
 
+
+#### Mutex and the data consistency
+
+[Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
 
 #### Switching context
-
-### A concurrency and the data consistency
 
 
 # GCD (Grand Central Dispatch)
@@ -40,20 +42,6 @@ it says also quote:
 	* Prefer NSOperationQueue where task is complex and requires canceling or suspending a block and dependency management.	
 4. [Nice article that TODO: look at examples from the picture](http://www.appcoda.com/ios-concurrency/)
 
-# pthread (advanced/JFYI)
-{% highlight swift %}
-var user_interactive_thread: pthread_t?
-var user_interactive_qos_attr = pthread_attr_t()
-
-return_value = pthread_attr_init(&user_interactive_qos_attr)
-return_value = pthread_attr_set_qos_class_np(&user_interactive_qos_attr, QOS_CLASS_USER_INTERACTIVE, 0)
-
-return_value = pthread_create(&user_interactive_thread, &user_interactive_qos_attr, { (x:UnsafeMutableRawPointer) in
-	print("New pthread job")
-	return nil
-}, nil)
-{% endhighlight %}
-
 # NSThread 
 * https://developer.apple.com/reference/foundation/thread
 
@@ -66,46 +54,30 @@ let thread = NSThread(target:self, selector:#selector(doSomething), object:nil)
 
 
 
-### Blueprint of NSOperation
+#### Blueprint of NSOperation
 {% highlight swift %}
 class ImageDownloader: NSOperation {
-  //1
-  let photoRecord: PhotoRecord
- 
-  //2
   init(photoRecord: PhotoRecord) {
     self.photoRecord = photoRecord
   }
  
   //3
   override func main() {
-    //4
-    if self.cancelled {
-      return
-    }
-    //5
-    let imageData = NSData(contentsOfURL:self.photoRecord.url)
+    // 4
+    if self.cancelled { return }
+    // 5
+    // Some chunk of time consuming task
  
-    //6
-    if self.cancelled {
-      return
-    }
+    // 6
+    if self.cancelled { return }
  
-    //7
-    if imageData?.length > 0 {
-      self.photoRecord.image = UIImage(data:imageData!)
-      self.photoRecord.state = .Downloaded
-    }
-    else
-    {
-      self.photoRecord.state = .Failed
-      self.photoRecord.image = UIImage(named: "Failed")
-    }
+    // Some another chunk of time consuming task
+	// and so on...
   }
 }
 {% endhighlight %}
 
-### Blueprint of NSOperationQueue
+#### Blueprint of NSOperationQueue
 
 {% highlight swift %}
 class PendingOperations {
@@ -127,8 +99,17 @@ class PendingOperations {
 }
 {% endhighlight %}
 
+# pthread (advanced/JFYI)
+There is no good idea to handle threads from low level becouse it affect highly into development time of an application, whoever as all of us we are curious about everything, so I am going to show you how to do `pthreading` on iOS. Here is an example:
+{% highlight swift %}
+var user_interactive_thread: pthread_t?
+var user_interactive_qos_attr = pthread_attr_t()
 
+return_value = pthread_attr_init(&user_interactive_qos_attr)
+return_value = pthread_attr_set_qos_class_np(&user_interactive_qos_attr, QOS_CLASS_USER_INTERACTIVE, 0)
 
-## Mutex
-
-[Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
+return_value = pthread_create(&user_interactive_thread, &user_interactive_qos_attr, { (x:UnsafeMutableRawPointer) in
+	print("New pthread job")
+	return nil
+}, nil)
+{% endhighlight %}
