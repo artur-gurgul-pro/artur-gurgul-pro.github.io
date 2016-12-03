@@ -55,24 +55,18 @@ let thread = NSThread(target:self, selector:#selector(doSomething), object:nil)
 
 
 #### Blueprint of NSOperation
+
 {% highlight swift %}
-class ImageDownloader: NSOperation {
+class MyVeryExpensiveOperation: NSOperation {
   init(photoRecord: PhotoRecord) {
     self.photoRecord = photoRecord
   }
- 
-  //3
   override func main() {
-    // 4
     if self.cancelled { return }
-    // 5
     // Some chunk of time consuming task
- 
-    // 6
     if self.cancelled { return }
- 
     // Some another chunk of time consuming task
-	// and so on...
+    // and so on...
   }
 }
 {% endhighlight %}
@@ -80,22 +74,18 @@ class ImageDownloader: NSOperation {
 #### Blueprint of NSOperationQueue
 
 {% highlight swift %}
-class PendingOperations {
-  lazy var downloadsInProgress = [NSIndexPath:NSOperation]()
-  lazy var downloadQueue:NSOperationQueue = {
+class QueueManager {
+  lazy var queue:NSOperationQueue = {
     var queue = NSOperationQueue()
-    queue.name = "Download queue"
+    queue.name = "Queue Name"
     queue.maxConcurrentOperationCount = 1
     return queue
-    }()
+  }()
  
-  lazy var filtrationsInProgress = [NSIndexPath:NSOperation]()
-  lazy var filtrationQueue:NSOperationQueue = {
-    var queue = NSOperationQueue()
-    queue.name = "Image Filtration queue"
-    queue.maxConcurrentOperationCount = 1
-    return queue
-    }()
+  func startNewJob() {
+  	let expensiveOperation = MyVeryExpensiveOperation()
+	queue.add(expensiveOperation)
+  }
 }
 {% endhighlight %}
 
