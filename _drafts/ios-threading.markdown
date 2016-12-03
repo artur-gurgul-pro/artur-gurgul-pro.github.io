@@ -11,8 +11,8 @@ All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like t
 
 #### Kind of jobs might be perform in the separate threads
 
-* Computation intensive jobs: When the thread uses entire processing capability of CPU. The reasonable maximum number of the threads is the number of CPU cores.
-* I/O intensive jobs: In that case we can trigger more threads than we have CPU cores and there is a formula how we can calulate how many thread is an optimal `Threads` = `Cores` / (1-`Blocking Factor`)
+* Computation intensive jobs: When the thread uses entire processing capability of CPU. The reasonable maximum number of the threads is the number of CPU cores. By crating more threads we cause unnececery switching the context by the CPU, which takes small amount of time threfore it makes the caclulation slower.
+* I/O intensive jobs: In that case we can trigger more threads than we have CPU cores and there is a formula how we can calulate how many thread is an optimal `Threads` = `Cores` / (1-`Blocking Factor`). Here the switch of CPU contect itself does not impact much into performance, becouse the the thread probably is waiting anyway for a signal.
 
 #### Mutex and the data consistency
 
@@ -41,9 +41,7 @@ semaphore.signal()
 
 The current thread stops and wait for a signal that can not be send in this case, becouse we try fto send it from the same thread wich is stopped.
 
-[Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
-
-#### Switching context
+[Article abut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
 
 
 # GCD (Grand Central Dispatch)
