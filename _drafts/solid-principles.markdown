@@ -6,7 +6,6 @@ categories: swift solid
 ---
 
 * https://www.youtube.com/watch?v=gwIS9cZlrhk
-* https://www.youtube.com/watch?v=TMuno5RZNeE
 
 SOLID is a set of principles that helps you to keep your code more modular, more testable, and easier to extend. 
 
@@ -30,13 +29,20 @@ The interfaces should be small and provide as little methods as possible.
 
 The lower module mast not depends on higher module. In order to achieve this the code mast to relay on abstractions (in other words the code has to use interfaces/protocols)
 
-# The uncle Bob's example
+# The uncle Bob's example [[1]](https://www.youtube.com/watch?v=TMuno5RZNeE)
+
+
+Warning it is the code for people with strong nerve system. It might cause nightmares, so be careful with the samples:
+
+{% highlight swift %}
+
+{% endhighlight %}
 
 Another rules that not belongs to SOLID, but still worth to mention is KISS and DRY
 
 [Package principles](https://en.wikipedia.org/wiki/Package_principles)
 [List of princilpes](https://en.wikipedia.org/wiki/List_of_software_development_philosophies)
-
+[You aren't gonna need it](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it)
 
 [google]: http://www.google.com  "Google it!"
 
