@@ -18,6 +18,7 @@ All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like t
 
 
 #### Mutex and the data consistency
+What makes threading difficult is the data consistency. Imageine the sytyation when there are two threads that have a pointer to the same array which suppose to contains unique items. Both threads can modyfy and read the array. Let say both of the threads want to append the the same item at exactly the same time to the array. What they do is to check if the item exists aleady in the array iterate through the array for checking it the item is a duplicate and if not both od them append the item. 
 
 [Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
 
