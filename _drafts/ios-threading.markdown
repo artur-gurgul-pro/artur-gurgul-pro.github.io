@@ -50,7 +50,14 @@ The [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) is a part
 In particular how to manage sync calls
 
 
-* `dispatch_once`: makes sure that the passed block is executed only one in the application life time
+* `dispatch_once`: Does not exists in SDK anymore [[1]](http://stackoverflow.com/questions/37801407/whither-dispatch-once-in-swift-3) Here is an alternative
+
+{% highlight swift %}
+private lazy var foo: Void = {
+    // Do this once
+}()
+{% endhighlight %}
+
 * `dispatch_sync`: locks the current thread until the passed block is executed on the separated thread
 * `dispatch_async`: starts executing the passed block on a separate thered, but the current one keeps running
 
