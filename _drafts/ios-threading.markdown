@@ -5,17 +5,17 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
-Apple's SDK handles threads exceptionally well in comparisions to another frameworks, at least it is my impression (feel free to arguee or comment on )
+Threading is one og the most difficult things wehn you do programming. Fortunatelly the Apple's SDK handles the proglem exceptionally well in comparisions to another frameworks, at least it is my impression (feel free to arguee or comment on github)
 
-#### kind of jobs
+All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like to mention that the `Blocks` have ability to capture their surrounding state. They close variables around that are in scope at the time the block is declared that's why we call them aslo `Closures` [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
+
+#### Kind of jobs we want to perform in separate threads
 Computation intensive
 I/O intensive
 
 processes = cores /(1- blocking factor)
 
 
-#### Bloks/closures
-"Blocks also capture their surrounding state. That is, blocks are closures: they close around variables that are in scope at the time the block is declared." [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
 
 #### Switching context
 

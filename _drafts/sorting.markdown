@@ -5,7 +5,7 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift algorithms
 ---
 
-As an example of sorting algorytm I am going to describe is a quicksort. The idea of this sorting method comes from the rule "divide and conquer". The algorytm takes a random element from the array and splits the input array using that element into three arrays that one of them contains elements smaller than spliter, secound greather, and thrid equal. The next step is to do the same thing to those tree arrays, then having partial results we can join them.
+As an example of sorting algorithm I am going to describe is a Quick Sort. The idea of this method comes from the rule "divide and conquer". The algorithm takes a random element from the array and splits it using that element into three arrays that one of them contains elements smaller than splitter, second greater and third equal. The next step is to do the same thing to those tree arrays. Having partial results we can join them together which ends up with the sorted array.
 
 {% highlight swift %}
 extension Array where Element: Comparable {
@@ -32,9 +32,9 @@ extension Array where Element: Comparable {
 
 1. If the array has no elements or has only one there is no point for sorting
 2. In this line we take the divider element
-3. We take elements that are smaller then the divider and than perform sorting on this sub-array
+3. Take elements that are smaller then the divider and than perform sorting on this sub-array
 4. Exactly the same as above but for greater elements
-5. We take the middle elements. Notice that there might be more than one element that is equal to the divider
+5. Take the middle elements. Notice that there might be more than one element that is equal to the divider
 6. Here we can combine three sub-sets and produce the result. From now on the array is sorted.  
 
 Example usage
@@ -45,7 +45,7 @@ t.quick_sort()
 print(t)
 {% endhighlight %}
 
-We can improve code a little bit by merging part `3`, `4`, `5` into signle loop. Currently we are using filter which goes through all elements. Exach filter has the complexity of it is is `O(n)`, so if we go through all items only once we can speed up the algorithm 3 times. Example solution.
+We can improve code a little bit by merging part `3`, `4`, `5` into signle loop. Currently we are using filter which goes through all elements. Each filter has the complexity of it is is `O(n)`, so if we go through all items only once we can speed up the algorithm 3 times. Example solution.
 
 {% highlight swift %}
 var acc = (left:[], middle:[], right:[])        
@@ -76,10 +76,10 @@ default:
 {% endhighlight %}
 
 ### The worst case scenario
-* Quick sort is good but not perfect. Sometimes we have sets that are almost sorted but not quite. In that case when we take first element as a splitter then the left array will be pretty offen empty. We can improve the algorythm by splitting in the first run the set into subsets that are sorted and unsorted, and perform quick sort only for those subsets which requires it.
+* Quick sort is excellent but not perfect. Sometimes we have sets that are almost sorted but not quite. In that case when we take first element as a splitter then the left array will be pretty often empty. We can improve the algorithm by splitting in the first run the set into subsets that are sorted and unsorted, and perform quick sort only for those subsets which requires it.
 
-* Swift has also a limit of the call-stack, so if the quick sort function is called recursively we can reach the limit and the app will crach.
+* Swift has also a limit of the call-stack, so if the quick sort function is called recursively we can reach the limit and the app is going to crash.
 
-* In addition there is secound reason of a crash. We can run out of memory. In that matter better algorythm is ie. `Bubble sort`.
+* There is event one more reason for crash. The algorithm might can run out of memory. In that matter the better algorithm is ie. `Bubble sort`.
 
 

@@ -40,7 +40,7 @@ The sample below tells how to do this, but with functional approuch we can tell 
 {% highlight swift %}
 let squerdPrimaryNumbers = numbers.filter(isPrime).map{$0*$0}
 {% endhighlight %}
-The code became more clear and just tells what-to-do. Some of implementation that says how-to-do has been hidden into
+The code became more clear when programmer write it telling just what-to-do (not how-to-do). Some of implementation that says how-to-do might be hidden into
 functions. Quite important thing is that we can run the sample parallel, puttping threading login inside the function. The example implementation:
 
 {% highlight swift %}
