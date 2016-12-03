@@ -5,7 +5,7 @@ date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
-Threading is one of the most difficult things wehn you do programming. Fortunatelly the Apple's SDK handles the proglem exceptionally well in comparisions to another frameworks, at least it is my impression (feel free to arguee or comment on github)
+Threading is one of the most difficult things wehen you do programming. Fortunatelly, in comparisions to another frameworks, the Apple's SDK handles the proglem exceptionally well. At least it is my impression (feel free to arguee or comment on [github](https://github.com/artur-gurgul/artur-gurgul.markdown/issues/1))
 
 All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like to mention that the `Blocks` have ability to capture their surrounding state. They close variables around that are in scope at the time the block is declared that's why we call them aslo `Closures` [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
 
@@ -30,9 +30,9 @@ The [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) is a part
 In particular how to manage sync calls
 
 
-`dispatch_once`
-`dispatch_sync`
-`dispatch_async`
+* `dispatch_once`: makes sure that the passed block is executed only one in the application life time
+* `dispatch_sync`: locks the current thread until the passed block is executed on the separated thread
+* `dispatch_async`: starts executing the passed block on a separate thered, but the current one keeps running
 
 1. [Raywenderlich article](https://www.raywenderlich.com/60749/grand-central-dispatch-in-depth-part-1)
 2. [serial vs concurrent queues](https://developer.apple.com/library/content/documentation/General/Conceptual/ConcurrencyProgrammingGuide/OperationQueues/OperationQueues.html)
