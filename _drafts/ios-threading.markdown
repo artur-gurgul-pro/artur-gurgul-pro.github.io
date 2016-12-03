@@ -11,14 +11,16 @@ All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like t
 
 #### Kind of jobs might be perform in the separate threads
 
-
 * Computation intensive jobs: When the thread uses entire processing capability of CPU. The reasonable maximum number of the threads is the number of CPU cores.
 * I/O intensive jobs: In that case we can trigger more threads than we have CPU cores and there is a formula how we can calulate how many thread is an optimal `Threads` = `Cores` / (1-`Blocking Factor`)
 
-
-
 #### Mutex and the data consistency
+
 What makes threading difficult is the data consistency. Imageine the sytyation when there are two threads that have a pointer to the same array which suppose to contains unique items. Both threads can modyfy and read the array. Let say both of the threads want to append the the same item at exactly the same time to the array. What they do is to check if the item exists aleady in the array iterate through the array for checking it the item is a duplicate and if not both od them append the item. 
+
+The array will contains two the same items or even wors the app will crash becouse the array moght be mutated at the time the other threat iterate through it.
+
+The solution is to use mutex for blocking threads in order to avoid override the data.
 
 [Article abuut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
 
