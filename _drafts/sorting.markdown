@@ -11,9 +11,7 @@ As an example of sorting algorithm I am going to describe is a Quick Sort. The i
 extension Array where Element: Comparable {
     mutating func quick_sort() {
         // (1) --------------------------------------
-        if count <= 1 {
-            return
-        }
+        if count <= 1 { return }
         // (2) --------------------------------------
         let splitElement = self[0]
         // (3) --------------------------------------
