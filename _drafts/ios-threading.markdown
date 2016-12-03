@@ -9,11 +9,11 @@ Threading is one of the most difficult things wehen you do programming. Fortunat
 
 All chunks of job are arranged into `Bloks` or `Functions`/`Mothods`. I'd like to mention that the `Blocks` have ability to capture their surrounding state. They close variables around that are in scope at the time the block is declared that's why we call them aslo `Closures` [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
 
-#### Kind of jobs we want to perform in separate threads
-Computation intensive
-I/O intensive
+#### Kind of jobs might be perform in the separate threads
 
-`Threads` = `Cores` / (1-`Blocking Factor`)
+
+* Computation intensive jobs: When the thread uses entire processing capability of CPU. The reasonable maximum number of the threads is the number of CPU cores.
+* I/O intensive jobs: In that case we can trigger more threads than we have CPU cores and there is a formula how we can calulate how many thread is an optimal `Threads` = `Cores` / (1-`Blocking Factor`)
 
 
 
@@ -49,7 +49,7 @@ it says also quote:
 let thread = NSThread(target:self, selector:#selector(doSomething), object:nil)
 {% endhighlight %}
 # NSOperationQueue
-
+[[1]](https://www.raywenderlich.com/76341/use-nsoperation-nsoperationqueue-swift)
 * How to cancel NSOperationQueue
 
 
