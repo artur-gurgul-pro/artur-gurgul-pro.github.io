@@ -103,35 +103,27 @@ let thread = NSThread(target:self, selector:#selector(doSomething), object:nil)
 #### Blueprint of NSOperation
 
 {% highlight swift %}
-class MyVeryExpensiveOperation: NSOperation {
-  init(photoRecord: PhotoRecord) {
-    self.photoRecord = photoRecord
-  }
-  override func main() {
-    if self.cancelled { return }
-    // Some chunk of time consuming task
-    if self.cancelled { return }
-    // Some another chunk of time consuming task
-    // and so on...
-  }
+class MyVeryExpensiveOperation: Operation {
+    override func main() {
+        if self.isCancelled { return }
+        // Some chunk of time consuming task
+        if self.isCancelled { return }
+        // Some another chunk of time consuming task
+        // and so on...
+    }
 }
 {% endhighlight %}
 
 #### Blueprint of NSOperationQueue
 
 {% highlight swift %}
-class QueueManager {
-  lazy var queue:NSOperationQueue = {
-    var queue = NSOperationQueue()
-    queue.name = "Queue Name"
-    queue.maxConcurrentOperationCount = 1
-    return queue
-  }()
- 
-  func startNewJob() {
-  	let expensiveOperation = MyVeryExpensiveOperation()
-	queue.add(expensiveOperation)
-  }
+let queue = OperationQueue()
+queue.name = "Queue Name"
+queue.maxConcurrentOperationCount = 1
+let myOperation = MyVeryExpensiveOperation()
+queue.addOperation(myOperation)
+queue.addOperation {
+	// some another job passed by block
 }
 {% endhighlight %}
 
