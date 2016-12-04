@@ -20,8 +20,6 @@ func isPrime(number: Int) -> Bool {
 }
 {% endhighlight %}
 
-
-
 ### Imperative way (how to do)
 
 {% highlight swift %}

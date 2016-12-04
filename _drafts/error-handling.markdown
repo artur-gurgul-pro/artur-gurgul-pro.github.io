@@ -8,7 +8,7 @@ categories: swift
 
 ### Notyfy a user about error occurence
 
-### Resume after an error
+### Recovery after error occurance
 
 And How to write no errous code
 * How optional's work
@@ -21,4 +21,3 @@ And How to write no errous code
 
 * Anti patterns
   https://en.wikipedia.org/wiki/Anti-pattern
-
