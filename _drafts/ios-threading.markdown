@@ -88,9 +88,14 @@ it says also quote:
 	* Prefer NSOperationQueue where task is complex and requires canceling or suspending a block and dependency management.	
 4. [Nice article that TODO: look at examples from the picture](http://www.appcoda.com/ios-concurrency/)
 
+# NSObject
+The easiest way to start a new thread is to use a method that comes from base class `NSObject`
+{% highlight swift %}
+performSelector(inBackground: #selector(job), with: nil)
+{% endhighlight %}
 # NSThread 
 * https://developer.apple.com/reference/foundation/thread
-
+This is the most 
 {% highlight swift %}
 let thread = Thread(target: self, selector: #selector(job), object: nil)
 // or
