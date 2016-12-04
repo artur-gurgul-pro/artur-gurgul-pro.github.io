@@ -43,6 +43,11 @@ The current thread stops and wait for a signal that can not be send in this case
 
 [Article abut mutexes](https://www.cocoawithlove.com/blog/2016/06/02/threads-and-mutexes.html)
 
+# NSObject
+The easiest way to start a new thread is to use a method that comes from base class `NSObject`
+{% highlight swift %}
+performSelector(inBackground: #selector(job), with: nil)
+{% endhighlight %}
 
 # GCD (Grand Central Dispatch)
 The [libdispatch](https://github.com/apple/swift-corelibs-libdispatch) is a part of core library wchich takes care about threading. 
@@ -88,11 +93,6 @@ it says also quote:
 	* Prefer NSOperationQueue where task is complex and requires canceling or suspending a block and dependency management.	
 4. [Nice article that TODO: look at examples from the picture](http://www.appcoda.com/ios-concurrency/)
 
-# NSObject
-The easiest way to start a new thread is to use a method that comes from base class `NSObject`
-{% highlight swift %}
-performSelector(inBackground: #selector(job), with: nil)
-{% endhighlight %}
 # NSThread 
 * https://developer.apple.com/reference/foundation/thread
 This is the most 
