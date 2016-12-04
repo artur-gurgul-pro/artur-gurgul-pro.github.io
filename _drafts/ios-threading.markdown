@@ -67,6 +67,7 @@ private lazy var foo: Void = {
 * `dispatch_async`: starts executing the passed block on a separate thered, but the current one keeps running
 
 {% highlight swift %}
+// without "arrtibures" we will get serial queue
 let queue = DispatchQueue(label: "important.job", qos: .default, attributes: .concurrent)
 queue.async {
 	// do stuff

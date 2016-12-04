@@ -2,7 +2,7 @@
 layout: post
 title:  "[draft] Samples of my code"
 date:   2016-10-19 12:09:07 +0200
-categories: swift samples
+categories: swift 
 ---
 
 * [My solution to the sudoku](https://gist.github.com/gurgul/ecb0095b6e38eac6001684a25004987e)
