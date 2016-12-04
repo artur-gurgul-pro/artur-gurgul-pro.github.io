@@ -11,9 +11,9 @@ There are several successful branching models, but there are my modified model.
 * `master` branch [protected] - contains stable version of the application where are tags with released version named for example `release-1.1.1`. Hot fixes are done here and merged back to development branch.
 * `development` branch [protexted] - here should land every pull request from feaure branches
 
-A protected branch is the branch when it mighr be changed only in pull reguest process.
+A protected branch is the branch when it might be changed only in pull reguest process.
 
-We might consider to have only those two branches in the main repository. Developers should work on theirs forks and send the chenges through pull requests. Sugested names of branches for them might be like:
+We might consider to have only those two branches in the main repository. Developers should work on theirs own forks and send the chenges through pull requests. Sugested names of branches for them might be like:
 
 * Feature's branches the name is usially taken from the tasks manager like JIRA, for example `PROJ-234`
 * Quick fixes branches HOTFIX-PROJ-234
