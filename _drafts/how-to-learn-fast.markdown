@@ -14,7 +14,7 @@ helps your brain, but it also make your life higher quality.
 
 # Memory tricks
 
-The brain has different capabilities depends on senses he use, for example you can easier remember an information from 
+The brain has different capabilities depends on senses he use, for example you can easier remember an information from
 the picture than from the voice. Below I presented a couple of fact you can use for improving a cognitive and perception skills.
 
 ## The odd facts lasts longer in the brain 

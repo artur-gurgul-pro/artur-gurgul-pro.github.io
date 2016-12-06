@@ -6,17 +6,49 @@ categories: swift ios
 ---
 
 
-# Notification center vs delegate
+### Target/Action pattern
 
+### Delegate pattern
+
+### Notification center
+
+{% highlight swift %}
+NSNotificationCenter.defaultCenter().addObserver(
+	<#T##observer: NSObject##NSObject#>,
+	forKeyPath: <#T##String#>,
+	options: <#T##NSKeyValueObservingOptions#>,
+	context: <#T##UnsafeMutablePointer<Void>#>
+)
+{% endhighlight %}
 #--------------- copied from the web
 Notification is used to broadcast messages to possibly several recipients unknown from the sender.
 Delegation is used to send messages to a single known recipient acting on behalf of the sender.
-#---------------
 
-* Delegates
-* `NSNotificationCenter`
-* KVO
+### Key Value Observer
 
+{% highlight swift %}
+setValue(<#T##value: AnyObject?##AnyObject?#>, forKey: <#T##String#>)
+
+addObserver(
+	<#T##observer: NSObject##NSObject#>,
+	forKeyPath: <#T##String#>,
+	options: <#T##NSKeyValueObservingOptions#>,
+	context: <#T##UnsafeMutablePointer<Void>#>
+)
+
+// ==> override        
+observeValueForKeyPath(
+	"key", ofObject: <#T##AnyObject?#>,
+	change: <#T##[String : AnyObject]?#>,
+	context: <#T##UnsafeMutablePointer<Void>#>
+)
+{% endhighlight %}
+
+{% highlight objc %}
+[self.child1 willChangeValueForKey:@"name"];
+self.child1.name = @"Michael";
+[self.child1 didChangeValueForKey:@"name"];
+{% endhighlight %}
 
 http://stackoverflow.com/questions/24092285/is-key-value-observation-kvo-available-in-swift
 Both yes and no:
@@ -34,16 +66,8 @@ But... No it will not be KVO since it will only work for properties which you im
 You can find a library for implementing such value observing here:
 Observable-Swift - KVO for Swift - Value Observing and Events
 
-
-* Target/Action pattern.
-
-
-==== 
-
-*  With reactive programming approach you can easily integrate fallowing things as a stream  
-
-* RxSwift
-
+### RxSwift
+With reactive programming approach you can easily integrate fallowing things as a stream
 
 # using swift3 with Objc
 * https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/AdoptingCocoaDesignPatterns.html#//apple_ref/doc/uid/TP40014216-CH7-XID_8

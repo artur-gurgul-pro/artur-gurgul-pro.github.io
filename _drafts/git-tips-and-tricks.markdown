@@ -29,7 +29,7 @@ squash ba9dd9a Added new elements to page design
 squash df71a27 Updated CSS for new elements
 {% endhighlight %}
 
-{% highlight swift %}
+{% highlight bash %}
 git rebase --continue
 {% endhighlight %}
 

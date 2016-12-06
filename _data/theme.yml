@@ -30,4 +30,4 @@ google_analytics_key: UA-41036379-1
 show_disclaimer: true
 
 # Toggle link/icon to view atom feed (/atom.xml) in sidebar
-show_atom_feed: flase
+show_atom_feed: false

@@ -21,3 +21,12 @@ And How to write no errous code
 
 * Anti patterns
   https://en.wikipedia.org/wiki/Anti-pattern
+
+
+func getObservable() -> Observable<Bool> {
+    guard let <#Var#> = <#Var#> else {
+        return Observable.error(<#Error#>)
+    }
+    
+    return self.getObservableWhenConditionSatisfied()
+}
