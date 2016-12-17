@@ -33,3 +33,8 @@ The more detailed facts come form the general ones, so the brain has a lot of ea
 
 * Creating notes - Mark Down and tips how make notes right
 
+# estbilis realistic goals
+
+# make it habbit
+
+#easy to do, easy not to do

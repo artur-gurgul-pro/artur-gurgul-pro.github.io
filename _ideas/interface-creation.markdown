@@ -16,3 +16,5 @@ categories: swift
 * Stack view, why Apple introduced such thing
 * https://developer.apple.com/videos/play/wwdc2016/216/
 
+Visual formatting
+https://www.raywenderlich.com/110393/auto-layout-visual-format-language-tutorial
