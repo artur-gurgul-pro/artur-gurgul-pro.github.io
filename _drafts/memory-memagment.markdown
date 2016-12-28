@@ -7,7 +7,7 @@ categories: swift
 
 ###  MRC - manual reference counter
 
-A MRC is the most early mechanism for memory management that we can use on iOS platform. Everyting is contentrated araund `retainCount` according to which the system knows when to release the memory. To manipulate this counter we use the `retain` for increasing and `release` for decreasing. 
+A MRC is the most early mechanism for memory management that we can use on iOS platform. Everyting is concentrated araund `retainCount` according to which the system knows when to release the memory. To manipulate this counter we use the `retain` for increasing and `release` for decreasing. 
 
 Basically when the `retainCount` of `X` object is equal to 0 that means no other object uses `X` object and `X` object can be remove from the memory.
 

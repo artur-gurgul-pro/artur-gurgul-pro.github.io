@@ -10,6 +10,7 @@ categories: swift ios
 
 ### Delegate pattern
 
+
 ### Notification center
 
 {% highlight swift %}

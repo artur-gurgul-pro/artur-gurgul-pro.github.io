@@ -1,9 +1,14 @@
 ---
 layout: post
-title:  "[draft] Working with the code"
+title:  "[draft] The process"
 date:   2016-10-19 12:09:07 +0200
 categories: management
 ---
+Here I have wrote all the things I faced during the softwate development process ... blah blah 
+
+### The sprints
+Do not take to much, it is better to take stuff from backlog instead. This makes developers feel good, becouse they finished evertyiong they should and they do extra.
+Fun fridays -  
 
 ### Git Branching - Branch Management
 There are several successful branching models, but there are my modified model.
@@ -21,7 +26,7 @@ We might consider to have only those two branches in the main repository. Develo
 ### Code review -- pull requests
 
 The idea is to force the team to check the new changes in the code and helps catch the bugs, bad quality code, teach everybody, make code less redundant.
-THe code review is a very important process which in my opinion should be a must-to-have thing.
+The code review is a very important process which in my opinion should be a must-to-have thing.
 
 However it leads to a blame war especially then there is no clear code gudlines.
 
@@ -29,6 +34,13 @@ There are a couple things that make the process easier
 * Clear commit message, so everyone knows what has been changed
 * Commits that are continuation of the same issue should be squasshed into one
 * Use `rebase -i` instead of `merge`
+
+### QA process
+Reopen and duplicates. Checking the code according to specification and making
+
+#### Bugs reporting
+
+### Features planning 
 
 #### Tools
 * Gitkraken
