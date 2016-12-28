@@ -9,20 +9,19 @@ Here I have wrote all the things I faced during the software development process
 ### The sprints
 * *Do not take to much*, it is better to take stuff from backlog instead. This makes developers feel good, because they finished everything they should and they do extra.
 * *Fun Fridays* - Allow the developers to take any task from back log they want. (without it the task that has category unimportant, not urgent will never be completed, however they might bring unexpected value to the project)
-Realistic goals that bring as much value as possible. To figure this out you can meaure where users spend most of the time, what functionality is the most crucial for your business.
-Do not take to much, it is better to take stuff from backlog instead. This makes developers feel good, becouse they finished evertyiong they should and they do extra.
-Fun fridays - 
+Realistic goals that bring as much value as possible. To figure this out you can measure where users spend most of the time, what functionality is the most crucial for your business.
+Do not take to much, it is better to take stuff from backlog instead. This makes developers feel good, because they finished everything they should and they do extra.
 
 ### Git Branching - Branch Management
 There are several successful branching models, but there are my modified model.
 
 * `master` branch [protected] - contains stable version of the application where are tags with released version named for example `release-1.1.1`. Hot fixes are done here and merged back to development branch.
-* `development` branch [protected] - here should land every pull request from feaure branches that are desired to be released in the next version
+* `development` branch [protected] - here should land every pull request from feature branches that are desired to be released in the next version
 
 #### Extra branches
-Those are created for special purpose. Should have been described 
-* `feature-name` - the feature branch with changes that are not sheduled for the next release
-* `experimental-name` - th
+Those are created for special purpose. Should have been described
+* `feature-name` - the feature branch with changes that are not scheduled for the next release
+* `experimental-name` - ...
 
 A protected branch is the branch when it might be changed only in pull request process.
 
@@ -44,7 +43,7 @@ There are a couple things that make the process easier
 * Use `rebase -i` instead of `merge`
 
 #### The guidlines
-The company shuld have a document that describes the rules all programmers shall follow. it decrease tension during the pull review process. 
+The company shuld have a document that describes the rules all programmers shall follow. it decrease tension during the pull review process.
 
 ### QA process
 The automation test and refactoring team.
@@ -56,12 +55,12 @@ Feedback from the users
 
 
 
-#### Features planning 
+#### Features planning
 
 ### Meetings
 
 * Career path: Pay attention to the developers and talk to them on regular basis. All of them should feel important. Make for each developer his own career path and create opportunities.
-* Demo: Show the project status and gives popportunity to develpers show is contribution and abilities.
+* Demo: Show the project status and gives opportunity to developers show is contribution and abilities.
 
 
 IDEA Box
