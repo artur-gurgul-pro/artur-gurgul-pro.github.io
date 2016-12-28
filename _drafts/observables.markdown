@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[draft] The observable desing pattern"
+title:  "[draft] The observable design pattern"
 date:   2016-10-19 12:09:07 +0200
 categories: swift ios
 ---
