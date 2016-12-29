@@ -67,22 +67,39 @@ The company should have a document that describes the rules all programmers shal
 
 ##### Reporting bugs
 Problems
-* Duplicates
+* Duplicates - they cost time and create confusions, so overtime somebody report an issue he has to check for similar
 * Reopen because of exclusive requirements
-
-#### Bug reporting
+* poorly described issues
 
 ### Marketing process
 
+In order to make a project successful you have to spend significant amount of time on marketing. Good product will not advertise for itself, even if it is the best of the best in the business area.
+
 ### Recruitment process
+
+# tech people
+
+I have to admit I have a little experience in this subject, however I have some thoughts I'd like to share. In my opinion the success of the project is in 20% talent of the workers and the rest is a hard and dedicated work, therefore the recruiters should make sure the candidate is motivated and focused on solving the problems. A can-do attitude is only thing that is mandatory.
+
+Another thing that has to be checked is if the candidate fits to the team. Good sense of humor and optimism is highly desirable. In case the candidate fails this step, you can still hire him and work on him, but you have to pay attention if he will not make bad influence to the team. You and the candidate can work on improving the attitude, if it will work, great, but if not you should consider to give a notice after probation period.
+
+#
 
 #### Features planning
 
+If something becomes difficult to plan or to do there is high change there is a mistake in the design or solution. 
+
 ### Meetings
 
-* Career path: Pay attention to the developers and talk to them on regular basis. All of them should feel important. Make for each developer his own career path and create opportunities.
-* Demo: Show the project status and gives opportunity to developers show is contribution and abilities.
+* Career path: Pay attention to the workers and **talk to them** on regular basis. Make for each developer his own career path and create opportunities. All of them should feel important and it will help it out. Tech people earn quite a lot, so usually more money is not significant motivation for them, but possibility to grow in their area is.
 
+Encourage team to healthy live style and help them out make it happen, give them gym-cards, award them, something it works. Try to convince them, but remember this is theirs lives, so you have no right to enforce anything in that area, just polite suggestions.
+
+* Demo: Show the project status and gives opportunity to developers present their contribution and abilities. The meeting should be short (in my opinion no longer than 10 mins per person + extra time for answering the questions) and dense with informations. As a project manager pay attention to the questions. Pretty often they are more important than the answers. To this meetings should attend only people who are involved in and optionally executives.
+
+* Daily stand-ups. In my opinion this kind of meetings tend to be very unproductive, especially when participants work on the same project but for different platforms or areas (marketing, software development, design ...) Just nobody is listening to things (at last don't remember for longer period of time) that don't really care about. If you are only one on your field (let say there are only you who works on iOS) you can consider make a request to your project manager to let you quit such meetings. However there might be a situation that you want to know what it going on in entire project (bacons you want to know if somebody had the same problem as you etc.), so you can look at demo slides, or look at task tracker. Another solution might be running an IM chat room for stand-ups, so it can be searched out for the things that particular person is interested in.
+
+* After hours
 
 IDEA Box
 
@@ -90,6 +107,8 @@ IDEA Box
 * Gitkraken
 * Source tree
 
+
+Task that appropried to knowladge (planning )
 
 ## Copied to
 * Quora
