@@ -8,22 +8,27 @@ categories: management
 Here I am going to share all the things I faced during the software development process. This article is in working progress (and always will be). Feel free to discuss out the content on github or make a pull request with your changes.
 
 
-### Planning
+## Planning
 
-#### Features planning
+##### Features planning
 
 If something becomes difficult to plan or to do there is high change there is a mistake in the design or solution. 
 
-#### Sprints
+###### IDEA Box
+Ask your developers to write down all the features they want see in the app. Try to estimate the value. Rewarding the creativity will bring it more and more.
+
+##### Sprints
 
 A sprint is a chunk of job usually planed for week or two.
 
 Thare are a couple of suggestions
 * *Do not take to much* The goals has to be realistic and possbile to acomplish. It is quite obvious, but developers tend to overextimate thier capcatity to solving the problems, becouse everyone wants to be seen as smart person. In another hand when the developers accomplish everyting on time it allows feel them good. 
 * The goals should bring as much value as possible. Like baking a pie using the sand, which is labor intensive, doesn't bring any value. Nobody will eat such pie. The same thing, however less obvious, happens to the software. Try to measure where in your app the users spend most of the time, or try to find out what functionality will bring real appriciaton. Every change in your app, like change a library, should be strongly argumented.  
-* Consider *Fun Fridays* - Allow the developers to take any task from back log they want. (without it the task that has category unimportant, not urgent will never be completed, however some of them might bring unexpected value to the project) In addition, the developers work more effective on things they like.
+* Consider *Fun Fridays* - Allow the developers to take any task from the backlog they want. (without it the task that has category unimportant, not urgent will never be completed, however some of them might bring unexpected value to the project) In addition, the developers work more effective on things they like.
 
-#### IDEA Box
+
+
+
 
 ##### Levels of planning
 
@@ -34,7 +39,7 @@ Thare are a couple of suggestions
 #####  Demo after each sprint
 Sprint should end up with the demo, where every person involved in the project shows his work to others. It is also very desirable to publish a new version for the customers.
 
-### Code managment
+## Code managment
 
 During my career I faced a lot of different approuches to the subject. 
 
@@ -72,7 +77,7 @@ There are a couple things that make the process easier
 ##### The guidelines
 The company should have a document that describes the rules all programmers shall follow. it decrease tension during the pull review process.
 
-### QA process
+## QA process
 
 * *Unit testing team* : Probably not everyone will agree with me, but in my opinion tests should do separate team. This approach has very important advantage, if somebody else will write tests, he has to understand the code, if not, he will reject the push request. This team should work closely to *refactoring team*
 
@@ -90,7 +95,7 @@ Problems
 
 In order to make a project successful you have to spend significant amount of time on marketing. Good product will not advertise for itself, even if it is the best of the best in the business area.
 
-### Recruitment process
+## Forming the team
 
 I have to admit I have a little experience in this subject, however I have some thoughts I'd like to share.
 
@@ -103,6 +108,8 @@ Another thing that has to be checked is if the candidate fits to the team. Good 
 #### Non-tech people
 
 I have no idea :) I will update this one when I fugure out 
+
+##### Hiring people from outside. 
 
 ### Meetings
 
