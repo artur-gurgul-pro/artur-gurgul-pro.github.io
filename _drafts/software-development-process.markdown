@@ -1,35 +1,50 @@
 ---
 layout: post
-title:  "[draft] The software development process"
+title:  "The software development process"
 date:   2016-10-19 12:09:07 +0200
 categories: management
 ---
 
-Here I have wrote all the things I faced during the software development process ... blah blah
+Here I am going to share all the things I faced during the software development process. This article is in working progress (and always will be). Feel free to discuss out the content on github or make a pull request with your changes.
 
-### The sprints
 
-Sprint is a chunk of job usually planed for week or two.
+### Planning
 
-Important thing is to have the realistic goals that bring as much value as possible. To figure this out you can measure where users spend most of the time in your app and knowing what functionality is the most crucial for your business.
+#### Features planning
 
-##### Two levels of planning
+If something becomes difficult to plan or to do there is high change there is a mistake in the design or solution. 
 
-* *The general goal* of the sprint. Almost all apps consist with numerous futures and couple of crucial functionalities, however each has to have a priority. Take is as an example: there is a messaging app, user will be able to send the text and the stickers, but sticker is something extra and might be done latter on. To bring the value to the users, we have to focus on raw text sending in first run, and another functionalities that make it possible to publish the app. In second run we will plan goals according to
+#### Sprints
+
+A sprint is a chunk of job usually planed for week or two.
+
+Thare are a couple of suggestions
+* *Do not take to much* The goals has to be realistic and possbile to acomplish. It is quite obvious, but developers tend to overextimate thier capcatity to solving the problems, becouse everyone wants to be seen as smart person. In another hand when the developers accomplish everyting on time it allows feel them good. 
+* The goals should bring as much value as possible. Like baking a pie using the sand, which is labor intensive, doesn't bring any value. Nobody will eat such pie. The same thing, however less obvious, happens to the software. Try to measure where in your app the users spend most of the time, or try to find out what functionality will bring real appriciaton. Every change in your app, like change a library, should be strongly argumented.  
+* Consider *Fun Fridays* - Allow the developers to take any task from back log they want. (without it the task that has category unimportant, not urgent will never be completed, however some of them might bring unexpected value to the project) In addition, the developers work more effective on things they like.
+
+#### IDEA Box
+
+##### Levels of planning
+
+* *The general goal* of the sprint. All apps consist with numerous futures and couple of crucial functionalities, however each has to have a priority. Take is as an example: there is a messaging app, user will be able to send the text and the stickers, but sticker is something extra and might be done latter on. To bring the value to the users, we have to focus on raw text sending in first run, and another functionalities that make it possible to publish the app. In second run we will plan goals according to
 * Which tasks to take to accomplish general gaol and how to split task over the team. The suggestions for this step is *Do not take to much*. It is better much better to take stuff from backlog latter on. This makes developers feel good, because they finished everything they suppose to and they do extra.
 
-* *Do not take to much*, it is better to take stuff from backlog instead. This makes developers feel good, because they finished everything they should and they do extra.
-* *Fun Fridays* - Allow the developers to take any task from back log they want. (without it the task that has category unimportant, not urgent will never be completed, however some of them might bring unexpected value to the project) In addition, the developers work more effective on things they like.
 
-Sprint should end with the demo, where every person involved in the project shows his work to others. It is also very desirable to publish a new version for the customers.
+#####  Demo after each sprint
+Sprint should end up with the demo, where every person involved in the project shows his work to others. It is also very desirable to publish a new version for the customers.
 
-### Git Branching - Branch Management
+### Code managment
+
+During my career I faced a lot of different approuches to the subject. 
+
+#### Git Branching - Branch Management
 There are several successful branching models, but there are my modified model.
 
 * `master` branch [protected] - contains stable version of the application where are tags with released version named for example `release-1.1.1`. Hot fixes are done here and merged back to development branch.
 * `development` branch [protected] - here should land every pull request from feature branches that are desired to be released in the next version
 
-##### Extra branches
+###### Extra branches
 Those are created for special purpose. Should have been described
 * `feature-name` - the feature branch with changes that are not scheduled for the next release
 * `experimental-name` - ...
@@ -41,7 +56,7 @@ We might consider to have only those two branches in the main repository. Develo
 * Feature's branches the name is usually taken from the tasks manager like `JIRA`, for example `PROJ-234`
 * Quick fixes branches `HOTFIX-PROJ-234`
 
-### Code review -- pull requests
+#### Code review -- pull requests
 
 The idea is to force the team to check the new changes in the code and helps catch the bugs, bad quality code, teach everybody, make code less redundant.
 The code review is a very important process which in my opinion should be a must-to-have thing.
@@ -77,17 +92,17 @@ In order to make a project successful you have to spend significant amount of ti
 
 ### Recruitment process
 
-# tech people
+I have to admit I have a little experience in this subject, however I have some thoughts I'd like to share.
 
-I have to admit I have a little experience in this subject, however I have some thoughts I'd like to share. In my opinion the success of the project is in 20% talent of the workers and the rest is a hard and dedicated work, therefore the recruiters should make sure the candidate is motivated and focused on solving the problems. A can-do attitude is only thing that is mandatory.
+#### Tech people
+
+In my opinion the success of the project is in 20% talent of the workers and the rest is a hard and dedicated work, therefore the recruiters should make sure the candidate is motivated and focused on solving the problems. A can-do attitude is only thing that is mandatory.
 
 Another thing that has to be checked is if the candidate fits to the team. Good sense of humor and optimism is highly desirable. In case the candidate fails this step, you can still hire him and work on him, but you have to pay attention if he will not make bad influence to the team. You and the candidate can work on improving the attitude, if it will work, great, but if not you should consider to give a notice after probation period.
 
-#
+#### Non-tech people
 
-#### Features planning
-
-If something becomes difficult to plan or to do there is high change there is a mistake in the design or solution. 
+I have no idea :) I will update this one when I fugure out 
 
 ### Meetings
 
@@ -101,19 +116,7 @@ Encourage team to healthy live style and help them out make it happen, give them
 
 * After hours
 
-IDEA Box
 
-## Tools
-* Gitkraken
-* Source tree
-
-
-Task that appropried to knowladge (planning )
-
-## Copied to
-* Quora
-* Diquss
-* md gist
 
 ## Links to resources
 1. [A succesful git branching model considered harmful](https://barro.github.io/2016/02/a-succesful-git-branching-model-considered-harmful/)
