@@ -6,3 +6,4 @@ categories: fun
 ---
 
 Make your friends play fun. Addictive team plays.
+Games for team play
