@@ -10,6 +10,9 @@ how to enjoy work nad free time
 
 Fight over nothing: Sendging effort on somenting imprtand and complying 
 
-Sickness
+* Sickness
 
-No money
+* No money
+
+
+* where to spend time
