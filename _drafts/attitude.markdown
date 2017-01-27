@@ -5,24 +5,20 @@ date:   2016-10-19 12:09:07 +0200
 categories: psychology
 ---
 
-People like energetic and people with difficult attitude. 
+The difficult attitude as I call it is quite curious, because people who are rude and treat others bad might also attract them. In this article I am going to describe this phenomenon.
 
 
-The md House attitude -> beeing not average and not boring, beeing memorable
-Action (like beeing late)
 
+## Trademarks 
+Like MD house with his drugs, the trade make is an uneasy habit that makes everyone suffer from a little bit.
 
-# Trademarks 
-like house with his drugs, have uneasy habit that makes everyone suffer from a little bit.
+"If you face some problem that bothers you make others suffer from it even more"
 
-# Play with silece
-Don't say wnat you know, Say wnat you want people to know.
-
-# The art of offending people
+## The art of offending people
 
 Clever insults Politically inforrect and as much as possible an offensive language (insult of the day) 
 
 
-Torwalds linus
+Torvalds linus - find the quoute about stupid people 
 
 (insult of the day)
