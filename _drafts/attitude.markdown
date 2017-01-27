@@ -19,6 +19,9 @@ Like MD house with his drugs, the trade make is an uneasy habit that makes every
 Clever insults Politically inforrect and as much as possible an offensive language (insult of the day) 
 
 
-Torvalds linus - find the quoute about stupid people 
+Torvalds Linus - I wonder how he grew to be an adult when he's so stupid that I don't expect him to find food.  
+
+https://www.youtube.com/watch?v=JZ017D_JOPY
+
 
 (insult of the day)
