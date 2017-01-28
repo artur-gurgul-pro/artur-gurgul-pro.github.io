@@ -5,21 +5,42 @@ date:   2016-10-19 12:09:07 +0200
 categories: psychology
 ---
 
-The difficult attitude as I call it is quite curious, because people who are rude and treat others bad might also attract them. In this article I am going to describe this phenomenon.
+**The difficult attitude** is quite interestinng behaviour, expecially when rude and unpolite people attract others. 
 
 
+People who insult others might be seen as
 
-## Trademarks 
+* **Honest and worth trust**, because they speak from their heart.
+* **Strong**, becouse they have to deal very often with consequences and be in fight/conflict.
+
+People who tease and have fun from hurting others: I think they are seen as those who have problems with themselves. 
+
+### Trademarks 
 
 Like MD house with his drugs, the trade make is an uneasy habit that makes everyone suffer from a little bit.
 
 "If you face some problem that bothers you make others suffer from it even more"
 
-## The art of offending people
+# The art of offending people
 
-Clever insults Politically inforrect and as much as possible an offensive language (insult of the day) 
+To really offend people you have to figure out what they really care about. The better you know somone the much harder you might hurt her/him.
+
+The life is cruel and you meet a lot of people who use offensive language against you. You have to deal with it, sometimes it is better to avoid words fight, sometimes you have to win a fight. In this chapter I despribe how to make an insult and deal with it.
+
+Person whose speech or response is openly offensive are almost on lost position and seen as simpleminded. So if someone puch you with words, you can respond with even stronger attack. There is Winston Chirchill's resopnse to Lady Astor's insult:
+
+- *If you were my husband, I'd give you poison*
+- *If you were my wife, I'd drink it.*
+
+Here you can easly see who is a strong person and who is not. 
+
+*Describe chnaging a frame strategy*
+
+
 
 # Insult of the day
+
+Clever insults Politically inforrect and as much as possible an offensive language
 
 ---
 *I wonder how he grew to be an adult when he's so stupid that I don't expect him to find food.*
@@ -55,12 +76,7 @@ Peg returns home:
 https://www.youtube.com/watch?v=rgDtgyzVZYk
 
 ---
-Winston Chirchill vs Lady Astor
 
-- *If you were my husband, I'd give you poison*
-- *If you were my wife, I'd drink it.*
-
----
 *He is not only dull himself, but he is the cause of dullness in others*
 - Samuel Johnson
 
@@ -80,7 +96,7 @@ https://www.youtube.com/watch?v=3jMhoGUiIkk
 https://www.youtube.com/watch?v=gWju37TZfo0
 
 ---
-In that song Eminem insults Michale Jackson
+In this song Eminem insults Michale Jackson:
 
 https://www.youtube.com/watch?v=9dcVOmEQzKA
 
