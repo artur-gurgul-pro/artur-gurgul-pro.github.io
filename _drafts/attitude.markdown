@@ -41,7 +41,7 @@ https://www.youtube.com/watch?v=k_E6HiIRxzc
 https://www.youtube.com/watch?v=5PmHRSeA2c8
 
 ---
-Said to the (fat) irritated customer who waits long time:
+Said to a fat irritated customer who waits long time:
 
 - *Excuse me, but am I invisible?*
 - *Possibly from Pluto*
@@ -78,5 +78,14 @@ https://www.youtube.com/watch?v=3jMhoGUiIkk
 *I know you like to think your shit don’t stink, but lean a little bit closer and see that roses really smell like oooh-ooh-ooh.*
 
 https://www.youtube.com/watch?v=gWju37TZfo0
+
+---
+In that song Eminem insults Michale Jackson
+
+https://www.youtube.com/watch?v=9dcVOmEQzKA
+
+It seems that he felt offended by that. Should he?
+
+https://www.youtube.com/watch?v=nDcqnJwZils
 
 ---
