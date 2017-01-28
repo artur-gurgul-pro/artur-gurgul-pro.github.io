@@ -70,12 +70,12 @@ Said to a fat irritated customer who waits long time:
 - *Possibly from Pluto*
 
 ---
-Peg returns home:
+Peggy returns home:
 
 - *Hi honey! Did you miss me?*
 - *With every bullet so far...*
 
-https://www.youtube.com/watch?v=rgDtgyzVZYk
+[Married with children](https://www.youtube.com/watch?v=rgDtgyzVZYk)
 
 ---
 
