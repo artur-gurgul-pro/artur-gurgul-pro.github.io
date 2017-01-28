@@ -56,4 +56,13 @@ Winston Chirchill vs Lady Astor
 
 ---
 
+Terrorists will never bomb you people becouse you're funckin' worthless and no one cares about you!
+- Bill Burr
+
+Very strong and disgusting speach. I am not sure if it is worth to watch, but there is a link:
+
+https://www.youtube.com/watch?v=3jMhoGUiIkk
+
+---
+
 (insult of the day)
