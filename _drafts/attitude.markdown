@@ -27,7 +27,7 @@ Clever insults Politically inforrect and as much as possible an offensive langua
 
 https://www.youtube.com/watch?v=JZ017D_JOPY
 
-The same king of an insult:
+The same kind of an insult:
 
 *You’re an idiot, babe. It’s a wonder that you still know how to breathe.*
 
@@ -36,34 +36,32 @@ Idiot wind - Bob Dylan
 https://www.youtube.com/watch?v=k_E6HiIRxzc
 
 ---
-
-"They have been eating wrong kind of mushrums"
+*They have been eating wrong kind of mushrums*
 
 https://www.youtube.com/watch?v=5PmHRSeA2c8
 
 ---
-
 Said to the (fat) irritated customer who waits long time:
 
-- Excuse me, but am I invisible?
-- Possibly from Pluto
+- *Excuse me, but am I invisible?*
+- *Possibly from Pluto*
 
+---
 Peg returns home:
 
-- Hi honey! Did you miss me?
-- With every bullet so far...
+- *Hi honey! Did you miss me?*
+- *With every bullet so far...*
 
 https://www.youtube.com/watch?v=rgDtgyzVZYk
 
 ---
 Winston Chirchill vs Lady Astor
 
-- If you were my husband, I'd give you poison
-- If you were my wife, I'd drink it.
+- *If you were my husband, I'd give you poison*
+- *If you were my wife, I'd drink it.*
 
 ---
-
-"He is not only dull himself, but he is the cause of dullness in others"
+*He is not only dull himself, but he is the cause of dullness in others*
 - Samuel Johnson
 
 ---
