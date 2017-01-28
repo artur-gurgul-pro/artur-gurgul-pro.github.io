@@ -18,12 +18,32 @@ Like MD house with his drugs, the trade make is an uneasy habit that makes every
 
 Clever insults Politically inforrect and as much as possible an offensive language (insult of the day) 
 
-
-Torvalds Linus - I wonder how he grew to be an adult when he's so stupid that I don't expect him to find food.  
+---
+"Torvalds Linus - I wonder how he grew to be an adult when he's so stupid that I don't expect him to find food."
 
 https://www.youtube.com/watch?v=JZ017D_JOPY
 
-They have been eating wrong kind of mushrums 
+---
+
+"They have been eating wrong kind of mushrums"
+
 https://www.youtube.com/watch?v=5PmHRSeA2c8
+
+---
+
+Said to the (fat) irritated customer who waits long time:
+
+- Excuse me, but am I invisible?
+- Possibly from Pluto
+
+Peg returns home:
+
+- Hi honey! Did you miss me?
+- With every bullet so far...
+
+https://www.youtube.com/watch?v=rgDtgyzVZYk
+
+---
+
 
 (insult of the day)
