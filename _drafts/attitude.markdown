@@ -23,5 +23,7 @@ Torvalds Linus - I wonder how he grew to be an adult when he's so stupid that I 
 
 https://www.youtube.com/watch?v=JZ017D_JOPY
 
+They have been eating wrong kind of mushrums 
+https://www.youtube.com/watch?v=5PmHRSeA2c8
 
 (insult of the day)
