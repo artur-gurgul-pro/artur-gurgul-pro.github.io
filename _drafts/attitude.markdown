@@ -44,6 +44,16 @@ Peg returns home:
 https://www.youtube.com/watch?v=rgDtgyzVZYk
 
 ---
+Winston Chirchill vs Lady Astor
 
+- If you were my husband, I'd give you poison
+- If you were my wife, I'd drink it.
+
+---
+
+"He is not only dull himself, but he is the cause of dullness in others"
+- Samuel Johnson
+
+---
 
 (insult of the day)
