@@ -10,6 +10,7 @@ The difficult attitude as I call it is quite curious, because people who are rud
 
 
 ## Trademarks 
+
 Like MD house with his drugs, the trade make is an uneasy habit that makes everyone suffer from a little bit.
 
 "If you face some problem that bothers you make others suffer from it even more"
@@ -18,10 +19,21 @@ Like MD house with his drugs, the trade make is an uneasy habit that makes every
 
 Clever insults Politically inforrect and as much as possible an offensive language (insult of the day) 
 
+# Insult of the day
+
 ---
-"Torvalds Linus - I wonder how he grew to be an adult when he's so stupid that I don't expect him to find food."
+*I wonder how he grew to be an adult when he's so stupid that I don't expect him to find food.*
+- Torvalds Linus
 
 https://www.youtube.com/watch?v=JZ017D_JOPY
+
+The same king of an insult:
+
+*You’re an idiot, babe. It’s a wonder that you still know how to breathe.*
+
+Idiot wind - Bob Dylan
+
+https://www.youtube.com/watch?v=k_E6HiIRxzc
 
 ---
 
@@ -56,7 +68,7 @@ Winston Chirchill vs Lady Astor
 
 ---
 
-Terrorists will never bomb you people becouse you're funckin' worthless and no one cares about you!
+*Terrorists will never bomb you people becouse you're funckin' worthless and no one cares about you!*
 - Bill Burr
 
 Very strong and disgusting speach. I am not sure if it is worth to watch, but there is a link:
@@ -65,4 +77,8 @@ https://www.youtube.com/watch?v=3jMhoGUiIkk
 
 ---
 
-(insult of the day)
+*I know you like to think your shit don’t stink, but lean a little bit closer and see that roses really smell like oooh-ooh-ooh.*
+
+https://www.youtube.com/watch?v=gWju37TZfo0
+
+---
