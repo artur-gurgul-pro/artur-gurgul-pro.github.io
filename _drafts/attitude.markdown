@@ -5,7 +5,7 @@ date:   2016-10-19 12:09:07 +0200
 categories: psychology
 --- 
 
-**The difficult attitude** is quite interestinng behaviour, expecially when rude and unpolite people attract others. 
+**The difficult attitude** is a quite interestinng behaviour, expecially when rude and unpolite people attract others. 
 
 A person with difficult attitude: An individualist who is always in fight, creates situations difficult to deal with and at the same time difficult to get rid of him by leaving.
 
