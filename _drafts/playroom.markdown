@@ -35,18 +35,18 @@ Host might play for free (to recompensate cost of party). Game for money might b
 * Board Games
 * Card games
 You need a few decks of cards and żetony
-  * [https://en.wikipedia.org/wiki/Goofspiel](Goofspiel) (2+) low randomnes. Skills: Tactics, psychology
-  * [https://en.wikipedia.org/wiki/Blackjack](Blackjack) (2+, usually 2–6)
-  * [https://en.wikipedia.org/wiki/Poker](Poker)
-  * [https://en.wikipedia.org/wiki/Teen_patti](Teen patti) 	(4-7)
-  * [https://en.wikipedia.org/wiki/Bank_(card_game)](Bank) (4-7)
-  * [https://en.wikipedia.org/wiki/Three_card_brag](Three_card_brag) (4-7)
-  * [https://en.wikipedia.org/wiki/Rummy](Rummy) (2+)
-  * [https://en.wikipedia.org/wiki/Faro_(card_game)](Faro)
+  * [Goofspiel](https://en.wikipedia.org/wiki/Goofspiel) (2+) low randomnes. Skills: Tactics, psychology
+  * [Blackjack](https://en.wikipedia.org/wiki/Blackjack) (2+, usually 2–6)
+  * [Poker](https://en.wikipedia.org/wiki/Poker)
+  * [Teen patti](https://en.wikipedia.org/wiki/Teen_patti) 	(4-7)
+  * [Bank](https://en.wikipedia.org/wiki/Bank_(card_game)) (4-7)
+  * [Three_card_brag](https://en.wikipedia.org/wiki/Three_card_brag) (4-7)
+  * [Rummy](https://en.wikipedia.org/wiki/Rummy) (2+)
+  * [Faro](https://en.wikipedia.org/wiki/Faro_(card_game))
   * https://en.wikipedia.org/wiki/Gleek_(card_game)
   * https://en.wikipedia.org/wiki/Indian_(card_game)
   * https://en.wikipedia.org/wiki/Crash_(card_game)
-  * [https://en.wikipedia.org/wiki/Commune_(card_game)](Commune) (2-10)
+  * [Commune](https://en.wikipedia.org/wiki/Commune_(card_game)) (2-10)
 
 Kości
 
