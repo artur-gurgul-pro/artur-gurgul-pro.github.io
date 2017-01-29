@@ -4,7 +4,7 @@ title:  "Project: A playroom"
 date:   2016-10-19 12:09:07 +0200
 categories: fun
 ---
-For a long time I dreamed about perfect room where I can invite my friends. Currently I can not affort one, but I can at least make it in virtual world.
+For a long time I dreamed about perfect room where I can invite my friends. Currently I can not affort one, but I can at least make it in virtual world. Nowdays everyone tends to spend life separatelly feeling looniness. I think it'd be greate to change it a litte bit. Wouldn't it be a great idea to invite friends to come over?
 
 At the beginning I'd like make an assumption that the room will be designed to fit 5-7 people.
 
