@@ -12,7 +12,7 @@ A person with difficult attitude: An individualist who is always in fight, creat
 
 People who insult others might be seen as
 
-* **Honest and worth trust**, because they speak from their heart.
+* **Honest and trust worthly**, because they speak from their heart, at last hate and anger is difficult to *fabricate*, therefore looks real.
 * **Strong**, becouse they have to deal very often with consequences and be in fight/conflict.
 
 People who tease and have fun from hurting others: I think they are seen as those who have problems with themselves. 
