@@ -4,11 +4,11 @@ title:  "Project: A playroom"
 date:   2016-10-19 12:09:07 +0200
 categories: fun
 ---
+For a long time I dreamed about perfect room where I can invite my friends. Currently I can not affort one, but I can at least make it in virtual world.
 
-Make your friends play fun. Addictive team plays.
-Games for team play
+At the beginning I'd like make assumption that the room will perfectably fit 5-7 people.
 
-7-12
+
 
 # Preparation
 Music playlists
@@ -22,6 +22,7 @@ Music playlists
   * remote contolls
 * white board walls
 * comforatble sits 
+* fridge and 
 
 # Games
 
@@ -29,9 +30,31 @@ Music playlists
 This type of games 
 ##### Worms series
 
-* Board Games
-* Card deck 
+Host might play for free (to recompensate cost of party). Game for money might be forbidden in your country 
 
+* Board Games
+* Card games
+You need a few decks of cards and żetony
+  * [https://en.wikipedia.org/wiki/Goofspiel](Goofspiel) (2+) low randomnes. Skills: Tactics, psychology
+  * [https://en.wikipedia.org/wiki/Blackjack](Blackjack) (2+, usually 2–6)
+  * [https://en.wikipedia.org/wiki/Poker](Poker)
+  * [https://en.wikipedia.org/wiki/Teen_patti](Teen patti) 	(4-7)
+  * [https://en.wikipedia.org/wiki/Bank_(card_game)](Bank) (4-7)
+  * [https://en.wikipedia.org/wiki/Three_card_brag](Three_card_brag) (4-7)
+  * [https://en.wikipedia.org/wiki/Rummy](Rummy) (2+)
+  * [https://en.wikipedia.org/wiki/Faro_(card_game)](Faro)
+  * https://en.wikipedia.org/wiki/Gleek_(card_game)
+  * https://en.wikipedia.org/wiki/Indian_(card_game)
+  * https://en.wikipedia.org/wiki/Crash_(card_game)
+  * [https://en.wikipedia.org/wiki/Commune_(card_game)](Commune) (2-10)
+
+Kości
+
+Other gambling games
+
+Gra alkoholowa => ALKOHOLOWA GRA RULETKA IMPREZOWA + KIELISZKI 16SZT [http://allegro.pl/alkoholowa-gra-ruletka-imprezowa-kieliszki-16szt-i6285002342.html](Allegro)
+
+* [https://en.wikipedia.org/wiki/Pai_gow](Pai gow)
 
 # Outside the playroom
 * balcony
