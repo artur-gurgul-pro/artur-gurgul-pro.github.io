@@ -6,7 +6,7 @@ categories: fun
 ---
 For a long time I dreamed about perfect room where I can invite my friends. Currently I can not affort one, but I can at least make it in virtual world.
 
-At the beginning I'd like make assumption that the room will perfectably fit 5-7 people.
+At the beginning I'd like make an assumption that the room will be designed to fit 5-7 people.
 
 
 
@@ -20,9 +20,14 @@ Music playlists
 * big screen TV + video game consoles 
   * game pads 
   * remote contolls
+* coffee maker 
 * white board walls
 * comforatble sits 
 * fridge and 
+* google glass (for gmaes) VR
+* gym equiplent
+* tablets (as remote controlls)
+* projector
 
 # Games
 
@@ -55,6 +60,8 @@ Other gambling games
 Gra alkoholowa => ALKOHOLOWA GRA RULETKA IMPREZOWA + KIELISZKI 16SZT [http://allegro.pl/alkoholowa-gra-ruletka-imprezowa-kieliszki-16szt-i6285002342.html](Allegro)
 
 * [https://en.wikipedia.org/wiki/Pai_gow](Pai gow)
+
+http://www.rebel.pl/product.php/1,606/21712/Osadnicy-z-Catanu-nowa-edycja.html
 
 # Outside the playroom
 * balcony
