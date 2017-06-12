@@ -5,6 +5,8 @@ date:   2016-10-19 12:09:07 +0200
 categories: vim
 ---
 
+record voice over
+record slides using reveal.js
 
 # deleting
 d +
@@ -23,7 +25,9 @@ star `\*` search occurence of the word that the cursor hovers. n p jump to to ne
 write selected text to the new file
 :'<,'>w filename.txt
 
-
+Swift: Autocomplete: https://github.com/mitsuse/autocomplete-swift
+* https://github.com/junegunn/vim-plug
+* http://vim.wikia.com/wiki/Copy,_cut_and_paste
 # Vim as an IDE for iOS development
 Mention that opeope don't like to share theirs RC files
 * https://github.com/xmementoit/vim-ide
