@@ -1,0 +1,36 @@
+h1 {
+    padding-top: 50px;
+}
+
+h2 {
+
+    font-size: large !important;
+    font-weight: bold !important;
+    padding-top: 30px;
+
+    text-align: left;
+    clear: left;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.cv-date {
+    text-align: right;
+    float: right;
+    display: inline-block;
+    vertical-align: bottom;
+    padding-top: 30px;
+}
+
+.contact-box {
+    text-align: left;
+    clear: right;
+    display: inline-block;
+}
+
+.job-description {
+    /*float: left;*/
+    display: inline-block;
+    clear: left;
+    font-color: #333;
+}
