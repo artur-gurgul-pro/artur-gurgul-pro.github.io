@@ -1,4 +1,9 @@
-
+---
+layout: post
+title:  Make Ubuntu do nothing when laptop lid is closed
+date:   2016-10-19 12:09:07 +0200
+categories: linux recepies
+---
 
 To make Ubuntu do nothing when laptop lid is closed:
 

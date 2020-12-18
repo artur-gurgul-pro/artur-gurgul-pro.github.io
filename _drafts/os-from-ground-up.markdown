@@ -1,1 +1,0 @@
-http://wiki.osdev.org/Tutorials
