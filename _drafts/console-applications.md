@@ -5,10 +5,16 @@ date:   2016-10-19 12:09:07 +0200
 categories: unix
 ---
 
+### selecting default editor
+
+    select-editor
 
 How to work with them
 
 Learning curve 
+
+Fuzzy Finder
+GNU Midnight Commander
 
 better productivity 
 
