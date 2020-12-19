@@ -1,14 +1,11 @@
 ---
 layout: post
-title:  "Creating RAM disk"
+title:  "Linux - RAM disk "
 date:   2020-10-19 12:09:07 +0200
 categories: linux recepies
 ---
 
-
-# Creating RAM disk 
-
-This might be useful for spead up programs that heily use disk for computation.
+This might be useful for spead up programs that heavily use disk.
 
 {% highlight bash %}
 mount -t [TYPE] -o size=[SIZE] [FSTYPE] [MOUNTPOINT]
