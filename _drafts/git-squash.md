@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Git - tricks and tips"
+title:  "Git - squasing commits"
 date:   2016-10-19 12:09:07 +0200
 categories: git
 ---
