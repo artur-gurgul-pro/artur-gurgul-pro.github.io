@@ -48,6 +48,9 @@ As far as I understand main function is neccecery to include into library, becou
 	end
 	
 	Example.SayHello("Hello")
+	
+
+More informations about FFI https://en.wikipedia.org/wiki/Foreign_function_interface
 
 ### Loading dynamic library in Go
 
@@ -89,7 +92,11 @@ Now I am trying to call the library function `PrintHello` (but it dont work)
         C.PrintHello(C.CString("Golanger"))
     }
 
-
+    # It worked, it can call also function written in Golang
+	import ctypes
+	libc = ctypes.CDLL('./example.dylib')
+    
+	libc.PrintHello("Hello")
 ### Go and ruby
 
 
