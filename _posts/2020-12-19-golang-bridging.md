@@ -5,18 +5,16 @@ date:   2016-10-19 12:09:07 +0200
 categories: golang bridging
 ---
 
-The Go compiler is capable of linking with static and dynamic libraries, and there is possbility to create static and dynamic library.
+The Go tools are capable of static and dynamic winking with other libraries, and also there is possbility to create static and dynamic library, therefore it is possible to create a bridge.
 
 ### Creating shared and static library in Go
 
-Here is an example. File `example.go`:
+Let's create library we will use in external systems. Here is an example. File `example.go`:
 
 	package main
     
-	import (
-	        "C"
-	        "fmt"
-	)
+	import "C"
+	import "fmt"
     
 	//export SayHello
 	func SayHello(hello *C.char) {
@@ -25,7 +23,7 @@ Here is an example. File `example.go`:
     
 	func main() {}
 
-and `Makefile`
+and `Makefile` that will contain build script that you can invoke by `make static` or `make shared`
 
 	static test.a:
 		go build -o example.a -buildmode=c-archive example.go
@@ -34,7 +32,7 @@ and `Makefile`
 		go build -o example.dylib -buildmode=c-shared example.go
 
 
-As far as I understand main function is neccecery to include into library, becouse the compiler attached GC and another neccecry rutines to bibrary. The comment starting from `//export ` tells the comiler that this the function will be called from the outside.
+As far as I understand the main function is neccecery to include into library, because the final product has to have for example GC rutines. The comment starting from `//export {function name}` tells the comiler that this the function will be called from the outside.
 
 ### Loading dynamic library in Go
 
@@ -56,13 +54,13 @@ And `example.hxx:
     
     void PrintHello(const char* u)
    
-extern "C" {} informs the compiler that we want the function names to be preserved. That is, to not "mangle" the names as is done for C++ code.
+`extern "C" {}` informs the compiler that we want the function names to be preserved. That is, to not "mangle" the names as is done for C++ code.
 
 Command for building a library `clang++ -dynamiclib  -o example.dylib example.cxx`
 
-Now we have created a library (it probably should be c lib?)
+##### TODO Make calling dlib working
 
-Now I am trying to call the library function `PrintHello` (but it dont work)
+Now I am trying to call the library function `PrintHello` (but it doesn't work)
 
     package example
     
@@ -76,14 +74,6 @@ Now I am trying to call the library function `PrintHello` (but it dont work)
         C.PrintHello(C.CString("Golanger"))
     }
 
-    # It worked, it can call also function written in Golang
-	import ctypes
-	libc = ctypes.CDLL('./example.dylib')
-    
-	libc.PrintHello("Hello")
-### Go and ruby
-
-
 #### Example of using library with FFI
 
     gem install ffi
@@ -91,17 +81,21 @@ Now I am trying to call the library function `PrintHello` (but it dont work)
     require 'ffi'
     module Example
 	  extend FFI::Library
-	  ffi_lib './test.so'
+	  ffi_lib './example.dylib'
 	  attach_function :SayHello, [:string]
 	end
 	
 	Example.SayHello("Hello")
 	
-
-More informations about FFI https://en.wikipedia.org/wiki/Foreign_function_interface
+More informations about FFI: https://en.wikipedia.org/wiki/Foreign_function_interface
 
 #### Call shared library from Python
 
     import ctypes
     libc = ctypes.CDLL('./example.dylib')
-    libc.SayHello("Hello\n")
+    libc.SayHello("Hello")
+
+## Interesting websites
+
+- https://blog.filippo.io/building-python-modules-with-go-1-5/
+- https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/
