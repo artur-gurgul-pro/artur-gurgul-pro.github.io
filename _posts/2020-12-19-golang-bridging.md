@@ -28,29 +28,13 @@ Here is an example. File `example.go`:
 and `Makefile`
 
 	static test.a:
-		go build -o test.a -buildmode=c-archive example.go
+		go build -o example.a -buildmode=c-archive example.go
     
-	shared test.so: 
-		go build -o test.so -buildmode=c-shared example.go
+	shared test.dylib: 
+		go build -o example.dylib -buildmode=c-shared example.go
 
 
 As far as I understand main function is neccecery to include into library, becouse the compiler attached GC and another neccecry rutines to bibrary. The comment starting from `//export ` tells the comiler that this the function will be called from the outside.
-
-#### Example of using library with FFI
-
-    gem install ffi
-
-    require 'ffi'
-    module Example
-	  extend FFI::Library
-	  ffi_lib './test.so'
-	  attach_function :SayHello, [:string]
-	end
-	
-	Example.SayHello("Hello")
-	
-
-More informations about FFI https://en.wikipedia.org/wiki/Foreign_function_interface
 
 ### Loading dynamic library in Go
 
@@ -100,3 +84,24 @@ Now I am trying to call the library function `PrintHello` (but it dont work)
 ### Go and ruby
 
 
+#### Example of using library with FFI
+
+    gem install ffi
+
+    require 'ffi'
+    module Example
+	  extend FFI::Library
+	  ffi_lib './test.so'
+	  attach_function :SayHello, [:string]
+	end
+	
+	Example.SayHello("Hello")
+	
+
+More informations about FFI https://en.wikipedia.org/wiki/Foreign_function_interface
+
+#### Call shared library from Python
+
+    import ctypes
+    libc = ctypes.CDLL('./example.dylib')
+    libc.SayHello("Hello\n")

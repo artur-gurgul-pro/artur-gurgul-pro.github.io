@@ -7,12 +7,14 @@ categories: commandline recepies
 
 
 
-#####  Networking - Checking for open ports
+##### Networking - Checking for open ports
 
     dig artgur.net +nostats +nocomments +nocmd
 
-#####  I/O Stats
+##### I/O Stats
 
     iostat
 
+##### Checking type of executable files
 
+    otool -hv test.so
