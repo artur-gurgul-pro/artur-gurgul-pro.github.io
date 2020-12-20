@@ -5,7 +5,7 @@ date:   2016-10-19 12:09:07 +0200
 categories: golang bridging
 ---
 
-The Go tools are capable of static and dynamic winking with other libraries, and also there is possbility to create static and dynamic library, therefore it is possible to create a bridge.
+The Go tools are capable of static and dynamic linking with other libraries, and also there is possbility to create static and dynamic library, therefore it is possible to create a bridge between golang and the other language both ways.
 
 ### Creating shared and static library in Go
 
