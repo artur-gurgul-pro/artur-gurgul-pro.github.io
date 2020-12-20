@@ -7,7 +7,7 @@ categories: linux recepies
 
 This might be useful for spead up programs that heavily use disk.
 
-{% highlight bash %}
+{% highlight sh %}
 mount -t [TYPE] -o size=[SIZE] [FSTYPE] [MOUNTPOINT]
 {% endhighlight %}
 
@@ -17,7 +17,7 @@ mount -t [TYPE] -o size=[SIZE] [FSTYPE] [MOUNTPOINT]
 
 To make this setting persistent you might want to add to `/etc/fstab` fallowing line
 
-{% highlight bash %}
-tmpfs  /mnt/ramdisk  tmpfs  nodev,nosuid,noexec,nodiratime,size=1024M  0  0
+{% highlight sh %}
+tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=1024M 0 0
 {% endhighlight %}
 
