@@ -1,21 +1,25 @@
 ---
 layout: post
-title:  "[draft] Git - squasing commits"
-date:   2016-10-19 12:09:07 +0200
+title:  "Git - squasing commits"
+date:   2020-12-22 12:09:07 +0200
 categories: git
 ---
 
-In this post I will despcibe how to change git history and make history looking better. First thing we want to do is to make history as much linear as possible, so it is easier to keep track of changes
+In this post I will despcibe how to change git history and make history looking better. First thing we want to do is to make history as much linear as possible, so it is easier to keep track of changes. We can achieve this by rebase. 
 
-* rebase and magange branches
-* Git interactive rebase
+{% highlight bash %}
+git rebase feature-branch
+{% endhighlight %}
 
-Squash the lastests commints
+After this command, `feature-branch` will move all commits atop the branch it's comes from.
+
+Adding `-i` parameter we have posibility to squash and chnage messages of commiits.
 
 {% highlight bash %}
 git rebase -i HEAD~3
 {% endhighlight %}
 
+This command takes three last commits and ask us what to do with them by opeining the default editor with file like the one presented below. 
 
 {% highlight bash %}
 pick f392171 Added new feature X
@@ -23,64 +27,36 @@ pick ba9dd9a Added new elements to page design
 pick df71a27 Updated CSS for new elements
 {% endhighlight %}
 
-replace to this
+`pick` mean that the commit will be taken, but we can replace this with squash commit, which means two or more commits will be merged. See an exaple below.
 
 {% highlight plaintext %}
-pick f392171 Added new feature X
-squash ba9dd9a Added new elements to page design
-squash df71a27 Updated CSS for new elements
+pick f392171 New message for this three commit!
+squash ba9dd9a
+squash df71a27
 {% endhighlight %}
+
+Now we can accept the change by continuing the rebase:
 
 {% highlight bash %}
 git rebase --continue
 {% endhighlight %}
 
-#### Reset the current branch
+After that we can push the changes to the remote. Pretty often we have to force overriding using this command:
+
 {% highlight bash %}
-git reset --hard HEAD~12
+git push origin master --force
 {% endhighlight %}
 
-{% highlight bash %}
-git merge --squash HEAD@{1}
-{% endhighlight %}
+## Squash merge
 
-create squash repository
+In oder to keep history clean sometimes we want to merge our changes on feature branch another branch into main branch as single commit, and we can do this as below:
 
-Checkout the golden repo
 {% highlight bash %}
-git checkout golden_repo_name
-{% endhighlight %}
-
-Create a new branch from it(golden repo) as follows
-{% highlight bash %}
-git checkout -b dev-branch
-{% endhighlight %}
-
-Squash merge with your local branch that you have already
-{% highlight bash %}
-git merge --squash feature-branch
-{% endhighlight %}
-
-Commit your changes (this will be the only commit that goes in dev-branch)
-{% highlight bash %}
-git commit -m "My feature complete"
-{% endhighlight %}
-
-Push the branch to your local repository
-{% highlight bash %}
-git push origin dev-branch
+git checkout master
+git merge --squash bugfix
+git commit
 {% endhighlight %}
 
 
-* [Git imparative rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase)
-
-
-git checkout filename
-
-When file name is the same as branch name
-git checkout -- filename
-
-remove all modifications you have done on working copy
-git reset --hard
 
 
