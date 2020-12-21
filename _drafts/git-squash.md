@@ -5,6 +5,8 @@ date:   2016-10-19 12:09:07 +0200
 categories: git
 ---
 
+In this post I will despcibe how to change git history and make history looking better. First thing we want to do is to make history as much linear as possible, so it is easier to keep track of changes
+
 * rebase and magange branches
 * Git interactive rebase
 
