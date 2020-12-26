@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[Draft] Threading"
+title:  "iOS - Threading"
 date:   2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
-Threading is one of the most difficult things when you do programming. Fortunately, in comparisons to another frameworks, the Apple's SDK handles the problem exceptionally well. At least it is my impression (feel free to argue or comment on [github](https://github.com/artur-gurgul/artur-gurgul.markdown/issues/1))
+Threading is one of the most difficult things when you do programming. Fortunately, in comparisons to another frameworks, the Apple's SDK handles the problem exceptionally well. At least it is my impression.
 
 All chunks of job are arranged into `Blocks` or `Functions`/`Methods`. I'd like to mention that the `Blocks` have ability to capture their surrounding state. They close variables around that are in scope at the time the block is declared that's why we call them also `Closures` [[1]](http://pragmaticstudio.com/blog/2010/7/28/ios4-blocks-1)
 
