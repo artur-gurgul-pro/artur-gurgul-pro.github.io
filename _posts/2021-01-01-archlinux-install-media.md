@@ -7,14 +7,34 @@ categories: linux recepies
 
 https://wiki.archlinux.org/index.php/Offline_installation
 
+https://www.passwordstore.org/
+rsync and NFS (supported by linux windows and mac) raid6 raid1 +3 dyski po 4TB
+https://allegro.pl/oferta/dysk-twardy-wd-gold-1tb-3-5-9936547563
+https://www.msi.com/Motherboard/B450I-GAMING-PLUS-AC
+https://allegro.pl/oferta/msi-b450i-gaming-plus-ac-msi-b450i-gaming-plus-ac-9729080130
+https://allegro.pl/oferta/dysk-twardy-wd-gold-18tb-3-5-9939956360
+https://github.com/sjiveson/nfs-server-alpine
+
 brew install aria2
 aria2c
 transimission-cli
 aria2c "magnet:?xt=urn:btih:944cc141baf25155bfb110273140f1e0e6687f4b&dn=archlinux-2021.01.01-x86_64.iso"
 
+echo "select * from bookmarks" | sqlite3 bookmarks.db | fzf
+
+https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/
+
 setup https://github.com/djpohly/dwl
 
 I am using MacOS to create a install media. In order to write the image to a USB stick we need to unmount all the filesystems that are located on the device.
+
+
+pacman -S zathura
+
+sudo pacman -S poppler => gives pdftotext
+
+  git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch --unshallow
+  git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask fetch --unshallow
 
     diskutil unmount /dev/disk2s1
 
