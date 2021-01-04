@@ -5,6 +5,15 @@ date:   2020-10-19 12:09:07 +0200
 categories: linux recepies
 ---
 
+https://wiki.archlinux.org/index.php/Offline_installation
+
+brew install aria2
+aria2c
+transimission-cli
+aria2c "magnet:?xt=urn:btih:944cc141baf25155bfb110273140f1e0e6687f4b&dn=archlinux-2021.01.01-x86_64.iso"
+
+setup https://github.com/djpohly/dwl
+
 I am using MacOS to create a install media. In order to write the image to a USB stick we need to unmount all the filesystems that are located on the device.
 
     diskutil unmount /dev/disk2s1
