@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Gurgul- [DRAFT] Install media for archlinux</title>
+  <meta name="author" content="Artur Gurgul" />
+  <!-- <meta name="description" content="The blog of Artur Gurgul" />
+  <link rel="canonical" href="artgur.net/linux/recepies/archlinux-install-media.html" />
+    -->
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
+  <style>
+    #post pre {
+      background-color: white;
+      border-left: 12px solid #eee;
+      padding: 0 .8em;
+    }
+
+    #post code {
+      background-color: transparent;
+    }
+
+    .highlight {
+      background-color: #333;
+    }
+    #stalker {
+      float: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar no-print">
+      <nav>
+  <h1><!-- Here might the title --></h1>
+  <a href="/">
+    
+    <img src="/logo.png" id="logo" alt="Blog logo"/>
+    
+  </a>
+  <h2 style="font-size: 16px;">Hi. I'm <a href="/"> Artur Gurgul </a>.</h2>
+  <!-- <div id="bio">
+  </div> -->
+  <div id="social">
+    <div id="stalker" style="text-align: center; width:100%">
+  
+  <a title="artur-gurgul on Github" href="https://github.com/artur-gurgul">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Artur Gurgul on Stack Overflow" href="http://stackoverflow.com/users/743268">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+
+  
+  <a title="ArturGurgul on Twitter" href="https://twitter.com/ArturGurgul">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <p class="meta">
+  October 19, 2020 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">[DRAFT] Install media for archlinux</h1>
+
+<div id="post">
+  <p>https://wiki.archlinux.org/index.php/Offline_installation</p>
+
+<p>https://www.passwordstore.org/
+rsync and NFS (supported by linux windows and mac) raid6 raid1 +3 dyski po 4TB
+https://allegro.pl/oferta/dysk-twardy-wd-gold-1tb-3-5-9936547563
+https://www.msi.com/Motherboard/B450I-GAMING-PLUS-AC
+https://allegro.pl/oferta/msi-b450i-gaming-plus-ac-msi-b450i-gaming-plus-ac-9729080130
+https://allegro.pl/oferta/dysk-twardy-wd-gold-18tb-3-5-9939956360
+https://github.com/sjiveson/nfs-server-alpine</p>
+
+<p>brew install aria2
+aria2c
+transimission-cli
+aria2c “magnet:?xt=urn:btih:944cc141baf25155bfb110273140f1e0e6687f4b&amp;dn=archlinux-2021.01.01-x86_64.iso”</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>echo “select * from bookmarks”</td>
+      <td>sqlite3 bookmarks.db</td>
+      <td>fzf</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>https://www.freecodecamp.org/news/fzf-a-command-line-fuzzy-finder-missing-demo-a7de312403ff/</p>
+
+<p>setup https://github.com/djpohly/dwl</p>
+
+<p>I am using MacOS to create a install media. In order to write the image to a USB stick we need to unmount all the filesystems that are located on the device.</p>
+
+<p>pacman -S zathura</p>
+
+<p>sudo pacman -S poppler =&gt; gives pdftotext</p>
+
+<p>git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core fetch –unshallow
+  git -C /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask fetch –unshallow</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>diskutil unmount /dev/disk2s1
+</code></pre>
+</div>
+
+<p>Here is how we can list all the disks attached to the system</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>diskutil list
+</code></pre>
+</div>
+
+<p>Download isofile from https://archlinux.org/releng/releases/</p>
+
+<p>Writing image to the USB device (notice that we do not write to a partition)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo dd if=archlinux-2021.01.01-x86_64.iso of=/dev/disk2
+</code></pre>
+</div>
+
+<p>then we can flush data by ejecting the drive</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>diskutil eject /dev/disk2
+</code></pre>
+</div>
+
+<p>Now we can plug the usb to a computer we want to install archlinux on. In my case it is Mac mini. Hold alt (option) button and select the install disk to boot up.</p>
+
+<p>Here are commands to check what discs are attached to the system</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cat /proc/partitions
+ls /dev/[s|x|v]d*
+lsblk
+fdisk –l
+ls /dev | grep ‘^[s|v|x][v|d]’$*
+</code></pre>
+</div>
+
+<p>The install disk has free space which we can use (for example to create install scripts in case we use the install disk several times)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cfdisk /dev/sdb
+</code></pre>
+</div>
+
+<p>Select thf freespace and hit <code class="highlighter-rouge">[New]</code> and <code class="highlighter-rouge">Enter</code> =&gt; <code class="highlighter-rouge">[Write]</code> =&gt; <code class="highlighter-rouge">enter</code> =&gt; <code class="highlighter-rouge">yes</code>  =&gt;<code class="highlighter-rouge">Enter</code> =&gt; <code class="highlighter-rouge">[Quit]</code></p>
+
+<p>Now we have unformatted partition. To screate FAT32 execute this commend</p>
+
+<p>mkfs.vfat -F 32 /dev/sdb4</p>
+
+<p>Mount it as home folder
+   mount /dev/sdb4 /root
+   # and go to the new home root
+   cd</p>
+
+<p># this command was given by arch wiki but do not work for me
+   # https://wiki.archlinux.org/index.php/FAT
+   mount -i -t vfat -oumask=0000,iocharset=utf8 /dev/sdb4 /root</p>
+
+<p>Now I realized I can edit system, so the partition that I have just created I can mount on start. There are steps I took.</p>
+
+<ul>
+  <li>On the USB stick there is prtition named Gap1. I remove it becouse it seems to not be needed. I use <code class="highlighter-rouge">gparted</code> for that.</li>
+  <li>
+    <p>Shrink vfat partition to 8000 MiB and place it at the and.</p>
+  </li>
+  <li>Crate partitions to look like this: <code class="highlighter-rouge">[1: 628.97MiB]</code> <code class="highlighter-rouge">[2: 2.2 GiB]</code> <code class="highlighter-rouge">[3: 59 MiB]</code> <code class="highlighter-rouge">[4: 4000 MiB]</code> <code class="highlighter-rouge">[5: 8000MiB]</code>
+    <ol>
+      <li><code class="highlighter-rouge">ARCH202101</code>: It is the oryginal partition ISO9660 I had after writing image</li>
+      <li>Freespace that will might be used when I edit the first partition</li>
+      <li>The UEFI partition where is placed bootloader that starts sysyem that is located on the first partition. This partition comes form the orygunal image.</li>
+      <li><code class="highlighter-rouge">CHROOT</code>: This parition will contains files of the installer system. They are placed on Ext4 partition, so we can edit files and regenerate ISO file from it.</li>
+      <li>Home folder for root user, so when we can write scripts, store files so we can use them in other instalation process.</li>
+    </ol>
+  </li>
+</ul>
+
+<p>Now we copy read only files from read only system to writable partition</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo mount -o loop /media/artur/ARCH202101/arch/x86_64/airfs.sfs /mnt 
+sudo cp -T /mnt /media/artur/CHROOT
+</code></pre>
+</div>
+
+
+</div>
+
+<!--  comments comes from github like https://api.github.com/repos/artur-gurgul/artur-gurgul.markdown/issues/1/comments -->
+
+<!-- 
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>22 Dec 2020 &raquo;</span> <a href="/git/squash.html">Git - squasing commits</a>
+    </li>
+    
+    <li>
+      <span>19 Oct 2020 &raquo;</span> <a href="/regex/regex-find-any.html">Regex: Find any</a>
+    </li>
+    
+    <li>
+      <span>19 Oct 2020 &raquo;</span> <a href="/linux/recepies/creating-ram-disk.html">Linux - RAM disk </a>
+    </li>
+    
+  </ul>
+
+</div>
+-->
+        
+    <ul class="tag_list_in_post"></ul>
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+  I do not clame that everyting on this webpage is correct. Feel free to contribute to this blog on <a href="https://github.com/artur-gurgul/artur-gurgul.github.io/issues">GitHub</a> 
+  </p>
+  
+
+  <p>
+  © Artur Gurgul, 2016 &mdash; Public Domain Licence [<a href="/cv/">My resume</a>]
+  </p>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41036379-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

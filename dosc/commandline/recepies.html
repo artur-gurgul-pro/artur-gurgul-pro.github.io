@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Gurgul- Commandline recepies</title>
+  <meta name="author" content="Artur Gurgul" />
+  <!-- <meta name="description" content="The blog of Artur Gurgul" />
+  <link rel="canonical" href="http://localhost:4000/commandline/recepies.html" />
+    -->
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+
+  <link rel="stylesheet" href="/assets/css/all.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha256-k2/8zcNbxVIh5mnQ52A0r3a6jAgMGxFJFE2707UxGCk= sha512-ZV9KawG2Legkwp3nAlxLIVFudTauWuBpC10uEafMHYL0Sarrz5A7G79kXh5+5+woxQ5HM559XX2UZjMJ36Wplg==" crossorigin="anonymous">
+  <style>
+    #post pre {
+      background-color: white;
+      border-left: 12px solid #eee;
+      padding: 0 .8em;
+    }
+
+    #post code {
+      background-color: transparent;
+    }
+
+    .highlight {
+      background-color: #333;
+    }
+    #stalker {
+      float: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar no-print">
+      <nav>
+  <h1><!-- Here might the title --></h1>
+  <a href="/">
+    
+    <img src="/logo.png" id="logo" alt="Blog logo"/>
+    
+  </a>
+  <h2 style="font-size: 16px;">Hi. I'm <a href="/"> Artur Gurgul </a>.</h2>
+  <!-- <div id="bio">
+  </div> -->
+  <div id="social">
+    <div id="stalker" style="text-align: center; width:100%">
+  
+  <a title="artur-gurgul on Github" href="https://github.com/artur-gurgul">
+    <i class="fa fa-github-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+  <a title="Artur Gurgul on Stack Overflow" href="http://stackoverflow.com/users/743268">
+    <i class="fa fa-stack-overflow"></i>
+  </a>
+  
+
+  
+  <a title="ArturGurgul on Twitter" href="https://twitter.com/ArturGurgul">
+    <i class="fa fa-twitter-square"></i>
+  </a>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</div>
+
+  </div>
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <p class="meta">
+  October 19, 2016 
+  <a href="/">
+    <i class="home fa fa-home"></i>
+  </a>
+</p>
+
+<h1 class="title">Commandline recepies</h1>
+
+<div id="post">
+  <h5 id="networking---checking-for-open-ports">Networking - Checking for open ports</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
+</code></pre>
+</div>
+
+<h5 id="io-stats">I/O Stats</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>iostat
+</code></pre>
+</div>
+
+<h5 id="checking-type-of-executable-files">Checking type of executable files</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>otool -hv test.so
+</code></pre>
+</div>
+
+<h5 id="get-directory-size">Get directory size</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>du -sh MacOSBackup
+</code></pre>
+</div>
+
+
+</div>
+
+<!--  comments comes from github like https://api.github.com/repos/artur-gurgul/artur-gurgul.markdown/issues/1/comments -->
+
+<!-- 
+<div id="related">
+  <h3>Related Posts</h3>
+  <ul class="posts">
+    
+    <li>
+      <span>22 Dec 2020 &raquo;</span> <a href="/git/squash.html">Git - squasing commits</a>
+    </li>
+    
+    <li>
+      <span>19 Oct 2020 &raquo;</span> <a href="/linux/recepies/archlinux-install-media.html">[DRAFT] Install media for archlinux</a>
+    </li>
+    
+    <li>
+      <span>19 Oct 2020 &raquo;</span> <a href="/regex/regex-find-any.html">Regex: Find any</a>
+    </li>
+    
+  </ul>
+
+</div>
+-->
+        
+    <ul class="tag_list_in_post"></ul>
+
+      <div class="footer">
+        <div class="disclaimer">
+  
+  <p>
+  I do not clame that everyting on this webpage is correct. Feel free to contribute to this blog on <a href="https://github.com/artur-gurgul/artur-gurgul.github.io/issues">GitHub</a> 
+  </p>
+  
+
+  <p>
+  © Artur Gurgul, 2016 &mdash; Public Domain Licence [<a href="/cv/">My resume</a>]
+  </p>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41036379-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
