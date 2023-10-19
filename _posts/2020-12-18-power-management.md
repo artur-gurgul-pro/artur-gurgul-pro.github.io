@@ -19,7 +19,7 @@ If `HandleLidSwitch` is not set to ignore then change it:
 
 Other settings that the action can be ignored: `HandleLidSwitchExternalPower`, `HandleLidSwitchDocked`, `IdleAction`.
 
-Restart the systemd daemon (be aware that this will log you off) with this command:
+Restart the systemd daemon (be aware that this command will log you out):
 
     sudo systemctl restart systemd-logind
 
