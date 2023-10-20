@@ -1,10 +1,43 @@
 <nav>
-  <a href="/">
+  <!-- <a href="/">
     <img src="/logo.png" id="logo" alt="Blog logo"/>
   </a>
   <div id="social">
-    {% include social.html %}
+    <div id="stalker" style="text-align: center; width:100%">
+      {% if site.data.theme.social.github %}
+      <a title="{{ site.data.theme.social.github }} on Github" href="https://github.com/{{ site.data.theme.social.github }}">
+        <i class="fa fa-github-square"></i>
+      </a>
+      {% endif %}
+    
+      {% if site.data.theme.social.stackoverflow %}
+      <a title="{{ site.data.theme.name }} on Stack Overflow" href="http://stackoverflow.com/users/{{site.data.theme.social.stackoverflow }}">
+        <i class="fa fa-stack-overflow"></i>
+      </a>
+      {% endif %}
+    
+    
+      {% if site.data.theme.social.linkedin %}
+      <a title="{{ site.data.theme.name }} on LinkedIn" href="https://www.linkedin.com/in/{{ site.data.theme.social.linkedin }}">
+        <i class="fa fa-linkedin-square"></i>
+      </a>
+      {% endif %}
+      
+    </div>
   </div>
-  <h2 style="font-size: 16px;">Hi. I'm <a href="/"> Artur Gurgul </a>,</h2>
-  <h2 style="font-size: 16px;">and this is my notepad.</h2>
+   -->
+
+   <h2 style="font-size: 20px;margin: 0px;">Hi. I'm <a href="/"> Artur Gurgul</a>,</h2>
+   <h2 style="font-size: 15px;margin-top: -0.5em;">and this is my notepad.</h2>
+  <hr class="hr-text" data-content="Contents"/>
+  <ul id="blog-posts" class="posts">
+  {% for post in site.posts %}
+    <li><span>&raquo;</span><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  </ul>
+
+
+
+  
+  
 </nav>
