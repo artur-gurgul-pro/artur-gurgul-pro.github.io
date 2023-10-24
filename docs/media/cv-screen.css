@@ -26,6 +26,10 @@
 	position: relative;
 }
 
+.cv-page h2 {
+	padding-bottom: 20px;
+}
+
 .job-item {
     padding-top: 30px;   
 }

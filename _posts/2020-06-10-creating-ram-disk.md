@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "Linux - RAM disk "
-date:   2020-10-19 12:09:07 +0200
+title:  "Linux - RAM disk"
 categories: linux recepies
 ---
 

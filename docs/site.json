@@ -1,51 +1,21 @@
 [
 
-{"date": "Tue, 22 Dec 2020 11:09:07 +0100",
-"categories": ["git"],
-"tags": [],
-"title": "Git - squasing commits",
-"url": "/git/squash.html"},
-
-{"date": "Mon, 19 Oct 2020 12:09:07 +0200",
-"categories": ["linux","recepies"],
-"tags": [],
-"title": "[DRAFT] Install media for archlinux",
-"url": "/linux/recepies/archlinux-install-media.html"},
-
-{"date": "Mon, 19 Oct 2020 12:09:07 +0200",
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["regex"],
 "tags": [],
-"title": "Regex: Find any",
+"title": "Regex - Find any",
 "url": "/regex/regex-find-any.html"},
 
-{"date": "Mon, 19 Oct 2020 12:09:07 +0200",
-"categories": ["linux","recepies"],
-"tags": [],
-"title": "Linux - RAM disk ",
-"url": "/linux/recepies/creating-ram-disk.html"},
-
-{"date": "Wed, 19 Oct 2016 12:09:07 +0200",
-"categories": ["swift"],
-"tags": [],
-"title": "iOS - Threading",
-"url": "/swift/ios-threading.html"},
-
-{"date": "Wed, 19 Oct 2016 12:09:07 +0200",
-"categories": ["commandline"],
-"tags": [],
-"title": "Commandline recepies",
-"url": "/commandline/recepies.html"},
-
-{"date": "Wed, 19 Oct 2016 12:09:07 +0200",
-"categories": ["golang"],
-"tags": [],
-"title": "Golang bridging",
-"url": "/golang/bridging.html"},
-
-{"date": "Wed, 19 Oct 2016 12:09:07 +0200",
+{"date": "Fri, 18 Dec 2020 00:00:00 +0100",
 "categories": ["linux","recepies"],
 "tags": [],
 "title": "Ubuntu - Power management",
 "url": "/linux/recepies/power-management.html"},
+
+{"date": "Wed, 10 Jun 2020 00:00:00 +0200",
+"categories": ["linux","recepies"],
+"tags": [],
+"title": "Linux - RAM disk",
+"url": "/linux/recepies/creating-ram-disk.html"},
 
 false]

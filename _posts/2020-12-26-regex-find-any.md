@@ -1,11 +1,10 @@
 ---
 layout: post
-title:  "Regex: Find any"
-date:   2020-10-19 12:09:07 +0200
+title:  "Regex - Find any"
 categories: regex
 ---
 
-How to match “any character” in regular expression
+How to match “any character” in the regular expression
 
 - `.` => any char except newline
 - `\.` => the actual dot character
