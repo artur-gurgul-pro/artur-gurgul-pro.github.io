@@ -10,6 +10,7 @@ Installing Debian using the recent image
 https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-11.6.0-amd64-netinst.iso
 
 Here is a live version for reparing the OS https://www.debian.org/CD/live/
+
 - [amd64](https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/)
 
 Recomendation: 
