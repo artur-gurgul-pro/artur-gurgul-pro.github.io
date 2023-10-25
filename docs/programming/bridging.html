@@ -118,17 +118,13 @@
       <h1 class="title">Bridging between languages</h1>
 
 <div id="post">
-  <h1 id="golang---shared-and-static-library">Golang - shared and static library</h1>
-
-<p>The Go tools are capable of static and dynamic linking with other libraries, and also there is possbility to create static and dynamic library, therefore it is possible to create a bridge between golang and the other language both ways.</p>
+  <p>Project written in X lang =&gt; compile to static/dynamic library =&gt; call the library from lang Y</p>
 
 <h3 id="creating-shared-and-static-library-in-go">Creating shared and static library in Go</h3>
 
-<p>Let’s create a library. Here is an example.</p>
+<p>An example code that is shared <a href="https://github.com/artur-gurgul/codebook"><code class="highlighter-rouge">example.go</code></a>:</p>
 
-<p>File <a href="https://github.com/artur-gurgul/codebook"><code class="highlighter-rouge">example.go</code></a>:</p>
-
-<figure class="highlight"><pre><code class="language-go" data-lang="go"><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
 
 </span><span class="k">import</span><span class="x"> </span><span class="s">"C"</span><span class="x">
 </span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
@@ -138,16 +134,25 @@
 		</span><span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">GoString</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span><span class="x">
 </span><span class="p">}</span><span class="x">
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{}</span></code></pre></figure>
+</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{}</span><span class="x">
+</span></code></pre>
+</div>
 
-<p>and <code class="highlighter-rouge">Makefile</code> that will contain build script that you can invoke by <code class="highlighter-rouge">make static</code> or <code class="highlighter-rouge">make shared</code>.</p>
+<p>Creating static library</p>
 
-<figure class="highlight"><pre><code class="language-make" data-lang="make"><span class="nl">static example.a</span><span class="o">:</span>
-	go build -o example.a -buildmode<span class="o">=</span>c-archive example.go
-<span class="nl">shared example.dylib</span><span class="o">:</span>
-	<span class="err">go build -o example.dylib -buildmode=c-shared example.go</span></code></pre></figure>
+<div class="highlighter-rouge"><pre class="highlight"><code>go build -o example.a -buildmode=c-archive example.go
+</code></pre>
+</div>
+
+<p>Creating dynamic library</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>go build -o example.dylib -buildmode=c-shared example.go
+</code></pre>
+</div>
 
 <p>As far as I understand the main function is neccecery to include into library, because the final product has to have for example the GC rutines. The comment starting from <code class="highlighter-rouge">//export {function name}</code> tells the comiler that this the function will be called from the outside.</p>
+
+<p><img src="/svgs/test-graph.svg" alt="alt text" /></p>
 
 <h3 id="calling-functrion-from-library-in-go">Calling functrion from library in Go</h3>
 

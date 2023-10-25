@@ -120,12 +120,13 @@
 <div id="post">
   <p>This might be useful for spead up programs that heavily use disk.</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">mount -t <span class="o">[</span>TYPE] -o <span class="nv">size</span><span class="o">=[</span>SIZE] <span class="o">[</span>FSTYPE] <span class="o">[</span>MOUNTPOINT]</code></pre></figure>
-
+<div class="highlighter-rouge"><pre class="highlight"><code>mount -t TYPE -o size=SIZE FSTYPE MOUNTPOINT
+</code></pre>
+</div>
 <ul>
-  <li>[TYPE] either tmpfs or ramfs.</li>
-  <li>[SIZE] ie. 512m</li>
-  <li>[FSTYPE] File system type, either tmpfs, ramfs, ext4, etc.</li>
+  <li><code class="highlighter-rouge">TYPE</code> → either <code class="highlighter-rouge">tmpfs</code> or <code class="highlighter-rouge">ramfs</code>.</li>
+  <li><code class="highlighter-rouge">SIZE</code> → ie. <code class="highlighter-rouge">512m</code></li>
+  <li><code class="highlighter-rouge">FSTYPE</code> → File system type, either <code class="highlighter-rouge">tmpfs</code>, <code class="highlighter-rouge">ramfs</code>, <code class="highlighter-rouge">ext4</code>, etc.</li>
 </ul>
 
 <p>To make this setting persistent you might want to add to <code class="highlighter-rouge">/etc/fstab</code> fallowing line</p>

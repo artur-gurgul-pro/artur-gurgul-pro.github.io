@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-25T16:29:41+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-25T22:03:36+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;Download links&lt;/p&gt;
 
 &lt;!-- https://www.debian.org/CD/live/ --&gt;
@@ -43,11 +43,11 @@ apt install firmware-linux-nonfree
 &lt;/div&gt;</content><author><name></name></author><summary type="html">Download links</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; =&amp;gt; any char except newline&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\.&lt;/code&gt; =&amp;gt; the actual dot character&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.?&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,1}&lt;/code&gt; = match any char except newline zero or one times&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,}&lt;/code&gt; = match any char except newline zero or more times&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.+&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{1,}&lt;/code&gt; = match any char except newline one or more times&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → any char except newline&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\.&lt;/code&gt; → the actual dot character&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.?&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,1}&lt;/code&gt; → match any char except newline zero or one times&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,}&lt;/code&gt; → match any char except newline zero or more times&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.+&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{1,}&lt;/code&gt; → match any char except newline one or more times&lt;/li&gt;
 &lt;/ul&gt;</content><author><name></name></author><summary type="html">How to match “any character” in the regular expression</summary></entry><entry><title type="html">Ubuntu - Power management</title><link href="http://localhost:4000/linux/recepies/power-management.html" rel="alternate" type="text/html" title="Ubuntu - Power management" /><published>2020-12-18T00:00:00+01:00</published><updated>2020-12-18T00:00:00+01:00</updated><id>http://localhost:4000/linux/recepies/power-management</id><content type="html" xml:base="http://localhost:4000/linux/recepies/power-management.html">&lt;p&gt;To make Ubuntu do nothing when laptop lid is closed:&lt;/p&gt;
 
 &lt;p&gt;From For 13.10 onwards:&lt;/p&gt;
@@ -78,27 +78,24 @@ apt install firmware-linux-nonfree
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;</content><author><name></name></author><summary type="html">To make Ubuntu do nothing when laptop lid is closed:</summary></entry><entry><title type="html">Linux - RAM disk</title><link href="http://localhost:4000/linux/recepies/creating-ram-disk.html" rel="alternate" type="text/html" title="Linux - RAM disk" /><published>2020-06-10T00:00:00+02:00</published><updated>2020-06-10T00:00:00+02:00</updated><id>http://localhost:4000/linux/recepies/creating-ram-disk</id><content type="html" xml:base="http://localhost:4000/linux/recepies/creating-ram-disk.html">&lt;p&gt;This might be useful for spead up programs that heavily use disk.&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;mount -t &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;TYPE] -o &lt;span class=&quot;nv&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=[&lt;/span&gt;SIZE] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;FSTYPE] &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;MOUNTPOINT]&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mount -t TYPE -o size=SIZE FSTYPE MOUNTPOINT
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 &lt;ul&gt;
-  &lt;li&gt;[TYPE] either tmpfs or ramfs.&lt;/li&gt;
-  &lt;li&gt;[SIZE] ie. 512m&lt;/li&gt;
-  &lt;li&gt;[FSTYPE] File system type, either tmpfs, ramfs, ext4, etc.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TYPE&lt;/code&gt; → either &lt;code class=&quot;highlighter-rouge&quot;&gt;tmpfs&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;ramfs&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;SIZE&lt;/code&gt; → ie. &lt;code class=&quot;highlighter-rouge&quot;&gt;512m&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;FSTYPE&lt;/code&gt; → File system type, either &lt;code class=&quot;highlighter-rouge&quot;&gt;tmpfs&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ramfs&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;ext4&lt;/code&gt;, etc.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;To make this setting persistent you might want to add to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; fallowing line&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024M 0 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">This might be useful for spead up programs that heavily use disk.</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;h1 id=&quot;golang---shared-and-static-library&quot;&gt;Golang - shared and static library&lt;/h1&gt;
-
-&lt;p&gt;The Go tools are capable of static and dynamic linking with other libraries, and also there is possbility to create static and dynamic library, therefore it is possible to create a bridge between golang and the other language both ways.&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024M 0 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">This might be useful for spead up programs that heavily use disk.</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;p&gt;Project written in X lang =&amp;gt; compile to static/dynamic library =&amp;gt; call the library from lang Y&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-shared-and-static-library-in-go&quot;&gt;Creating shared and static library in Go&lt;/h3&gt;
 
-&lt;p&gt;Let’s create a library. Here is an example.&lt;/p&gt;
+&lt;p&gt;An example code that is shared &lt;a href=&quot;https://github.com/artur-gurgul/codebook&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;example.go&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
 
-&lt;p&gt;File &lt;a href=&quot;https://github.com/artur-gurgul/codebook&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;example.go&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
@@ -108,16 +105,25 @@ apt install firmware-linux-nonfree
 		&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GoString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
 
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;p&gt;and &lt;code class=&quot;highlighter-rouge&quot;&gt;Makefile&lt;/code&gt; that will contain build script that you can invoke by &lt;code class=&quot;highlighter-rouge&quot;&gt;make static&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;make shared&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Creating static library&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nl&quot;&gt;static example.a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	go build -o example.a -buildmode&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;c-archive example.go
-&lt;span class=&quot;nl&quot;&gt;shared example.dylib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;err&quot;&gt;go build -o example.dylib -buildmode=c-shared example.go&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.a -buildmode=c-archive example.go
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Creating dynamic library&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.dylib -buildmode=c-shared example.go
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;p&gt;As far as I understand the main function is neccecery to include into library, because the final product has to have for example the GC rutines. The comment starting from &lt;code class=&quot;highlighter-rouge&quot;&gt;//export {function name}&lt;/code&gt; tells the comiler that this the function will be called from the outside.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/svgs/test-graph.svg&quot; alt=&quot;alt text&quot; /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;calling-functrion-from-library-in-go&quot;&gt;Calling functrion from library in Go&lt;/h3&gt;
 
@@ -190,4 +196,4 @@ File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&l
 &lt;ul&gt;
   &lt;li&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/li&gt;
   &lt;li&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Golang - shared and static library</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Project written in X lang =&amp;gt; compile to static/dynamic library =&amp;gt; call the library from lang Y</summary></entry></feed>
