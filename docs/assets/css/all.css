@@ -928,6 +928,30 @@ sup {
     font-style: italic !important
 }
 
+p:has(img) {
+    background-color: #005fad06;
+    border-left: 12px solid #005fad43;
+}
+
+p > img {
+    display: block;
+    margin: 0 auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+p:has(svg) {
+    background-color: #005fad06;
+    border-left: 12px solid #005fad43;
+}
+
+p > svg {
+    display: block;
+    margin: 0 auto;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
 .highlight .cm {
     color: #586e75 !important;
     font-style: italic !important

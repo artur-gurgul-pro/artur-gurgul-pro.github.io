@@ -18,6 +18,10 @@ markdown: kramdown
 
 gems:
   - jekyll-feed
+  - jekyll-inline-svg
+
+svg:
+  optimize: true
   
 exclude:
   - Gemfile
