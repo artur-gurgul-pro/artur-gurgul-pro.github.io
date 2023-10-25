@@ -919,7 +919,8 @@ sup {
 }
 .highlight {
     background-color: white;
-    color: #93a1a1
+    color: #93a1a1;
+    font-weight: bold;
 }
 
 .highlight .c {
