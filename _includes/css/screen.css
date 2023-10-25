@@ -121,10 +121,12 @@ nav h1, nav h2 {
 }
 
 #post pre {
-  border: 1px solid #ddd;
-  background-color: #eef;
+  border: 0px solid #ddd;
+  background-color: #005fad06 !important;
   padding: 0 .4em;
   margin-bottom: 20px !important;
+
+  border-color: #005fada0 !important;
 }
 
 #post ul,
