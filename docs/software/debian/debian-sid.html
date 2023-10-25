@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Ubuntu - Power management</title>
+  <title>Artur Gurgul - Installing Debian sid on QEMU</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -95,38 +95,52 @@
     </div>
 
     <div class="eleven columns content">
-      <h1 class="title">Ubuntu - Power management</h1>
+      <h1 class="title">Installing Debian sid on QEMU</h1>
 
 <div id="post">
-  <p>To make Ubuntu do nothing when laptop lid is closed:</p>
+  <p>Download links</p>
 
-<p>From For 13.10 onwards:</p>
+<!-- https://www.debian.org/CD/live/ -->
 
-<p>Open the <code class="highlighter-rouge">/etc/systemd/logind.conf</code> file in a text editor as root, for example,</p>
+<ul>
+  <li><a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso">amd64 - Install disc</a></li>
+  <li><a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/">amd64 - Live disc</a></li>
+</ul>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo -H gedit /etc/systemd/logind.conf
+<p>Recomendation:</p>
+
+<ul>
+  <li>Select no desktop and SSH server</li>
+</ul>
+
+<h4 id="allowing-login-root-user-from-the-network">Allowing login root user from the network</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt install neovim
+
+nvim /etc/ssh/sshd_config
+PermitRootLogin yes
+
+systemctl restart sshd
+
 </code></pre>
 </div>
 
-<p>If <code class="highlighter-rouge">HandleLidSwitch</code> is not set to ignore then change it:</p>
+<p>Make it #sid</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>HandleLidSwitch=ignore
+<p>/etc/apt/sources.list</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
 </code></pre>
 </div>
 
-<p>Other settings that the action can be ignored: <code class="highlighter-rouge">HandleLidSwitchExternalPower</code>, <code class="highlighter-rouge">HandleLidSwitchDocked</code>, <code class="highlighter-rouge">IdleAction</code>.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt update
+apt dist-upgrade
 
-<p>Restart the systemd daemon (be aware that this command will log you out):</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl restart systemd-logind
+apt install firmware-linux-nonfree
 </code></pre>
 </div>
 
-<p>or, from 15.04 onwards:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo service systemd-logind restart
-</code></pre>
-</div>
 
 </div>
 

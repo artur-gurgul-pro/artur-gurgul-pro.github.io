@@ -1,5 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-24T09:47:39+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-25T14:31:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;Download links&lt;/p&gt;
+
+&lt;!-- https://www.debian.org/CD/live/ --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso&quot;&gt;amd64 - Install disc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/&quot;&gt;amd64 - Live disc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Recomendation:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Select no desktop and SSH server&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;allowing-login-root-user-from-the-network&quot;&gt;Allowing login root user from the network&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install neovim
+
+nvim /etc/ssh/sshd_config
+PermitRootLogin yes
+
+systemctl restart sshd
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Make it #sid&lt;/p&gt;
+
+&lt;p&gt;/etc/apt/sources.list&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update
+apt dist-upgrade
+
+apt install firmware-linux-nonfree
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Download links</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; =&amp;gt; any char except newline&lt;/li&gt;
