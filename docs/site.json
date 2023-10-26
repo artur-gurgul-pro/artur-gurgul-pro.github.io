@@ -12,6 +12,12 @@
 "title": "Installing Debian sid on QEMU",
 "url": "/software/debian/debian-sid.html"},
 
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["software","debian"],
+"tags": [],
+"title": "Chroot environment of Debian sid",
+"url": "/software/debian/debian-chroot.html"},
+
 {"date": "Fri, 18 Dec 2020 00:00:00 +0100",
 "categories": ["linux","recepies"],
 "tags": [],

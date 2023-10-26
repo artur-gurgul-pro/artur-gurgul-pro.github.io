@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-26T15:31:08+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-26T22:32:04+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;Download links&lt;/p&gt;
 
 &lt;!-- https://www.debian.org/CD/live/ --&gt;
@@ -40,7 +40,45 @@ apt dist-upgrade
 
 apt install firmware-linux-nonfree
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Download links</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Download links</summary></entry><entry><title type="html">Chroot environment of Debian sid</title><link href="http://localhost:4000/software/debian/debian-chroot.html" rel="alternate" type="text/html" title="Chroot environment of Debian sid" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-chroot</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-chroot.html">&lt;p&gt;Install Bootstrap&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install debootstrap
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Create a directory that you want to use for the base system (&lt;em&gt;chroot-debian&lt;/em&gt; in this case)&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir chroot-debian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Create a base system&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo debootstrap sid chroot-debian http://deb.debian.org/debian
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Valid names &lt;code class=&quot;highlighter-rouge&quot;&gt;sid&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;stable&lt;/code&gt; or any debian code name&lt;/p&gt;
+
+&lt;p&gt;Mount  filesystems&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /dev chroot-debian/dev
+sudo mount -t sysfs none chroot-debian/sys
+sudo mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /proc chroot-debian/proc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Start chrooting&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chroot chroot-debian /bin/bash
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Once done, exit the session and unmount&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo umount chroot-debian/dev chroot-debian/proc
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Install Bootstrap</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → any char except newline&lt;/li&gt;
@@ -89,141 +127,7 @@ apt install firmware-linux-nonfree
 
 &lt;p&gt;To make this setting persistent you might want to add to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; fallowing line&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024M 0 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">This might be useful for spead up programs that heavily use disk.</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;p&gt;We can cross call functions from languages that:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Both are compilable → Strategy: Create a binary library and call function from it.&lt;/li&gt;
-  &lt;li&gt;Library in &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreted&lt;/code&gt; and the project in &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; → Strategy: Create an interpreter context, then load the files and execute them.&lt;/li&gt;
-  &lt;li&gt;Library in &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; and the project in &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreted&lt;/code&gt; → Strategy: Use &lt;code class=&quot;highlighter-rouge&quot;&gt;FFI&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Both are interpreted
-    &lt;ul&gt;
-      &lt;li&gt;Probably give up. Bridging will be possible, but messy and complicated&lt;/li&gt;
-      &lt;li&gt;Create two programs and exchange data between them using pipe, sockets, message quesues, databses etc.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;creating-shared-and-static-library-in-go&quot;&gt;Creating shared and static library in Go&lt;/h3&gt;
-
-&lt;p&gt;An example code that is shared &lt;a href=&quot;https://github.com/artur-gurgul/codebook&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;example.go&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//export SayHello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-		&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GoString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; function is neccecery to include into library, because the final product has to have for example the GC rutines.&lt;/li&gt;
-  &lt;li&gt;The comment starting from &lt;code class=&quot;highlighter-rouge&quot;&gt;//export {function name}&lt;/code&gt; tells the comiler that this the function will be called from the outside.&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;creating-static-library&quot;&gt;Creating static library&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.a -buildmode=c-archive example.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;creating-dynamic-library&quot;&gt;Creating dynamic library&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.dylib -buildmode=c-shared example.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h3 id=&quot;calling-functrion-from-library-in-go&quot;&gt;Calling functrion from library in Go&lt;/h3&gt;
-
-&lt;p&gt;First off we will create C++ library that we will use in out Go program.
-File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello: %s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And &lt;code class=&quot;highlighter-rouge&quot;&gt;example.hxx&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#pragma once
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extern &quot;C&quot; {}&lt;/code&gt; informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:&lt;/p&gt;
-
-&lt;h4 id=&quot;creating-static-library-1&quot;&gt;Creating static library&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clang++ -c -Wall -o lib.o ./example.cxx
-ar rc ./libexample.a ./lib.o
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;creating-dynamic-library-1&quot;&gt;Creating dynamic library&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clang++ -dynamiclib -o libexample.dylib example.cxx
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;statically-linking-an-example-library-in-go&quot;&gt;Statically linking an example library in Go&lt;/h2&gt;
-
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo CFLAGS: -I.&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo LDFLAGS: -L. -lexample&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #include &amp;lt;example.hxx&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello Golang&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;The program is linked staticaly with libexample when you build it.&lt;/p&gt;
-
-&lt;h4 id=&quot;example-of-using-library-with-ffi-in-ruby&quot;&gt;Example of using library with FFI in Ruby&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;gem install ffi&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ffi'&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Example&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FFI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Library&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;ffi_lib&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./example.dylib'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;attach_function&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;More informations about FFI: &lt;a href=&quot;https://en.wikipedia.org/wiki/Foreign_function_interface&quot;&gt;https://en.wikipedia.org/wiki/Foreign_function_interface&lt;/a&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;call-shared-library-from-python&quot;&gt;Call shared library from Python&lt;/h4&gt;
-
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ctypes&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CDLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./example.dylib'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h2 id=&quot;interesting-websites&quot;&gt;Interesting websites&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.filippo.io/building-python-modules-with-go-1-5/&quot;&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&quot;&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">We can cross call functions from languages that:</summary></entry><entry><title type="html">Example objects</title><link href="http://localhost:4000/programming/example.html" rel="alternate" type="text/html" title="Example objects" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/example</id><content type="html" xml:base="http://localhost:4000/programming/example.html">&lt;p&gt;Project written in X lang → compile to static/dynamic library → call the library from lang Y&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024M 0 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">This might be useful for spead up programs that heavily use disk.</summary></entry><entry><title type="html">Example objects</title><link href="http://localhost:4000/programming/example.html" rel="alternate" type="text/html" title="Example objects" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/example</id><content type="html" xml:base="http://localhost:4000/programming/example.html">&lt;p&gt;Project written in X lang → compile to static/dynamic library → call the library from lang Y&lt;/p&gt;
 
 &lt;h3 id=&quot;creating-shared-and-static-library-in-go&quot;&gt;Creating shared and static library in Go&lt;/h3&gt;
 
@@ -373,7 +277,141 @@ File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&l
 &lt;ul&gt;
   &lt;li&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/li&gt;
   &lt;li&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Project written in X lang → compile to static/dynamic library → call the library from lang Y</summary></entry><entry><title type="html">Recepies</title><link href="http://localhost:4000/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/recepies</id><content type="html" xml:base="http://localhost:4000/recepies.html">&lt;h5 id=&quot;read-a-dns-records&quot;&gt;Read a DNS records&lt;/h5&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Project written in X lang → compile to static/dynamic library → call the library from lang Y</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;p&gt;We can cross call functions from languages that:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Both are compilable → Strategy: Create a binary library and call function from it.&lt;/li&gt;
+  &lt;li&gt;Library in &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreted&lt;/code&gt; and the project in &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; → Strategy: Create an interpreter context, then load the files and execute them.&lt;/li&gt;
+  &lt;li&gt;Library in &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; and the project in &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreted&lt;/code&gt; → Strategy: Use &lt;code class=&quot;highlighter-rouge&quot;&gt;FFI&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Both are interpreted
+    &lt;ul&gt;
+      &lt;li&gt;Probably give up. Bridging will be possible, but messy and complicated&lt;/li&gt;
+      &lt;li&gt;Create two programs and exchange data between them using pipe, sockets, message quesues, databses etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;creating-shared-and-static-library-in-go&quot;&gt;Creating shared and static library in Go&lt;/h3&gt;
+
+&lt;p&gt;An example code that is shared &lt;a href=&quot;https://github.com/artur-gurgul/codebook&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;example.go&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//export SayHello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+		&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GoString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; function is neccecery to include into library, because the final product has to have for example the GC rutines.&lt;/li&gt;
+  &lt;li&gt;The comment starting from &lt;code class=&quot;highlighter-rouge&quot;&gt;//export {function name}&lt;/code&gt; tells the comiler that this the function will be called from the outside.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;creating-static-library&quot;&gt;Creating static library&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.a -buildmode=c-archive example.go
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;creating-dynamic-library&quot;&gt;Creating dynamic library&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.dylib -buildmode=c-shared example.go
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;calling-functrion-from-library-in-go&quot;&gt;Calling functrion from library in Go&lt;/h3&gt;
+
+&lt;p&gt;First off we will create C++ library that we will use in out Go program.
+File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello: %s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;And &lt;code class=&quot;highlighter-rouge&quot;&gt;example.hxx&lt;/code&gt;:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#pragma once
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extern &quot;C&quot; {}&lt;/code&gt; informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:&lt;/p&gt;
+
+&lt;h4 id=&quot;creating-static-library-1&quot;&gt;Creating static library&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clang++ -c -Wall -o lib.o ./example.cxx
+ar rc ./libexample.a ./lib.o
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;creating-dynamic-library-1&quot;&gt;Creating dynamic library&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clang++ -dynamiclib -o libexample.dylib example.cxx
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;statically-linking-an-example-library-in-go&quot;&gt;Statically linking an example library in Go&lt;/h2&gt;
+
+&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo CFLAGS: -I.&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo LDFLAGS: -L. -lexample&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #include &amp;lt;example.hxx&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+
+&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello Golang&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;The program is linked staticaly with libexample when you build it.&lt;/p&gt;
+
+&lt;h4 id=&quot;example-of-using-library-with-ffi-in-ruby&quot;&gt;Example of using library with FFI in Ruby&lt;/h4&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;gem install ffi&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ffi'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Example&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FFI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Library&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;ffi_lib&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./example.dylib'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;attach_function&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;More informations about FFI: &lt;a href=&quot;https://en.wikipedia.org/wiki/Foreign_function_interface&quot;&gt;https://en.wikipedia.org/wiki/Foreign_function_interface&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;call-shared-library-from-python&quot;&gt;Call shared library from Python&lt;/h4&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ctypes&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CDLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./example.dylib'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;interesting-websites&quot;&gt;Interesting websites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://blog.filippo.io/building-python-modules-with-go-1-5/&quot;&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&quot;&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">We can cross call functions from languages that:</summary></entry><entry><title type="html">Recepies</title><link href="http://localhost:4000/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/recepies</id><content type="html" xml:base="http://localhost:4000/recepies.html">&lt;h5 id=&quot;read-a-dns-records&quot;&gt;Read a DNS records&lt;/h5&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dig artgur.net +nostats +nocomments +nocmd
 &lt;/code&gt;&lt;/pre&gt;

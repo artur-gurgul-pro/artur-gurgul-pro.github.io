@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Ubuntu - Power management</title>
+  <title>Artur Gurgul - Chroot environment of Debian sid</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -85,14 +85,14 @@
     <li><span>&raquo;</span><a href="/software/debian/debian-chroot.html"
       
       
+        style="font-weight: bold;"
+      
 
       >Chroot environment of Debian sid</a></li>
   
     
     <li><span>&raquo;</span><a href="/linux/recepies/power-management.html"
       
-      
-        style="font-weight: bold;"
       
 
       >Ubuntu - Power management</a></li>
@@ -136,36 +136,46 @@
     </div>
 
     <div class="eleven columns content">
-      <h1 class="title">Ubuntu - Power management</h1>
+      <h1 class="title">Chroot environment of Debian sid</h1>
 
 <div id="post">
-  <p>To make Ubuntu do nothing when laptop lid is closed:</p>
+  <p>Install Bootstrap</p>
 
-<p>From For 13.10 onwards:</p>
-
-<p>Open the <code class="highlighter-rouge">/etc/systemd/logind.conf</code> file in a text editor as root, for example,</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo -H gedit /etc/systemd/logind.conf
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install debootstrap
 </code></pre>
 </div>
 
-<p>If <code class="highlighter-rouge">HandleLidSwitch</code> is not set to ignore then change it:</p>
+<p>Create a directory that you want to use for the base system (<em>chroot-debian</em> in this case)</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>HandleLidSwitch=ignore
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir chroot-debian
 </code></pre>
 </div>
 
-<p>Other settings that the action can be ignored: <code class="highlighter-rouge">HandleLidSwitchExternalPower</code>, <code class="highlighter-rouge">HandleLidSwitchDocked</code>, <code class="highlighter-rouge">IdleAction</code>.</p>
+<p>Create a base system</p>
 
-<p>Restart the systemd daemon (be aware that this command will log you out):</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo systemctl restart systemd-logind
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo debootstrap sid chroot-debian http://deb.debian.org/debian
 </code></pre>
 </div>
 
-<p>or, from 15.04 onwards:</p>
+<p>Valid names <code class="highlighter-rouge">sid</code>, <code class="highlighter-rouge">stable</code> or any debian code name</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo service systemd-logind restart
+<p>Mount  filesystems</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo mount -o <span class="nb">bind</span> /dev chroot-debian/dev
+sudo mount -t sysfs none chroot-debian/sys
+sudo mount -o <span class="nb">bind</span> /proc chroot-debian/proc
+</code></pre>
+</div>
+
+<p>Start chrooting</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo chroot chroot-debian /bin/bash
+</code></pre>
+</div>
+
+<p>Once done, exit the session and unmount</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo umount chroot-debian/dev chroot-debian/proc
 </code></pre>
 </div>
 
