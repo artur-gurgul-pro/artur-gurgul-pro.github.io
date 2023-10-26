@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Linux - RAM disk</title>
+  <title>Artur Gurgul - Recepies</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -92,14 +92,14 @@
     <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
       
       
-        style="font-weight: bold;"
-      
 
       >Linux - RAM disk</a></li>
   
     
     <li><span>&raquo;</span><a href="/recepies.html"
       
+      
+        style="font-weight: bold;"
       
 
       >Recepies</a></li>
@@ -129,24 +129,109 @@
     </div>
 
     <div class="eleven columns content">
-      <h1 class="title">Linux - RAM disk</h1>
+      <h1 class="title">Recepies</h1>
 
 <div id="post">
-  <p>This might be useful for spead up programs that heavily use disk.</p>
+  <h5 id="read-a-dns-records">Read a DNS records</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mount -t TYPE -o size=SIZE FSTYPE MOUNTPOINT
+<div class="highlighter-rouge"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
 </code></pre>
 </div>
-<ul>
-  <li><code class="highlighter-rouge">TYPE</code> → either <code class="highlighter-rouge">tmpfs</code> or <code class="highlighter-rouge">ramfs</code>.</li>
-  <li><code class="highlighter-rouge">SIZE</code> → ie. <code class="highlighter-rouge">512m</code></li>
-  <li><code class="highlighter-rouge">FSTYPE</code> → File system type, either <code class="highlighter-rouge">tmpfs</code>, <code class="highlighter-rouge">ramfs</code>, <code class="highlighter-rouge">ext4</code>, etc.</li>
-</ul>
 
-<p>To make this setting persistent you might want to add to <code class="highlighter-rouge">/etc/fstab</code> fallowing line</p>
+<h5 id="io-stats">I/O Stats</h5>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size<span class="o">=</span>1024M 0 0</code></pre></figure>
+<div class="highlighter-rouge"><pre class="highlight"><code>iostat
+</code></pre>
+</div>
 
+<h5 id="checking-type-of-executable-files">Checking type of executable files</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>otool -hv test.so
+</code></pre>
+</div>
+
+<h5 id="get-directory-size">Get directory size</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>du -sh MacOSBackup
+</code></pre>
+</div>
+
+<h5 id="generate-random-password">Generate random password</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>pwgen -s -1 32
+</code></pre>
+</div>
+
+<h5 id="list-block-devices">List block devices</h5>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lsblk
+</code></pre>
+</div>
+
+<h4 id="list-of-wireless-cards">list of wireless cards</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lspci -knn | grep Net -A2
+</code></pre>
+</div>
+
+<h4 id="scan-networks">Scan networks</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>iwlist scan
+</code></pre>
+</div>
+
+<h4 id="shutdown">Shutdown</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>shutdown -h now
+</code></pre>
+</div>
+
+<h4 id="connect-to-the-network">Connect to the network</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>nmcli dev wifi connect TP-Link_5828 password my-secret-pass
+</code></pre>
+</div>
+
+<h4 id="remove-garbidge-files">Remove garbidge files</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>find ./ -name ".DS_Store" -depth -exec rm {} \;
+</code></pre>
+</div>
+
+<h4 id="sql-using-regex">sql using regex</h4>
+<p>Add a check constraint to the <code class="highlighter-rouge">id</code> column to enforce alphanumeric strings of exactly 5 characters long</p>
+
+<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">short_urls</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">id</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">id</span> <span class="o">~</span> <span class="s1">'^[a-zA-Z0-9]{5}$'</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h4 id="console-font-size">Console font size</h4>
+
+<p>Edit file → <code class="highlighter-rouge">/etc/default/console-setup</code></p>
+
+<h4 id="installing-nonfree-firmware-from-repository">Installing nonfree firmware from repository</h4>
+
+<p>I.e: Firmware for nonfree driver for Intel’s WIFI cards.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>https://packages.debian.org/sid/firmware-iwlwifi
+</code></pre>
+</div>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt-get update <span class="o">&amp;&amp;</span> apt-get install firmware-linux-nonfree
+</code></pre>
+</div>
+
+<h4 id="installing-nonfree-firmware-from-manufacturer">Installing nonfree firmware from ​manufacturer</h4>
+
+<p>Search for binary. An example:</p>
+
+<p><a href="https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html">https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html</a></p>
+
+<p>Extract and copy like</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp iwlwifi-cc-a0-46.ucode /lib/firmware
+</code></pre>
+</div>
 
 </div>
 

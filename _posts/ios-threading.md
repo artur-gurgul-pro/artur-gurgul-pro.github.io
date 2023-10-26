@@ -153,3 +153,24 @@ return_value = pthread_create(&user_interactive_thread, &user_interactive_qos_at
 	return nil
 }, nil)
 {% endhighlight %}
+
+
+
+```swift
+extension Sequence {
+    public func threadedMap<T>(_ mapper: @escaping (Element) -> T) -> [T] {
+        var output = [T]()
+        let group = DispatchGroup()
+        let queue = DispatchQueue(label: "queue-for--map-result", qos: .background)
+        
+        for obj in self {
+            queue.async(group:group) {
+                output.append(mapper(obj))
+            }
+        }
+        
+        group.wait()
+        return output
+    }
+}
+```

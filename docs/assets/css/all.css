@@ -356,6 +356,45 @@ blockquote, q {
 		margin-bottom: 1em;
 	}
 
+thead {
+	/* background-color: #005fad43;  */
+	border-bottom: solid #0060ad;
+	font-weight: bold;
+	color: #0060ad;
+}
+
+thead th {
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	
+}
+
+tbody td {
+	padding: 5px;
+}
+
+/* p:has(svg) {
+    background-color: #005fad06;
+    border-left: 12px solid #005fad43;
+
+
+    background-color: #005fad06;
+    border-left: 12px solid #005fad43; 
+}*/
+
+table {
+		/* display: block;
+		margin: 0 auto; */
+		margin-left: auto;
+		margin-right: auto;
+		
+		/* padding-top: 12px;
+		padding-bottom: 12px; */
+	
+}
+
 
     .container                                  { position: relative; width: 1200px; margin: 0 auto; padding: 0; }
     .column, .columns                           { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
