@@ -7,6 +7,12 @@
 "url": "/regex/regex-find-any.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["swift"],
+"tags": [],
+"title": "Dynamic member lockup in swift",
+"url": "/swift/dynamic-member-lockup.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["software","debian"],
 "tags": [],
 "title": "Installing Debian sid on QEMU",
