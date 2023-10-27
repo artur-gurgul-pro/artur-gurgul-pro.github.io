@@ -82,6 +82,13 @@
       >Regex - Find any</a></li>
   
     
+    <li><span>&raquo;</span><a href="/javascript/js-closure.html"
+      
+      
+
+      >Javascript closure</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/swift/dynamic-member-lockup.html"
       
       
@@ -105,11 +112,32 @@
       >Chroot environment of Debian sid</a></li>
   
     
+    <li><span>&raquo;</span><a href="/swift/cancel-upstream.html"
+      
+      
+
+      >Cancelling a publisher</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/bridging.html"
+      
+      
+
+      >Bridging between languages</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/linux/recepies/power-management.html"
       
       
 
       >Ubuntu - Power management</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/mounting-qcow2-image.html"
+      
+      
+
+      >Linux - Mount disk from qcow2 image</a></li>
   
     
     <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
@@ -124,13 +152,6 @@
       
 
       >Recepies</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/programming/bridging.html"
-      
-      
-
-      >Bridging between languages</a></li>
   
   </ul>
 
@@ -191,7 +212,9 @@ deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmwa
 </div>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt update
+apt upgrade
 apt dist-upgrade
+apt autoremove
 
 apt install firmware-linux-nonfree
 </code></pre>

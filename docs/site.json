@@ -13,6 +13,12 @@
 "url": "/regex/regex-find-any.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["javascript"],
+"tags": [],
+"title": "Javascript closure",
+"url": "/javascript/js-closure.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["swift"],
 "tags": [],
 "title": "Dynamic member lockup in swift",
@@ -30,11 +36,29 @@
 "title": "Chroot environment of Debian sid",
 "url": "/software/debian/debian-chroot.html"},
 
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["swift"],
+"tags": [],
+"title": "Cancelling a publisher",
+"url": "/swift/cancel-upstream.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["programming"],
+"tags": [],
+"title": "Bridging between languages",
+"url": "/programming/bridging.html"},
+
 {"date": "Fri, 18 Dec 2020 00:00:00 +0100",
 "categories": ["linux","recepies"],
 "tags": [],
 "title": "Ubuntu - Power management",
 "url": "/linux/recepies/power-management.html"},
+
+{"date": "Sat, 12 Dec 2020 00:00:00 +0100",
+"categories": ["linux"],
+"tags": [],
+"title": "Linux - Mount disk from qcow2 image",
+"url": "/linux/mounting-qcow2-image.html"},
 
 {"date": "Wed, 10 Jun 2020 00:00:00 +0200",
 "categories": ["linux","recepies"],
@@ -47,11 +71,5 @@
 "tags": [],
 "title": "Recepies",
 "url": "/recepies.html"},
-
-{"date": "Wed, 19 Oct 2016 12:09:07 +0200",
-"categories": ["programming"],
-"tags": [],
-"title": "Bridging between languages",
-"url": "/programming/bridging.html"},
 
 false]

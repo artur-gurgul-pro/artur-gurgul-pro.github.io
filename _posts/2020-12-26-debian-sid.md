@@ -49,7 +49,9 @@ deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmwa
 
 ```bash
 apt update
+apt upgrade
 apt dist-upgrade
+apt autoremove
 
 apt install firmware-linux-nonfree
 ```
