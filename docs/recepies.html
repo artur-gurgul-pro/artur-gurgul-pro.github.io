@@ -218,9 +218,10 @@
 </code></pre>
 </div>
 
-<p>#### Linux headers</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>$ uname -r
-$ apt search linux-headers-$(uname -r)
+<h4 id="linux-headers">Linux headers</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>uname -r
+apt search linux-headers-$(uname -r)
 </code></pre>
 </div>
 
@@ -261,9 +262,17 @@ $ apt search linux-headers-$(uname -r)
 
 <h4 id="set-default-shell-zsh-in-this-case">Set default shell. ZSH in this case</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo chsh --shell /usr/bin/zsh user #### Show Git object ```sh pigz -d &lt; .git/objects/02/f2cc93fee0b3cb7c9b75f49e4ded3f9b1480eb ``` #### list of wireless cards
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo chsh --shell /usr/bin/zsh user
+</code></pre>
+</div>
 
-lspci -knn | grep Net -A2
+<h4 id="show-git-object">Show Git object</h4>
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>pigz -d &lt; .git/objects/02/f2cc93fee0b3cb7c9b75f49e4ded3f9b1480eb
+</code></pre>
+</div>
+<h4 id="list-of-wireless-cards">list of wireless cards</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>lspci -knn | grep Net -A2
 </code></pre>
 </div>
 
