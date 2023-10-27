@@ -1,18 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-26T22:55:30+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-27T11:30:50+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;This is Debian setup where most of the examples shown on the website should work on.&lt;/p&gt;
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nf&quot;&gt;subscript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dynamicMember&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;You accessed dynamic member '&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;dynamicStruct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dynamicStruct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;someDynamicMember&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Output: &quot;You accessed dynamic member 'someDynamicMember'&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Here’s an example of using the @dynamicMemberLookup attribute in Swift:</summary></entry><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;Download links&lt;/p&gt;
+&lt;p&gt;Download links:&lt;/p&gt;
 
 &lt;!-- https://www.debian.org/CD/live/ --&gt;
 
@@ -21,25 +10,31 @@
   &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/&quot;&gt;amd64 - Live disc&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Recomendation:&lt;/p&gt;
+&lt;p&gt;Make the disk image&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;Select no desktop and SSH server&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;allowing-login-root-user-from-the-network&quot;&gt;Allowing login root user from the network&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install neovim
-
-nvim /etc/ssh/sshd_config
-PermitRootLogin yes
-
-systemctl restart sshd
-
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-img create -f qcow2 debian.qcow2 16G
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Make it #sid&lt;/p&gt;
+&lt;p&gt;Start the VM&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-x86_64 -bios OVMF.fd -m 1G -drive file=debian.qcow2,format=qcow2 \
+                   -cdrom debian-12.2.0-amd64-netinst.iso
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;During installation select SSH server and no desktop&lt;/p&gt;
+
+&lt;h4 id=&quot;allowing-login-root-user-from-the-network&quot;&gt;Allowing login root user from the network&lt;/h4&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nvim /etc/ssh/sshd_config
+PermitRootLogin yes
+
+systemctl restart sshd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;=======&lt;/p&gt;
 
 &lt;p&gt;/etc/apt/sources.list&lt;/p&gt;
 
@@ -53,7 +48,28 @@ apt dist-upgrade
 
 apt install firmware-linux-nonfree
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Download links</summary></entry><entry><title type="html">Chroot environment of Debian sid</title><link href="http://localhost:4000/software/debian/debian-chroot.html" rel="alternate" type="text/html" title="Chroot environment of Debian sid" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-chroot</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-chroot.html">&lt;p&gt;Install Bootstrap&lt;/p&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">This is Debian setup where most of the examples shown on the website should work on.</summary></entry><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nf&quot;&gt;subscript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dynamicMember&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;You accessed dynamic member '&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;dynamicStruct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dynamicStruct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;someDynamicMember&lt;/span&gt;
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Output: &quot;You accessed dynamic member 'someDynamicMember'&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Here’s an example of using the @dynamicMemberLookup attribute in Swift:</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → any char except newline&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\.&lt;/code&gt; → the actual dot character&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.?&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,1}&lt;/code&gt; → match any char except newline zero or one times&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,}&lt;/code&gt; → match any char except newline zero or more times&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.+&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{1,}&lt;/code&gt; → match any char except newline one or more times&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">How to match “any character” in the regular expression</summary></entry><entry><title type="html">Chroot environment of Debian sid</title><link href="http://localhost:4000/software/debian/debian-chroot.html" rel="alternate" type="text/html" title="Chroot environment of Debian sid" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-chroot</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-chroot.html">&lt;p&gt;Install Bootstrap&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install debootstrap
 &lt;/code&gt;&lt;/pre&gt;
@@ -81,6 +97,12 @@ sudo mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /proc chroot-de
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
+&lt;p&gt;Optionally, copy DNS resolver configuration.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo cp /etc/resolv.conf /path/to/chroot-env/etc/resolv.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
 &lt;p&gt;Start chrooting&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chroot chroot-debian /bin/bash
@@ -91,15 +113,69 @@ sudo mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /proc chroot-de
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo umount chroot-debian/dev chroot-debian/proc
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Install Bootstrap</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Install Bootstrap</summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="http://localhost:4000/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/view-modifier</id><content type="html" xml:base="http://localhost:4000/swift/view-modifier.html">&lt;p&gt;The notification we’ll send when a shake gesture happens.&lt;/p&gt;
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → any char except newline&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\.&lt;/code&gt; → the actual dot character&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.?&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,1}&lt;/code&gt; → match any char except newline zero or one times&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,}&lt;/code&gt; → match any char except newline zero or more times&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.+&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{1,}&lt;/code&gt; → match any char except newline one or more times&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">How to match “any character” in the regular expression</summary></entry><entry><title type="html">Ubuntu - Power management</title><link href="http://localhost:4000/linux/recepies/power-management.html" rel="alternate" type="text/html" title="Ubuntu - Power management" /><published>2020-12-18T00:00:00+01:00</published><updated>2020-12-18T00:00:00+01:00</updated><id>http://localhost:4000/linux/recepies/power-management</id><content type="html" xml:base="http://localhost:4000/linux/recepies/power-management.html">&lt;p&gt;To make Ubuntu do nothing when laptop lid is closed:&lt;/p&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIDevice&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;deviceDidShakeNotification&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Notification&lt;/span&gt;
+                                              &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;rawValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;deviceDidShakeNotification&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Override the default behavior of shake gestures to send our notification instead.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIWindow&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+     &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;motionEnded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;motion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;EventSubtype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;motion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;motionShake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;kt&quot;&gt;NotificationCenter&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;
+                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deviceDidShakeNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A view modifier that detects shaking and calls a function of our choosing.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DeviceShakeViewModifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ViewModifier&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Void&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onAppear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onReceive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;NotificationCenter&lt;/span&gt;
+                           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;
+                           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publisher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deviceDidShakeNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
+                               &lt;span class=&quot;nf&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;A View extension to make the modifier easier to use.&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onShake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perform&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;@escaping&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;modifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;DeviceShakeViewModifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;An example view that responds to being shaken&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kt&quot;&gt;Text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Shake me!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onShake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+                &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Device shaken!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">The notification we’ll send when a shake gesture happens.</summary></entry><entry><title type="html">Ubuntu - Power management</title><link href="http://localhost:4000/linux/recepies/power-management.html" rel="alternate" type="text/html" title="Ubuntu - Power management" /><published>2020-12-18T00:00:00+01:00</published><updated>2020-12-18T00:00:00+01:00</updated><id>http://localhost:4000/linux/recepies/power-management</id><content type="html" xml:base="http://localhost:4000/linux/recepies/power-management.html">&lt;p&gt;To make Ubuntu do nothing when laptop lid is closed:&lt;/p&gt;
 
 &lt;p&gt;From For 13.10 onwards:&lt;/p&gt;
 
@@ -140,256 +216,7 @@ sudo mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /proc chroot-de
 
 &lt;p&gt;To make this setting persistent you might want to add to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/fstab&lt;/code&gt; fallowing line&lt;/p&gt;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024M 0 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">This might be useful for spead up programs that heavily use disk.</summary></entry><entry><title type="html">Recepies</title><link href="http://localhost:4000/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/recepies</id><content type="html" xml:base="http://localhost:4000/recepies.html">&lt;h5 id=&quot;read-a-dns-records&quot;&gt;Read a DNS records&lt;/h5&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dig artgur.net +nostats +nocomments +nocmd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h5 id=&quot;io-stats&quot;&gt;I/O Stats&lt;/h5&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iostat
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h5 id=&quot;checking-type-of-executable-files&quot;&gt;Checking type of executable files&lt;/h5&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;otool -hv test.so
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h5 id=&quot;get-directory-size&quot;&gt;Get directory size&lt;/h5&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;du -sh MacOSBackup
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h5 id=&quot;generate-random-password&quot;&gt;Generate random password&lt;/h5&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pwgen -s -1 32
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h5 id=&quot;list-block-devices&quot;&gt;List block devices&lt;/h5&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsblk
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;list-of-wireless-cards&quot;&gt;list of wireless cards&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lspci -knn | grep Net -A2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;scan-networks&quot;&gt;Scan networks&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iwlist scan
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;shutdown&quot;&gt;Shutdown&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shutdown -h now
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;connect-to-the-network&quot;&gt;Connect to the network&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmcli dev wifi connect TP-Link_5828 password my-secret-pass
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;remove-garbidge-files&quot;&gt;Remove garbidge files&lt;/h4&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find ./ -name &quot;.DS_Store&quot; -depth -exec rm {} \;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;sql-using-regex&quot;&gt;sql using regex&lt;/h4&gt;
-&lt;p&gt;Add a check constraint to the &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; column to enforce alphanumeric strings of exactly 5 characters long&lt;/p&gt;
-
-&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;short_urls&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ADD&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CONSTRAINT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CHECK&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'^[a-zA-Z0-9]{5}$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;console-font-size&quot;&gt;Console font size&lt;/h4&gt;
-
-&lt;p&gt;Edit file → &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/console-setup&lt;/code&gt;&lt;/p&gt;
-
-&lt;h4 id=&quot;installing-nonfree-firmware-from-repository&quot;&gt;Installing nonfree firmware from repository&lt;/h4&gt;
-
-&lt;p&gt;I.e: Firmware for nonfree driver for Intel’s WIFI cards.&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://packages.debian.org/sid/firmware-iwlwifi
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install firmware-linux-nonfree
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h4 id=&quot;installing-nonfree-firmware-from-manufacturer&quot;&gt;Installing nonfree firmware from ​manufacturer&lt;/h4&gt;
-
-&lt;p&gt;Search for binary. An example:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html&quot;&gt;https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Extract and copy like&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp iwlwifi-cc-a0-46.ucode /lib/firmware
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Read a DNS records</summary></entry><entry><title type="html">Example objects</title><link href="http://localhost:4000/programming/example.html" rel="alternate" type="text/html" title="Example objects" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/example</id><content type="html" xml:base="http://localhost:4000/programming/example.html">&lt;p&gt;Project written in X lang → compile to static/dynamic library → call the library from lang Y&lt;/p&gt;
-
-&lt;h3 id=&quot;creating-shared-and-static-library-in-go&quot;&gt;Creating shared and static library in Go&lt;/h3&gt;
-
-&lt;p&gt;An example code that is shared &lt;a href=&quot;https://github.com/artur-gurgul/codebook&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;example.go&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//export SayHello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-		&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GoString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Creating static library&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.a -buildmode=c-archive example.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Creating dynamic library&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.dylib -buildmode=c-shared example.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;As far as I understand the main function is neccecery to include into library, because the final product has to have for example the GC rutines. The comment starting from &lt;code class=&quot;highlighter-rouge&quot;&gt;//export {function name}&lt;/code&gt; tells the comiler that this the function will be called from the outside.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/svgs/test-graph.svg&quot; alt=&quot;alt text&quot; class=&quot;center-image&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;Inline:&lt;/p&gt;
-
-&lt;p&gt;
- &lt;svg width=&quot;401px&quot; class=&quot;center-image&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot; version=&quot;1.1&quot; viewBox=&quot;-0.5 -0.5 402 252&quot; content=&quot;&amp;lt;mxfile host=&amp;quot;Electron&amp;quot; modified=&amp;quot;2023-10-25T22:24:22.516Z&amp;quot; agent=&amp;quot;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36&amp;quot; etag=&amp;quot;bTbxmJN1u4h5iuN82-fe&amp;quot; version=&amp;quot;22.0.3&amp;quot; type=&amp;quot;device&amp;quot;&amp;gt;&amp;lt;diagram name=&amp;quot;Page-1&amp;quot; id=&amp;quot;Rsnn_ZEz_QR4m3hk7b2z&amp;quot;&amp;gt;1ZfLcpswFIafxstmACV2svQtzSKddOJF2+xkOAa5QocKEUOfvhJIGGzHSWbstN14pF9Ht//jSPKATNPys6RZ8gUj4IPAi8oBmQ2CYDS80b9GqBphSPxGiCWLGqkjLNhvsKJn1YJFkPcCFSJXLOuLIQoBoeppVErc9MNWyPuzZjSGPWERUr6vfmORShr1Ohht9TtgceJm9t2GU+qC7U7yhEa46UhkPiBTiaiaUlpOgRvvnC9Nv9sXWtuFSRDqLR2eHuRG+nORLp9G5BeuHuXj+BNpRnmmvLAbtotVlXMAIm2IraJUCcYoKJ9v1YnEQkRgpvF0bRtzj5hp0dfiGpSqLF1aKNSSXrasvptOF1eu+sOOUVdmZa9W2doKhZoiR1kvj3je0KN67kmuJP6El1scvsCO4fZkjTTbfNFZK+VYyBCO2Om+UCpjUEfigpa/zhvAFPQGdT8JnCr23F8HtV9w3MZtIeuC5fwO5v4e83WyXO9x71NdMc6dtwIFWBNvacq4IfOQgdD9F1Tk52P0DFJBeZzSvqu2w6VLRHsSXdvqZpvWvgtJOik99M7EITjAYZ28xuGI6YcRnZYDmZwABdlBEYz+NovLN5yDnOtLx7iqT/LMiCHHwni2SZiCRUbro2Gjr8HzwTiB+f5N33zff6P51+cy/2rP/HGotBm7BJzvRcqbADIxTjB9W9/TJfCvmDPFUOiQJSqFaSdgzFlsGpS5kiZYKM6E9tw9Gv6FI+4kdK+GO6l1gC75yMwavp5Z7cvIUIhonrSnHbXUQr17kAdwpiyKeDcn0zI279CL5u0XXOhYnaVqhsWSw403NrKZpfKN5/WEpSkGTVE7OxvVxaot1kPdgWHY9Ph/crtF3c1t7wD+VnwHf13dvl7rts5fADL/Aw==&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&quot;&gt;
-  &lt;path d=&quot;M 291 61 L 291 126 L 191 126 L 191 182.76&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;10&quot; pointer-events=&quot;stroke&quot; /&gt;
-  &lt;path d=&quot;M 191 188.76 L 187 180.76 L 191 182.76 L 195 180.76 Z&quot; fill=&quot;#0060ad&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;10&quot; pointer-events=&quot;all&quot; /&gt;
-  &lt;rect x=&quot;231&quot; y=&quot;1&quot; width=&quot;120&quot; height=&quot;60&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; pointer-events=&quot;all&quot; /&gt;
-  &lt;text x=&quot;290.5&quot; y=&quot;35.5&quot; fill=&quot;#0060ad&quot; font-family=&quot;Open Sans&quot; font-weight=&quot;bold&quot; text-anchor=&quot;middle&quot; font-size=&quot;12px&quot;&gt;jhbj&lt;/text&gt;
-  &lt;rect x=&quot;131&quot; y=&quot;191&quot; width=&quot;120&quot; height=&quot;60&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; pointer-events=&quot;all&quot; /&gt;
-  &lt;text x=&quot;190.5&quot; y=&quot;225.5&quot; fill=&quot;#0060ad&quot; font-family=&quot;Open Sans&quot; font-weight=&quot;bold&quot; text-anchor=&quot;middle&quot; font-size=&quot;12px&quot;&gt;jhjh&lt;/text&gt;
-  &lt;path d=&quot;M 31 51 C 7 51 1 71 20.2 75 C 1 83.8 22.6 103 38.2 95 C 49 111 85 111 97 95 C 121 95 121 79 106 71 C 121 55 97 39 76 47 C 61 35 37 35 31 51 Z&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;10&quot; pointer-events=&quot;all&quot; /&gt;
-  &lt;ellipse cx=&quot;386&quot; cy=&quot;138.5&quot; rx=&quot;7.5&quot; ry=&quot;7.5&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; pointer-events=&quot;all&quot; /&gt;
-  &lt;path d=&quot;M 386 146 L 386 171 M 386 151 L 371 151 M 386 151 L 401 151 M 386 171 L 371 191 M 386 171 L 401 191&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;10&quot; pointer-events=&quot;all&quot; /&gt;
-  &lt;text x=&quot;385.5&quot; y=&quot;208.5&quot; fill=&quot;#0060ad&quot; font-family=&quot;Open Sans&quot; font-weight=&quot;bold&quot; text-anchor=&quot;middle&quot; font-size=&quot;12px&quot;&gt;Actor&lt;/text&gt;
-  &lt;path d=&quot;M 1 151 L 71 151 L 71 176 L 81 176 L 81 166 L 101 186 L 81 206 L 81 196 L 71 196 L 71 221 L 46 221 L 46 231 L 56 231 L 36 251 L 16 231 L 26 231 L 26 221 L 1 221 Z&quot; fill=&quot;none&quot; stroke=&quot;#0060ad&quot; stroke-width=&quot;2&quot; stroke-miterlimit=&quot;10&quot; pointer-events=&quot;all&quot; /&gt;
-&lt;/svg&gt;
-&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#pragma once
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt;Syntax&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Description&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Test  Text&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Header&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Title&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;- Here’s this&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Paragraph&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Text&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;And more &lt;code class=&quot;highlighter-rouge&quot;&gt;code&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;h3 id=&quot;calling-functrion-from-library-in-go&quot;&gt;Calling functrion from library in Go&lt;/h3&gt;
-
-&lt;p&gt;First off we will create C++ library that we will use in out Go program.
-File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello: %s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;And &lt;code class=&quot;highlighter-rouge&quot;&gt;example.hxx&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#pragma once
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extern &quot;C&quot; {}&lt;/code&gt; informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;Makefile&lt;/code&gt;:&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-make&quot; data-lang=&quot;make&quot;&gt;&lt;span class=&quot;nl&quot;&gt;static example.a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	clang++ -c -Wall -o lib.o ./example.cxx
-	ar rc ./libexample.a ./lib.o
-&lt;span class=&quot;nl&quot;&gt;shared example.dylib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;
-	&lt;span class=&quot;err&quot;&gt;clang++ -dynamiclib -o libexample.dylib example.cxx&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h4 id=&quot;statically-linking-an-example-library&quot;&gt;Statically linking an example library&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-go&quot; data-lang=&quot;go&quot;&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo CFLAGS: -I.&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo LDFLAGS: -L. -lexample&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #include &amp;lt;example.hxx&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello Golang&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;The program is linked staticaly with libexample when you build it.&lt;/p&gt;
-
-&lt;h4 id=&quot;example-of-using-library-with-ffi&quot;&gt;Example of using library with FFI&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;gem install ffi&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ffi'&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Example&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FFI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Library&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;ffi_lib&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./example.dylib'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;attach_function&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-
-&lt;span class=&quot;no&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;More informations about FFI: https://en.wikipedia.org/wiki/Foreign_function_interface&lt;/p&gt;
-
-&lt;h4 id=&quot;call-shared-library-from-python&quot;&gt;Call shared library from Python&lt;/h4&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ctypes&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CDLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./example.dylib'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;h2 id=&quot;interesting-websites&quot;&gt;Interesting websites&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/li&gt;
-  &lt;li&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Project written in X lang → compile to static/dynamic library → call the library from lang Y</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;p&gt;We can cross call functions from languages that:&lt;/p&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1024M 0 0&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><summary type="html">This might be useful for spead up programs that heavily use disk.</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;p&gt;We can cross call functions from languages that:&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Both are compilable → Strategy: Create a binary library and call function from it.&lt;/li&gt;
@@ -523,4 +350,118 @@ ar rc ./libexample.a ./lib.o
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://blog.filippo.io/building-python-modules-with-go-1-5/&quot;&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&quot;&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">We can cross call functions from languages that:</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">We can cross call functions from languages that:</summary></entry><entry><title type="html">Recepies</title><link href="http://localhost:4000/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2016-10-19T12:09:07+02:00</published><updated>2016-10-19T12:09:07+02:00</updated><id>http://localhost:4000/recepies</id><content type="html" xml:base="http://localhost:4000/recepies.html">&lt;h5 id=&quot;read-a-dns-records&quot;&gt;Read a DNS records&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dig artgur.net +nostats +nocomments +nocmd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;io-stats&quot;&gt;I/O Stats&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iostat
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;checking-type-of-executable-files&quot;&gt;Checking type of executable files&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;otool -hv test.so
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;get-directory-size&quot;&gt;Get directory size&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;du -sh MacOSBackup
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;generate-random-password&quot;&gt;Generate random password&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pwgen -s -1 32
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;list-block-devices&quot;&gt;List block devices&lt;/h5&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lsblk
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;list-of-wireless-cards&quot;&gt;list of wireless cards&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;lspci -knn | grep Net -A2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;scan-networks&quot;&gt;Scan networks&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iwlist scan
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;shutdown&quot;&gt;Shutdown&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;shutdown -h now
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;connect-to-the-network&quot;&gt;Connect to the network&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nmcli dev wifi connect TP-Link_5828 password my-secret-pass
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;remove-garbidge-files&quot;&gt;Remove garbidge files&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find ./ -name &quot;.DS_Store&quot; -depth -exec rm {} \;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;screen-capture&quot;&gt;Screen capture&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ffmpeg -f x11grab -video_size 1280x800 -framerate 25 -i $DISPLAY -c:v ffvhuff screen.mkv
+
+ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
+       -i default -vcodec vp8 -acodec libvorbis myvideo_$(date +%d_%B_%Y_%H:%M).webm
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;install-python-package-for-the-user&quot;&gt;Install Python package for the user&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python3 -m pip install --user pyelftools
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;sql-using-regex&quot;&gt;sql using regex&lt;/h4&gt;
+&lt;p&gt;Add a check constraint to the &lt;code class=&quot;highlighter-rouge&quot;&gt;id&lt;/code&gt; column to enforce alphanumeric strings of exactly 5 characters long&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;ALTER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;short_urls&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;ADD&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CONSTRAINT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;CHECK&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;~&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'^[a-zA-Z0-9]{5}$'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;console-font-size&quot;&gt;Console font size&lt;/h4&gt;
+
+&lt;p&gt;Edit file → &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/default/console-setup&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&quot;installing-nonfree-firmware-from-repository&quot;&gt;Installing nonfree firmware from repository&lt;/h4&gt;
+
+&lt;p&gt;I.e: Firmware for nonfree driver for Intel’s WIFI cards.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://packages.debian.org/sid/firmware-iwlwifi
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get update &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; apt-get install firmware-linux-nonfree
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;installing-nonfree-firmware-from-manufacturer&quot;&gt;Installing nonfree firmware from ​manufacturer&lt;/h4&gt;
+
+&lt;p&gt;Search for binary. An example:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html&quot;&gt;https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Extract and copy like&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cp iwlwifi-cc-a0-46.ucode /lib/firmware
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Read a DNS records</summary></entry></feed>

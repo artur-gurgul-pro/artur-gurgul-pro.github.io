@@ -68,6 +68,13 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
+    <li><span>&raquo;</span><a href="/swift/view-modifier.html"
+      
+      
+
+      >Add share gesture as view modifier</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
       
       
@@ -117,13 +124,6 @@
       
 
       >Recepies</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/programming/example.html"
-      
-      
-
-      >Example objects</a></li>
   
     
     <li><span>&raquo;</span><a href="/programming/bridging.html"
@@ -209,6 +209,21 @@
 <h4 id="remove-garbidge-files">Remove garbidge files</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>find ./ -name ".DS_Store" -depth -exec rm {} \;
+</code></pre>
+</div>
+
+<h4 id="screen-capture">Screen capture</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -f x11grab -video_size 1280x800 -framerate 25 -i $DISPLAY -c:v ffvhuff screen.mkv
+
+ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
+       -i default -vcodec vp8 -acodec libvorbis myvideo_$(date +%d_%B_%Y_%H:%M).webm
+</code></pre>
+</div>
+
+<h4 id="install-python-package-for-the-user">Install Python package for the user</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>python3 -m pip install --user pyelftools
 </code></pre>
 </div>
 

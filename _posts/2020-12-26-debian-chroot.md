@@ -31,6 +31,12 @@ sudo mount -t sysfs none chroot-debian/sys
 sudo mount -o bind /proc chroot-debian/proc
 ```   
 
+Optionally, copy DNS resolver configuration.
+
+```
+sudo cp /etc/resolv.conf /path/to/chroot-env/etc/resolv.conf
+```
+
 Start chrooting
 
 ```bash

@@ -68,6 +68,13 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
+    <li><span>&raquo;</span><a href="/swift/view-modifier.html"
+      
+      
+
+      >Add share gesture as view modifier</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
       
       
@@ -119,13 +126,6 @@
       >Recepies</a></li>
   
     
-    <li><span>&raquo;</span><a href="/programming/example.html"
-      
-      
-
-      >Example objects</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/programming/bridging.html"
       
       
@@ -146,7 +146,9 @@
       <h1 class="title">Installing Debian sid on QEMU</h1>
 
 <div id="post">
-  <p>Download links</p>
+  <p>This is Debian setup where most of the examples shown on the website should work on.</p>
+
+<p>Download links:</p>
 
 <!-- https://www.debian.org/CD/live/ -->
 
@@ -155,25 +157,31 @@
   <li><a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/">amd64 - Live disc</a></li>
 </ul>
 
-<p>Recomendation:</p>
+<p>Make the disk image</p>
 
-<ul>
-  <li>Select no desktop and SSH server</li>
-</ul>
-
-<h4 id="allowing-login-root-user-from-the-network">Allowing login root user from the network</h4>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt install neovim
-
-nvim /etc/ssh/sshd_config
-PermitRootLogin yes
-
-systemctl restart sshd
-
+<div class="highlighter-rouge"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
 </code></pre>
 </div>
 
-<p>Make it #sid</p>
+<p>Start the VM</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>qemu-system-x86_64 -bios OVMF.fd -m 1G -drive file=debian.qcow2,format=qcow2 \
+                   -cdrom debian-12.2.0-amd64-netinst.iso
+</code></pre>
+</div>
+
+<p>During installation select SSH server and no desktop</p>
+
+<h4 id="allowing-login-root-user-from-the-network">Allowing login root user from the network</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>nvim /etc/ssh/sshd_config
+PermitRootLogin yes
+
+systemctl restart sshd
+</code></pre>
+</div>
+
+<p>=======</p>
 
 <p>/etc/apt/sources.list</p>
 

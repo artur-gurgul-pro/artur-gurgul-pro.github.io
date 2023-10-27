@@ -68,6 +68,13 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
+    <li><span>&raquo;</span><a href="/swift/view-modifier.html"
+      
+      
+
+      >Add share gesture as view modifier</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
       
       
@@ -119,13 +126,6 @@
       >Recepies</a></li>
   
     
-    <li><span>&raquo;</span><a href="/programming/example.html"
-      
-      
-
-      >Example objects</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/programming/bridging.html"
       
       
@@ -171,6 +171,12 @@
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo mount -o <span class="nb">bind</span> /dev chroot-debian/dev
 sudo mount -t sysfs none chroot-debian/sys
 sudo mount -o <span class="nb">bind</span> /proc chroot-debian/proc
+</code></pre>
+</div>
+
+<p>Optionally, copy DNS resolver configuration.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo cp /etc/resolv.conf /path/to/chroot-env/etc/resolv.conf
 </code></pre>
 </div>
 

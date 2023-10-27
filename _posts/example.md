@@ -4,6 +4,8 @@ title:  Example objects
 date:   2016-10-19 12:09:07 +0200
 categories: programming
 ---
+
+
 Project written in X lang &rarr; compile to static/dynamic library &rarr; call the library from lang Y
 
 ### Creating shared and static library in Go
