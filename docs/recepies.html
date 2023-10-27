@@ -298,9 +298,12 @@ ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
 
 <h4 id="erase-free-space">Erase free space</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo diskutil secureErase freespace 1 /Volumes/Data\ Drive #### sql using regex  Add a check constraint to the `id` column to enforce alphanumeric strings of exactly 5 characters long
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo diskutil secureErase freespace 1 /Volumes/Data\ Drive
 </code></pre>
 </div>
+
+<h4 id="sql-using-regex">sql using regex</h4>
+<p>Add a check constraint to the <code class="highlighter-rouge">id</code> column to enforce alphanumeric strings of exactly 5 characters long</p>
 
 <div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">short_urls</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">id</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">id</span> <span class="o">~</span> <span class="s1">'^[a-zA-Z0-9]{5}$'</span><span class="p">);</span>
 </code></pre>
