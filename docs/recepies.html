@@ -304,6 +304,12 @@ apt search linux-headers-$(uname -r)
 </code></pre>
 </div>
 
+<h4 id="find-files-directories-and-symbolic-links-using-regex">Find files, directories and symbolic links using regex</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>find ./ -iname `fo*` and `F??` -type f,d,l
+</code></pre>
+</div>
+
 <h4 id="screen-capture">Screen capture</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -f x11grab -video_size 1280x800 -framerate 25 -i $DISPLAY -c:v ffvhuff screen.mkv
