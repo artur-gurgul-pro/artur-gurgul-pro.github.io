@@ -208,10 +208,13 @@
 </div>
 <h5 id="generate-random-password">Generate random password</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>pwgen -s -1 32
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pwgen -s -1 32
 </code></pre>
 </div>
-
+<p>or</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>openssl rand -hex 12
+</code></pre>
+</div>
 <h5 id="list-block-devices">List block devices</h5>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>lsblk
@@ -244,6 +247,29 @@ apt search linux-headers-$(uname -r)
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>ps aux |
   awk -v <span class="nv">OFS</span><span class="o">=</span>, <span class="s1">'{print $1, $2}'</span> |
   jq -R <span class="s1">'split(",") | {user: .[0], pid: .[1]}'</span>
+</code></pre>
+</div>
+
+<h4 id="search-and-execute-command-from-the-history">Search and execute command from the history</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">eval</span> <span class="sb">`</span><span class="nb">history</span> | fzf | cut  -s -d <span class="s2">" "</span> -f4-<span class="sb">`</span>
+</code></pre>
+</div>
+
+<h4 id="editing-command-with-editor">Editing command with editor</h4>
+
+<pre><code class="language-.zshrc">bindkey '^e' edit-command-line
+</code></pre>
+
+<p>Adding this to <code class="highlighter-rouge">.zshrc</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>export HISTSIZE=100000000
+alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
+</code></pre>
+</div>
+
+<h4 id="copy-public-ssh-key">Copy public ssh key</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat ~/.ssh/id_rsa.pub | pbcopy
 </code></pre>
 </div>
 
@@ -298,7 +324,7 @@ apt search linux-headers-$(uname -r)
 <div class="language-shell highlighter-rouge"><pre class="highlight"><code>grep -rnw <span class="s2">"."</span> -e <span class="s2">"Search key"</span>
 </code></pre>
 </div>
-<h4 id="remove-garbidge-files">Remove garbidge files</h4>
+<h4 id="remove-garbage-files">Remove garbage files</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>find ./ -name ".DS_Store" -depth -exec rm {} \;
 </code></pre>
@@ -328,6 +354,13 @@ ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
 <h4 id="erase-free-space">Erase free space</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>sudo diskutil secureErase freespace 1 /Volumes/Data\ Drive
+</code></pre>
+</div>
+
+<h4 id="qemu---port-forwarding">QEMU - port forwarding</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>qemu-system-i386 -net nic,model<span class="o">=</span>rtl8139 <span class="se">\</span>
+        -net user,hostfwd<span class="o">=</span>tcp::3389-:3389,hostfwd<span class="o">=</span>tcp::443-:443,hostfwd<span class="o">=</span>tcp::992-:992 
 </code></pre>
 </div>
 
