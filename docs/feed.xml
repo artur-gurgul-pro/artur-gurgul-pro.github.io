@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-30T15:00:49+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-10-30T16:07:45+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
@@ -384,7 +384,7 @@ apt install firmware-linux-nonfree
 
 &lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install neovim
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install neovim clang
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
@@ -394,15 +394,21 @@ apt install firmware-linux-nonfree
 
 &lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
             libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-            tzdata unzip zlib1g-dev
+            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+            libstdc++-9-dev
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
 &lt;p&gt;Missing dependencies for Debian sid&lt;/p&gt;
 
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;libgcc-9-dev libpython3.8 libstdc++-9-dev
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;libpython3.8 
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;Installed instead&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;apt install libpython3.10-dev
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Downloading and installing&lt;/p&gt;
 

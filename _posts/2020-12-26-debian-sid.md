@@ -95,7 +95,7 @@ Tools
 ====
 
 ```sh
-apt install neovim
+apt install neovim clang
 ```
 
 **Swift**
@@ -105,13 +105,20 @@ Dependencies
 ```sh
 apt install build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev \
             libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata \
-            tzdata unzip zlib1g-dev
+            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev \
+            libstdc++-9-dev
 ```
 
 Missing dependencies for Debian sid
 
 ```text
-libgcc-9-dev libpython3.8 libstdc++-9-dev
+libpython3.8 
+```
+
+Installed instead
+
+```plain
+apt install libpython3.10-dev
 ```
 
 Downloading and installing

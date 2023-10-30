@@ -196,8 +196,11 @@
 </div>
 
 <h5 id="print-all-sizes-in-directory">Print all sizes in directory</h5>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>du -sh <span class="k">*</span>
+</code></pre>
+</div>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>du -sh *
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>du -shc <span class="k">*</span>
 </code></pre>
 </div>
 
@@ -256,17 +259,19 @@ apt search linux-headers-$(uname -r)
 </code></pre>
 </div>
 
-<h4 id="editing-command-with-editor">Editing command with editor</h4>
-
-<pre><code class="language-.zshrc">bindkey '^e' edit-command-line
-</code></pre>
-
 <p>Adding this to <code class="highlighter-rouge">.zshrc</code></p>
+
 <div class="highlighter-rouge"><pre class="highlight"><code>export HISTSIZE=100000000
 alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 </code></pre>
 </div>
+<h4 id="editing-command-with-editor">Editing command with editor</h4>
 
+<p><code class="highlighter-rouge">~/.zshrc</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>bindkey '^e' edit-command-line
+</code></pre>
+</div>
 <h4 id="copy-public-ssh-key">Copy public ssh key</h4>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat ~/.ssh/id_rsa.pub | pbcopy
@@ -279,6 +284,21 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 </code></pre>
 </div>
 
+<h4 id="macos-info-aliases-inzhrc">MacOS info aliases in<code class="highlighter-rouge">.zhrc</code></h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  alias cpu='sysctl -n machdep.cpu.brand_string'
+  alias cpu-temp='sudo powermetrics --samplers smc | grep -i "CPU die temperature"'
+  alias gpu-temp='sudo powermetrics --samplers smc | grep -i "GPU die temperature"'
+  alias lsusb='sudo ioreg -p IOUSB'
+  alias allusb='ioreg -p IOUSB -w0 -l'
+</code></pre>
+</div>
+
+<p><strong>Power metrics</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo powermetrics --samplers all
+</code></pre>
+</div>
 <h4 id="install-pods-from-non-standard-localisations">Install pods from non standard localisations</h4>
 
 <div class="language-ruby highlighter-rouge"><pre class="highlight"><code> <span class="n">pod</span> <span class="s1">'WASHD'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/vatlib/EasyUITextFields.git'</span>
@@ -356,6 +376,50 @@ ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
 <div class="highlighter-rouge"><pre class="highlight"><code>sudo diskutil secureErase freespace 1 /Volumes/Data\ Drive
 </code></pre>
 </div>
+
+<h4 id="search-for-commit">Search for commit</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">gf</span><span class="o">=</span><span class="s1">'git log --all --oneline | fzf'</span>
+</code></pre>
+</div>
+
+<h4 id="remove-alpha-channel-from-all-files">Remove alpha channel from all files</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># ➜ brew install imagemagick</span>
+</code></pre>
+</div>
+
+<p><strong>Converts all files in current directory revursevely</strong></p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">rmalfa</span><span class="o">=</span><span class="s1">'find . -name “*.png” -exec convert “{}” -alpha off “{}” \;'</span>
+</code></pre>
+</div>
+
+<h4 id="weather-alias">Weather alias</h4>
+
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">weather</span><span class="o">=</span><span class="s1">'curl wttr.in'</span>
+</code></pre>
+</div>
+
+<h4 id="save-website-as-pdf">Save website As PDF</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>aspdf <span class="o">{</span>
+  /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --print-to-pdf<span class="o">=</span><span class="s2">"./</span><span class="nv">$1</span><span class="s2">.pdf"</span> <span class="nv">$2</span>
+<span class="o">}</span>
+</code></pre>
+</div>
+
+<p>usage</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>aspdf <span class="s2">"filename"</span> <span class="s2">"https://superuser.com/questions/592974/how-to-print-to-save-as-pdf-from-a-command-line-with-chrome-or-chromium"</span>
+</code></pre>
+</div>
+
+<h4 id="gem-path">Gem path</h4>
+
+<pre><code class="language-hash">export GEM_HOME=$HOME/.gem
+path=("$GEM_HOME/bin" $path)
+</code></pre>
 
 <h4 id="qemu---port-forwarding">QEMU - port forwarding</h4>
 

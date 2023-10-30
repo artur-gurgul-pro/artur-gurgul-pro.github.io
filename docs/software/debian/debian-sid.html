@@ -255,7 +255,7 @@ apt install firmware-linux-nonfree
 
 <h1 id="tools">Tools</h1>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt install neovim
+<div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt install neovim clang
 </code></pre>
 </div>
 
@@ -265,15 +265,21 @@ apt install firmware-linux-nonfree
 
 <div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt install build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev <span class="se">\</span>
             libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata <span class="se">\</span>
-            tzdata unzip zlib1g-dev
+            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev <span class="se">\</span>
+            libstdc++-9-dev
 </code></pre>
 </div>
 
 <p>Missing dependencies for Debian sid</p>
 
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>libgcc-9-dev libpython3.8 libstdc++-9-dev
+<div class="language-text highlighter-rouge"><pre class="highlight"><code>libpython3.8 
 </code></pre>
 </div>
+
+<p>Installed instead</p>
+
+<pre><code class="language-plain">apt install libpython3.10-dev
+</code></pre>
 
 <p>Downloading and installing</p>
 
