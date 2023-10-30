@@ -255,17 +255,6 @@ if result == 0, let myThread {
 }
 ```
 
-
-
-```swift
-var mutex = pthread_mutex_t()
-pthread_mutex_init(&mutex, nil)
-pthread_mutex_lock(&mutex)
-// do atomic job
-pthread_mutex_unlock(&mutex)
-pthread_mutex_destroy(&mutex)
-```
-
 # Span threads using `Combine` framework
 # Measure a performance time 
 

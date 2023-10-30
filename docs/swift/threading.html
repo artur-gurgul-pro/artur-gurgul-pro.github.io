@@ -424,15 +424,6 @@
 </code></pre>
 </div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">mutex</span> <span class="o">=</span> <span class="nf">pthread_mutex_t</span><span class="p">()</span>
-<span class="nf">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
-<span class="nf">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
-<span class="c1">// do atomic job</span>
-<span class="nf">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
-<span class="nf">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
-</code></pre>
-</div>
-
 <h1 id="span-threads-using-combine-framework">Span threads using <code class="highlighter-rouge">Combine</code> framework</h1>
 <h1 id="measure-a-performance-time">Measure a performance time</h1>
 
