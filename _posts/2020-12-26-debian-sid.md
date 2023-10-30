@@ -118,8 +118,9 @@ libpython3.8
 Installed instead
 
 ```plain
-apt install libpython3.10-dev
+apt install libpython3.10-dev python3-clang python3-lldb
 ```
+
 
 Downloading and installing
 
