@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Linux - RAM disk</title>
+  <title>Artur Gurgul - Git - merge & squash commits</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -78,6 +78,8 @@
     <li><span>&raquo;</span><a href="/git/squash.html"
       
       
+        style="font-weight: bold;"
+      
 
       >Git - merge & squash commits</a></li>
   
@@ -148,8 +150,6 @@
     <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
       
       
-        style="font-weight: bold;"
-      
 
       >Linux - RAM disk</a></li>
   
@@ -178,24 +178,53 @@
     </div>
 
     <div class="eleven columns content">
-      <h1 class="title">Linux - RAM disk</h1>
+      <h1 class="title">Git - merge & squash commits</h1>
 
 <div id="post">
-  <p>This might be useful for spead up programs that heavily use disk.</p>
+  <p>Squash the last three commints</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mount -t TYPE -o size=SIZE FSTYPE MOUNTPOINT
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git rebase -i HEAD~3
 </code></pre>
 </div>
+
+<p>You will see something like this</p>
+
+<pre><code class="language-plain">pick f392171 Added new feature X
+pick ba9dd9a Added new elements to page design
+pick df71a27 Updated CSS for new elements
+</code></pre>
+
 <ul>
-  <li><code class="highlighter-rouge">TYPE</code> → either <code class="highlighter-rouge">tmpfs</code> or <code class="highlighter-rouge">ramfs</code>.</li>
-  <li><code class="highlighter-rouge">SIZE</code> → ie. <code class="highlighter-rouge">512m</code></li>
-  <li><code class="highlighter-rouge">FSTYPE</code> → File system type, either <code class="highlighter-rouge">tmpfs</code>, <code class="highlighter-rouge">ramfs</code>, <code class="highlighter-rouge">ext4</code>, etc.</li>
+  <li><code class="highlighter-rouge">pick</code> <code class="highlighter-rouge">p</code> the commit will be taken</li>
+  <li><code class="highlighter-rouge">squash</code> <code class="highlighter-rouge">s</code>, the commit will be blended with with the above.</li>
 </ul>
 
-<p>To make this setting persistent you might want to add to <code class="highlighter-rouge">/etc/fstab</code> fallowing line</p>
+<p>Edit to something like this</p>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size<span class="o">=</span>1024M 0 0</code></pre></figure>
+<pre><code class="language-plain">pick f392171 New message for this three commit!
+squash ba9dd9a
+squash df71a27
+</code></pre>
 
+<p>Now you can accept the change by continuing the rebase:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git rebase --continue
+</code></pre>
+</div>
+
+<p>After that you need to force override the history using this command:</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin master --force
+</code></pre>
+</div>
+
+<h2 id="squash-merge">Squash merge</h2>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git checkout master
+git merge --squash bugfix
+git commit
+</code></pre>
+</div>
 
 </div>
 

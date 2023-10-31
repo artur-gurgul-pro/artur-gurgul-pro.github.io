@@ -7,6 +7,12 @@
 "url": "/swift/view-modifier.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["git"],
+"tags": [],
+"title": "Git - merge & squash commits",
+"url": "/git/squash.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["regex"],
 "tags": [],
 "title": "Regex - Find any",
