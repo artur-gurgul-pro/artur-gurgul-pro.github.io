@@ -373,6 +373,14 @@
 </code></pre>
 </div>
 
+<p>Async method</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">doStuff</span><span class="p">()</span> <span class="n">async</span> <span class="p">{</span>
+	<span class="o">&lt;</span><span class="err">#</span><span class="n">code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 <h1 id="span-a-thread-in-nsobject-context">Span a thread in <code class="highlighter-rouge">NSObject</code> context</h1>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">perform</span><span class="p">(</span><span class="kd">#selector(</span><span class="nf">job</span><span class="kd">)</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">waitUntilDone</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
@@ -383,12 +391,65 @@
 
 <p>Available from <code class="highlighter-rouge">Swift 5.5</code></p>
 
-<p>TBD</p>
+<h4 id="await-the-task-group">Await the task group</h4>
 
-<p>Async method</p>
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">movies</span> <span class="o">=</span> <span class="n">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Movie</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">group</span> <span class="k">in</span>
+     <span class="k">var</span> <span class="nv">movies</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Movie</span><span class="p">]()</span>
+     <span class="n">movies</span><span class="o">.</span><span class="nf">reserveCapacity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+     <span class="k">for</span> <span class="n">no</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">2</span> <span class="p">{</span>
+          <span class="n">group</span><span class="o">.</span><span class="n">addTask</span> <span class="p">{</span>
+               <span class="k">return</span> <span class="n">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="n">no</span><span class="p">)</span>
+          <span class="p">}</span>
+     <span class="p">}</span>
+     <span class="k">for</span> <span class="n">await</span> <span class="n">movie</span> <span class="k">in</span> <span class="n">group</span> <span class="p">{</span>
+	     <span class="n">movies</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>
+     <span class="p">}</span>
+     <span class="k">return</span> <span class="n">movies</span>
+<span class="p">}</span>
+</code></pre>
+</div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">doStuff</span><span class="p">()</span> <span class="n">async</span> <span class="p">{</span>
-	<span class="o">&lt;</span><span class="err">#</span><span class="n">code</span><span class="err">#</span><span class="o">&gt;</span>
+<h4 id="actors">Actors</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">actor</span> <span class="kt">TestActor</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">property</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">sleep</span><span class="p">(</span><span class="kt">UInt32</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">property</span> <span class="o">=</span> <span class="n">no</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">actor</span> <span class="o">=</span> <span class="kt">TestActor</span><span class="p">()</span>
+<span class="n">await</span> <span class="n">actor</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="call-main-thread">Call main thread</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">t</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span> <span class="kd">@MainActor</span> <span class="k">in</span>
+    <span class="nf">print</span> <span class="p">(</span><span class="s">"update UI"</span><span class="p">)</span>
+    <span class="k">return</span> <span class="mi">5</span>
+<span class="p">}</span>
+<span class="n">await</span> <span class="nf">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<h4 id="call-async-function-in-regular-method">Call <code class="highlighter-rouge">async</code> function in regular method</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="nf">sleep</span><span class="p">(</span><span class="kt">UInt32</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">no</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span>
+    <span class="n">await</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kt">Task</span> <span class="p">{</span>
+    <span class="n">await</span> <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre>
 </div>
@@ -444,6 +505,10 @@
 <h4 id="stop-thread-for-some-time">Stop thread for some time</h4>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">try</span> <span class="n">await</span> <span class="kt">Task</span><span class="o">.</span><span class="nf">sleep</span><span class="p">(</span><span class="nv">until</span><span class="p">:</span> <span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="o">.</span><span class="nf">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nv">clock</span><span class="p">:</span> <span class="o">.</span><span class="n">continuous</span><span class="p">)</span>
 </code></pre>
 </div>
 

@@ -10,7 +10,6 @@ Chunk of jobs that can be performed on the separate thread are arranged into:
 - `Closures` or `Functions`/`Methods` and send to `DispatchQueue`
 -  Classes and send as objects to `OperationQueue`. The queue can perform `Closure` as well
 
-
 #### Kinds of jobs
 
 * Computation intensive jobs: When the thread uses entire processing capability of `CPU`. The reasonable maximum number of the threads is the number of CPU cores.
@@ -196,6 +195,13 @@ let thread = Thread(target: self,
 thread.start()
 ```
 
+Async method
+
+```swift
+func doStuff() async {
+	<#code#>
+}
+```
 
 # Span a thread in `NSObject` context
 
@@ -207,13 +213,66 @@ perform(#selector(job), on: .main, with: nil, waitUntilDone: false)
 
 Available from `Swift 5.5`
 
-TBD
-
-Async method
+#### Await the task group
 
 ```swift
-func doStuff() async {
-	<#code#>
+let movies = await withTaskGroup(of: Movie.self) { group in
+     var movies = [Movie]()
+     movies.reserveCapacity(2)
+     for no in 1...2 {
+          group.addTask {
+               return await apiClient.download(movie: no)
+          }
+     }
+     for await movie in group {
+	     movies.append(movie)
+     }
+     return movies
+}
+```
+
+#### Actors
+
+```swift
+actor TestActor {
+    var property = 1
+    func update(no: Int) {
+        sleep(UInt32.random(in: 1...3))
+        property = no
+    }
+}
+```
+
+```swift
+let actor = TestActor()
+await actor.update(no: 5)
+```
+
+#### Call main thread
+
+```swift
+let t = Task { @MainActor in
+    print ("update UI")
+    return 5
+}
+await print(t.value)
+```
+
+#### Call `async` function in regular method
+
+```swift 
+func job(no: Int) async -> Int {
+    sleep(UInt32.random(in: 1...3))
+    return no
+}
+```
+
+```swift
+let result = Task {
+    await job(no: 5)
+}
+Task {
+    await print(result.value)
 }
 ```
 # pthread
@@ -269,4 +328,8 @@ print("Duration:\(endTime - startTime) seconds")
 
 ```swift
 sleep(2)
+```
+
+```swift
+try await Task.sleep(until: .now + .seconds(2), clock: .continuous)
 ```

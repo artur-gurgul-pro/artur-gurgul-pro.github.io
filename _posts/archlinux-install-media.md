@@ -43,6 +43,7 @@ Here is how we can list all the disks attached to the system
     diskutil list
 
 Download isofile from https://archlinux.org/releng/releases/
+https://geo.mirror.pkgbuild.com/iso/latest/
 
 Writing image to the USB device (notice that we do not write to a partition)
 
