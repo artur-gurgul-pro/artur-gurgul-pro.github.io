@@ -1,7 +1,6 @@
 ---
 layout: post
 title: Threading
-date: 2016-10-19 12:09:07 +0200
 categories: swift
 ---
 
@@ -211,7 +210,7 @@ perform(#selector(job), on: .main, with: nil, waitUntilDone: false)
 
 # async/await
 
-Available from `Swift 5.5`
+Available from `Swift 5.5`. More info at [docs.swift.org](https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/)
 
 #### Await the task group
 
@@ -231,7 +230,34 @@ let movies = await withTaskGroup(of: Movie.self) { group in
 }
 ```
 
-#### Actors
+**Order of execution**
+
+```swift
+print("Before task group")
+await withTaskGroup(of: Void.self) { group in
+    for item in list {
+        group.addTask {
+            await doSomething()
+            print("Task completed")
+        }
+    }
+    print("For loop completed")
+}
+
+print("After task group")
+```
+
+```plain
+ 1 => print("Before task group")
+ 2 => print("For loop completed")
+ 3 => print("Task completed")
+ 4 => print("Task completed")
+ 5 => print("Task completed")
+ 6 => print("After task group")
+```
+#### `Actor`s
+
+- Do not support inheritance
 
 ```swift
 actor TestActor {
@@ -248,7 +274,20 @@ let actor = TestActor()
 await actor.update(no: 5)
 ```
 
-#### Call main thread
+#### Call synchronously  and parallel
+
+```swift
+let firstMovie  = await apiClient.download(movie: 1)
+let secondMovie = await apiClient.download(movie: 2)
+let movies = [firstMovie, secondMovie]
+```
+
+```swift
+async let firstMovie  = apiClient.download(movie: 1)
+async let secondMovie = apiClient.download(movie: 2)
+let photos = await [firstMovie, secondMovie]
+```
+#### Call the main thread
 
 ```swift
 let t = Task { @MainActor in
@@ -258,7 +297,7 @@ let t = Task { @MainActor in
 await print(t.value)
 ```
 
-#### Call `async` function in regular method
+#### Call `async` function from a regular method
 
 ```swift 
 func job(no: Int) async -> Int {
@@ -315,6 +354,9 @@ if result == 0, let myThread {
 ```
 
 # Span threads using `Combine` framework
+TBD
+# Usage of `RunLoop`
+TBD
 # Measure a performance time 
 
 ```swift

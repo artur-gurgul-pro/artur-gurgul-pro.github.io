@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Gurgul - Vim notes</title>
+  <meta name="author" content="Artur Gurgul" />
+  <meta name="description" content="The blog of Artur Gurgul" />
+  
+  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="stylesheet" href="/assets/css/all.css">
+
+  <style>
+    #post pre {
+      background-color: white;
+      border-left: 12px solid #eee;
+      padding: 0 .8em;
+    }
+
+    #post code {
+      background-color: transparent;
+    }
+
+    #stalker {
+      float: inherit;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="four columns sidebar no-print">
+      <nav>
+  <!-- <a href="/">
+    <img src="/logo.png" id="logo" alt="Blog logo"/>
+  </a>
+  <div id="social">
+    <div id="stalker" style="text-align: center; width:100%">
+      
+      <a title="artur-gurgul on Github" href="https://github.com/artur-gurgul">
+        <i class="fa fa-github-square"></i>
+      </a>
+      
+    
+      
+      <a title="Artur Gurgul on Stack Overflow" href="http://stackoverflow.com/users/743268">
+        <i class="fa fa-stack-overflow"></i>
+      </a>
+      
+    
+    
+      
+      <a title="Artur Gurgul on LinkedIn" href="https://www.linkedin.com/in/gurgul">
+        <i class="fa fa-linkedin-square"></i>
+      </a>
+      
+      
+    </div>
+  </div>
+   -->
+
+   <h2 style="font-size: 20px;margin: 0px;">Hi. I'm <a href="/"> Artur Gurgul</a>,</h2>
+   <h2 style="font-size: 15px;margin-top: -0.5em;">and this is my notepad.</h2>
+  <hr class="hr-text" data-content="Contents"/>
+  
+  <ul id="blog-posts" class="posts">
+    <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
+  
+    
+    <li><span>&raquo;</span><a href="/software/vim.html"
+      
+      
+        style="font-weight: bold;"
+      
+
+      >Vim notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/view-modifier.html"
+      
+      
+
+      >Add share gesture as view modifier</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/git/squash.html"
+      
+      
+
+      >Git - merge & squash commits</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
+      
+      
+
+      >Regex - Find any</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/javascript/js-closure.html"
+      
+      
+
+      >Javascript closure</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/dynamic-member-lockup.html"
+      
+      
+
+      >Dynamic member lockup in swift</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/software/debian/debian-sid.html"
+      
+      
+
+      >Installing Debian sid on QEMU</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/software/debian/debian-chroot.html"
+      
+      
+
+      >Chroot environment of Debian sid</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/cancel-upstream.html"
+      
+      
+
+      >Cancelling a publisher</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/bridging.html"
+      
+      
+
+      >Bridging between languages</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/recepies/power-management.html"
+      
+      
+
+      >Ubuntu - Power management</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/mounting-qcow2-image.html"
+      
+      
+
+      >Linux - Mount disk from qcow2 image</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/always-publisher-example.html"
+      
+      
+
+      >Always - Publisher example</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/threading.html"
+      
+      
+
+      >Threading</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
+      
+      
+
+      >Linux - RAM disk</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/recepies.html"
+      
+      
+
+      >Recepies</a></li>
+  
+  </ul>
+
+
+
+  
+  
+</nav>
+
+    </div>
+
+    <div class="eleven columns content">
+      <h1 class="title">Vim notes</h1>
+
+<div id="post">
+  <h4 id="symbols-and-meanings">Symbols and meanings</h4>
+<ul>
+  <li><code class="highlighter-rouge">%</code> → current file. An example:  <code class="highlighter-rouge">:so %</code> → Source the current file</li>
+  <li><code class="highlighter-rouge">$</code> → end of line</li>
+</ul>
+
+<h4 id="tips">Tips</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim.</li>
+</ul>
+
+<h4 id="navigation">Navigation</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">e</code> → Forward to the end of word. <code class="highlighter-rouge">E</code> can contain punctuation</li>
+  <li><code class="highlighter-rouge">b</code> → Jump backwards to the start of a word. <code class="highlighter-rouge">B</code> can contain punctuation</li>
+  <li><code class="highlighter-rouge">[</code>,<code class="highlighter-rouge">]</code> → Jump by paragraphs</li>
+</ul>
+
+<h3 id="list-of-the-commands">List of the commands</h3>
+
+<p>Common meaning of letters in the commands</p>
+<ul>
+  <li><code class="highlighter-rouge">w</code> → word</li>
+  <li><code class="highlighter-rouge">i</code> → inner</li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Command</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">dd</code></td>
+      <td style="text-align: left">Delete one line</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">d+</code></td>
+      <td style="text-align: left">Delete 2 lines</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:%d</code> or :<code class="highlighter-rouge">1,$d</code></td>
+      <td style="text-align: left">Delete the whole of the file</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">dw</code>, <code class="highlighter-rouge">diw</code></td>
+      <td style="text-align: left">Delete what that the cursor is over</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">di(</code></td>
+      <td style="text-align: left">Delete inner brackets</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:read !date</code></td>
+      <td style="text-align: left">Execute commend and put content into editor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">.</code></td>
+      <td style="text-align: left">Repeat the last operation</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">gU</code></td>
+      <td style="text-align: left">Uppercase the selection, <code class="highlighter-rouge">gu</code>  → lower</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">%</code></td>
+      <td style="text-align: left">Jump to matching bracket <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="p">}</span></code> <code class="highlighter-rouge">[ ]</code> <code class="highlighter-rouge">( )</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="visual-mode">Visual Mode</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">V</code> → Selection by lines</li>
+  <li><code class="highlighter-rouge">v</code> → Selection follows the cursor</li>
+  <li><code class="highlighter-rouge">Ctrl+v</code> →  Block selection</li>
+</ul>
+
+<h4 id="split-the-editor">Split the editor</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">:sp &lt;filename&gt;</code> → Vertically</li>
+  <li><code class="highlighter-rouge">:vs &lt;filename&gt;</code> → Horizontally</li>
+</ul>
+
+<h4 id="markers">Markers</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">:marks</code> →  list of marks</li>
+  <li><code class="highlighter-rouge">ma</code> → set current position for mark <code class="highlighter-rouge">a</code></li>
+  <li><code class="highlighter-rouge">`a</code> → jump to position of mark <code class="highlighter-rouge">a</code></li>
+  <li><code class="highlighter-rouge">y`a</code> → yank text to position of mark <code class="highlighter-rouge">a</code></li>
+</ul>
+
+<h3 id="recording-macros">Recording macros</h3>
+
+<ol>
+  <li><code class="highlighter-rouge">qa</code> → Start recording macro under letter <code class="highlighter-rouge">a</code></li>
+  <li><code class="highlighter-rouge">q</code> → Stop recording</li>
+  <li><code class="highlighter-rouge">@a</code> → Play the macro saved under letter a</li>
+  <li><code class="highlighter-rouge">@@</code> → Play the last macro</li>
+</ol>
+
+<h4 id="searching">Searching</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">:%s/Plug.*$//</code> → Search and delete all lines that starts from Plug</li>
+  <li><code class="highlighter-rouge">:%s/foo/bar/gc</code> → Replace all occurrence of foo by bar with confirmation</li>
+  <li><code class="highlighter-rouge">/pattern</code> → search for pattern then enter and <code class="highlighter-rouge">n</code> next <code class="highlighter-rouge">N</code> previous match</li>
+  <li><code class="highlighter-rouge">?pattern</code> → search backward for pattern</li>
+</ul>
+
+<h3 id="registers">Registers</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">:reg</code> → print all registers</li>
+  <li><code class="highlighter-rouge">"ap</code> → paste the register <code class="highlighter-rouge">a</code> , if the macro is recorded then it will paste it</li>
+  <li><code class="highlighter-rouge">"xy</code> → yank into register <code class="highlighter-rouge">x</code></li>
+  <li><code class="highlighter-rouge">:let @a = "kkll"</code> → set a macro from the command mode</li>
+</ul>
+
+<h4 id="configuration">Configuration</h4>
+
+<p>The config file is located at <code class="highlighter-rouge">.config/nvim/init.vim</code></p>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> empty<span class="p">(</span>glob<span class="p">(</span><span class="s1">'~/.local/share/nvim/site/autoload/plug.vim'</span><span class="p">))</span>
+  <span class="k">silent</span> <span class="p">!</span>curl <span class="p">-</span>fLo <span class="p">~</span><span class="sr">/.local/</span>share<span class="sr">/nvim/</span>site<span class="sr">/autoload/</span>plug<span class="p">.</span><span class="k">vim</span> <span class="p">--</span>create<span class="p">-</span>dirs
+<span class="se">    \</span> https<span class="p">:</span><span class="sr">//</span>raw<span class="p">.</span>githubusercontent<span class="p">.</span><span class="k">com</span><span class="sr">/junegunn/</span><span class="k">vim</span><span class="p">-</span>plug<span class="sr">/master/</span>plug<span class="p">.</span><span class="k">vim</span>
+  autocmd <span class="nb">VimEnter</span> * PlugInstall <span class="p">--</span><span class="k">sync</span> <span class="p">|</span> source $MYVIMRC
+<span class="k">endif</span>
+
+<span class="k">call</span> plug#begin<span class="p">(</span><span class="s1">'~/.vim/plugged'</span><span class="p">)</span>
+
+  Plug <span class="s1">'junegunn/fzf'</span>
+
+  Plug <span class="s1">'neovim/nvim-lspconfig'</span>
+  Plug <span class="s1">'neoclide/coc.nvim'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'branch'</span><span class="p">:</span> <span class="s1">'release'</span><span class="p">}</span>
+  
+  Plug <span class="s1">'vim-airline/vim-airline'</span>
+  Plug <span class="s1">'vim-airline/vim-airline-themes'</span>
+  
+  Plug <span class="s1">'vim-syntastic/syntastic'</span>
+  Plug <span class="s1">'tokorom/syntastic-swiftlint.vim'</span>
+  
+<span class="k">call</span> plug#<span class="k">end</span><span class="p">()</span>
+</code></pre>
+</div>
+
+<ul>
+  <li><code class="highlighter-rouge">set relativenumber</code></li>
+  <li><code class="highlighter-rouge">set encoding=utf-8</code></li>
+  <li><code class="highlighter-rouge">syntax on</code></li>
+  <li><code class="highlighter-rouge">map za :FZF&lt;CR&gt;</code> → fuzzy finder over <code class="highlighter-rouge">za</code></li>
+</ul>
+
+<p>Indentation setup</p>
+
+<ul>
+  <li><code class="highlighter-rouge">set tabstop=2 shiftwidth=2 expandtab</code></li>
+  <li><code class="highlighter-rouge">filetype plugin indent on</code></li>
+</ul>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">g:syntastic_swift_checkers</span> <span class="p">=</span> <span class="p">[</span><span class="s1">'swiftlint'</span><span class="p">,</span> <span class="s1">'swiftpm'</span><span class="p">]</span>
+<span class="k">lua</span> <span class="p">&lt;&lt;</span> EOF
+  local lspconfig <span class="p">=</span> require<span class="p">(</span><span class="s1">'lspconfig'</span><span class="p">)</span>
+  lspconfig<span class="p">.</span>sourcekit<span class="p">.</span>setup<span class="p">{}</span>
+EOF
+</code></pre>
+</div>
+
+</div>
+
+        
+    <ul class="tag_list_in_post"></ul>
+      <div class="footer">
+        <div class="disclaimer">
+  <p>
+  © Artur Gurgul, 2016 &mdash; Public Domain Licence
+  </p>
+</div>
+
+      </div>
+    </div>
+  </div>
+
+  
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-41036379-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>

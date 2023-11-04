@@ -68,6 +68,13 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
+    <li><span>&raquo;</span><a href="/software/vim.html"
+      
+      
+
+      >Vim notes</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/swift/view-modifier.html"
       
       
@@ -145,6 +152,22 @@
       >Linux - Mount disk from qcow2 image</a></li>
   
     
+    <li><span>&raquo;</span><a href="/swift/always-publisher-example.html"
+      
+      
+
+      >Always - Publisher example</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/threading.html"
+      
+      
+        style="font-weight: bold;"
+      
+
+      >Threading</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
       
       
@@ -157,15 +180,6 @@
       
 
       >Recepies</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/swift/threading.html"
-      
-      
-        style="font-weight: bold;"
-      
-
-      >Threading</a></li>
   
   </ul>
 
@@ -389,7 +403,7 @@
 
 <h1 id="asyncawait">async/await</h1>
 
-<p>Available from <code class="highlighter-rouge">Swift 5.5</code></p>
+<p>Available from <code class="highlighter-rouge">Swift 5.5</code>. More info at <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/">docs.swift.org</a></p>
 
 <h4 id="await-the-task-group">Await the task group</h4>
 
@@ -409,7 +423,35 @@
 </code></pre>
 </div>
 
-<h4 id="actors">Actors</h4>
+<p><strong>Order of execution</strong></p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="s">"Before task group"</span><span class="p">)</span>
+<span class="n">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Void</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">group</span> <span class="k">in</span>
+    <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
+        <span class="n">group</span><span class="o">.</span><span class="n">addTask</span> <span class="p">{</span>
+            <span class="n">await</span> <span class="nf">doSomething</span><span class="p">()</span>
+            <span class="nf">print</span><span class="p">(</span><span class="s">"Task completed"</span><span class="p">)</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"For loop completed"</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">"After task group"</span><span class="p">)</span>
+</code></pre>
+</div>
+
+<pre><code class="language-plain"> 1 =&gt; print("Before task group")
+ 2 =&gt; print("For loop completed")
+ 3 =&gt; print("Task completed")
+ 4 =&gt; print("Task completed")
+ 5 =&gt; print("Task completed")
+ 6 =&gt; print("After task group")
+</code></pre>
+<h4 id="actors"><code class="highlighter-rouge">Actor</code>s</h4>
+
+<ul>
+  <li>Do not support inheritance</li>
+</ul>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">actor</span> <span class="kt">TestActor</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nv">property</span> <span class="o">=</span> <span class="mi">1</span>
@@ -426,7 +468,20 @@
 </code></pre>
 </div>
 
-<h4 id="call-main-thread">Call main thread</h4>
+<h4 id="call-synchronously--and-parallel">Call synchronously  and parallel</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">firstMovie</span>  <span class="o">=</span> <span class="n">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">secondMovie</span> <span class="o">=</span> <span class="n">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">movies</span> <span class="o">=</span> <span class="p">[</span><span class="n">firstMovie</span><span class="p">,</span> <span class="n">secondMovie</span><span class="p">]</span>
+</code></pre>
+</div>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">async</span> <span class="k">let</span> <span class="nv">firstMovie</span>  <span class="o">=</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">async</span> <span class="k">let</span> <span class="nv">secondMovie</span> <span class="o">=</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">photos</span> <span class="o">=</span> <span class="n">await</span> <span class="p">[</span><span class="n">firstMovie</span><span class="p">,</span> <span class="n">secondMovie</span><span class="p">]</span>
+</code></pre>
+</div>
+<h4 id="call-the-main-thread">Call the main thread</h4>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">t</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span> <span class="kd">@MainActor</span> <span class="k">in</span>
     <span class="nf">print</span> <span class="p">(</span><span class="s">"update UI"</span><span class="p">)</span>
@@ -436,7 +491,7 @@
 </code></pre>
 </div>
 
-<h4 id="call-async-function-in-regular-method">Call <code class="highlighter-rouge">async</code> function in regular method</h4>
+<h4 id="call-async-function-from-a-regular-method">Call <code class="highlighter-rouge">async</code> function from a regular method</h4>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
     <span class="nf">sleep</span><span class="p">(</span><span class="kt">UInt32</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="p">))</span>
@@ -493,6 +548,9 @@
 </div>
 
 <h1 id="span-threads-using-combine-framework">Span threads using <code class="highlighter-rouge">Combine</code> framework</h1>
+<p>TBD</p>
+<h1 id="usage-of-runloop">Usage of <code class="highlighter-rouge">RunLoop</code></h1>
+<p>TBD</p>
 <h1 id="measure-a-performance-time">Measure a performance time</h1>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">startTime</span> <span class="o">=</span> <span class="kt">CFAbsoluteTimeGetCurrent</span><span class="p">()</span>
