@@ -204,15 +204,25 @@
 <h4 id="tips">Tips</h4>
 
 <ul>
-  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim.</li>
+  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="highlighter-rouge">:e!</code> Force reload file</li>
 </ul>
 
 <h4 id="navigation">Navigation</h4>
 
 <ul>
+  <li><code class="highlighter-rouge">h</code>  <code class="highlighter-rouge">j</code>  <code class="highlighter-rouge">k</code>  <code class="highlighter-rouge">l</code> → left, down, up, right</li>
+  <li><code class="highlighter-rouge">*</code> → Next whole word under cursor (previous <code class="highlighter-rouge">#</code>)</li>
   <li><code class="highlighter-rouge">e</code> → Forward to the end of word. <code class="highlighter-rouge">E</code> can contain punctuation</li>
   <li><code class="highlighter-rouge">b</code> → Jump backwards to the start of a word. <code class="highlighter-rouge">B</code> can contain punctuation</li>
-  <li><code class="highlighter-rouge">[</code>,<code class="highlighter-rouge">]</code> → Jump by paragraphs</li>
+  <li><code class="highlighter-rouge"><span class="p">{</span></code>,<code class="highlighter-rouge">}</code> → Jump by paragraphs</li>
+  <li><code class="highlighter-rouge">(</code>,<code class="highlighter-rouge">)</code> → Jump by sentences</li>
+  <li><code class="highlighter-rouge">G</code> → Jump to the end of the file</li>
+  <li><code class="highlighter-rouge">1G</code> → Jump to the beginning of the file (same as <code class="highlighter-rouge">gg</code>)</li>
+  <li><code class="highlighter-rouge">50G</code> → Jump to line 50</li>
+  <li><code class="highlighter-rouge">0</code> → Beginning of line</li>
+  <li><code class="highlighter-rouge">_</code> → first non-blank character of the line</li>
+  <li><code class="highlighter-rouge">g_</code>  → last non-blank character of the line</li>
+  <li><code class="highlighter-rouge">fX</code> → next character <code class="highlighter-rouge">X</code>. <code class="highlighter-rouge">FX</code> previous</li>
 </ul>
 
 <h3 id="list-of-the-commands">List of the commands</h3>
@@ -234,6 +244,14 @@
     <tr>
       <td style="text-align: right"><code class="highlighter-rouge">dd</code></td>
       <td style="text-align: left">Delete one line</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">d</code></td>
+      <td style="text-align: left">Delete selection</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">x</code></td>
+      <td style="text-align: left">Delete character under cursor</td>
     </tr>
     <tr>
       <td style="text-align: right"><code class="highlighter-rouge">d+</code></td>
@@ -267,8 +285,70 @@
       <td style="text-align: right"><code class="highlighter-rouge">%</code></td>
       <td style="text-align: left">Jump to matching bracket <code class="highlighter-rouge"><span class="p">{</span><span class="w"> </span><span class="p">}</span></code> <code class="highlighter-rouge">[ ]</code> <code class="highlighter-rouge">( )</code></td>
     </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:%!column -t</code></td>
+      <td style="text-align: left">Put text in columns</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:%!sort</code></td>
+      <td style="text-align: left">Sort the whole file</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:'&lt;,'&gt;!grep text</code></td>
+      <td style="text-align: left">Keep lines that contains <code class="highlighter-rouge">text</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:'&lt;,'&gt;!sort</code></td>
+      <td style="text-align: left">Sort selected lines</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:eariler 1m</code></td>
+      <td style="text-align: left">State from the 1 min before</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">ga</code></td>
+      <td style="text-align: left">Display hex, ascii value of character under cursor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">g8 </code></td>
+      <td style="text-align: left">Display hex value of utf-8 character under cursor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">ciw</code></td>
+      <td style="text-align: left">Change inner word</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">yiw</code></td>
+      <td style="text-align: left">Yank inner word</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">viwp</code></td>
+      <td style="text-align: left">Select word and then replace it with previously yanked text</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">rX</code></td>
+      <td style="text-align: left">replace every character in selection or under cursor with <code class="highlighter-rouge">X</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">guiw</code></td>
+      <td style="text-align: left">Lower case word</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">guu</code></td>
+      <td style="text-align: left">Lowercase line</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">gUU</code></td>
+      <td style="text-align: left">Uppercase line</td>
+    </tr>
   </tbody>
 </table>
+
+<h4 id="status-line">Status line</h4>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code><span class="p">:</span><span class="k">set</span> statusline<span class="p">=</span>%<span class="p">&lt;</span>%<span class="k">f</span>%<span class="k">h</span>%<span class="k">m</span>%<span class="k">r</span>%<span class="p">=</span>%<span class="k">b</span>\ <span class="m">0</span><span class="k">x</span>%B\ \ %<span class="k">l</span><span class="p">,</span>%<span class="k">c</span>%V\ %P
+</code></pre>
+</div>
 
 <h4 id="visual-mode">Visual Mode</h4>
 
@@ -278,9 +358,18 @@
   <li><code class="highlighter-rouge">Ctrl+v</code> →  Block selection</li>
 </ul>
 
-<h4 id="split-the-editor">Split the editor</h4>
+<h4 id="enter-insert-mode">Enter Insert Mode</h4>
 
 <ul>
+  <li><code class="highlighter-rouge">I</code> → At the first non white character of the line</li>
+  <li><code class="highlighter-rouge">i</code> → On the left of the cursor</li>
+  <li><code class="highlighter-rouge">A</code> → At the very end of the line</li>
+  <li><code class="highlighter-rouge">a</code> → On the right of the cursor</li>
+  <li><code class="highlighter-rouge">c</code> →  Delete selection and enter insert mode</li>
+  <li><code class="highlighter-rouge">o</code> → Create new line below and enter insert mode</li>
+  <li><code class="highlighter-rouge">O</code> → Create new line abowe and enter insert mode
+    <h4 id="split-the-editor">Split the editor</h4>
+  </li>
   <li><code class="highlighter-rouge">:sp &lt;filename&gt;</code> → Vertically</li>
   <li><code class="highlighter-rouge">:vs &lt;filename&gt;</code> → Horizontally</li>
 </ul>
@@ -319,7 +408,39 @@
   <li><code class="highlighter-rouge">"ap</code> → paste the register <code class="highlighter-rouge">a</code> , if the macro is recorded then it will paste it</li>
   <li><code class="highlighter-rouge">"xy</code> → yank into register <code class="highlighter-rouge">x</code></li>
   <li><code class="highlighter-rouge">:let @a = "kkll"</code> → set a macro from the command mode</li>
+  <li><code class="highlighter-rouge">:%normal @a</code>  → execute the macro on all lines of the current file</li>
+  <li><code class="highlighter-rouge">:'&lt;,'&gt;normal @a</code>  → execute the macro on a visually selected lines</li>
+  <li><code class="highlighter-rouge">:10,20 normal @a</code> → execute the macro for lines from 10 to 20</li>
+  <li><code class="highlighter-rouge">:g/pattern/ normal @a</code> → Search for pattern and execute macro for it</li>
 </ul>
+
+<h4 id="functions---an-example">Functions - An example</h4>
+
+<p>Function definition</p>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code><span class="k">function</span><span class="p">!</span> CalculateAge<span class="p">()</span>
+    normal <span class="m">03</span>wdei^R<span class="p">=</span><span class="m">2012</span><span class="p">-</span>^R"^M^<span class="p">[</span><span class="m">0</span><span class="k">j</span> 
+<span class="k">endfunction</span>
+</code></pre>
+</div>
+
+<p>Key banding to function</p>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">a</span> <span class="p">:</span><span class="k">call</span> CalculateAge<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+</code></pre>
+</div>
+
+<p>Preloading vim with macros like</p>
+
+<div class="language-vim highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> @<span class="k">a</span><span class="p">=</span><span class="s1">'03wdei^R=2012-^R"^M^[0j'</span>
+</code></pre>
+</div>
+
+<p>Call function from the command mode</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>:call CalculateAge()
+</code></pre>
+</div>
 
 <h4 id="configuration">Configuration</h4>
 

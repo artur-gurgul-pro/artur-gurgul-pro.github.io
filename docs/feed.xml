@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-04T21:09:50+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-05T20:44:04+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
@@ -304,15 +304,25 @@ ar rc ./libexample.a ./lib.o
 &lt;h4 id=&quot;tips&quot;&gt;Tips&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. &lt;code class=&quot;highlighter-rouge&quot;&gt;:e!&lt;/code&gt; Force reload file&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;navigation&quot;&gt;Navigation&lt;/h4&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;l&lt;/code&gt; → left, down, up, right&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; → Next whole word under cursor (previous &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;)&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; → Forward to the end of word. &lt;code class=&quot;highlighter-rouge&quot;&gt;E&lt;/code&gt; can contain punctuation&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; → Jump backwards to the start of a word. &lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; can contain punctuation&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;[&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;]&lt;/code&gt; → Jump by paragraphs&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;}&lt;/code&gt; → Jump by paragraphs&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;)&lt;/code&gt; → Jump by sentences&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt; → Jump to the end of the file&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1G&lt;/code&gt; → Jump to the beginning of the file (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;gg&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;50G&lt;/code&gt; → Jump to line 50&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; → Beginning of line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; → first non-blank character of the line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;g_&lt;/code&gt;  → last non-blank character of the line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fX&lt;/code&gt; → next character &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;FX&lt;/code&gt; previous&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;list-of-the-commands&quot;&gt;List of the commands&lt;/h3&gt;
@@ -334,6 +344,14 @@ ar rc ./libexample.a ./lib.o
     &lt;tr&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Delete one line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delete selection&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delete character under cursor&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;d+&lt;/code&gt;&lt;/td&gt;
@@ -367,8 +385,70 @@ ar rc ./libexample.a ./lib.o
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Jump to matching bracket &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;[ ]&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;( )&lt;/code&gt;&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%!column -t&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Put text in columns&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%!sort&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sort the whole file&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;!grep text&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Keep lines that contains &lt;code class=&quot;highlighter-rouge&quot;&gt;text&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;!sort&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Sort selected lines&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:eariler 1m&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;State from the 1 min before&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ga&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Display hex, ascii value of character under cursor&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;g8 &lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Display hex value of utf-8 character under cursor&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ciw&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Change inner word&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yiw&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Yank inner word&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;viwp&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Select word and then replace it with previously yanked text&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rX&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;replace every character in selection or under cursor with &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;guiw&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lower case word&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;guu&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Lowercase line&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gUU&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Uppercase line&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
+
+&lt;h4 id=&quot;status-line&quot;&gt;Status line&lt;/h4&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; statusline&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;%&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;f&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;h&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;m&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;r&lt;/span&gt;%&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;\ &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;x&lt;/span&gt;%B\ \ %&lt;span class=&quot;k&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;%V\ %P
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;visual-mode&quot;&gt;Visual Mode&lt;/h4&gt;
 
@@ -378,9 +458,18 @@ ar rc ./libexample.a ./lib.o
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+v&lt;/code&gt; →  Block selection&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&quot;split-the-editor&quot;&gt;Split the editor&lt;/h4&gt;
+&lt;h4 id=&quot;enter-insert-mode&quot;&gt;Enter Insert Mode&lt;/h4&gt;
 
 &lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;I&lt;/code&gt; → At the first non white character of the line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; → On the left of the cursor&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; → At the very end of the line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; → On the right of the cursor&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; →  Delete selection and enter insert mode&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;o&lt;/code&gt; → Create new line below and enter insert mode&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;O&lt;/code&gt; → Create new line abowe and enter insert mode
+    &lt;h4 id=&quot;split-the-editor&quot;&gt;Split the editor&lt;/h4&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:sp &amp;lt;filename&amp;gt;&lt;/code&gt; → Vertically&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:vs &amp;lt;filename&amp;gt;&lt;/code&gt; → Horizontally&lt;/li&gt;
 &lt;/ul&gt;
@@ -419,7 +508,39 @@ ar rc ./libexample.a ./lib.o
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;ap&lt;/code&gt; → paste the register &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; , if the macro is recorded then it will paste it&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;xy&lt;/code&gt; → yank into register &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:let @a = &quot;kkll&quot;&lt;/code&gt; → set a macro from the command mode&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%normal @a&lt;/code&gt;  → execute the macro on all lines of the current file&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;normal @a&lt;/code&gt;  → execute the macro on a visually selected lines&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:10,20 normal @a&lt;/code&gt; → execute the macro for lines from 10 to 20&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:g/pattern/ normal @a&lt;/code&gt; → Search for pattern and execute macro for it&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;h4 id=&quot;functions---an-example&quot;&gt;Functions - An example&lt;/h4&gt;
+
+&lt;p&gt;Function definition&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; CalculateAge&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+    normal &lt;span class=&quot;m&quot;&gt;03&lt;/span&gt;wdei^R&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2012&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;^R&quot;^M^&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;j&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Key banding to function&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nnoremap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;leader&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; CalculateAge&lt;span class=&quot;p&quot;&gt;()&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Preloading vim with macros like&lt;/p&gt;
+
+&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; @&lt;span class=&quot;k&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'03wdei^R=2012-^R&quot;^M^[0j'&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Call function from the command mode&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:call CalculateAge()
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 &lt;h4 id=&quot;configuration&quot;&gt;Configuration&lt;/h4&gt;
 
