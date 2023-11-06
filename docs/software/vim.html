@@ -199,6 +199,7 @@
 <ul>
   <li><code class="highlighter-rouge">%</code> → current file. An example:  <code class="highlighter-rouge">:so %</code> → Source the current file</li>
   <li><code class="highlighter-rouge">$</code> → end of line</li>
+  <li><code class="highlighter-rouge">.</code> → Current line An example: <code class="highlighter-rouge">:.!sh</code> Pipe current line to <code class="highlighter-rouge">sh</code> and replace it with the output</li>
 </ul>
 
 <p>Entering <code class="highlighter-rouge">!!</code> in normal mode is translated to  <code class="highlighter-rouge">:.!</code> I. e. Typing <code class="highlighter-rouge">!!date</code> in normal mode replaces current line with the date.</p>
@@ -206,9 +207,12 @@
 <h4 id="tips">Tips</h4>
 
 <ul>
-  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="highlighter-rouge">:e!</code> Force reload file
-    <h4 id="navigation">Navigation</h4>
-  </li>
+  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="highlighter-rouge">:e!</code> Force reload file</li>
+</ul>
+
+<h4 id="navigation">Navigation</h4>
+
+<ul>
   <li><code class="highlighter-rouge">h</code>  <code class="highlighter-rouge">j</code>  <code class="highlighter-rouge">k</code>  <code class="highlighter-rouge">l</code> → left, down, up, right</li>
   <li><code class="highlighter-rouge">*</code> → Next whole word under cursor (previous <code class="highlighter-rouge">#</code>)</li>
   <li><code class="highlighter-rouge">e</code> → Forward to the end of word. <code class="highlighter-rouge">E</code> can contain punctuation</li>
@@ -458,6 +462,7 @@
   <li><code class="highlighter-rouge">"ap</code> → paste the register <code class="highlighter-rouge">a</code> , if the macro is recorded then it will paste it</li>
   <li><code class="highlighter-rouge">"xy</code> → yank into register <code class="highlighter-rouge">x</code></li>
   <li><code class="highlighter-rouge">:let @a = "kkll"</code> → set a macro from the command mode</li>
+  <li><code class="highlighter-rouge">:let @A='i'</code>  →  append to register <code class="highlighter-rouge">a</code></li>
   <li><code class="highlighter-rouge">:%normal @a</code>  → execute the macro on all lines of the current file</li>
   <li><code class="highlighter-rouge">:'&lt;,'&gt;normal @a</code>  → execute the macro on a visually selected lines</li>
   <li><code class="highlighter-rouge">:10,20 normal @a</code> → execute the macro for lines from 10 to 20</li>
@@ -540,6 +545,125 @@
 EOF
 </code></pre>
 </div>
+
+<!--
+### Navigation in Vimr
+- jump to the next empty line (the next paragraph)`}` 
+* Recording macros
+    * `"xp` pastes the contents of the register `x`.
+
+
+* `~ `      : invert case (upper->lower; lower->upper) of current character
+* `gf `     : open file name under cursor (SUPER)
+
+* `ggg?G`  : rot13 whole file
+* `xp`      : swap next two characters around
+* `CTRL-A,CTRL-X` : increment, decrement next number on same line as the cursor
+* `CTRL-R=5*5`    : insert 25 into text
+
+
+
+* `'.`       : jump to last modification line (SUPER)
+* *`.*       : jump to exact spot in last modification line
+* `<C-O>`    : retrace your movements in file (backward)
+* `<C-I>`    : retrace your movements in file (forward)
+* `:ju(mps)` : list of your movements 
+:history : list of all your commands
+
+
+ Sorting with external sort
+:%!sort -u           : contents of the current file is sorted and only unique lines are kept
+:'v,'w!sort          : sort from line marked v thru lines marked w
+:g/^$/;,/^$/-1!sort  : sort each block (note the crucial ;)
+
+!1} sort             : sorts paragraph; this is issued from normal mode!)
+
+:wn           : write file and move to next (SUPER)
+:bd           : remove file from buffer list (SUPER)
+:sav php.html : Save current file as php.html and "move" to php.html
+:w /some/path/%:r   : save file in another directory, but with the same name
+:e #          : edit alternative file
+:args         : display argument list
+:n            : next file in argument list
+:prev         : previous file in argument list
+:rew          : rewind to first file in argument list
+:ls           : display buffer list
+:bn           : next buffer
+:bp           : previous buffer
+:brew         : rewind to first buffer in buffer list
+:tabe         : open new tab page (Ctrl-PgUp, Ctrl-PgDown for next/previous tab)
+:tabm n       : move tab to position n (0=leftmost position)
+
+# editing a register/recording
+"ap
+<you can now see register contents, edit as required>
+"add
+@a
+
+
+
+
+Ctrl-D  move half-page down
+Ctrl-U  move half-page up
+Ctrl-B  page up
+Ctrl-F  page down
+Ctrl-O  jump to last (older) cursor position
+Ctrl-I  jump to next cursor position (after Ctrl-O)
+Ctrl-Y  move view pane up
+Ctrl-E  move view pane down
+
+n   next matching search pattern
+N   previous matching search pattern
+
+
+g*  next matching search (not whole word) pattern under cursor
+g#  previous matching search (not whole word) pattern under cursor
+
+de — Delete to the end of the word
+^R= — Insert the contents of the special = register, which accepts an expression to evaluate
+
+gUgn - uppercase
+gn
+n move to the next match
+
+
+Undo and redo
+
+You can use u to undo the last change. CTRL-R redoes a change that has been undone. U returns the current line to its original state.
+You can use g- or g+ to go between text-states. 
+Search and replace
+* `\vpattern` - 'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)
+* `n` - repeat search in same direction
+* `N` - repeat search in opposite direction
+
+* `:noh` - remove highlighting of search matches
+Search in multiple files
+* `:vimgrep /pattern/ {file}` - search for pattern in multiple files
+
+* e.g. `:vimgrep /foo/ **/*`
+* `:cn` - jump to the next match
+* `:cp` - jump to the previous match
+* `:copen` - open a window containing the list of matches
+
+
+folding from selection
+`: '<,'>fo`
+
+`:help folding`
+
+set foldmethod=syntax
+`set foldlevel=1`
+`set foldclose=all`
+
+
+Sequence forfolding lines `Shift+V:fo`
+`:set foldmethod=syntax` intent, 
+`zo` unfolding
+`za` toogle folding
+`zf#j` creates a fold from the cursor down # lines.
+
+:CheckHealth
+-->
 
 </div>
 

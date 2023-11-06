@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T11:48:16+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T12:07:36+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
@@ -299,6 +299,7 @@ ar rc ./libexample.a ./lib.o
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; → current file. An example:  &lt;code class=&quot;highlighter-rouge&quot;&gt;:so %&lt;/code&gt; → Source the current file&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; → end of line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → Current line An example: &lt;code class=&quot;highlighter-rouge&quot;&gt;:.!sh&lt;/code&gt; Pipe current line to &lt;code class=&quot;highlighter-rouge&quot;&gt;sh&lt;/code&gt; and replace it with the output&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Entering &lt;code class=&quot;highlighter-rouge&quot;&gt;!!&lt;/code&gt; in normal mode is translated to  &lt;code class=&quot;highlighter-rouge&quot;&gt;:.!&lt;/code&gt; I. e. Typing &lt;code class=&quot;highlighter-rouge&quot;&gt;!!date&lt;/code&gt; in normal mode replaces current line with the date.&lt;/p&gt;
@@ -306,9 +307,12 @@ ar rc ./libexample.a ./lib.o
 &lt;h4 id=&quot;tips&quot;&gt;Tips&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. &lt;code class=&quot;highlighter-rouge&quot;&gt;:e!&lt;/code&gt; Force reload file
-    &lt;h4 id=&quot;navigation&quot;&gt;Navigation&lt;/h4&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. &lt;code class=&quot;highlighter-rouge&quot;&gt;:e!&lt;/code&gt; Force reload file&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;navigation&quot;&gt;Navigation&lt;/h4&gt;
+
+&lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;l&lt;/code&gt; → left, down, up, right&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; → Next whole word under cursor (previous &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;)&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; → Forward to the end of word. &lt;code class=&quot;highlighter-rouge&quot;&gt;E&lt;/code&gt; can contain punctuation&lt;/li&gt;
@@ -558,6 +562,7 @@ ar rc ./libexample.a ./lib.o
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;ap&lt;/code&gt; → paste the register &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; , if the macro is recorded then it will paste it&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;xy&lt;/code&gt; → yank into register &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:let @a = &quot;kkll&quot;&lt;/code&gt; → set a macro from the command mode&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:let @A='i'&lt;/code&gt;  →  append to register &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%normal @a&lt;/code&gt;  → execute the macro on all lines of the current file&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;normal @a&lt;/code&gt;  → execute the macro on a visually selected lines&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:10,20 normal @a&lt;/code&gt; → execute the macro for lines from 10 to 20&lt;/li&gt;
@@ -639,7 +644,126 @@ ar rc ./libexample.a ./lib.o
   lspconfig&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;sourcekit&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
 EOF
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line</summary></entry><entry><title type="html">Chroot environment of Debian sid</title><link href="http://localhost:4000/software/debian/debian-chroot.html" rel="alternate" type="text/html" title="Chroot environment of Debian sid" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-chroot</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-chroot.html">&lt;p&gt;Install Bootstrap&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!--
+### Navigation in Vimr
+- jump to the next empty line (the next paragraph)`}` 
+* Recording macros
+    * `&quot;xp` pastes the contents of the register `x`.
+
+
+* `~ `      : invert case (upper-&gt;lower; lower-&gt;upper) of current character
+* `gf `     : open file name under cursor (SUPER)
+
+* `ggg?G`  : rot13 whole file
+* `xp`      : swap next two characters around
+* `CTRL-A,CTRL-X` : increment, decrement next number on same line as the cursor
+* `CTRL-R=5*5`    : insert 25 into text
+
+
+
+* `'.`       : jump to last modification line (SUPER)
+* *`.*       : jump to exact spot in last modification line
+* `&lt;C-O&gt;`    : retrace your movements in file (backward)
+* `&lt;C-I&gt;`    : retrace your movements in file (forward)
+* `:ju(mps)` : list of your movements 
+:history : list of all your commands
+
+
+ Sorting with external sort
+:%!sort -u           : contents of the current file is sorted and only unique lines are kept
+:'v,'w!sort          : sort from line marked v thru lines marked w
+:g/^$/;,/^$/-1!sort  : sort each block (note the crucial ;)
+
+!1} sort             : sorts paragraph; this is issued from normal mode!)
+
+:wn           : write file and move to next (SUPER)
+:bd           : remove file from buffer list (SUPER)
+:sav php.html : Save current file as php.html and &quot;move&quot; to php.html
+:w /some/path/%:r   : save file in another directory, but with the same name
+:e #          : edit alternative file
+:args         : display argument list
+:n            : next file in argument list
+:prev         : previous file in argument list
+:rew          : rewind to first file in argument list
+:ls           : display buffer list
+:bn           : next buffer
+:bp           : previous buffer
+:brew         : rewind to first buffer in buffer list
+:tabe         : open new tab page (Ctrl-PgUp, Ctrl-PgDown for next/previous tab)
+:tabm n       : move tab to position n (0=leftmost position)
+
+# editing a register/recording
+&quot;ap
+&lt;you can now see register contents, edit as required&gt;
+&quot;add
+@a
+
+
+
+
+Ctrl-D  move half-page down
+Ctrl-U  move half-page up
+Ctrl-B  page up
+Ctrl-F  page down
+Ctrl-O  jump to last (older) cursor position
+Ctrl-I  jump to next cursor position (after Ctrl-O)
+Ctrl-Y  move view pane up
+Ctrl-E  move view pane down
+
+n   next matching search pattern
+N   previous matching search pattern
+
+
+g*  next matching search (not whole word) pattern under cursor
+g#  previous matching search (not whole word) pattern under cursor
+
+de — Delete to the end of the word
+^R= — Insert the contents of the special = register, which accepts an expression to evaluate
+
+gUgn - uppercase
+gn
+n move to the next match
+
+
+Undo and redo
+
+You can use u to undo the last change. CTRL-R redoes a change that has been undone. U returns the current line to its original state.
+You can use g- or g+ to go between text-states. 
+Search and replace
+* `\vpattern` - 'very magic' pattern: non-alphanumeric characters are interpreted as special regex symbols (no escaping needed)
+* `n` - repeat search in same direction
+* `N` - repeat search in opposite direction
+
+* `:noh` - remove highlighting of search matches
+Search in multiple files
+* `:vimgrep /pattern/ {file}` - search for pattern in multiple files
+
+* e.g. `:vimgrep /foo/ **/*`
+* `:cn` - jump to the next match
+* `:cp` - jump to the previous match
+* `:copen` - open a window containing the list of matches
+
+
+folding from selection
+`: '&lt;,'&gt;fo`
+
+`:help folding`
+
+set foldmethod=syntax
+`set foldlevel=1`
+`set foldclose=all`
+
+
+Sequence forfolding lines `Shift+V:fo`
+`:set foldmethod=syntax` intent, 
+`zo` unfolding
+`za` toogle folding
+`zf#j` creates a fold from the cursor down # lines.
+
+:CheckHealth
+--&gt;</content><author><name></name></author><summary type="html">Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh Pipe current line to sh and replace it with the output</summary></entry><entry><title type="html">Chroot environment of Debian sid</title><link href="http://localhost:4000/software/debian/debian-chroot.html" rel="alternate" type="text/html" title="Chroot environment of Debian sid" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-chroot</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-chroot.html">&lt;p&gt;Install Bootstrap&lt;/p&gt;
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install debootstrap
 &lt;/code&gt;&lt;/pre&gt;
