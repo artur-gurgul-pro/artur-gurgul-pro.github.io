@@ -1,0 +1,73 @@
+
+about: >
+  <p>I'm a passionate iOS developer with about 10 years of experience who isn't afraid
+  of challenges. I'm also working every day on myself to be better as a person
+  and as a software developer.</p>
+  <p>I am constantly curious about new technologies in order to keep myself updated.
+  I like to share my knowledge with others and I find discussing new ideas very interesting. </p>
+
+experience:
+  - date: July 2022 — Present
+    title: iOS Developer at Alten, Kraków
+    description: I am working on the iOS banking application for NatWest. The application is usinga very complex architecture that was designed by the Backbase experts. My main responsibility is to fix the bugs. I got experience working in a very large team that is divided into “squads”.
+
+  - date: April 2017 — June 2022
+    title: iOS Developer at Vattenfall, Katowice
+    description: I worked there on a very interesting and innovative project which aims at EV drivers. My main responsibility was to create new features and fix bugs. The app oryginalny has been written in Objective-C using UIKit. I improved the architecture and introduced SwiftUI and Combine Framework. Moreover I was involved in research and I often took part in “brain storm” regarding user experience. I also created a small internal project for booking parking spots. When I started a job here we used a spreadsheet for it. Me and a colleague came up with the idea for a mobile app. In this project I designed the API and implemented it using Node Js running in the Azure environment.
+
+  - date: May 2016 — October 2016
+    title: iOS Developer at RST IT, Wrocław
+    description: RST IT is a software house where I was responsible for developing the app named Zbooni. The product is dedicated to sellers who offer their products using social networks like Facebook. My responsibility was to develop the application according to the specification provided by the client. The project was running Agile methodology where the client actively participated with feedback.
+
+  - date: October 2013 — November 2015
+    title: iOS Developer at SMSgrupp, Stockholm
+    description: SMSgrupp is a single product company where I worked on a SMS system named Supertext. I was responsible for fixing the bugs and publishing the application. I had rewritten the code from Objc to Swift. Here I had a lot of opportunities to discuss the project and affect how the application would work. We planned very carefully the sprints taking in account what functionality is crucial and what affects the users the most.
+
+  - date: May - 2016 - present
+    title: Swift/iOS developer at RST IT
+    description: Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
+
+  - date: Dec 2013 - Nov 2015
+    title: Objc/iOS developer at SMSGrupp
+    description: Supertext - I was responsible for fixing the bugs and publishing the app. I have partially rewritten the code from Objc to Swift.
+
+  - date: Apr 2013 - Nov 2013
+    title: Objc/iOSdeveloper at Railwaymen
+    description: SportsBee - This is a social network dedicated to sports funs. I designed the code architecture and implemented all of basic functionality.
+
+  - date: Dec 2011- Mar 2013
+    title: Objc/iOS developer at inFullMobile
+    description: > 
+      <ul>
+        <li>Demos for banking industry - My main responsibility in this company was to implement various of demos basing on a single code base and to keep all of them “alive”.</li>
+        <li>DLD Magazine - I implemented a fancy calendar there.</li>
+      </ul>
+
+  - date: Aug2011-Dec2011
+    title: Objc/iOS developer at TouchingIT
+    description: >
+      <ul>
+        <li>Camerapixo - I optimised the photo gallery.</li>
+        <li>N TV - I implemented EPG that works on iPad platform.</li>
+      </ul>
+
+  - date: Mar 2011 - Sept 2011
+    title:  Objc/iOS developer at Altconnect
+    description:  I worked on a content management for iOS. The main goal was to create and gather all useful tools, controllers, views and libraries into a single project, so they can be easily use to produce cheap application for the clients.
+
+education: 2006 - 2011 Information Technology at PWSZ Tarnów Bachelor of science degree
+
+skills: >
+  English at communicative level that allows me to work in an international team. When I worked in Sweden I used this language on daily basis.
+  <h4 style="padding-top: 20px;">Technical skills</h4>
+  
+  <ul>
+    <li>S. O. L. I. D. principles</li>
+    <li>MVVM design pattern plus reactive programmings</li>
+    <li>Developer tools Xcode/AppCode, Interface Builder (including story boards)s</li>
+    <li>Libraries I am familiar with: UIKit, Magical records, RxSwift, Core Data, Alamofire, Starscream, SwiftyJSONs</li>
+    <li>Computer languages I feel confident with: Swift, Objc, Pythons</li>
+    <li>Web technologies: HTML/CSS/Js jQuerys</li>
+    <li>Other: CI (Jenkins, bash scripting, fastlane, fabric), Cocoa pods, Unix environment, GITs</li>
+    <li>Very basics of Android developments</li>
+  </ul>

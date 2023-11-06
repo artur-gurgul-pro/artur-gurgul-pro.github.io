@@ -3,143 +3,88 @@ layout: default
 title: Articles
 ---
 
-<link rel="stylesheet" href="/media/cv-screen.css">
+<link rel="stylesheet" href="/media/cv-screen.css" />
 
-<!-- <link rel="stylesheet" media="print" href="/media/cv-print.css"> -->
 <div id="home">
-  <!-- <h2><i class="fa fa-bookmark"></i> Articles</h2> -->
 
-  <!-- https://sympli.io/blog/a-quick-guide-to-css-for-printable-webpages -->
-  <!-- https://rawgit.com/MrRio/jsPDF/master/docs/index.html -->
+  <div class="cv-page">
+    <div class="contact-box">
+      ul. Tadeusza Fijewskiego 5,<br/>
+      40-748 Katowice<br/>
+      Tel: +PL.51&xcirc;5&xcirc;9533<br/>
+      Email: artur.gurgul AT Gmail
+    </div>
 
-<div class="cv-page">
-  <div class="contact-box">
-    ul. Tadeusza Fijewskiego 5,<br/>
-    40-748 Katowice<br/>
-    Tel: +PL.51&xcirc;5&xcirc;9533<br/>
-    Email: artur.gurgul AT Gmail
-  </div>
-<hr>
-  <h2>Professional experience</h2>
-  
-  <div class="job-item">
-    <div class="job-headline">
-      <h3 class="job-title">
-        Swift/iOS developer at RST IT
-      </h3>
-      <div class="cv-date">
-        May - 2016 - present
+    <div style="font-style: italic; color: #555">
+      {{ site.data.cv.about }}
+    </div>
+
+    <hr>
+    <h2>Professional experience</h2>
+
+    {% for experience in site.data.cv.experience %}
+      <div class="job-item">
+        <div class="job-headline">
+          <h3 class="job-title">
+            {{ experience.title }}
+          </h3>
+          <div class="cv-date">
+            {{ experience.date }}
+          </div>
+        </div>
+        <div class="job-description">
+          {{ experience.description }}
+        </div>
+      </div>
+    {% endfor %}
+<!--
+
+    <div class="job-item">
+      <div class="job-headline">
+        <h3 class="job-title">
+          
+        </h3>
+        <div class="cv-date">
+          
+        </div>
+      </div>
+      <div class="job-description">
+        
       </div>
     </div>
-    <div class="job-description">
-      Zbooni - I am working on a mobile application dedicated to sellers who offer theirs products using social networking.
-    </div>
-  </div>
-  
-  <div class="job-item">
-    <div class="job-headline">
-      <h3 class="job-title">
-        Objc/iOS developer at SMSGrupp
-      </h3>
-      <div class="cv-date">
-        Dec 2013 - Nov 2015
+
+    <div class="job-item">
+      <div class="job-headline">
+        <h3 class="job-title">
+         
+        </h3>
+        <div class="cv-date">
+          
+        </div>
+      </div>
+      <div class="job-description">
+       
       </div>
     </div>
-    <div class="job-description">
-      Supertext - I was responsible for fixing the bugs and publishing the app. I have partially rewritten the code from Objc to Swift.
+-->
+
+
+
+    <div class="skills-container">
+
+      <h2 style="width: 100%">Education</h2>
+
+      <p style="padding-bottom: 20px;">
+        {{ site.data.cv.education }}
+      </p>
+
+      <h2 style="width: 100%">Skills</h2>
+
+      <div>
+        {{ site.data.cv.skills }}
+        
+      </div>  
     </div>
   </div>
-
-  <div class="job-item">
-    <div class="job-headline">
-      <h3 class="job-title">
-        Objc/iOSdeveloper at Railwaymen
-      </h3>
-      <div class="cv-date">
-        Apr 2013 - Nov 2013
-      </div>
-    </div>
-    <div class="job-description">
-      SportsBee - This is a social network dedicated to sports funs. I designed the code architecture and implemented all of basic functionality.
-    </div>
-  </div>
-  
-  <div class="job-item">
-    <div class="job-headline">
-      <h3 class="job-title">
-        Objc/iOS developer at inFullMobile
-      </h3>
-      <div class="cv-date">
-        Dec 2011- Mar 2013
-      </div>
-    </div>
-    <div class="job-description">
-      <ul>
-        <li>Demos for banking industry - My main responsibility in this company was to implement various of demos basing on a single code base and to keep all of them “alive”.</li>
-        <li>DLD Magazine - I implemented a fancy calendar there.</li>
-      </ul>
-    </div>
-  </div>
-
-
-  <div class="job-item">
-    <div class="job-headline">
-      <h3 class="job-title">
-        Objc/iOS developer at TouchingIT
-      </h3>
-      <div class="cv-date">
-        Aug2011-Dec2011
-      </div>
-    </div>
-    <div class="job-description">
-      <ul>
-        <li>Camerapixo - I optimised the photo gallery.</li>
-        <li>N TV - I implemented EPG that works on iPad platform.</li>
-      </ul>
-    </div>
-  </div>
-  
-  <div class="job-item">
-    <div class="job-headline">
-      <h3 class="job-title">
-        Objc/iOS developer at Altconnect
-      </h3>
-      <div class="cv-date">
-        Mar 2011 - Sept 2011
-      </div>
-    </div>
-    <div class="job-description">
-      I worked on a content management for iOS. The main goal was to create and gather all useful tools, controllers, views and libraries into a single project, so they can be easily use to produce cheap application for the clients.
-    </div>
-  </div>
-
-
-
-  
-  <div class="skills-container">
-    
-    <h2>Education</h2>
-
-    <p style="padding-bottom: 20px;">2006 - 2011 Information Technology at PWSZ Tarnów Bachelor of science degree</p>
-
-  <h2>Skills</h2>
-
-  <div>
-    English at communicative level that allows me to work in an international team. When I worked in Sweden I used this language on daily basis.
-  
-    <h4 style="padding-top: 20px;">Technical skills</h4>
-  <ul>
-    <li>S. O. L. I. D. principles</li>
-    <li>MVVM design pattern plus reactive programmings</li>
-    <li>Developer tools Xcode/AppCode, Interface Builder (including story boards)s</li>
-    <li>Libraries I am familiar with: UIKit, Magical records, RxSwift, Core Data, Alamofire, Starscream, SwiftyJSONs</li>
-    <li>Computer languages I feel confident with: Swift, Objc, Pythons</li>
-    <li>Web technologies: HTML/CSS/Js jQuerys</li>
-    <li>Other: CI (Jenkins, bash scripting, fastlane, fabric), Cocoa pods, Unix environment, GITs</li>
-    <li>Very basics of Android developments</li>
-  </ul>
-  </div>  
-</div>
-</div>
 
 </div>
