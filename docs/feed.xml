@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T06:51:21+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T11:48:16+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
@@ -306,25 +306,37 @@ ar rc ./libexample.a ./lib.o
 &lt;h4 id=&quot;tips&quot;&gt;Tips&lt;/h4&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. &lt;code class=&quot;highlighter-rouge&quot;&gt;:e!&lt;/code&gt; Force reload file&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h4 id=&quot;navigation&quot;&gt;Navigation&lt;/h4&gt;
-
-&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. &lt;code class=&quot;highlighter-rouge&quot;&gt;:e!&lt;/code&gt; Force reload file
+    &lt;h4 id=&quot;navigation&quot;&gt;Navigation&lt;/h4&gt;
+  &lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;l&lt;/code&gt; → left, down, up, right&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; → Next whole word under cursor (previous &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;)&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; → Forward to the end of word. &lt;code class=&quot;highlighter-rouge&quot;&gt;E&lt;/code&gt; can contain punctuation&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; → Jump backwards to the start of a word. &lt;code class=&quot;highlighter-rouge&quot;&gt;B&lt;/code&gt; can contain punctuation&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; → Move forward to the beginning of a word. &lt;code class=&quot;highlighter-rouge&quot;&gt;W&lt;/code&gt; Same as &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;, but special characters are treated as part of a word.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; → Works as &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;, but backwards&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;}&lt;/code&gt; → Jump by paragraphs&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;)&lt;/code&gt; → Jump by sentences&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt; → Jump to the end of the file&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1G&lt;/code&gt; → Jump to the beginning of the file (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;gg&lt;/code&gt;)&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;50G&lt;/code&gt; → Jump to line 50&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; → Beginning of line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; → first non-blank character of the line&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt; → first non-blank character of the line&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;g_&lt;/code&gt;  → last non-blank character of the line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fX&lt;/code&gt; → next character &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;FX&lt;/code&gt; previous&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fX&lt;/code&gt; → next character &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;FX&lt;/code&gt; previous. &lt;code class=&quot;highlighter-rouge&quot;&gt;;&lt;/code&gt;   repeat , &lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;   repeat in reverse&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tX&lt;/code&gt; → tili next &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt; (similar to above, but the cursor is before &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt; → Jump to the top of the screen&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M&lt;/code&gt; → Jump to the middle of the screen&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; → Jump to the bottom of the screen&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;scrolling&quot;&gt;Scrolling&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;10 &amp;lt;PageUp&amp;gt;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;10&amp;lt;CTRL-B&amp;gt;&lt;/code&gt; → Move 10 pages up&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;5 &amp;lt;PageDown&amp;gt;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;5&amp;lt;CTRL-F&amp;gt;&lt;/code&gt; → Move 5 pages down.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zz&lt;/code&gt;  → scroll the line with the cursor to the center of the screen&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zt&lt;/code&gt;  → to the top&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zb&lt;/code&gt;  → to the bottom&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;list-of-the-commands&quot;&gt;List of the commands&lt;/h3&gt;
@@ -369,7 +381,7 @@ ar rc ./libexample.a ./lib.o
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;di(&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete inner brackets&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Delete inner brackets. &lt;code class=&quot;highlighter-rouge&quot;&gt;da(&lt;/code&gt; → including brackets&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:r[ead] !date&lt;/code&gt;&lt;/td&gt;
@@ -444,8 +456,32 @@ ar rc ./libexample.a ./lib.o
       &lt;td style=&quot;text-align: left&quot;&gt;Uppercase line&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;1p&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;paste from register 1 (works also for yanking)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indent the selection&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;=%&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Indent the current braces&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;G=gg&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;indent entire document&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ZZ&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Write current file, if modified, and exit (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;:wq&lt;/code&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ZQ&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Quit current file and exit (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;:q!&lt;/code&gt;)&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:so %&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Source current file&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@:&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;Execute last command again&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -481,6 +517,7 @@ ar rc ./libexample.a ./lib.o
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:sp &amp;lt;filename&amp;gt;&lt;/code&gt; → Vertically&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:vs &amp;lt;filename&amp;gt;&lt;/code&gt; → Horizontally&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:set splitbelow&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;:set splitright&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h4 id=&quot;markers&quot;&gt;Markers&lt;/h4&gt;
@@ -488,7 +525,8 @@ ar rc ./libexample.a ./lib.o
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:marks&lt;/code&gt; →  list of marks&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ma&lt;/code&gt; → set current position for mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`a&lt;/code&gt; → jump to position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`a&lt;/code&gt; → jump to the cursor position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'a&lt;/code&gt; →  jump to the beginning of a line of a mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y`a&lt;/code&gt; → yank text to position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;``&lt;/code&gt; → Return to the cursor position before the latest jump&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`.&lt;/code&gt;  → Jump to the last changed line.&lt;/li&gt;
@@ -508,6 +546,7 @@ ar rc ./libexample.a ./lib.o
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%s/Plug.*$//&lt;/code&gt; → Search and delete all lines that starts from Plug&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%s/foo/bar/gc&lt;/code&gt; → Replace all occurrence of foo by bar with confirmation&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'&amp;lt;,'&amp;gt;:s/find/replacewith/&lt;/code&gt; Replace selection&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/pattern&lt;/code&gt; → search for pattern then enter and &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; next &lt;code class=&quot;highlighter-rouge&quot;&gt;N&lt;/code&gt; previous match&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;?pattern&lt;/code&gt; → search backward for pattern&lt;/li&gt;
 &lt;/ul&gt;

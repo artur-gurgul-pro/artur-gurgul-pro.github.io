@@ -206,25 +206,37 @@
 <h4 id="tips">Tips</h4>
 
 <ul>
-  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="highlighter-rouge">:e!</code> Force reload file</li>
-</ul>
-
-<h4 id="navigation">Navigation</h4>
-
-<ul>
+  <li><code class="highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="highlighter-rouge">:e!</code> Force reload file
+    <h4 id="navigation">Navigation</h4>
+  </li>
   <li><code class="highlighter-rouge">h</code>  <code class="highlighter-rouge">j</code>  <code class="highlighter-rouge">k</code>  <code class="highlighter-rouge">l</code> → left, down, up, right</li>
   <li><code class="highlighter-rouge">*</code> → Next whole word under cursor (previous <code class="highlighter-rouge">#</code>)</li>
   <li><code class="highlighter-rouge">e</code> → Forward to the end of word. <code class="highlighter-rouge">E</code> can contain punctuation</li>
-  <li><code class="highlighter-rouge">b</code> → Jump backwards to the start of a word. <code class="highlighter-rouge">B</code> can contain punctuation</li>
+  <li><code class="highlighter-rouge">w</code> → Move forward to the beginning of a word. <code class="highlighter-rouge">W</code> Same as <code class="highlighter-rouge">w</code>, but special characters are treated as part of a word.</li>
+  <li><code class="highlighter-rouge">b</code> → Works as <code class="highlighter-rouge">w</code>, but backwards</li>
   <li><code class="highlighter-rouge"><span class="p">{</span></code>,<code class="highlighter-rouge">}</code> → Jump by paragraphs</li>
   <li><code class="highlighter-rouge">(</code>,<code class="highlighter-rouge">)</code> → Jump by sentences</li>
   <li><code class="highlighter-rouge">G</code> → Jump to the end of the file</li>
   <li><code class="highlighter-rouge">1G</code> → Jump to the beginning of the file (same as <code class="highlighter-rouge">gg</code>)</li>
   <li><code class="highlighter-rouge">50G</code> → Jump to line 50</li>
   <li><code class="highlighter-rouge">0</code> → Beginning of line</li>
-  <li><code class="highlighter-rouge">_</code> → first non-blank character of the line</li>
+  <li><code class="highlighter-rouge">_</code> or <code class="highlighter-rouge">^</code> → first non-blank character of the line</li>
   <li><code class="highlighter-rouge">g_</code>  → last non-blank character of the line</li>
-  <li><code class="highlighter-rouge">fX</code> → next character <code class="highlighter-rouge">X</code>. <code class="highlighter-rouge">FX</code> previous</li>
+  <li><code class="highlighter-rouge">fX</code> → next character <code class="highlighter-rouge">X</code>. <code class="highlighter-rouge">FX</code> previous. <code class="highlighter-rouge">;</code>   repeat , <code class="highlighter-rouge">,</code>   repeat in reverse</li>
+  <li><code class="highlighter-rouge">tX</code> → tili next <code class="highlighter-rouge">X</code> (similar to above, but the cursor is before <code class="highlighter-rouge">X</code>)</li>
+  <li><code class="highlighter-rouge">H</code> → Jump to the top of the screen</li>
+  <li><code class="highlighter-rouge">M</code> → Jump to the middle of the screen</li>
+  <li><code class="highlighter-rouge">L</code> → Jump to the bottom of the screen</li>
+</ul>
+
+<h4 id="scrolling">Scrolling</h4>
+
+<ul>
+  <li><code class="highlighter-rouge">10 &lt;PageUp&gt;</code> or <code class="highlighter-rouge">10&lt;CTRL-B&gt;</code> → Move 10 pages up</li>
+  <li><code class="highlighter-rouge">5 &lt;PageDown&gt;</code> or <code class="highlighter-rouge">5&lt;CTRL-F&gt;</code> → Move 5 pages down.</li>
+  <li><code class="highlighter-rouge">zz</code>  → scroll the line with the cursor to the center of the screen</li>
+  <li><code class="highlighter-rouge">zt</code>  → to the top</li>
+  <li><code class="highlighter-rouge">zb</code>  → to the bottom</li>
 </ul>
 
 <h3 id="list-of-the-commands">List of the commands</h3>
@@ -269,7 +281,7 @@
     </tr>
     <tr>
       <td style="text-align: right"><code class="highlighter-rouge">di(</code></td>
-      <td style="text-align: left">Delete inner brackets</td>
+      <td style="text-align: left">Delete inner brackets. <code class="highlighter-rouge">da(</code> → including brackets</td>
     </tr>
     <tr>
       <td style="text-align: right"><code class="highlighter-rouge">:r[ead] !date</code></td>
@@ -344,8 +356,32 @@
       <td style="text-align: left">Uppercase line</td>
     </tr>
     <tr>
-      <td style="text-align: right"><code class="highlighter-rouge">"1p</code></td>
-      <td style="text-align: left">paste from register 1 (works also for yanking)</td>
+      <td style="text-align: right"><code class="highlighter-rouge">=</code></td>
+      <td style="text-align: left">Indent the selection</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">=%</code></td>
+      <td style="text-align: left">Indent the current braces</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">G=gg</code></td>
+      <td style="text-align: left">indent entire document</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">ZZ</code></td>
+      <td style="text-align: left">Write current file, if modified, and exit (same as <code class="highlighter-rouge">:wq</code>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">ZQ</code></td>
+      <td style="text-align: left">Quit current file and exit (same as <code class="highlighter-rouge">:q!</code>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">:so %</code></td>
+      <td style="text-align: left">Source current file</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">@:</code></td>
+      <td style="text-align: left">Execute last command again</td>
     </tr>
   </tbody>
 </table>
@@ -381,6 +417,7 @@
 <ul>
   <li><code class="highlighter-rouge">:sp &lt;filename&gt;</code> → Vertically</li>
   <li><code class="highlighter-rouge">:vs &lt;filename&gt;</code> → Horizontally</li>
+  <li><code class="highlighter-rouge">:set splitbelow</code>, <code class="highlighter-rouge">:set splitright</code></li>
 </ul>
 
 <h4 id="markers">Markers</h4>
@@ -388,7 +425,8 @@
 <ul>
   <li><code class="highlighter-rouge">:marks</code> →  list of marks</li>
   <li><code class="highlighter-rouge">ma</code> → set current position for mark <code class="highlighter-rouge">a</code></li>
-  <li><code class="highlighter-rouge">`a</code> → jump to position of mark <code class="highlighter-rouge">a</code></li>
+  <li><code class="highlighter-rouge">`a</code> → jump to the cursor position of mark <code class="highlighter-rouge">a</code></li>
+  <li><code class="highlighter-rouge">'a</code> →  jump to the beginning of a line of a mark <code class="highlighter-rouge">a</code></li>
   <li><code class="highlighter-rouge">y`a</code> → yank text to position of mark <code class="highlighter-rouge">a</code></li>
   <li><code class="highlighter-rouge">``</code> → Return to the cursor position before the latest jump</li>
   <li><code class="highlighter-rouge">`.</code>  → Jump to the last changed line.</li>
@@ -408,6 +446,7 @@
 <ul>
   <li><code class="highlighter-rouge">:%s/Plug.*$//</code> → Search and delete all lines that starts from Plug</li>
   <li><code class="highlighter-rouge">:%s/foo/bar/gc</code> → Replace all occurrence of foo by bar with confirmation</li>
+  <li><code class="highlighter-rouge">'&lt;,'&gt;:s/find/replacewith/</code> Replace selection</li>
   <li><code class="highlighter-rouge">/pattern</code> → search for pattern then enter and <code class="highlighter-rouge">n</code> next <code class="highlighter-rouge">N</code> previous match</li>
   <li><code class="highlighter-rouge">?pattern</code> → search backward for pattern</li>
 </ul>
