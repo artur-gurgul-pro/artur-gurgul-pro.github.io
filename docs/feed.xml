@@ -1,5 +1,131 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T19:00:55+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T20:07:12+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;This is the Debian setup where most of the examples shown on the website should work.&lt;/p&gt;
+
+&lt;p&gt;Download links:&lt;/p&gt;
+
+&lt;!-- https://www.debian.org/CD/live/ --&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso&quot;&gt;amd64 - Install disc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/&quot;&gt;amd64 - Live disc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/clearlinux/common/raw/master/OVMF.fd&quot;&gt;BIOS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Make the disk image&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-img create -f qcow2 debian.qcow2 16G
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Other option&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-img create -f raw debian.raw 16G
+-drive file=disk.raw,format=raw
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Start the VM&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-x86_64 -bios OVMF.fd -m 1G -drive &lt;span class=&quot;nv&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;debian.qcow2,format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;qcow2 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                   -cdrom debian-12.2.0-amd64-netinst.iso
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;During installation select SSH server, standard system utilities and no desktop&lt;/p&gt;
+
+&lt;p&gt;Exit the installation and power off the VM&lt;/p&gt;
+
+&lt;p&gt;Start VM with command&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-x86_64 -bios OVMF.fd -m 1G -smp 6 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                   -net user,hostfwd&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tcp::2222-:22 -net nic &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+                   -drive &lt;span class=&quot;nv&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;debian.qcow2,format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;qcow2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;h4 id=&quot;allowing-login-root-user-from-the-network&quot;&gt;Allowing login root user from the network&lt;/h4&gt;
+&lt;p&gt;This is our testing installation, so we do not care about security, but easiness and convenience.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano /etc/ssh/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl-o&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl-x&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Put this line in the file&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;PermitRootLogin yes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart sshd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;From now on you can log in to the VM using ssh connection&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p 2222 user@localhost
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;making-it-the-sid&quot;&gt;Making it the sid&lt;/h1&gt;
+
+&lt;p&gt;/etc/apt/sources.list&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update
+apt upgrade
+apt dist-upgrade
+apt autoremove
+
+apt install firmware-linux-nonfree
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install neovim clang
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Swift&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Dependencies&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+            libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
+            libstdc++-9-dev
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Missing dependencies for Debian sid&lt;/p&gt;
+
+&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;libpython3.8 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Installed instead&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;apt install libpython3.10-dev python3-clang python3-lldb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Downloading and installing&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://download.swift.org/swift-5.9.1-release/ubuntu2204/swift-5.9.1-RELEASE/swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
+
+tar -xf swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
+mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;add this line to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/profile&lt;/code&gt; so the path will be added for all the users&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;export PATH=&quot;$PATH:/opt/swift-5.9.1/usr/bin&quot;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">This is the Debian setup where most of the examples shown on the website should work.</summary></entry><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
 &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
@@ -210,7 +336,62 @@ git commit
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;h3 id=&quot;calling-functrion-from-library-in-go&quot;&gt;Calling functrion from library in Go&lt;/h3&gt;
+&lt;h3 id=&quot;creating-shared-and-static-library-in-swift&quot;&gt;Creating shared and static library in Swift&lt;/h3&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swift&lt;/code&gt;&lt;/p&gt;
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
+
+    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and compile with command (module name is optional)&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;swiftc point.swift -emit-module  -module-name Point -emit-library -static
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Using&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Point&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello library!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;compile with&lt;/p&gt;
+
+&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;swiftc main.swift -L ./lib/ -I ./lib/ -lpoint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Compile the same way as it has been down with the static one&lt;/p&gt;
+
+&lt;h4 id=&quot;dynamic-library-in-swift&quot;&gt;Dynamic library in Swift&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;swiftc point.swift -emit-module -emit-library
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;it produces&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libpoint.a&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swiftdoc&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swiftmodule&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swiftsourceinfo&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;
+    &lt;h3 id=&quot;calling-function-from-library-in-go&quot;&gt;Calling function from library in Go&lt;/h3&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;p&gt;First off we will create C++ library that we will use in out Go program.
 File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&lt;/p&gt;
@@ -807,130 +988,4 @@ sudo mount -o &lt;span class=&quot;nb&quot;&gt;bind&lt;/span&gt; /proc chroot-de
 
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo umount chroot-debian/dev chroot-debian/proc
 &lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Install Bootstrap</summary></entry><entry><title type="html">Installing Debian sid on QEMU</title><link href="http://localhost:4000/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/debian/debian-sid</id><content type="html" xml:base="http://localhost:4000/software/debian/debian-sid.html">&lt;p&gt;This is the Debian setup where most of the examples shown on the website should work.&lt;/p&gt;
-
-&lt;p&gt;Download links:&lt;/p&gt;
-
-&lt;!-- https://www.debian.org/CD/live/ --&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso&quot;&gt;amd64 - Install disc&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/&quot;&gt;amd64 - Live disc&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/clearlinux/common/raw/master/OVMF.fd&quot;&gt;BIOS&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;Make the disk image&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-img create -f qcow2 debian.qcow2 16G
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Other option&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-img create -f raw debian.raw 16G
--drive file=disk.raw,format=raw
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Start the VM&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-x86_64 -bios OVMF.fd -m 1G -drive &lt;span class=&quot;nv&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;debian.qcow2,format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;qcow2 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-                   -cdrom debian-12.2.0-amd64-netinst.iso
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;During installation select SSH server, standard system utilities and no desktop&lt;/p&gt;
-
-&lt;p&gt;Exit the installation and power off the VM&lt;/p&gt;
-
-&lt;p&gt;Start VM with command&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;qemu-system-x86_64 -bios OVMF.fd -m 1G -smp 6 &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-                   -net user,hostfwd&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;tcp::2222-:22 -net nic &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-                   -drive &lt;span class=&quot;nv&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;debian.qcow2,format&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;qcow2
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;h4 id=&quot;allowing-login-root-user-from-the-network&quot;&gt;Allowing login root user from the network&lt;/h4&gt;
-&lt;p&gt;This is our testing installation, so we do not care about security, but easiness and convenience.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nano /etc/ssh/sshd_config
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl-o&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl-x&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Put this line in the file&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;PermitRootLogin yes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;and then&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;systemctl restart sshd
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;From now on you can log in to the VM using ssh connection&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssh -p 2222 user@localhost
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;making-it-the-sid&quot;&gt;Making it the sid&lt;/h1&gt;
-
-&lt;p&gt;/etc/apt/sources.list&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
-deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt update
-apt upgrade
-apt dist-upgrade
-apt autoremove
-
-apt install firmware-linux-nonfree
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;h1 id=&quot;tools&quot;&gt;Tools&lt;/h1&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install neovim clang
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;&lt;strong&gt;Swift&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;Dependencies&lt;/p&gt;
-
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt install build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-            libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-            libstdc++-9-dev
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Missing dependencies for Debian sid&lt;/p&gt;
-
-&lt;div class=&quot;language-text highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;libpython3.8 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;Installed instead&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;apt install libpython3.10-dev python3-clang python3-lldb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Downloading and installing&lt;/p&gt;
-
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://download.swift.org/swift-5.9.1-release/ubuntu2204/swift-5.9.1-RELEASE/swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
-
-tar -xf swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
-mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-
-&lt;p&gt;add this line to &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/profile&lt;/code&gt; so the path will be added for all the users&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;export PATH=&quot;$PATH:/opt/swift-5.9.1/usr/bin&quot;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">This is the Debian setup where most of the examples shown on the website should work.</summary></entry></feed>
+&lt;/div&gt;</content><author><name></name></author><summary type="html">Install Bootstrap</summary></entry></feed>
