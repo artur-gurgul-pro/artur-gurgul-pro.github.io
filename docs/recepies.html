@@ -232,6 +232,13 @@
 </code></pre>
 </div>
 
+<h4 id="compare-two-files">Compare two files</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim -d file1 file2
+mcdiff file1 file2
+</code></pre>
+</div>
+
 <h4 id="power-off-the-disk">Power off the disk</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>udisksctl power-off -b /dev/sdX
@@ -393,6 +400,14 @@ ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
 </code></pre>
 </div>
 
+<h4 id="take-a-screenshot">Take a screenshot</h4>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>xwd -root -out screenshot.xwd
+maim -s -u | xclip -selection clipboard -t image/png -i
+imlib2_grab screenshot.png
+</code></pre>
+</div>
+
 <h4 id="install-python-package-for-the-user">Install Python package for the user</h4>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>python3 -m pip install --user pyelftools
@@ -496,6 +511,7 @@ path=("$GEM_HOME/bin" $path)
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp iwlwifi-cc-a0-46.ucode /lib/firmware
 </code></pre>
 </div>
+
 
 </div>
 
