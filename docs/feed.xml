@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-05T20:44:04+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-06T06:49:19+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
 
 &lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
@@ -301,6 +301,8 @@ ar rc ./libexample.a ./lib.o
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; → end of line&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;Entering &lt;code class=&quot;highlighter-rouge&quot;&gt;!!&lt;/code&gt; in normal mode is translated to  &lt;code class=&quot;highlighter-rouge&quot;&gt;:.!&lt;/code&gt; I. e. Typing &lt;code class=&quot;highlighter-rouge&quot;&gt;!!date&lt;/code&gt; in normal mode replaces current line with the date.&lt;/p&gt;
+
 &lt;h4 id=&quot;tips&quot;&gt;Tips&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -370,7 +372,7 @@ ar rc ./libexample.a ./lib.o
       &lt;td style=&quot;text-align: left&quot;&gt;Delete inner brackets&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:read !date&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:r[ead] !date&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Execute commend and put content into editor&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
@@ -441,6 +443,10 @@ ar rc ./libexample.a ./lib.o
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gUU&lt;/code&gt;&lt;/td&gt;
       &lt;td style=&quot;text-align: left&quot;&gt;Uppercase line&lt;/td&gt;
     &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;1p&lt;/code&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: left&quot;&gt;paste from register 1 (works also for yanking)&lt;/td&gt;
+    &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
@@ -467,7 +473,7 @@ ar rc ./libexample.a ./lib.o
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; → On the right of the cursor&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; →  Delete selection and enter insert mode&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;o&lt;/code&gt; → Create new line below and enter insert mode&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;O&lt;/code&gt; → Create new line abowe and enter insert mode
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;O&lt;/code&gt; → Create new line above and enter insert mode
     &lt;h4 id=&quot;split-the-editor&quot;&gt;Split the editor&lt;/h4&gt;
   &lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:sp &amp;lt;filename&amp;gt;&lt;/code&gt; → Vertically&lt;/li&gt;
@@ -481,6 +487,8 @@ ar rc ./libexample.a ./lib.o
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ma&lt;/code&gt; → set current position for mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`a&lt;/code&gt; → jump to position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y`a&lt;/code&gt; → yank text to position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;``&lt;/code&gt; → Return to the cursor position before the latest jump&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`.&lt;/code&gt;  → Jump to the last changed line.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;recording-macros&quot;&gt;Recording macros&lt;/h3&gt;

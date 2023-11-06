@@ -201,6 +201,8 @@
   <li><code class="highlighter-rouge">$</code> → end of line</li>
 </ul>
 
+<p>Entering <code class="highlighter-rouge">!!</code> in normal mode is translated to  <code class="highlighter-rouge">:.!</code> I. e. Typing <code class="highlighter-rouge">!!date</code> in normal mode replaces current line with the date.</p>
+
 <h4 id="tips">Tips</h4>
 
 <ul>
@@ -270,7 +272,7 @@
       <td style="text-align: left">Delete inner brackets</td>
     </tr>
     <tr>
-      <td style="text-align: right"><code class="highlighter-rouge">:read !date</code></td>
+      <td style="text-align: right"><code class="highlighter-rouge">:r[ead] !date</code></td>
       <td style="text-align: left">Execute commend and put content into editor</td>
     </tr>
     <tr>
@@ -341,6 +343,10 @@
       <td style="text-align: right"><code class="highlighter-rouge">gUU</code></td>
       <td style="text-align: left">Uppercase line</td>
     </tr>
+    <tr>
+      <td style="text-align: right"><code class="highlighter-rouge">"1p</code></td>
+      <td style="text-align: left">paste from register 1 (works also for yanking)</td>
+    </tr>
   </tbody>
 </table>
 
@@ -367,7 +373,7 @@
   <li><code class="highlighter-rouge">a</code> → On the right of the cursor</li>
   <li><code class="highlighter-rouge">c</code> →  Delete selection and enter insert mode</li>
   <li><code class="highlighter-rouge">o</code> → Create new line below and enter insert mode</li>
-  <li><code class="highlighter-rouge">O</code> → Create new line abowe and enter insert mode
+  <li><code class="highlighter-rouge">O</code> → Create new line above and enter insert mode
     <h4 id="split-the-editor">Split the editor</h4>
   </li>
   <li><code class="highlighter-rouge">:sp &lt;filename&gt;</code> → Vertically</li>
@@ -381,6 +387,8 @@
   <li><code class="highlighter-rouge">ma</code> → set current position for mark <code class="highlighter-rouge">a</code></li>
   <li><code class="highlighter-rouge">`a</code> → jump to position of mark <code class="highlighter-rouge">a</code></li>
   <li><code class="highlighter-rouge">y`a</code> → yank text to position of mark <code class="highlighter-rouge">a</code></li>
+  <li><code class="highlighter-rouge">``</code> → Return to the cursor position before the latest jump</li>
+  <li><code class="highlighter-rouge">`.</code>  → Jump to the last changed line.</li>
 </ul>
 
 <h3 id="recording-macros">Recording macros</h3>
