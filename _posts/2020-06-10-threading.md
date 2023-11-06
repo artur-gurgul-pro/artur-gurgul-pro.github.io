@@ -64,6 +64,17 @@ queue.schedule(after: .init(.now()), interval: .seconds(3)) {
 }
 ```
 
+Getting the label of the queue
+
+```swift
+extension DispatchQueue {
+    static var label: String {
+        return String(cString: __dispatch_queue_get_label(nil), 
+                      encoding: .utf8) ?? ""
+    }
+}
+```
+
 ### `DispatchGroup`
 
 ```swift
@@ -354,9 +365,33 @@ if result == 0, let myThread {
 ```
 
 # Span threads using `Combine` framework
-TBD
+
+**`subscribe(on:)`**
+
+Quotes from: [https://trycombine.com/posts/subscribe-on-receive-on/](https://trycombine.com/posts/subscribe-on-receive-on/)
+
+> `subscribe(on:)` sets the scheduler on which you’d like the current subscription to be “managed” on. This operator sets the scheduler to use for creating the subscription, cancelling, and requesting input.
+>
+> ... `subscribe(on:)` sets the scheduler to subscribe the upstream on.
+> 
+> A side effect of subscribing on the given scheduler is that `subscribe(on:)` also changes the scheduler for its downstream ....
+
+Subscription is done once and calling secund time the `subscribe(on: )` have no effect.
+
+**`receive(on:)`**
+
+> The correct operator to use to change the scheduler where downstream output is delivered is `receive(on:)`.
+>
+> On other words `receive(on:)` sets the scheduler where the downstream receives output on.
+>
+> You can use `receive(on:)` similarly to `subscribe(on:)`. You can use multiple `receive(on:)` operators and that will always change the downstream scheduler
+
 # Usage of `RunLoop`
-TBD
+
+Doncumentation on [RunLoop](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html)
+
+> The purpose of a run loop is to keep your thread busy when there is work to do and put your thread to sleep when there is non. - Apple
+
 # Measure a performance time 
 
 ```swift

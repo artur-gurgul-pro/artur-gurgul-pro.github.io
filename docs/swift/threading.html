@@ -258,6 +258,17 @@
 </code></pre>
 </div>
 
+<p>Getting the label of the queue</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">DispatchQueue</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="kt">String</span><span class="p">(</span><span class="nv">cString</span><span class="p">:</span> <span class="nf">__dispatch_queue_get_label</span><span class="p">(</span><span class="kc">nil</span><span class="p">),</span> 
+                      <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="p">??</span> <span class="s">""</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 <h3 id="dispatchgroup"><code class="highlighter-rouge">DispatchGroup</code></h3>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Sequence</span> <span class="p">{</span>
@@ -548,9 +559,39 @@
 </div>
 
 <h1 id="span-threads-using-combine-framework">Span threads using <code class="highlighter-rouge">Combine</code> framework</h1>
-<p>TBD</p>
+
+<p><strong><code class="highlighter-rouge">subscribe(on:)</code></strong></p>
+
+<p>Quotes from: <a href="https://trycombine.com/posts/subscribe-on-receive-on/">https://trycombine.com/posts/subscribe-on-receive-on/</a></p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">subscribe(on:)</code> sets the scheduler on which you’d like the current subscription to be “managed” on. This operator sets the scheduler to use for creating the subscription, cancelling, and requesting input.</p>
+
+  <p>… <code class="highlighter-rouge">subscribe(on:)</code> sets the scheduler to subscribe the upstream on.</p>
+
+  <p>A side effect of subscribing on the given scheduler is that <code class="highlighter-rouge">subscribe(on:)</code> also changes the scheduler for its downstream ….</p>
+</blockquote>
+
+<p>Subscription is done once and calling secund time the <code class="highlighter-rouge">subscribe(on: )</code> have no effect.</p>
+
+<p><strong><code class="highlighter-rouge">receive(on:)</code></strong></p>
+
+<blockquote>
+  <p>The correct operator to use to change the scheduler where downstream output is delivered is <code class="highlighter-rouge">receive(on:)</code>.</p>
+
+  <p>On other words <code class="highlighter-rouge">receive(on:)</code> sets the scheduler where the downstream receives output on.</p>
+
+  <p>You can use <code class="highlighter-rouge">receive(on:)</code> similarly to <code class="highlighter-rouge">subscribe(on:)</code>. You can use multiple <code class="highlighter-rouge">receive(on:)</code> operators and that will always change the downstream scheduler</p>
+</blockquote>
+
 <h1 id="usage-of-runloop">Usage of <code class="highlighter-rouge">RunLoop</code></h1>
-<p>TBD</p>
+
+<p>Doncumentation on <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html">RunLoop</a></p>
+
+<blockquote>
+  <p>The purpose of a run loop is to keep your thread busy when there is work to do and put your thread to sleep when there is non. - Apple</p>
+</blockquote>
+
 <h1 id="measure-a-performance-time">Measure a performance time</h1>
 
 <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">startTime</span> <span class="o">=</span> <span class="kt">CFAbsoluteTimeGetCurrent</span><span class="p">()</span>
