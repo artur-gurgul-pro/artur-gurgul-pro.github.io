@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Git - merge & squash commits</title>
+  <title>Artur Gurgul - Blurable view in UIKit</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -85,8 +85,6 @@
     <li><span>&raquo;</span><a href="/git/squash.html"
       
       
-        style="font-weight: bold;"
-      
 
       >Git - merge & squash commits</a></li>
   
@@ -164,6 +162,8 @@
     <li><span>&raquo;</span><a href="/swift/blurable.html"
       
       
+        style="font-weight: bold;"
+      
 
       >Blurable view in UIKit</a></li>
   
@@ -201,51 +201,23 @@
     </div>
 
     <div class="eleven columns content">
-      <h1 class="title">Git - merge & squash commits</h1>
+      <h1 class="title">Blurable view in UIKit</h1>
 
 <div id="post">
-  <p>Squash the last three commints</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git rebase -i HEAD~3
+  <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Blurable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIView</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="kd">func</span> <span class="nf">addBlur</span><span class="p">(</span><span class="n">_</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">effect</span> <span class="o">=</span> <span class="kt">UIBlurEffect</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">prominent</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">effectView</span> <span class="o">=</span> <span class="kt">UIVisualEffectView</span><span class="p">(</span><span class="nv">effect</span><span class="p">:</span> <span class="n">effect</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">effectView</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">bounds</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">effectView</span><span class="o">.</span><span class="n">autoresizingMask</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">flexibleWidth</span><span class="p">,</span> <span class="o">.</span><span class="n">flexibleHeight</span><span class="p">]</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">effectView</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">self</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">effectView</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
 </code></pre>
 </div>
 
-<p>You will see something like this</p>
-
-<pre><code class="language-plain">pick f392171 Added new feature X
-pick ba9dd9a Added new elements to page design
-pick df71a27 Updated CSS for new elements
-</code></pre>
-
-<ul>
-  <li><code class="highlighter-rouge">pick</code> <code class="highlighter-rouge">p</code> the commit will be taken</li>
-  <li><code class="highlighter-rouge">squash</code> <code class="highlighter-rouge">s</code>, the commit will be blended with the above.</li>
-</ul>
-
-<p>Edit to something like this</p>
-
-<pre><code class="language-plain">pick f392171 New message for this three commit!
-squash ba9dd9a
-squash df71a27
-</code></pre>
-
-<p>Now you can accept the change by continuing the rebase:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git rebase --continue
-</code></pre>
-</div>
-
-<p>After that you need to force override the history using this command:</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin master --force
-</code></pre>
-</div>
-
-<h2 id="squash-merge">Squash merge</h2>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git checkout master
-git merge --squash bugfix
-git commit
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">BackgroundView</span><span class="p">:</span> <span class="kt">Blurable</span> <span class="p">{}</span>
 </code></pre>
 </div>
 
