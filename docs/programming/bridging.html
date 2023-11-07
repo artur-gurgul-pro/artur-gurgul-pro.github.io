@@ -154,11 +154,11 @@
       >Linux - Mount disk from qcow2 image</a></li>
   
     
-    <li><span>&raquo;</span><a href="/swift/creating-swift-module.html"
+    <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
       
       
 
-      >Creating Swift Module</a></li>
+      >iOS Architecture Patterns</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/always-publisher-example.html"
@@ -300,6 +300,27 @@
 <p>Compile main program the same way as it has been down with the static one</p>
 
 <p>Library searching paths <code class="highlighter-rouge">/usr/lib/</code>, <code class="highlighter-rouge">/usr/local/lib/</code> </p>
+
+<p>** Create package that emits library **</p>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">// swift-tools-version:5.3</span>
+<span class="kd">import</span> <span class="kt">PackageDescription</span>
+
+<span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
+    <span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span>
+    <span class="nv">products</span><span class="p">:</span> <span class="p">[</span>
+        <span class="c1">/// type: automatic, based on the environment</span>
+        <span class="o">.</span><span class="nf">library</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> 
+		         <span class="c1">// type: .dynamic, .static</span>
+		         <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">"MyLibrary"</span><span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[]),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre>
+</div>
 
 <h3 id="calling-function-from-library-in-go">Calling function from library in Go</h3>
 
