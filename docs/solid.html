@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Installing Debian sid on QEMU</title>
+  <title>Artur Gurgul - SOLID principles</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -99,6 +99,8 @@
     <li><span>&raquo;</span><a href="/solid.html"
       
       
+        style="font-weight: bold;"
+      
 
       >SOLID principles</a></li>
   
@@ -126,8 +128,6 @@
     
     <li><span>&raquo;</span><a href="/software/debian/debian-sid.html"
       
-      
-        style="font-weight: bold;"
       
 
       >Installing Debian sid on QEMU</a></li>
@@ -215,136 +215,28 @@
     </div>
 
     <div class="eleven columns content">
-      <h1 class="title">Installing Debian sid on QEMU</h1>
+      <h1 class="title">SOLID principles</h1>
 
 <div id="post">
-  <p>This is the Debian setup where most of the examples shown on the website should work.</p>
+  <h3 id="single-responsibility-principle">Single responsibility principle</h3>
 
-<p>Download links:</p>
+<p>This mean if the one thing in specification is changed you only need to change the code in the single place or class</p>
 
-<!-- https://www.debian.org/CD/live/ -->
+<h3 id="openclosed-principle">Open/closed principle</h3>
 
-<ul>
-  <li><a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso">amd64 - Install disc</a></li>
-  <li><a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/">amd64 - Live disc</a></li>
-  <li><a href="https://github.com/clearlinux/common/raw/master/OVMF.fd">BIOS</a></li>
-</ul>
+<p>Software should be open for extension, but closed for modification.</p>
 
-<p>Make the disk image</p>
+<h3 id="liskov-substitution-principle">Liskov substitution principle</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
-</code></pre>
-</div>
+<p>Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.</p>
 
-<p>Other option</p>
+<h3 id="interface-segregation-principle">Interface segregation principle</h3>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>qemu-img create -f raw debian.raw 16G
--drive file=disk.raw,format=raw
-</code></pre>
-</div>
+<p>The interfaces should be small and provide as little methods as possible.</p>
 
-<p>Start the VM</p>
+<h3 id="dependency-inversion-principle">Dependency inversion principle</h3>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>qemu-system-x86_64 -bios OVMF.fd -m 1G -drive <span class="nv">file</span><span class="o">=</span>debian.qcow2,format<span class="o">=</span>qcow2 <span class="se">\</span>
-                   -cdrom debian-12.2.0-amd64-netinst.iso
-</code></pre>
-</div>
-
-<p>During installation select SSH server, standard system utilities and no desktop</p>
-
-<p>Exit the installation and power off the VM</p>
-
-<p>Start VM with command</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>qemu-system-x86_64 -bios OVMF.fd -m 1G -smp 6 <span class="se">\</span>
-                   -net user,hostfwd<span class="o">=</span>tcp::2222-:22 -net nic <span class="se">\</span>
-                   -drive <span class="nv">file</span><span class="o">=</span>debian.qcow2,format<span class="o">=</span>qcow2
-</code></pre>
-</div>
-<h4 id="allowing-login-root-user-from-the-network">Allowing login root user from the network</h4>
-<p>This is our testing installation, so we do not care about security, but easiness and convenience.</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>nano /etc/ssh/sshd_config
-</code></pre>
-</div>
-
-<p><code class="highlighter-rouge">Ctrl-o</code> <code class="highlighter-rouge">Ctrl-x</code></p>
-
-<p>Put this line in the file</p>
-<pre><code class="language-plain">PermitRootLogin yes
-</code></pre>
-
-<p>and then</p>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>systemctl restart sshd
-</code></pre>
-</div>
-
-<p>From now on you can log in to the VM using ssh connection</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>ssh -p 2222 user@localhost
-</code></pre>
-</div>
-
-<h1 id="making-it-the-sid">Making it the sid</h1>
-
-<p>/etc/apt/sources.list</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
-deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
-</code></pre>
-</div>
-
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt update
-apt upgrade
-apt dist-upgrade
-apt autoremove
-
-apt install firmware-linux-nonfree
-</code></pre>
-</div>
-
-<h1 id="tools">Tools</h1>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt install neovim clang
-</code></pre>
-</div>
-
-<p><strong>Swift</strong></p>
-
-<p>Dependencies</p>
-
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>apt install build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev <span class="se">\</span>
-            libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata <span class="se">\</span>
-            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev <span class="se">\</span>
-            libstdc++-9-dev
-</code></pre>
-</div>
-
-<p>Missing dependencies for Debian sid</p>
-
-<div class="language-text highlighter-rouge"><pre class="highlight"><code>libpython3.8 
-</code></pre>
-</div>
-
-<p>Installed instead</p>
-
-<pre><code class="language-plain">apt install libpython3.10-dev python3-clang python3-lldb
-</code></pre>
-
-<p>Downloading and installing</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>wget https://download.swift.org/swift-5.9.1-release/ubuntu2204/swift-5.9.1-RELEASE/swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
-
-tar -xf swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
-mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
-</code></pre>
-</div>
-
-<p>add this line to <code class="highlighter-rouge">/etc/profile</code> so the path will be added for all the users</p>
-
-<pre><code class="language-plain">export PATH="$PATH:/opt/swift-5.9.1/usr/bin"
-</code></pre>
+<p>The lower module must not depends on higher module. In order to achieve this the code must to relay on abstractions (in other words the code has to use interfaces/protocols)</p>
 
 </div>
 

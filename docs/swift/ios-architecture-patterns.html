@@ -68,6 +68,13 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
+    <li><span>&raquo;</span><a href="/software/wayland-apps.html"
+      
+      
+
+      >Starting an electron app on wayland</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/software/vim.html"
       
       
@@ -87,6 +94,13 @@
       
 
       >Git - merge & squash commits</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/solid.html"
+      
+      
+
+      >SOLID principles</a></li>
   
     
     <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
@@ -392,6 +406,308 @@
   <li>Handles the view life cycle</li>
 </ul>
 
+<!--
+## VIPER
+
+**`Entity.swift`**
+
+```swift
+struct User: Codable {
+    let name: String
+}
+```
+
+**`Interactor.swift`**
+
+```swift
+enum FetchError: Error {
+    case failed
+}
+
+protocol AnyInteractor {
+    var presenter: AnyPresenter? { get set }
+    
+    func getUsers()
+}
+
+class UserInteractor: AnyInteractor {
+    @Injected(\.usersRepository) var usersRepository: AnyUsersRepository
+    
+    var presenter: AnyPresenter?
+    
+    func getUsers() {
+        usersRepository.getUsers { [weak self] in self?.presenter?.interactorDidFetchUsers(with: $0) }
+    }
+}
+```
+
+
+**`Presenter.swift`**
+
+```swift
+protocol AnyPresenter {
+    var router: AnyRouter? { get set }
+    var interactor: AnyInteractor? { get set }
+    var view: AnyView? { get set }
+    
+    func interactorDidFetchUsers(with result: Result<[User], Error>)
+}
+
+class UserPresenter: AnyPresenter {
+    func interactorDidFetchUsers(with result: Result<[User], Error>) {
+        switch result {
+        case let .success(users):
+            view?.update(with: users)
+        case let .failure(error):
+            view?.update(with: error.localizedDescription)
+        }
+    }
+    
+    var router: AnyRouter?
+    
+    var interactor: AnyInteractor? {
+        didSet {
+            interactor?.getUsers()
+        }
+    }
+    
+    var view: AnyView?
+}
+```
+
+**`Router.swift`**
+
+```swift
+typealias EntryPoint = AnyView & UIViewController
+
+protocol AnyRouter {
+    var entry: EntryPoint? { get }
+    static func start() -> AnyRouter
+}
+
+class UserRouter: AnyRouter {
+    var entry: EntryPoint?
+    
+    
+    static func start() -> AnyRouter {
+        let router = UserRouter()
+        
+        var view: AnyView = UserViewController()
+        var presenter: AnyPresenter = UserPresenter()
+        var interactor: AnyInteractor = UserInteractor()
+        
+        view.presenter = presenter
+        
+        interactor.presenter = presenter
+        
+        presenter.router = router
+        presenter.view = view
+        presenter.interactor = interactor
+        
+        router.entry = view as? EntryPoint
+        
+        return router
+    }
+}
+
+
+
+//There are a few retain cycles with view, presenter, router and interactor. One option you can do is to make those protocols conforms to AnyObject, and mark these references as "weak":
+//1. router's ref to presenter
+//2. router's ref to view
+//3. presenter's ref to view
+//4. interactor's ref to presenter
+```
+
+**`View.swift`**
+
+```swift
+protocol AnyView {
+    var presenter: AnyPresenter? { get set }
+    
+    func update(with users: [User])
+    func update(with error: String)
+}
+
+class UserViewController: UIViewController, AnyView {
+    
+    
+    var presenter: AnyPresenter?
+    
+    private let tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.isHidden = true
+        return tableView
+    }()
+    
+    var users = [User]()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.addSubview(tableView)
+        tableView.delegate = self
+        tableView.dataSource = self
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        tableView.frame = view.bounds
+    }
+    
+    func update(with users: [User]) {
+        DispatchQueue.main.async {
+            self.users = users
+            self.tableView.reloadData()
+            self.tableView.isHidden = false
+        }
+    }
+    
+    func update(with error: String) {
+        
+    }
+}
+
+
+extension UserViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        users.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = users[indexPath.row].name
+        return cell
+    }
+}
+```
+
+
+
+# Factory
+
+```swift
+protocol ImageReader {
+    func getDecodeImage() -> DecodedImage
+}
+
+class DecodedImage {
+    private var image: String
+
+    init(image: String) {
+        self.image = image
+    }
+
+    var description: String {
+        "\(image): is decoded"
+    }
+}
+
+class GifReader: ImageReader {
+    private var decodedImage: DecodedImage
+
+    init(image: String) {
+        self.decodedImage = DecodedImage(image: image)
+    }
+
+    func getDecodeImage() -> DecodedImage {
+        decodedImage
+    }
+}
+
+class JpegReader: ImageReader {
+    private var decodedImage: DecodedImage
+
+    init(image: String) {
+        decodedImage = DecodedImage(image: image)
+    }
+
+    func getDecodeImage() -> DecodedImage {
+        decodedImage
+    }
+}
+
+func runFactoryExample() {
+    let reader: ImageReader
+    let format = "gif"
+    let image = "example image"
+
+    switch format {
+    case "gif":
+        reader = GifReader(image: image)
+    default:
+        reader = JpegReader(image: image)
+    }
+    
+    let decodedImage = reader.getDecodeImage()
+    print(decodedImage.description)
+}
+```
+
+
+```swift
+
+protocol Observer<ValueType> {
+    associatedtype ValueType
+    func update(value: ValueType)
+}
+
+struct Subject<T> {    
+    private var observers: [(T) -> Void] = []
+    
+    mutating func attach<O: Observer>(observer: O) where O.ValueType == T {
+        observers.append { observer.update(value: $0) }
+    }
+
+    func notyfi(value: T) {
+        for observer in observers {
+            observer(value)
+        }
+    }
+}
+
+class ConcreteObserver: Observer {
+    func update(value: String) {
+        print("received: \(value)")
+    }
+}
+
+func runObserverExample() {
+    var subject = Subject<String>()
+
+    let observer1 = ConcreteObserver()
+    subject.attach(observer: observer1)
+
+    let observer2 = ConcreteObserver()
+    subject.attach(observer: observer2)
+    
+    subject.notyfi(value: "some string")
+}
+
+// Version with more modern syntax
+/*
+protocol Observer<ValueType> {
+    associatedtype ValueType
+    func update(value: ValueType)
+}
+
+struct Subject<T> {
+    private var observers = Array<any Observer<T>>()
+
+    mutating func attach(observer: any Observer<T>) {
+        observers.append(observer)
+    }
+
+    func notify(value: T) {
+        for observer in observers {
+            observer.update(value: value)
+        }
+    }
+}
+*/
+
+```
+-->
 
 </div>
 

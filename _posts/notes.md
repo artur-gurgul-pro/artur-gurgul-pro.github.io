@@ -6,7 +6,16 @@
 
 
 
-// Extend pthread
-**var** attrs = pthread_attr_t()
+ION as default shell git clone [https://github.com/redox-os/ion.git](https://github.com/redox-os/ion.git)
 
-        **let** qos = pthread_attr_set_qos_class_np(&attrs, QOS_CLASS_USER_INTERACTIVE, 0)
+chroot ./ env -i PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+
+Creating chroot
+
+```shell
+sudo visudo
+```
+
+```
+artur ALL=(ALL) chroot /path/to/chroot-env
+```

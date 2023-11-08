@@ -3,6 +3,12 @@
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["software"],
 "tags": [],
+"title": "Starting an electron app on wayland",
+"url": "/software/wayland-apps.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["software"],
+"tags": [],
 "title": "Vim notes",
 "url": "/software/vim.html"},
 
@@ -17,6 +23,12 @@
 "tags": [],
 "title": "Git - merge & squash commits",
 "url": "/git/squash.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": [],
+"tags": [],
+"title": "SOLID principles",
+"url": "/solid.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["regex"],
