@@ -406,6 +406,71 @@
   <li>Handles the view life cycle</li>
 </ul>
 
+<h4 id="advantages">Advantages</h4>
+
+<ul>
+  <li>Simple and usually less code</li>
+  <li>Fast development for simple apps</li>
+</ul>
+
+<h4 id="disadvantages">Disadvantages</h4>
+
+<ul>
+  <li>Controllers coupled views</li>
+  <li>Massive <code class="highlighter-rouge">ViewController</code>s</li>
+</ul>
+
+<h4 id="communication-between-components">Communication between components</h4>
+
+<ul>
+  <li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html">Delegation</a> pattern</li>
+  <li><a href="https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html">Target-Action</a> pattern</li>
+  <li><a href="https://developer.apple.com/documentation/foundation/nsnotificationcenter">Observer</a> pattern with <code class="highlighter-rouge">NSNotificationCenter</code></li>
+  <li><a href="https://developer.apple.com/documentation/swift/using-key-value-observing-in-swift">Observer</a> pattern with <code class="highlighter-rouge">KVO</code></li>
+</ul>
+
+<h2 id="model-view-presenter">Model-View-Presenter</h2>
+
+<p>In this design pattern View is implemented with classes <code class="highlighter-rouge">UIView</code> and <code class="highlighter-rouge">UIViewController</code>. The <code class="highlighter-rouge">UIViewController</code> has less responsibilities which are:</p>
+
+<ul>
+  <li>Routing/Coordination</li>
+  <li>Navigation</li>
+  <li>Passing informations via a delegation pattern</li>
+</ul>
+
+<h4 id="view">View</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ExampleController</span><span class="p">:</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+	<span class="kd">private</span> <span class="k">let</span> <span class="nv">exampleView</span> <span class="o">=</span> <span class="kt">ExampleView</span><span class="p">()</span>
+	<span class="k">override</span> <span class="kd">func</span> <span class="nf">loadView</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">super</span><span class="o">.</span><span class="nf">loadView</span><span class="p">()</span>
+		<span class="nf">setup</span><span class="p">()</span>
+	<span class="p">}</span>
+	<span class="kd">private</span> <span class="kd">func</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+		<span class="k">let</span> <span class="nv">presenter</span> <span class="o">=</span> <span class="kt">ExamplePresenter</span><span class="p">(</span><span class="n">exampleView</span><span class="p">)</span>
+		<span class="n">exampleView</span><span class="o">.</span><span class="n">presenter</span> <span class="o">=</span> <span class="n">presenter</span>
+		<span class="n">exampleView</span><span class="o">.</span><span class="nf">setupView</span><span class="p">()</span>
+		<span class="k">self</span><span class="o">.</span><span class="n">view</span> <span class="o">=</span> <span class="n">exampleView</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
+<h4 id="presenter">Presenter</h4>
+
+<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">ExampleViewDelegate</span> <span class="p">{</span>
+	<span class="kd">func</span> <span class="nf">updateView</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="kd">class</span> <span class="kt">ExamplePresenter</span> <span class="p">{</span>
+	<span class="kd">private</span> <span class="k">weak</span> <span class="k">var</span> <span class="nv">exampleView</span><span class="p">:</span> <span class="kt">ExampleViewDelegate</span><span class="p">?</span>
+	<span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">exampleView</span><span class="p">:</span> <span class="kt">ExampleViewDelegate</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">self</span><span class="o">.</span><span class="n">exampleView</span> <span class="o">=</span> <span class="n">exampleView</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+</div>
+
 <!--
 ## VIPER
 

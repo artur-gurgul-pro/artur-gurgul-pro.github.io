@@ -143,6 +143,65 @@ Note: The `Model` must not communicate directly with the `View`. The `Controller
 - Receive user actions and interruptions or signals from the outside the app
 - Handles the view life cycle
 
+#### Advantages
+
+- Simple and usually less code
+- Fast development for simple apps
+
+#### Disadvantages
+
+- Controllers coupled views
+- Massive `ViewController`s
+
+#### Communication between components
+
+- [Delegation](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html) pattern
+- [Target-Action](https://developer.apple.com/library/archive/documentation/General/Conceptual/Devpedia-CocoaApp/TargetAction.html) pattern
+- [Observer](https://developer.apple.com/documentation/foundation/nsnotificationcenter) pattern with `NSNotificationCenter`
+- [Observer](https://developer.apple.com/documentation/swift/using-key-value-observing-in-swift) pattern with `KVO`
+
+## Model-View-Presenter
+
+In this design pattern View is implemented with classes `UIView` and `UIViewController`. The `UIViewController` has less responsibilities which are:
+
+- Routing/Coordination
+- Navigation
+- Passing informations via a delegation pattern
+
+#### View
+
+```swift
+class ExampleController: UIViewController {
+	private let exampleView = ExampleView()
+	override func loadView() {
+		super.loadView()
+		setup()
+	}
+	private func setup() {
+		let presenter = ExamplePresenter(exampleView)
+		exampleView.presenter = presenter
+		exampleView.setupView()
+		self.view = exampleView
+	}
+}
+```
+
+
+#### Presenter
+
+```swift
+protocol ExampleViewDelegate {
+	func updateView()
+}
+class ExamplePresenter {
+	private weak var exampleView: ExampleViewDelegate?
+	init(_ exampleView: ExampleViewDelegate) {
+		self.exampleView = exampleView
+	}
+}
+```
+
+
 <!--
 ## VIPER
 

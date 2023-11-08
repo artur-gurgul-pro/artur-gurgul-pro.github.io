@@ -266,6 +266,15 @@
   <li><code class="highlighter-rouge">zb</code>  → to the bottom</li>
 </ul>
 
+<h3 id="terminal-buffers">Terminal buffers</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">:te[rm[inal]] command</code></li>
+  <li><code class="highlighter-rouge">:b#</code> switch buffer</li>
+  <li><code class="highlighter-rouge">:ls</code> list buffers</li>
+  <li><code class="highlighter-rouge">:buff 1</code> or <code class="highlighter-rouge">:b1</code> switch to buffer 1</li>
+</ul>
+
 <h3 id="list-of-the-commands">List of the commands</h3>
 
 <p>Common meaning of letters in the commands</p>
@@ -424,7 +433,11 @@
 <ul>
   <li><code class="highlighter-rouge">V</code> → Selection by lines</li>
   <li><code class="highlighter-rouge">v</code> → Selection follows the cursor</li>
-  <li><code class="highlighter-rouge">Ctrl+v</code> →  Block selection</li>
+  <li><code class="highlighter-rouge">Ctrl+v</code> →  Block selection
+    <ul>
+      <li>When selected block you can applay changes to each line by typing <code class="highlighter-rouge">I</code> editing and finally pressing <code class="highlighter-rouge">Esc</code></li>
+    </ul>
+  </li>
 </ul>
 
 <h4 id="enter-insert-mode">Enter Insert Mode</h4>
@@ -687,6 +700,7 @@ Sequence forfolding lines `Shift+V:fo`
 
 :CheckHealth
 -->
+
 
 </div>
 
