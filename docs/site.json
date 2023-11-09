@@ -93,14 +93,14 @@
 {"date": "Thu, 11 Jun 2020 00:00:00 +0200",
 "categories": ["swift"],
 "tags": [],
-"title": "Blurable view in UIKit",
-"url": "/swift/blurable.html"},
+"title": "Publishers notes and examples",
+"url": "/swift/combine-framework-notes.html"},
 
 {"date": "Thu, 11 Jun 2020 00:00:00 +0200",
 "categories": ["swift"],
 "tags": [],
-"title": "Publishers notes and examples",
-"url": "/swift/always-publisher-example.html"},
+"title": "Blurable view in UIKit",
+"url": "/swift/blurable.html"},
 
 {"date": "Wed, 10 Jun 2020 00:00:00 +0200",
 "categories": ["swift"],

@@ -164,7 +164,7 @@ Note: The `Model` must not communicate directly with the `View`. The `Controller
 
 ## Model-View-Presenter
 
-In this design pattern View is implemented with classes `UIView` and `UIViewController`. The `UIViewController` has less responsibilities which are:
+In this design pattern View is implemented with classes `UIView` and `UIViewController`. The `UIViewController` has less responsibilities which are limited to:
 
 - Routing/Coordination
 - Navigation
@@ -203,8 +203,19 @@ class ExamplePresenter {
 }
 ```
 
+#### Advantages 
+
+- Easier to test business logic
+- Better separation of responsibilities
+
+#### Disadvantages 
+
+- Usually not a better choice for smaller projects
+- Presenters might become massive
+- Controllers still handle navigation. Possible solutions &rarr;  extend the pattern with Router or Coordinator.
 
 <!--
+https://nalexn.github.io/clean-architecture-swiftui/
 ## VIPER
 
 **`Entity.swift`**

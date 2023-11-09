@@ -173,18 +173,18 @@
       >iOS Architecture Patterns</a></li>
   
     
+    <li><span>&raquo;</span><a href="/swift/combine-framework-notes.html"
+      
+      
+
+      >Publishers notes and examples</a></li>
+  
+    
     <li><span>&raquo;</span><a href="/swift/blurable.html"
       
       
 
       >Blurable view in UIKit</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/swift/always-publisher-example.html"
-      
-      
-
-      >Publishers notes and examples</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/threading.html"
@@ -378,6 +378,47 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 <h4 id="find-files-directories-and-symbolic-links-using-regex">Find files, directories and symbolic links using regex</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find ./ -iname `fo*` and `F??` -type f,d,l
+</code></pre></div></div>
+
+<h4 id="make-text-from-pipe-uppercased">Make text from pipe uppercased</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file.txt | <span class="nb">tr</span> <span class="o">[</span>:lower:] <span class="o">[</span>:upper:]
+<span class="nb">cat </span>file.txt | <span class="nb">tr</span> <span class="o">[</span>a-z] <span class="o">[</span>A-Z]
+<span class="nb">tr</span> <span class="o">[</span>a-z] <span class="o">[</span>A-Z] &lt; linux.txt <span class="o">&gt;</span> output.txt
+</code></pre></div></div>
+
+<h4 id="remove-spaces">Remove spaces</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file.txt | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s1">' '</span> 
+</code></pre></div></div>
+
+<h4 id="remove-duplicate-characters">Remove duplicate characters</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>domains.txt
+
+www.google.....com
+www.linkedin.com
+www.linuxsay.com
+
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>domains.txt | <span class="nb">tr</span> <span class="nt">-s</span> <span class="s1">'.'</span> 
+
+www.google.com
+www.linkedin.com
+
+</code></pre></div></div>
+
+<h4 id="extract-digit">Extract digit</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"My UID is </span><span class="nv">$UID</span><span class="s2">"</span> | <span class="nb">tr</span> <span class="nt">-cd</span> <span class="s2">"[:digit:]</span><span class="se">\n</span><span class="s2">"</span>
+<span class="nb">echo</span> <span class="s2">"My UID is </span><span class="nv">$UID</span><span class="s2">"</span> | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s2">"a-zA-Z"</span>
+
+</code></pre></div></div>
+
+<h4 id="translate-single-character">Translate single character</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"My UID is </span><span class="nv">$UID</span><span class="s2">"</span> | <span class="nb">tr</span> <span class="s2">" "</span>  <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span>
 </code></pre></div></div>
 
 <h4 id="screen-capture">Screen capture</h4>
