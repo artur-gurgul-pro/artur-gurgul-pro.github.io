@@ -89,8 +89,22 @@ let combinedPublisher = Publishers.Merge(publisher1.eraseToAnyPublisher(),
                                          publisher2.eraseToAnyPublisher())
 ```
 
-**_Other oparators worth to look at_**
+**_Other operators worth to look at_**
 
-- `Zip` - pair the emited object, like a zip in the jacket
-- [`CombineLatest`](https://developer.apple.com/documentation/combine/publisher/combinelatest%28_:%29) - When `publisher1` and `publisher2` emited some event then the lastest values from each are taken and reemited. From now on each change from either publisher is passed down.  
+- `Zip` - pair the emitted object, like a zip in the jacket
+- [`CombineLatest`](https://developer.apple.com/documentation/combine/publisher/combinelatest%28_:%29) - When `publisher1` and `publisher2` emitted some event then the latest values from each are taken and reemitted. From now on each change from either publisher is passed down.  
+
+#### Example of zip
+
+```swift
+let numbers = [1, 2, 3, 4].publisher
+let twos = sequence(first: 2, 
+			        next: {_ in 2}).publisher
+numbers
+	.zip(twos)
+	.map { pow(Decimal($0), $1) }
+	.sink(receiveValue: { p in
+		print(p)
+	}).store(in: &cancellables)
+```
 

@@ -295,12 +295,25 @@
                                          <span class="n">publisher2</span><span class="o">.</span><span class="nf">eraseToAnyPublisher</span><span class="p">())</span>
 </code></pre></div></div>
 
-<p><strong><em>Other oparators worth to look at</em></strong></p>
+<p><strong><em>Other operators worth to look at</em></strong></p>
 
 <ul>
-  <li><code class="language-plaintext highlighter-rouge">Zip</code> - pair the emited object, like a zip in the jacket</li>
-  <li><a href="https://developer.apple.com/documentation/combine/publisher/combinelatest%28_:%29"><code class="language-plaintext highlighter-rouge">CombineLatest</code></a> - When <code class="language-plaintext highlighter-rouge">publisher1</code> and <code class="language-plaintext highlighter-rouge">publisher2</code> emited some event then the lastest values from each are taken and reemited. From now on each change from either publisher is passed down.</li>
+  <li><code class="language-plaintext highlighter-rouge">Zip</code> - pair the emitted object, like a zip in the jacket</li>
+  <li><a href="https://developer.apple.com/documentation/combine/publisher/combinelatest%28_:%29"><code class="language-plaintext highlighter-rouge">CombineLatest</code></a> - When <code class="language-plaintext highlighter-rouge">publisher1</code> and <code class="language-plaintext highlighter-rouge">publisher2</code> emitted some event then the latest values from each are taken and reemitted. From now on each change from either publisher is passed down.</li>
 </ul>
+
+<h4 id="example-of-zip">Example of zip</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">publisher</span>
+<span class="k">let</span> <span class="nv">twos</span> <span class="o">=</span> <span class="nf">sequence</span><span class="p">(</span><span class="nv">first</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+			        <span class="nv">next</span><span class="p">:</span> <span class="p">{</span><span class="n">_</span> <span class="k">in</span> <span class="mi">2</span><span class="p">})</span><span class="o">.</span><span class="n">publisher</span>
+<span class="n">numbers</span>
+	<span class="o">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">twos</span><span class="p">)</span>
+	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">Decimal</span><span class="p">(</span><span class="nv">$0</span><span class="p">),</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">}</span>
+	<span class="o">.</span><span class="nf">sink</span><span class="p">(</span><span class="nv">receiveValue</span><span class="p">:</span> <span class="p">{</span> <span class="n">p</span> <span class="k">in</span>
+		<span class="nf">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+	<span class="p">})</span><span class="o">.</span><span class="nf">store</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">cancellables</span><span class="p">)</span>
+</code></pre></div></div>
 
 
 </div>

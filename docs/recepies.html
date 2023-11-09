@@ -367,6 +367,15 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli dev wifi connect TP-Link_5828 password my-secret-pass
 </code></pre></div></div>
 
+<h4 id="you-can-forward-port-80-to-8090">You can forward port <code class="language-plaintext highlighter-rouge">80</code> to <code class="language-plaintext highlighter-rouge">8090</code></h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables <span class="nt">-t</span> nat <span class="nt">-A</span> PREROUTING <span class="nt">-p</span> tcp <span class="nt">--dport</span> 80 <span class="nt">-j</span> REDIRECT <span class="nt">--to-port</span> 8090
+</code></pre></div></div>
+
+<h4 id="allow-accepting-connections-on-8090">Allow accepting connections on <code class="language-plaintext highlighter-rouge">8090</code></h4>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables <span class="nt">-I</span> INPUT <span class="nt">-m</span> tcp <span class="nt">-p</span> tcp <span class="nt">--dport</span> 8090 <span class="nt">-j</span> ACCEPT
+</code></pre></div></div>
 <h4 id="search-files-that-contains-particular-string">Search files that contains particular string</h4>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="s2">"."</span> <span class="nt">-e</span> <span class="s2">"Search key"</span>
 </code></pre></div></div>
@@ -385,6 +394,18 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat </span>file.txt | <span class="nb">tr</span> <span class="o">[</span>:lower:] <span class="o">[</span>:upper:]
 <span class="nb">cat </span>file.txt | <span class="nb">tr</span> <span class="o">[</span>a-z] <span class="o">[</span>A-Z]
 <span class="nb">tr</span> <span class="o">[</span>a-z] <span class="o">[</span>A-Z] &lt; linux.txt <span class="o">&gt;</span> output.txt
+</code></pre></div></div>
+
+<h4 id="installing-packages-for-python">Installing packages for python</h4>
+
+<p><strong><em>just for user</em></strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip3 <span class="nb">install</span> <span class="nt">--user</span> meson
+</code></pre></div></div>
+
+<p><strong><em>calling module through interpreter</em></strong></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">-m</span> pip <span class="nb">install </span>six
 </code></pre></div></div>
 
 <h4 id="remove-spaces">Remove spaces</h4>
