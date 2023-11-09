@@ -216,6 +216,7 @@ class ExamplePresenter {
 
 <!--
 https://nalexn.github.io/clean-architecture-swiftui/
+https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
 ## VIPER
 
 **`Entity.swift`**
