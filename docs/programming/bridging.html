@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -222,8 +222,8 @@
 
 <ul>
   <li>Both are compilable → Strategy: Create a binary library and call function from it.</li>
-  <li>Library in <code class="highlighter-rouge">interpreted</code> and the project in <code class="highlighter-rouge">compiled</code> → Strategy: Create an interpreter context, then load the files and execute them.</li>
-  <li>Library in <code class="highlighter-rouge">compiled</code> and the project in <code class="highlighter-rouge">interpreted</code> → Strategy: Use <code class="highlighter-rouge">FFI</code>.</li>
+  <li>Library in <code class="language-plaintext highlighter-rouge">interpreted</code> and the project in <code class="language-plaintext highlighter-rouge">compiled</code> → Strategy: Create an interpreter context, then load the files and execute them.</li>
+  <li>Library in <code class="language-plaintext highlighter-rouge">compiled</code> and the project in <code class="language-plaintext highlighter-rouge">interpreted</code> → Strategy: Use <code class="language-plaintext highlighter-rouge">FFI</code>.</li>
   <li>Both are interpreted
     <ul>
       <li>Probably give up. Bridging will be possible, but messy and complicated</li>
@@ -234,43 +234,40 @@
 
 <h3 id="creating-shared-and-static-library-in-go">Creating shared and static library in Go</h3>
 
-<p>An example code that is shared <a href="https://github.com/artur-gurgul/codebook"><code class="highlighter-rouge">example.go</code></a>:</p>
+<p>An example code that is shared <a href="https://github.com/artur-gurgul/codebook"><code class="language-plaintext highlighter-rouge">example.go</code></a>:</p>
 
-<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
-</span><span class="k">import</span><span class="x"> </span><span class="s">"C"</span><span class="x">
-</span><span class="k">import</span><span class="x"> </span><span class="s">"fmt"</span><span class="x">
+<span class="k">import</span> <span class="s">"C"</span>
+<span class="k">import</span> <span class="s">"fmt"</span>
 
-</span><span class="c">//export SayHello</span><span class="x">
-</span><span class="k">func</span><span class="x"> </span><span class="n">SayHello</span><span class="p">(</span><span class="n">hello</span><span class="x"> </span><span class="o">*</span><span class="n">C</span><span class="o">.</span><span class="n">char</span><span class="p">)</span><span class="x"> </span><span class="p">{</span><span class="x">
-		</span><span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">GoString</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span><span class="x">
-</span><span class="p">}</span><span class="x">
+<span class="c">//export SayHello</span>
+<span class="k">func</span> <span class="n">SayHello</span><span class="p">(</span><span class="n">hello</span> <span class="o">*</span><span class="n">C</span><span class="o">.</span><span class="n">char</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">GoString</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span>
+<span class="p">}</span>
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{}</span><span class="x">
-</span></code></pre>
-</div>
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div></div>
 
 <ul>
-  <li>The <code class="highlighter-rouge">main</code> function is neccecery to include into library, because the final product has to have for example the GC rutines.</li>
-  <li>The comment starting from <code class="highlighter-rouge">//export {function name}</code> tells the comiler that this the function will be called from the outside.</li>
+  <li>The <code class="language-plaintext highlighter-rouge">main</code> function is neccecery to include into library, because the final product has to have for example the GC rutines.</li>
+  <li>The comment starting from <code class="language-plaintext highlighter-rouge">//export {function name}</code> tells the comiler that this the function will be called from the outside.</li>
 </ul>
 
 <h4 id="creating-static-library">Creating static library</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>go build -o example.a -buildmode=c-archive example.go
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.a -buildmode=c-archive example.go
+</code></pre></div></div>
 
 <h4 id="creating-dynamic-library">Creating dynamic library</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>go build -o example.dylib -buildmode=c-shared example.go
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.dylib -buildmode=c-shared example.go
+</code></pre></div></div>
 
 <h3 id="creating-shared-and-static-library-in-swift">Creating shared and static library in Swift</h3>
 
-<p><code class="highlighter-rouge">point.swift</code></p>
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Point</span> <span class="p">{</span>
+<p><code class="language-plaintext highlighter-rouge">point.swift</code></p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Point</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="k">let</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span>
     <span class="kd">public</span> <span class="k">let</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span>
 
@@ -279,52 +276,47 @@
         <span class="k">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>and compile with command (module name is optional)</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>swiftc point.swift -emit-module  -module-name Point -emit-library -static
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift <span class="nt">-emit-module</span>  -module-name Point <span class="nt">-emit-library</span> <span class="nt">-static</span>
+</code></pre></div></div>
 
 <p><strong>Using</strong></p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Point</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Point</span>
 
 <span class="k">let</span> <span class="nv">p</span> <span class="o">=</span> <span class="kt">Point</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
 <span class="nf">print</span><span class="p">(</span><span class="s">"Hello library!"</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>compile with</p>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>swiftc main.swift -L ./lib/ -I ./lib/ -lpoint
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc main.swift <span class="nt">-L</span> ./lib/ <span class="nt">-I</span> ./lib/ <span class="nt">-lpoint</span>
+</code></pre></div></div>
 
 <h4 id="dynamic-library-in-swift">Dynamic library in Swift</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>swiftc point.swift -emit-module -emit-library
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift -emit-module -emit-library
+</code></pre></div></div>
 
 <p>it produces</p>
 
 <ul>
-  <li><code class="highlighter-rouge">libpoint.a</code></li>
-  <li><code class="highlighter-rouge">point.swiftdoc</code></li>
-  <li><code class="highlighter-rouge">point.swiftmodule</code></li>
-  <li><code class="highlighter-rouge">point.swiftsourceinfo</code></li>
+  <li><code class="language-plaintext highlighter-rouge">libpoint.a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftdoc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftmodule</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftsourceinfo</code></li>
 </ul>
 
 <p>Compile main program the same way as it has been down with the static one</p>
 
-<p>Library searching paths <code class="highlighter-rouge">/usr/lib/</code>, <code class="highlighter-rouge">/usr/local/lib/</code> </p>
+<p>Library searching paths <code class="language-plaintext highlighter-rouge">/usr/lib/</code>, <code class="language-plaintext highlighter-rouge">/usr/local/lib/</code> </p>
 
 <p><strong><em>Create package that emits library</em></strong></p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="c1">// swift-tools-version:5.3</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// swift-tools-version:5.3</span>
 <span class="kd">import</span> <span class="kt">PackageDescription</span>
 
 <span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
@@ -340,15 +332,14 @@
         <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[]),</span>
     <span class="p">]</span>
 <span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="calling-function-from-library-in-go">Calling function from library in Go</h3>
 
 <p>First off we will create C++ library that we will use in out Go program.
-File <code class="highlighter-rouge">example.cxx</code>:</p>
+File <code class="language-plaintext highlighter-rouge">example.cxx</code>:</p>
 
-<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include &lt;stdio.h&gt;
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
 </span>
 <span class="k">extern</span> <span class="s">"C"</span> <span class="p">{</span>
 
@@ -358,70 +349,64 @@ File <code class="highlighter-rouge">example.cxx</code>:</p>
 
 <span class="p">}</span></code></pre></figure>
 
-<p>And <code class="highlighter-rouge">example.hxx</code>:</p>
+<p>And <code class="language-plaintext highlighter-rouge">example.hxx</code>:</p>
 
 <figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#pragma once
 </span><span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span></code></pre></figure>
 
-<p><code class="highlighter-rouge">extern "C" {}</code> informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:</p>
+<p><code class="language-plaintext highlighter-rouge">extern "C" {}</code> informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:</p>
 
 <h4 id="creating-static-library-1">Creating static library</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>clang++ -c -Wall -o lib.o ./example.cxx
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -c -Wall -o lib.o ./example.cxx
 ar rc ./libexample.a ./lib.o
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="creating-dynamic-library-1">Creating dynamic library</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>clang++ -dynamiclib -o libexample.dylib example.cxx
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -dynamiclib -o libexample.dylib example.cxx
+</code></pre></div></div>
 
 <h2 id="statically-linking-an-example-library-in-go">Statically linking an example library in Go</h2>
 
-<div class="language-go highlighter-rouge"><pre class="highlight"><code><span class="k">package</span><span class="x"> </span><span class="n">main</span><span class="x">
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
-</span><span class="c">// #cgo CFLAGS: -I.</span><span class="x">
-</span><span class="c">// #cgo LDFLAGS: -L. -lexample</span><span class="x">
-</span><span class="c">//</span><span class="x">
-</span><span class="c">// #include &lt;example.hxx&gt;</span><span class="x">
-</span><span class="k">import</span><span class="x"> </span><span class="s">"C"</span><span class="x">
+<span class="c">// #cgo CFLAGS: -I.</span>
+<span class="c">// #cgo LDFLAGS: -L. -lexample</span>
+<span class="c">//</span>
+<span class="c">// #include &lt;example.hxx&gt;</span>
+<span class="k">import</span> <span class="s">"C"</span>
 
-</span><span class="k">func</span><span class="x"> </span><span class="n">main</span><span class="p">()</span><span class="x"> </span><span class="p">{</span><span class="x">
-	</span><span class="n">C</span><span class="o">.</span><span class="n">PrintHello</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">CString</span><span class="p">(</span><span class="s">"Hello Golang"</span><span class="p">))</span><span class="x">
-</span><span class="p">}</span><span class="x">
-</span></code></pre>
-</div>
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">C</span><span class="o">.</span><span class="n">PrintHello</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">CString</span><span class="p">(</span><span class="s">"Hello Golang"</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
 <p>The program is linked staticaly with libexample when you build it.</p>
 
 <h4 id="example-of-using-library-with-ffi-in-ruby">Example of using library with FFI in Ruby</h4>
 
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gem install ffi</code></pre></figure>
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gem <span class="nb">install </span>ffi</code></pre></figure>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ffi'</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ffi'</span>
 <span class="k">module</span> <span class="nn">Example</span>
   <span class="kp">extend</span> <span class="no">FFI</span><span class="o">::</span><span class="no">Library</span>
   <span class="n">ffi_lib</span> <span class="s1">'./example.dylib'</span>
   <span class="n">attach_function</span> <span class="ss">:SayHello</span><span class="p">,</span> <span class="p">[</span><span class="ss">:string</span><span class="p">]</span>
 <span class="k">end</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="no">Example</span><span class="o">.</span><span class="no">SayHello</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Example</span><span class="o">.</span><span class="no">SayHello</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
 
 <p>More informations about FFI: <a href="https://en.wikipedia.org/wiki/Foreign_function_interface">https://en.wikipedia.org/wiki/Foreign_function_interface</a></p>
 
 <h4 id="call-shared-library-from-python">Call shared library from Python</h4>
 
-<div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ctypes</span>
-<span class="n">libc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="o">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'./example.dylib'</span><span class="p">)</span>
-<span class="n">libc</span><span class="o">.</span><span class="n">SayHello</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="n">libc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'./example.dylib'</span><span class="p">)</span>
+<span class="n">libc</span><span class="p">.</span><span class="n">SayHello</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h2 id="interesting-websites">Interesting websites</h2>
 

@@ -110,13 +110,13 @@ InjectedValues[\.usersRepository] = MockedUsersRepository()
 - Note: Views in iOS apps are quite often reusable.
 
 <p>
- {% svg ../svgs/classic-mvc.svg width="472px" class="center-image" %}
+ {% svg ../svgs/classic-mvc.svg class="center-image" %}
 </p>
 
 #### Apple version
 
 <p>
- {% svg ../svgs/apple-mvc.svg width="472px" class="center-image" %}
+ {% svg ../svgs/apple-mvc.svg class="center-image" %}
 </p>
 
 **Model** responsibilities: 

@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -218,7 +218,7 @@
       <h1 class="title">Blurable view in UIKit</h1>
 
 <div id="post">
-  <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Blurable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIView</span> <span class="p">{</span>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Blurable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIView</span> <span class="p">{</span>
 <span class="err"> </span> <span class="err"> </span> <span class="kd">func</span> <span class="nf">addBlur</span><span class="p">(</span><span class="n">_</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
 <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">effect</span> <span class="o">=</span> <span class="kt">UIBlurEffect</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">prominent</span><span class="p">)</span>
 <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">effectView</span> <span class="o">=</span> <span class="kt">UIVisualEffectView</span><span class="p">(</span><span class="nv">effect</span><span class="p">:</span> <span class="n">effect</span><span class="p">)</span>
@@ -228,12 +228,10 @@
 <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">self</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">effectView</span><span class="p">)</span>
 <span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">BackgroundView</span><span class="p">:</span> <span class="kt">Blurable</span> <span class="p">{}</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">BackgroundView</span><span class="p">:</span> <span class="kt">Blurable</span> <span class="p">{}</span>
+</code></pre></div></div>
 
 </div>
 

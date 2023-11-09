@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -218,13 +218,12 @@
       <h1 class="title">Cancelling a publisher</h1>
 
 <div id="post">
-  <div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
+  <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
 	<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
 	<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span>
 	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
 	<span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
@@ -232,12 +231,10 @@
 			<span class="n">timer</span><span class="o">.</span><span class="n">upstream</span><span class="o">.</span><span class="nf">connect</span><span class="p">()</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
 		<span class="p">}</span>
 	<span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
 
 </div>
 

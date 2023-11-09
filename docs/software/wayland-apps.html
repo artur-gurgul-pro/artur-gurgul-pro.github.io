@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -220,16 +220,14 @@
 <div id="post">
   <p>Start chromium using wayland</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>chromium --enable-features<span class="o">=</span>UseOzonePlatform --ozone-platform<span class="o">=</span>wayland
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chromium <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
+</code></pre></div></div>
 
 <p>It’s the same for electron-based apps:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="sb">`</span>app-executable<span class="sb">`</span> --enable-features<span class="o">=</span>UseOzonePlatform <span class="se">\</span>
-                 --ozone-platform<span class="o">=</span>wayland
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`</span>app-executable<span class="sb">`</span> <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="se">\</span>
+                 <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
+</code></pre></div></div>
 
 
 </div>

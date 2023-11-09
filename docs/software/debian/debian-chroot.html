@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -220,49 +220,42 @@
 <div id="post">
   <p>Install Bootstrap</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt install debootstrap
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>debootstrap
+</code></pre></div></div>
 
 <p>Create a directory that you want to use for the base system (<em>chroot-debian</em> in this case)</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>mkdir chroot-debian
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>chroot-debian
+</code></pre></div></div>
 
 <p>Create a base system</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo debootstrap sid chroot-debian http://deb.debian.org/debian
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>debootstrap sid chroot-debian http://deb.debian.org/debian
+</code></pre></div></div>
 
-<p>Valid names <code class="highlighter-rouge">sid</code>, <code class="highlighter-rouge">stable</code> or any debian code name</p>
+<p>Valid names <code class="language-plaintext highlighter-rouge">sid</code>, <code class="language-plaintext highlighter-rouge">stable</code> or any debian code name</p>
 
 <p>Mount  filesystems</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo mount -o <span class="nb">bind</span> /dev chroot-debian/dev
-sudo mount -t sysfs none chroot-debian/sys
-sudo mount -o <span class="nb">bind</span> /proc chroot-debian/proc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount <span class="nt">-o</span> <span class="nb">bind</span> /dev chroot-debian/dev
+<span class="nb">sudo </span>mount <span class="nt">-t</span> sysfs none chroot-debian/sys
+<span class="nb">sudo </span>mount <span class="nt">-o</span> <span class="nb">bind</span> /proc chroot-debian/proc
+</code></pre></div></div>
 
 <p>Optionally, copy DNS resolver configuration.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo cp /etc/resolv.conf /path/to/chroot-env/etc/resolv.conf
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /etc/resolv.conf /path/to/chroot-env/etc/resolv.conf
+</code></pre></div></div>
 
 <p>Start chrooting</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo chroot chroot-debian /bin/bash
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chroot </span>chroot-debian /bin/bash
+</code></pre></div></div>
 
 <p>Once done, exit the session and unmount</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo umount chroot-debian/dev chroot-debian/proc
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>umount chroot-debian/dev chroot-debian/proc
+</code></pre></div></div>
 
 </div>
 

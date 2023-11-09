@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -221,80 +221,73 @@
   <p>Chunk of jobs that can be performed on the separate thread are arranged into:</p>
 
 <ul>
-  <li><code class="highlighter-rouge">Closures</code> or <code class="highlighter-rouge">Functions</code>/<code class="highlighter-rouge">Methods</code> and send to <code class="highlighter-rouge">DispatchQueue</code></li>
-  <li>Classes and send as objects to <code class="highlighter-rouge">OperationQueue</code>. The queue can perform <code class="highlighter-rouge">Closure</code> as well</li>
+  <li><code class="language-plaintext highlighter-rouge">Closures</code> or <code class="language-plaintext highlighter-rouge">Functions</code>/<code class="language-plaintext highlighter-rouge">Methods</code> and send to <code class="language-plaintext highlighter-rouge">DispatchQueue</code></li>
+  <li>Classes and send as objects to <code class="language-plaintext highlighter-rouge">OperationQueue</code>. The queue can perform <code class="language-plaintext highlighter-rouge">Closure</code> as well</li>
 </ul>
 
 <h4 id="kinds-of-jobs">Kinds of jobs</h4>
 
 <ul>
-  <li>Computation intensive jobs: When the thread uses entire processing capability of <code class="highlighter-rouge">CPU</code>. The reasonable maximum number of the threads is the number of CPU cores.</li>
-  <li>I/O intensive jobs: In that case we can trigger more threads than we have CPU cores. An optimal of threads is <code class="highlighter-rouge">Threads</code> = <code class="highlighter-rouge">Cores</code> / (1-<code class="highlighter-rouge">Blocking Factor</code>).</li>
+  <li>Computation intensive jobs: When the thread uses entire processing capability of <code class="language-plaintext highlighter-rouge">CPU</code>. The reasonable maximum number of the threads is the number of CPU cores.</li>
+  <li>I/O intensive jobs: In that case we can trigger more threads than we have CPU cores. An optimal of threads is <code class="language-plaintext highlighter-rouge">Threads</code> = <code class="language-plaintext highlighter-rouge">Cores</code> / (1-<code class="language-plaintext highlighter-rouge">Blocking Factor</code>).</li>
 </ul>
 
 <h1 id="gcd-grand-central-dispatch"><a href="https://github.com/apple/swift-corelibs-libdispatch">GCD</a> (Grand Central Dispatch)</h1>
 
-<p>Creating queue. Note without parameter <code class="highlighter-rouge">attributes</code> we will get serial queue</p>
+<p>Creating queue. Note without parameter <code class="language-plaintext highlighter-rouge">attributes</code> we will get serial queue</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="kt">DispatchQueue</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"important.job"</span><span class="p">,</span> <span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">attributes</span><span class="p">:</span> <span class="o">.</span><span class="n">concurrent</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="kt">DispatchQueue</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"important.job"</span><span class="p">,</span> <span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">attributes</span><span class="p">:</span> <span class="o">.</span><span class="n">concurrent</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h4 id="examples-of-sending-jobs-to-queues">Examples of sending jobs to queues:</h4>
 
 <p>Send to the queue and proceed with the execution in the current context</p>
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="k">async</span> <span class="p">{</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Same as above, but on main thread where UI operations should be done</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">DispatchQueue</span><span class="o">.</span><span class="n">main</span><span class="o">.</span><span class="k">async</span> <span class="p">{</span>
      <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Perform on the global queue</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kt">DispatchQueue</span><span class="o">.</span><span class="nf">global</span><span class="p">(</span><span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="n">background</span><span class="p">)</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">DispatchQueue</span><span class="o">.</span><span class="nf">global</span><span class="p">(</span><span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="n">background</span><span class="p">)</span><span class="o">.</span><span class="k">async</span> <span class="p">{</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Send block that will be executed when all jobs sent at this point are completed. Stop current thread will the queue is done with the sent block.</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="nf">sync</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">barrier</span><span class="p">])</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="nf">sync</span><span class="p">(</span><span class="nv">flags</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="n">barrier</span><span class="p">])</span> <span class="p">{</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Perform job in the time interval</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="nf">schedule</span><span class="p">(</span><span class="nv">after</span><span class="p">:</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="o">.</span><span class="nf">now</span><span class="p">()),</span> <span class="nv">interval</span><span class="p">:</span> <span class="o">.</span><span class="nf">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="nf">schedule</span><span class="p">(</span><span class="nv">after</span><span class="p">:</span> <span class="o">.</span><span class="nf">init</span><span class="p">(</span><span class="o">.</span><span class="nf">now</span><span class="p">()),</span> <span class="nv">interval</span><span class="p">:</span> <span class="o">.</span><span class="nf">seconds</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span> <span class="p">{</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Getting the label of the queue</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">DispatchQueue</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">DispatchQueue</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="k">var</span> <span class="nv">label</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span>
         <span class="k">return</span> <span class="kt">String</span><span class="p">(</span><span class="nv">cString</span><span class="p">:</span> <span class="nf">__dispatch_queue_get_label</span><span class="p">(</span><span class="kc">nil</span><span class="p">),</span> 
                       <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="p">??</span> <span class="s">""</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h3 id="dispatchgroup"><code class="highlighter-rouge">DispatchGroup</code></h3>
+<h3 id="dispatchgroup"><code class="language-plaintext highlighter-rouge">DispatchGroup</code></h3>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Sequence</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Sequence</span> <span class="p">{</span>
     <span class="kd">public</span> <span class="kd">func</span> <span class="n">threadedMap</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapper</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Element</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span> <span class="p">{</span>
         <span class="k">var</span> <span class="nv">output</span> <span class="o">=</span> <span class="p">[</span><span class="kt">T</span><span class="p">]()</span>
         <span class="k">let</span> <span class="nv">group</span> <span class="o">=</span> <span class="kt">DispatchGroup</span><span class="p">()</span>
@@ -310,14 +303,13 @@
         <span class="k">return</span> <span class="n">output</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="mutex">Mutex</h3>
 
 <p>Performing max 3 tasks at the time</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">semaphore</span> <span class="o">=</span> <span class="kt">DispatchSemaphore</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="mi">3</span><span class="p">)</span>
                 
 <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">0</span><span class="o">..&lt;</span><span class="mi">15</span> <span class="p">{</span>
     <span class="n">queue</span><span class="o">.</span><span class="nf">async</span><span class="p">(</span><span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="n">background</span><span class="p">)</span> <span class="p">{</span>
@@ -326,8 +318,7 @@
         <span class="n">semaphore</span><span class="o">.</span><span class="nf">signal</span><span class="p">()</span>
    <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h3 id="locking-and-unlocking-the-thread">Locking and unlocking the thread</h3>
 
@@ -335,48 +326,44 @@
 
 <p>Example of usage. The concurrent queue becomes sort of serial. One job at the time, but execution in random order.</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">lock</span> <span class="o">=</span> <span class="kt">NSLock</span><span class="p">()</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">lock</span> <span class="o">=</span> <span class="kt">NSLock</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">_</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">6</span> <span class="p">{</span>
-    <span class="n">queue</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+    <span class="n">queue</span><span class="o">.</span><span class="k">async</span> <span class="p">{</span>
         <span class="n">lock</span><span class="o">.</span><span class="nf">lock</span><span class="p">()</span>
         <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
         <span class="n">lock</span><span class="o">.</span><span class="nf">unlock</span><span class="p">()</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Mutex</strong></p>
 
-<p>Same thing using <code class="highlighter-rouge">pthread</code> API</p>
+<p>Same thing using <code class="language-plaintext highlighter-rouge">pthread</code> API</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">mutex</span> <span class="o">=</span> <span class="nf">pthread_mutex_t</span><span class="p">()</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">mutex</span> <span class="o">=</span> <span class="nf">pthread_mutex_t</span><span class="p">()</span>
 <span class="nf">pthread_mutex_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">6</span> <span class="p">{</span>	
-    <span class="n">queue</span><span class="o">.</span><span class="n">async</span> <span class="p">{</span>
+    <span class="n">queue</span><span class="o">.</span><span class="k">async</span> <span class="p">{</span>
         <span class="nf">pthread_mutex_lock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
         <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
         <span class="nf">pthread_mutex_unlock</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>When you are done with the lock, you need to release it</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">pthread_mutex_destroy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mutex</span><span class="p">)</span>
+</code></pre></div></div>
 
-<h1 id="nsoperationqueue"><code class="highlighter-rouge">NSOperationQueue</code></h1>
+<h1 id="nsoperationqueue"><code class="language-plaintext highlighter-rouge">NSOperationQueue</code></h1>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="kt">OperationQueue</span><span class="p">()</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="kt">OperationQueue</span><span class="p">()</span>
 <span class="n">queue</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Queue Name"</span>
 <span class="n">queue</span><span class="o">.</span><span class="n">maxConcurrentOperationCount</span> <span class="o">=</span> <span class="mi">1</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyVeryImportantOperation</span><span class="p">:</span> <span class="kt">Operation</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyVeryImportantOperation</span><span class="p">:</span> <span class="kt">Operation</span> <span class="p">{</span>
     <span class="k">override</span> <span class="kd">func</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
         <span class="k">if</span> <span class="n">isCancelled</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
         <span class="c1">// Some chunk of time consuming task</span>
@@ -385,85 +372,76 @@
         <span class="c1">// and so on...</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Sending jobs to the queue</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">myOperation</span> <span class="o">=</span> <span class="kt">MyVeryExpensiveOperation</span><span class="p">()</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">myOperation</span> <span class="o">=</span> <span class="kt">MyVeryExpensiveOperation</span><span class="p">()</span>
 <span class="n">queue</span><span class="o">.</span><span class="nf">addOperation</span><span class="p">(</span><span class="n">myOperation</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="n">addOperation</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">queue</span><span class="o">.</span><span class="n">addOperation</span> <span class="p">{</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Notes <code class="highlighter-rouge">NSOperationQueue</code> fit better when requires canceling, suspending a block and/or  dependency management</p>
+<p>Notes <code class="language-plaintext highlighter-rouge">NSOperationQueue</code> fit better when requires canceling, suspending a block and/or  dependency management</p>
 
 <h1 id="nsthread">NSThread</h1>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">thread</span> <span class="o">=</span> <span class="kt">Thread</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">thread</span> <span class="o">=</span> <span class="kt">Thread</span> <span class="p">{</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="n">code</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span> <span class="err"> </span> 
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">thread</span> <span class="o">=</span> <span class="kt">Thread</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">thread</span> <span class="o">=</span> <span class="kt">Thread</span><span class="p">(</span><span class="nv">target</span><span class="p">:</span> <span class="k">self</span><span class="p">,</span>
                     <span class="nv">selector</span><span class="p">:</span> <span class="kd">#selector(</span><span class="nf">jobMethod:</span><span class="kd">)</span><span class="p">,</span>
                     <span class="nv">object</span><span class="p">:</span> <span class="n">argumentObject</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">thread</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">thread</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+</code></pre></div></div>
 
 <p>Async method</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">doStuff</span><span class="p">()</span> <span class="n">async</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">doStuff</span><span class="p">()</span> <span class="k">async</span> <span class="p">{</span>
 	<span class="o">&lt;</span><span class="err">#</span><span class="n">code</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h1 id="span-a-thread-in-nsobject-context">Span a thread in <code class="highlighter-rouge">NSObject</code> context</h1>
+<h1 id="span-a-thread-in-nsobject-context">Span a thread in <code class="language-plaintext highlighter-rouge">NSObject</code> context</h1>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">perform</span><span class="p">(</span><span class="kd">#selector(</span><span class="nf">job</span><span class="kd">)</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">waitUntilDone</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">perform</span><span class="p">(</span><span class="kd">#selector(</span><span class="nf">job</span><span class="kd">)</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">with</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">waitUntilDone</span><span class="p">:</span> <span class="kc">false</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h1 id="asyncawait">async/await</h1>
 
-<p>Available from <code class="highlighter-rouge">Swift 5.5</code>. More info at <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/">docs.swift.org</a></p>
+<p>Available from <code class="language-plaintext highlighter-rouge">Swift 5.5</code>. More info at <a href="https://docs.swift.org/swift-book/documentation/the-swift-programming-language/concurrency/">docs.swift.org</a></p>
 
 <h4 id="await-the-task-group">Await the task group</h4>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">movies</span> <span class="o">=</span> <span class="n">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Movie</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">group</span> <span class="k">in</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">movies</span> <span class="o">=</span> <span class="k">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Movie</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">group</span> <span class="k">in</span>
      <span class="k">var</span> <span class="nv">movies</span> <span class="o">=</span> <span class="p">[</span><span class="kt">Movie</span><span class="p">]()</span>
      <span class="n">movies</span><span class="o">.</span><span class="nf">reserveCapacity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
      <span class="k">for</span> <span class="n">no</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">2</span> <span class="p">{</span>
           <span class="n">group</span><span class="o">.</span><span class="n">addTask</span> <span class="p">{</span>
-               <span class="k">return</span> <span class="n">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="n">no</span><span class="p">)</span>
+               <span class="k">return</span> <span class="k">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="n">no</span><span class="p">)</span>
           <span class="p">}</span>
      <span class="p">}</span>
-     <span class="k">for</span> <span class="n">await</span> <span class="n">movie</span> <span class="k">in</span> <span class="n">group</span> <span class="p">{</span>
+     <span class="k">for</span> <span class="k">await</span> <span class="n">movie</span> <span class="k">in</span> <span class="n">group</span> <span class="p">{</span>
 	     <span class="n">movies</span><span class="o">.</span><span class="nf">append</span><span class="p">(</span><span class="n">movie</span><span class="p">)</span>
      <span class="p">}</span>
      <span class="k">return</span> <span class="n">movies</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Order of execution</strong></p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="s">"Before task group"</span><span class="p">)</span>
-<span class="n">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Void</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">group</span> <span class="k">in</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="s">"Before task group"</span><span class="p">)</span>
+<span class="k">await</span> <span class="nf">withTaskGroup</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="kt">Void</span><span class="o">.</span><span class="k">self</span><span class="p">)</span> <span class="p">{</span> <span class="n">group</span> <span class="k">in</span>
     <span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">list</span> <span class="p">{</span>
         <span class="n">group</span><span class="o">.</span><span class="n">addTask</span> <span class="p">{</span>
-            <span class="n">await</span> <span class="nf">doSomething</span><span class="p">()</span>
+            <span class="k">await</span> <span class="nf">doSomething</span><span class="p">()</span>
             <span class="nf">print</span><span class="p">(</span><span class="s">"Task completed"</span><span class="p">)</span>
         <span class="p">}</span>
     <span class="p">}</span>
@@ -471,8 +449,7 @@
 <span class="p">}</span>
 
 <span class="nf">print</span><span class="p">(</span><span class="s">"After task group"</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <pre><code class="language-plain"> 1 =&gt; print("Before task group")
  2 =&gt; print("For loop completed")
@@ -481,133 +458,122 @@
  5 =&gt; print("Task completed")
  6 =&gt; print("After task group")
 </code></pre>
-<h4 id="actors"><code class="highlighter-rouge">Actor</code>s</h4>
+<h4 id="actors"><code class="language-plaintext highlighter-rouge">Actor</code>s</h4>
 
 <ul>
   <li>Do not support inheritance</li>
 </ul>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">actor</span> <span class="kt">TestActor</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">actor</span> <span class="kt">TestActor</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nv">property</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="kd">func</span> <span class="nf">update</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
         <span class="nf">sleep</span><span class="p">(</span><span class="kt">UInt32</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="p">))</span>
         <span class="n">property</span> <span class="o">=</span> <span class="n">no</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">actor</span> <span class="o">=</span> <span class="kt">TestActor</span><span class="p">()</span>
-<span class="n">await</span> <span class="n">actor</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">actor</span> <span class="o">=</span> <span class="kt">TestActor</span><span class="p">()</span>
+<span class="k">await</span> <span class="kd">actor</span><span class="o">.</span><span class="nf">update</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h4 id="call-synchronously--and-parallel">Call synchronously  and parallel</h4>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">firstMovie</span>  <span class="o">=</span> <span class="n">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">secondMovie</span> <span class="o">=</span> <span class="n">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">firstMovie</span>  <span class="o">=</span> <span class="k">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">secondMovie</span> <span class="o">=</span> <span class="k">await</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
 <span class="k">let</span> <span class="nv">movies</span> <span class="o">=</span> <span class="p">[</span><span class="n">firstMovie</span><span class="p">,</span> <span class="n">secondMovie</span><span class="p">]</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="n">async</span> <span class="k">let</span> <span class="nv">firstMovie</span>  <span class="o">=</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">async</span> <span class="k">let</span> <span class="nv">secondMovie</span> <span class="o">=</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
-<span class="k">let</span> <span class="nv">photos</span> <span class="o">=</span> <span class="n">await</span> <span class="p">[</span><span class="n">firstMovie</span><span class="p">,</span> <span class="n">secondMovie</span><span class="p">]</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">async</span> <span class="k">let</span> <span class="nv">firstMovie</span>  <span class="o">=</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">let</span> <span class="nv">secondMovie</span> <span class="o">=</span> <span class="n">apiClient</span><span class="o">.</span><span class="nf">download</span><span class="p">(</span><span class="nv">movie</span><span class="p">:</span> <span class="mi">2</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">photos</span> <span class="o">=</span> <span class="k">await</span> <span class="p">[</span><span class="n">firstMovie</span><span class="p">,</span> <span class="n">secondMovie</span><span class="p">]</span>
+</code></pre></div></div>
 <h4 id="call-the-main-thread">Call the main thread</h4>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">t</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span> <span class="kd">@MainActor</span> <span class="k">in</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">t</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span> <span class="kd">@MainActor</span> <span class="k">in</span>
     <span class="nf">print</span> <span class="p">(</span><span class="s">"update UI"</span><span class="p">)</span>
     <span class="k">return</span> <span class="mi">5</span>
 <span class="p">}</span>
-<span class="n">await</span> <span class="nf">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-</code></pre>
-</div>
+<span class="k">await</span> <span class="nf">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div></div>
 
-<h4 id="call-async-function-from-a-regular-method">Call <code class="highlighter-rouge">async</code> function from a regular method</h4>
+<h4 id="call-async-function-from-a-regular-method">Call <code class="language-plaintext highlighter-rouge">async</code> function from a regular method</h4>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="n">async</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="k">async</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
     <span class="nf">sleep</span><span class="p">(</span><span class="kt">UInt32</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="mi">1</span><span class="o">...</span><span class="mi">3</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">no</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span>
-    <span class="n">await</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="kt">Task</span> <span class="p">{</span>
+    <span class="k">await</span> <span class="nf">job</span><span class="p">(</span><span class="nv">no</span><span class="p">:</span> <span class="mi">5</span><span class="p">)</span>
 <span class="p">}</span>
 <span class="kt">Task</span> <span class="p">{</span>
-    <span class="n">await</span> <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">await</span> <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 <h1 id="pthread">pthread</h1>
 
 <p>This is an object that will be sent to the thread</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ThreadParameter</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ThreadParameter</span> <span class="p">{</span>
     <span class="k">let</span> <span class="nv">paramater</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>This is a function that will be spanned on the background thread</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">threadedFunction</span><span class="p">(</span><span class="nv">pointer</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">?</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">threadedFunction</span><span class="p">(</span><span class="nv">pointer</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">?</span> <span class="p">{</span>
     <span class="k">var</span> <span class="nv">threadParameter</span> <span class="o">=</span> <span class="n">pointer</span><span class="o">.</span><span class="nf">load</span><span class="p">(</span><span class="nv">as</span><span class="p">:</span> <span class="kt">ThreadParameter</span><span class="o">.</span><span class="k">self</span><span class="p">)</span>
     <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
     <span class="k">return</span> <span class="kc">nil</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<p>Creating  a <code class="highlighter-rouge">pthread</code></p>
+<p>Creating  a <code class="language-plaintext highlighter-rouge">pthread</code></p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">var</span> <span class="nv">myThread</span><span class="p">:</span> <span class="n">pthread_t</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">myThread</span><span class="p">:</span> <span class="n">pthread_t</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span>
 <span class="k">let</span> <span class="nv">threadParameter</span> <span class="o">=</span> <span class="kt">ThreadParameter</span><span class="p">()</span>
 <span class="k">var</span> <span class="nv">pThreadParameter</span> <span class="o">=</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ThreadParameter</span><span class="o">&gt;.</span><span class="nf">allocate</span><span class="p">(</span><span class="nv">capacity</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">pThreadParameter</span><span class="o">.</span><span class="n">pointee</span> <span class="o">=</span> <span class="n">threadParameter</span>
         
 <span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="nf">pthread_create</span><span class="p">(</span><span class="o">&amp;</span><span class="n">myThread</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">threadedFunction</span><span class="p">,</span> <span class="n">pThreadParameter</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>waiting for finishing the thread</p>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="k">let</span> <span class="nv">myThread</span> <span class="p">{</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">result</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="k">let</span> <span class="nv">myThread</span> <span class="p">{</span>
     <span class="nf">pthread_join</span><span class="p">(</span><span class="n">myThread</span><span class="p">,</span><span class="kc">nil</span><span class="p">)</span>
 <span class="p">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
-<h1 id="span-threads-using-combine-framework">Span threads using <code class="highlighter-rouge">Combine</code> framework</h1>
+<h1 id="span-threads-using-combine-framework">Span threads using <code class="language-plaintext highlighter-rouge">Combine</code> framework</h1>
 
-<p><strong><code class="highlighter-rouge">subscribe(on:)</code></strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">subscribe(on:)</code></strong></p>
 
 <p>Quotes from: <a href="https://trycombine.com/posts/subscribe-on-receive-on/">https://trycombine.com/posts/subscribe-on-receive-on/</a></p>
 
 <blockquote>
-  <p><code class="highlighter-rouge">subscribe(on:)</code> sets the scheduler on which you’d like the current subscription to be “managed” on. This operator sets the scheduler to use for creating the subscription, cancelling, and requesting input.</p>
+  <p><code class="language-plaintext highlighter-rouge">subscribe(on:)</code> sets the scheduler on which you’d like the current subscription to be “managed” on. This operator sets the scheduler to use for creating the subscription, cancelling, and requesting input.</p>
 
-  <p>… <code class="highlighter-rouge">subscribe(on:)</code> sets the scheduler to subscribe the upstream on.</p>
+  <p>… <code class="language-plaintext highlighter-rouge">subscribe(on:)</code> sets the scheduler to subscribe the upstream on.</p>
 
-  <p>A side effect of subscribing on the given scheduler is that <code class="highlighter-rouge">subscribe(on:)</code> also changes the scheduler for its downstream ….</p>
+  <p>A side effect of subscribing on the given scheduler is that <code class="language-plaintext highlighter-rouge">subscribe(on:)</code> also changes the scheduler for its downstream ….</p>
 </blockquote>
 
-<p>Subscription is done once and calling secund time the <code class="highlighter-rouge">subscribe(on: )</code> have no effect.</p>
+<p>Subscription is done once and calling secund time the <code class="language-plaintext highlighter-rouge">subscribe(on: )</code> have no effect.</p>
 
-<p><strong><code class="highlighter-rouge">receive(on:)</code></strong></p>
+<p><strong><code class="language-plaintext highlighter-rouge">receive(on:)</code></strong></p>
 
 <blockquote>
-  <p>The correct operator to use to change the scheduler where downstream output is delivered is <code class="highlighter-rouge">receive(on:)</code>.</p>
+  <p>The correct operator to use to change the scheduler where downstream output is delivered is <code class="language-plaintext highlighter-rouge">receive(on:)</code>.</p>
 
-  <p>On other words <code class="highlighter-rouge">receive(on:)</code> sets the scheduler where the downstream receives output on.</p>
+  <p>On other words <code class="language-plaintext highlighter-rouge">receive(on:)</code> sets the scheduler where the downstream receives output on.</p>
 
-  <p>You can use <code class="highlighter-rouge">receive(on:)</code> similarly to <code class="highlighter-rouge">subscribe(on:)</code>. You can use multiple <code class="highlighter-rouge">receive(on:)</code> operators and that will always change the downstream scheduler</p>
+  <p>You can use <code class="language-plaintext highlighter-rouge">receive(on:)</code> similarly to <code class="language-plaintext highlighter-rouge">subscribe(on:)</code>. You can use multiple <code class="language-plaintext highlighter-rouge">receive(on:)</code> operators and that will always change the downstream scheduler</p>
 </blockquote>
 
-<h1 id="usage-of-runloop">Usage of <code class="highlighter-rouge">RunLoop</code></h1>
+<h1 id="usage-of-runloop">Usage of <code class="language-plaintext highlighter-rouge">RunLoop</code></h1>
 
 <p>Doncumentation on <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html">RunLoop</a></p>
 
@@ -617,22 +583,19 @@
 
 <h1 id="measure-a-performance-time">Measure a performance time</h1>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">let</span> <span class="nv">startTime</span> <span class="o">=</span> <span class="kt">CFAbsoluteTimeGetCurrent</span><span class="p">()</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">startTime</span> <span class="o">=</span> <span class="kt">CFAbsoluteTimeGetCurrent</span><span class="p">()</span>
 <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span> <span class="n">of</span> <span class="n">the</span> <span class="n">job</span><span class="err">#</span><span class="o">&gt;</span>
 <span class="k">let</span> <span class="nv">endTime</span> <span class="o">=</span> <span class="kt">CFAbsoluteTimeGetCurrent</span><span class="p">()</span>
 <span class="nf">print</span><span class="p">(</span><span class="s">"Duration:</span><span class="se">\(</span><span class="n">endTime</span> <span class="o">-</span> <span class="n">startTime</span><span class="se">)</span><span class="s"> seconds"</span><span class="p">)</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="stop-thread-for-some-time">Stop thread for some time</h4>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
 
-<div class="language-swift highlighter-rouge"><pre class="highlight"><code><span class="k">try</span> <span class="n">await</span> <span class="kt">Task</span><span class="o">.</span><span class="nf">sleep</span><span class="p">(</span><span class="nv">until</span><span class="p">:</span> <span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="o">.</span><span class="nf">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nv">clock</span><span class="p">:</span> <span class="o">.</span><span class="n">continuous</span><span class="p">)</span>
-</code></pre>
-</div>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="k">await</span> <span class="kt">Task</span><span class="o">.</span><span class="nf">sleep</span><span class="p">(</span><span class="nv">until</span><span class="p">:</span> <span class="o">.</span><span class="n">now</span> <span class="o">+</span> <span class="o">.</span><span class="nf">seconds</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="nv">clock</span><span class="p">:</span> <span class="o">.</span><span class="n">continuous</span><span class="p">)</span>
+</code></pre></div></div>
 
 
 </div>

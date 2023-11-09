@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -220,9 +220,8 @@
 <div id="post">
   <p>Squash the last three commints</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git rebase -i HEAD~3
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~3
+</code></pre></div></div>
 
 <p>You will see something like this</p>
 
@@ -232,8 +231,8 @@ pick df71a27 Updated CSS for new elements
 </code></pre>
 
 <ul>
-  <li><code class="highlighter-rouge">pick</code> <code class="highlighter-rouge">p</code> the commit will be taken</li>
-  <li><code class="highlighter-rouge">squash</code> <code class="highlighter-rouge">s</code>, the commit will be blended with the above.</li>
+  <li><code class="language-plaintext highlighter-rouge">pick</code> <code class="language-plaintext highlighter-rouge">p</code> the commit will be taken</li>
+  <li><code class="language-plaintext highlighter-rouge">squash</code> <code class="language-plaintext highlighter-rouge">s</code>, the commit will be blended with the above.</li>
 </ul>
 
 <p>Edit to something like this</p>
@@ -245,23 +244,20 @@ squash df71a27
 
 <p>Now you can accept the change by continuing the rebase:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git rebase --continue
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">--continue</span>
+</code></pre></div></div>
 
 <p>After that you need to force override the history using this command:</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git push origin master --force
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master <span class="nt">--force</span>
+</code></pre></div></div>
 
 <h2 id="squash-merge">Squash merge</h2>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>git checkout master
-git merge --squash bugfix
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+git merge <span class="nt">--squash</span> bugfix
 git commit
-</code></pre>
-</div>
+</code></pre></div></div>
 
 </div>
 

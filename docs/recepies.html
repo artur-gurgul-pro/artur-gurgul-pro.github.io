@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -220,266 +220,222 @@
 <div id="post">
   <h5 id="read-a-dns-records">Read a DNS records</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
+</code></pre></div></div>
 
 <h5 id="io-stats">I/O Stats</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>iostat
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iostat
+</code></pre></div></div>
 
 <h5 id="checking-type-of-executable-files">Checking type of executable files</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>otool -hv test.so
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>otool -hv test.so
+</code></pre></div></div>
 
 <h5 id="gzip-of-image">Gzip of image</h5>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>dd <span class="k">if</span><span class="o">=</span>/dev/sdb | gzip &gt; ~/backup.img.gz
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>/dev/sdb | <span class="nb">gzip</span> <span class="o">&gt;</span> ~/backup.img.gz
+</code></pre></div></div>
 <h5 id="get-directory-size">Get directory size</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>du -sh MacOSBackup
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>du -sh MacOSBackup
+</code></pre></div></div>
 
 <h5 id="print-all-sizes-in-directory">Print all sizes in directory</h5>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>du -sh <span class="k">*</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">du</span> <span class="nt">-sh</span> <span class="k">*</span>
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>du -shc <span class="k">*</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">du</span> <span class="nt">-shc</span> <span class="k">*</span>
+</code></pre></div></div>
 
 <h4 id="compare-two-files">Compare two files</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim -d file1 file2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim <span class="nt">-d</span> file1 file2
 mcdiff file1 file2
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="power-off-the-disk">Power off the disk</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>udisksctl power-off -b /dev/sdX
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udisksctl power-off -b /dev/sdX
+</code></pre></div></div>
 <h5 id="generate-random-password">Generate random password</h5>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>pwgen -s -1 32
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwgen <span class="nt">-s</span> <span class="nt">-1</span> 32
+</code></pre></div></div>
 <p>or</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>openssl rand -hex 12
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl rand -hex 12
+</code></pre></div></div>
 <h5 id="list-block-devices">List block devices</h5>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>lsblk
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
+</code></pre></div></div>
 
 <h4 id="linux-headers">Linux headers</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>uname -r
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>uname -r
 apt search linux-headers-$(uname -r)
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>Show all disks with json format</p>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>lsblk -J
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk <span class="nt">-J</span>
+</code></pre></div></div>
 <p>List disk with uuid’s</p>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>lsbkl -f
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsbkl <span class="nt">-f</span>
+</code></pre></div></div>
 <h4 id="reloading-local-dns">reloading local DNS</h4>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>sudo /etc/init.d/dns-clean start
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /etc/init.d/dns-clean start
+</code></pre></div></div>
 
 <h4 id="print-all-processes-in-json-format">Print all processes in json format</h4>
 
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>ps aux |
-  awk -v <span class="nv">OFS</span><span class="o">=</span>, <span class="s1">'{print $1, $2}'</span> |
-  jq -R <span class="s1">'split(",") | {user: .[0], pid: .[1]}'</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ps aux |
+  <span class="nb">awk</span> <span class="nt">-v</span> <span class="nv">OFS</span><span class="o">=</span>, <span class="s1">'{print $1, $2}'</span> |
+  jq <span class="nt">-R</span> <span class="s1">'split(",") | {user: .[0], pid: .[1]}'</span>
+</code></pre></div></div>
 
 <h4 id="search-and-execute-command-from-the-history">Search and execute command from the history</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">eval</span> <span class="sb">`</span><span class="nb">history</span> | fzf | cut  -s -d <span class="s2">" "</span> -f4-<span class="sb">`</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">eval</span> <span class="sb">`</span><span class="nb">history</span> | fzf | <span class="nb">cut</span>  <span class="nt">-s</span> <span class="nt">-d</span> <span class="s2">" "</span> <span class="nt">-f4-</span><span class="sb">`</span>
+</code></pre></div></div>
 
-<p>Adding this to <code class="highlighter-rouge">.zshrc</code></p>
+<p>Adding this to <code class="language-plaintext highlighter-rouge">.zshrc</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>export HISTSIZE=100000000
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export HISTSIZE=100000000
 alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
-</code></pre>
-</div>
+</code></pre></div></div>
 <h4 id="editing-command-with-editor">Editing command with editor</h4>
 
-<p><code class="highlighter-rouge">~/.zshrc</code></p>
+<p><code class="language-plaintext highlighter-rouge">~/.zshrc</code></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>bindkey '^e' edit-command-line
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bindkey '^e' edit-command-line
+</code></pre></div></div>
 <h4 id="copy-public-ssh-key">Copy public ssh key</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cat ~/.ssh/id_rsa.pub | pbcopy
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_rsa.pub | pbcopy
+</code></pre></div></div>
 
 <h4 id="git-diff-between-branches">Git diff between branches</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>git diff release-1.2.0..release-1.2.1
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff release-1.2.0..release-1.2.1
+</code></pre></div></div>
 
-<h4 id="macos-info-aliases-inzhrc">MacOS info aliases in<code class="highlighter-rouge">.zhrc</code></h4>
+<h4 id="macos-info-aliases-inzhrc">MacOS info aliases in<code class="language-plaintext highlighter-rouge">.zhrc</code></h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>  alias cpu='sysctl -n machdep.cpu.brand_string'
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  alias cpu='sysctl -n machdep.cpu.brand_string'
   alias cpu-temp='sudo powermetrics --samplers smc | grep -i "CPU die temperature"'
   alias gpu-temp='sudo powermetrics --samplers smc | grep -i "GPU die temperature"'
   alias lsusb='sudo ioreg -p IOUSB'
   alias allusb='ioreg -p IOUSB -w0 -l'
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>Power metrics</strong></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo powermetrics --samplers all
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>powermetrics <span class="nt">--samplers</span> all
+</code></pre></div></div>
 <h4 id="install-pods-from-non-standard-localisations">Install pods from non standard localisations</h4>
 
-<div class="language-ruby highlighter-rouge"><pre class="highlight"><code> <span class="n">pod</span> <span class="s1">'WASHD'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/vatlib/EasyUITextFields.git'</span>
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="n">pod</span> <span class="s1">'WASHD'</span><span class="p">,</span> <span class="ss">:git</span> <span class="o">=&gt;</span> <span class="s1">'https://github.com/vatlib/EasyUITextFields.git'</span>
  <span class="n">pod</span> <span class="s1">'WASHD'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'/Users/artur/projs/easyuitextfields'</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="set-default-shell-zsh-in-this-case">Set default shell. ZSH in this case</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo chsh --shell /usr/bin/zsh user
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chsh --shell /usr/bin/zsh user
+</code></pre></div></div>
 
 <h4 id="show-git-object">Show Git object</h4>
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code>pigz -d &lt; .git/objects/02/f2cc93fee0b3cb7c9b75f49e4ded3f9b1480eb
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pigz <span class="nt">-d</span> &lt; .git/objects/02/f2cc93fee0b3cb7c9b75f49e4ded3f9b1480eb
+</code></pre></div></div>
 <h4 id="list-of-wireless-cards">list of wireless cards</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>lspci -knn | grep Net -A2
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspci -knn | grep Net -A2
+</code></pre></div></div>
 
 <h4 id="scan-networks">Scan networks</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>iwlist scan
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iwlist scan
+</code></pre></div></div>
 
 <h4 id="shutdown">Shutdown</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>shutdown -h now
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>shutdown -h now
+</code></pre></div></div>
 
 <h4 id="connect-to-the-network">Connect to the network</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>nmcli dev wifi connect TP-Link_5828 password my-secret-pass
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmcli dev wifi connect TP-Link_5828 password my-secret-pass
+</code></pre></div></div>
 
 <h4 id="search-files-that-contains-particular-string">Search files that contains particular string</h4>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code>grep -rnw <span class="s2">"."</span> -e <span class="s2">"Search key"</span>
-</code></pre>
-</div>
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="s2">"."</span> <span class="nt">-e</span> <span class="s2">"Search key"</span>
+</code></pre></div></div>
 <h4 id="remove-garbage-files">Remove garbage files</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>find ./ -name ".DS_Store" -depth -exec rm {} \;
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find ./ -name ".DS_Store" -depth -exec rm {} \;
+</code></pre></div></div>
 
 <h4 id="find-files-directories-and-symbolic-links-using-regex">Find files, directories and symbolic links using regex</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>find ./ -iname `fo*` and `F??` -type f,d,l
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find ./ -iname `fo*` and `F??` -type f,d,l
+</code></pre></div></div>
 
 <h4 id="screen-capture">Screen capture</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>ffmpeg -f x11grab -video_size 1280x800 -framerate 25 -i $DISPLAY -c:v ffvhuff screen.mkv
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ffmpeg -f x11grab -video_size 1280x800 -framerate 25 -i $DISPLAY -c:v ffvhuff screen.mkv
 
 ffmpeg -video_size 1280x800 -framerate 25 -f x11grab -i :0.0 -f pulse -ac 2. \
        -i default -vcodec vp8 -acodec libvorbis myvideo_$(date +%d_%B_%Y_%H:%M).webm
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="take-a-screenshot">Take a screenshot</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>xwd -root -out screenshot.xwd
-maim -s -u | xclip -selection clipboard -t image/png -i
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>xwd <span class="nt">-root</span> <span class="nt">-out</span> screenshot.xwd
+maim <span class="nt">-s</span> <span class="nt">-u</span> | xclip <span class="nt">-selection</span> clipboard <span class="nt">-t</span> image/png <span class="nt">-i</span>
 imlib2_grab screenshot.png
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="install-python-package-for-the-user">Install Python package for the user</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>python3 -m pip install --user pyelftools
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 -m pip install --user pyelftools
+</code></pre></div></div>
 
 <h4 id="erase-free-space">Erase free space</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>sudo diskutil secureErase freespace 1 /Volumes/Data\ Drive
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo diskutil secureErase freespace 1 /Volumes/Data\ Drive
+</code></pre></div></div>
 
 <h4 id="search-for-commit">Search for commit</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">gf</span><span class="o">=</span><span class="s1">'git log --all --oneline | fzf'</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">gf</span><span class="o">=</span><span class="s1">'git log --all --oneline | fzf'</span>
+</code></pre></div></div>
 
 <h4 id="remove-alpha-channel-from-all-files">Remove alpha channel from all files</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># ➜ brew install imagemagick</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># ➜ brew install imagemagick</span>
+</code></pre></div></div>
 
 <p><strong>Converts all files in current directory revursevely</strong></p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">rmalfa</span><span class="o">=</span><span class="s1">'find . -name “*.png” -exec convert “{}” -alpha off “{}” \;'</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">rmalfa</span><span class="o">=</span><span class="s1">'find . -name “*.png” -exec convert “{}” -alpha off “{}” \;'</span>
+</code></pre></div></div>
 
 <h4 id="weather-alias">Weather alias</h4>
 
-<div class="language-sh highlighter-rouge"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">weather</span><span class="o">=</span><span class="s1">'curl wttr.in'</span>
-</code></pre>
-</div>
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">weather</span><span class="o">=</span><span class="s1">'curl wttr.in'</span>
+</code></pre></div></div>
 
 <h4 id="save-website-as-pdf">Save website As PDF</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="k">function </span>aspdf <span class="o">{</span>
-  /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome --headless --print-to-pdf<span class="o">=</span><span class="s2">"./</span><span class="nv">$1</span><span class="s2">.pdf"</span> <span class="nv">$2</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>aspdf <span class="o">{</span>
+  /Applications/Google<span class="se">\ </span>Chrome.app/Contents/MacOS/Google<span class="se">\ </span>Chrome <span class="nt">--headless</span> <span class="nt">--print-to-pdf</span><span class="o">=</span><span class="s2">"./</span><span class="nv">$1</span><span class="s2">.pdf"</span> <span class="nv">$2</span>
 <span class="o">}</span>
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>usage</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>aspdf <span class="s2">"filename"</span> <span class="s2">"https://superuser.com/questions/592974/how-to-print-to-save-as-pdf-from-a-command-line-with-chrome-or-chromium"</span>
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspdf <span class="s2">"filename"</span> <span class="s2">"https://superuser.com/questions/592974/how-to-print-to-save-as-pdf-from-a-command-line-with-chrome-or-chromium"</span>
+</code></pre></div></div>
 
 <h4 id="gem-path">Gem path</h4>
 
@@ -489,39 +445,34 @@ path=("$GEM_HOME/bin" $path)
 
 <h4 id="qemu---port-forwarding">QEMU - port forwarding</h4>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>qemu-system-i386 -net nic,model<span class="o">=</span>rtl8139 <span class="se">\</span>
-        -net user,hostfwd<span class="o">=</span>tcp::3389-:3389,hostfwd<span class="o">=</span>tcp::443-:443,hostfwd<span class="o">=</span>tcp::992-:992 
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-system-i386 <span class="nt">-net</span> nic,model<span class="o">=</span>rtl8139 <span class="se">\</span>
+        <span class="nt">-net</span> user,hostfwd<span class="o">=</span>tcp::3389-:3389,hostfwd<span class="o">=</span>tcp::443-:443,hostfwd<span class="o">=</span>tcp::992-:992 
+</code></pre></div></div>
 
 <h4 id="sql-using-regex">sql using regex</h4>
-<p>Add a check constraint to the <code class="highlighter-rouge">id</code> column to enforce alphanumeric strings of exactly 5 characters long</p>
+<p>Add a check constraint to the <code class="language-plaintext highlighter-rouge">id</code> column to enforce alphanumeric strings of exactly 5 characters long</p>
 
-<div class="language-sql highlighter-rouge"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">short_urls</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">id</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">id</span> <span class="o">~</span> <span class="s1">'^[a-zA-Z0-9]{5}$'</span><span class="p">);</span>
-</code></pre>
-</div>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">short_urls</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">id</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">id</span> <span class="o">~</span> <span class="s1">'^[a-zA-Z0-9]{5}$'</span><span class="p">);</span>
+</code></pre></div></div>
 
 <h4 id="console-font-size">Console font size</h4>
 
-<p>Edit file → <code class="highlighter-rouge">/etc/default/console-setup</code></p>
+<p>Edit file → <code class="language-plaintext highlighter-rouge">/etc/default/console-setup</code></p>
 
 <h4 id="redirect-errors-to-null-device">Redirect errors to null device</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>find / 2&gt;/dev/null
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / 2&gt;/dev/null
+</code></pre></div></div>
 
 <h4 id="installing-nonfree-firmware-from-repository">Installing nonfree firmware from repository</h4>
 
 <p>I.e: Firmware for nonfree driver for Intel’s WIFI cards.</p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>https://packages.debian.org/sid/firmware-iwlwifi
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://packages.debian.org/sid/firmware-iwlwifi
+</code></pre></div></div>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt-get update <span class="o">&amp;&amp;</span> apt-get install firmware-linux-nonfree
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get update <span class="o">&amp;&amp;</span> apt-get <span class="nb">install </span>firmware-linux-nonfree
+</code></pre></div></div>
 
 <h4 id="installing-nonfree-firmware-from-manufacturer">Installing nonfree firmware from ​manufacturer</h4>
 
@@ -531,9 +482,8 @@ path=("$GEM_HOME/bin" $path)
 
 <p>Extract and copy like</p>
 
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code>cp iwlwifi-cc-a0-46.ucode /lib/firmware
-</code></pre>
-</div>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>iwlwifi-cc-a0-46.ucode /lib/firmware
+</code></pre></div></div>
 
 
 </div>

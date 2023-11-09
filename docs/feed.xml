@@ -1,537 +1,518 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.3.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2023-11-08T22:27:30+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="http://localhost:4000/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/dynamic-member-lockup</id><content type="html" xml:base="http://localhost:4000/swift/dynamic-member-lockup.html">&lt;p&gt;Here’s an example of using the &lt;code class=&quot;highlighter-rouge&quot;&gt;@dynamicMemberLookup&lt;/code&gt; attribute in Swift:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artgur.net/feed.xml" rel="self" type="application/atom+xml" /><link href="artgur.net/" rel="alternate" type="text/html" /><updated>2023-11-09T01:48:15+01:00</updated><id>artgur.net/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="artgur.net/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/swift/dynamic-member-lockup</id><content type="html" xml:base="artgur.net/swift/dynamic-member-lockup.html"><![CDATA[<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;@dynamicMemberLookup&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nf&quot;&gt;subscript&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dynamicMember&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;You accessed dynamic member '&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;member&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@dynamicMemberLookup</span>
+<span class="kd">struct</span> <span class="kt">DynamicStruct</span> <span class="p">{</span>
+    <span class="nf">subscript</span><span class="p">(</span><span class="n">dynamicMember</span> <span class="nv">member</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"You accessed dynamic member '</span><span class="se">\(</span><span class="n">member</span><span class="se">)</span><span class="s">'"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;dynamicStruct&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DynamicStruct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dynamicStruct&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;someDynamicMember&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// Output: &quot;You accessed dynamic member 'someDynamicMember'&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Here’s an example of using the @dynamicMemberLookup attribute in Swift:</summary></entry><entry><title type="html">Javascript closure</title><link href="http://localhost:4000/javascript/js-closure.html" rel="alternate" type="text/html" title="Javascript closure" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/javascript/js-closure</id><content type="html" xml:base="http://localhost:4000/javascript/js-closure.html">&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NextClosure&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<span class="k">let</span> <span class="nv">dynamicStruct</span> <span class="o">=</span> <span class="kt">DynamicStruct</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">dynamicStruct</span><span class="o">.</span><span class="n">someDynamicMember</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">// Output: "You accessed dynamic member 'someDynamicMember'"</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Here’s an example of using the @dynamicMemberLookup attribute in Swift:]]></summary></entry><entry><title type="html">Javascript closure</title><link href="artgur.net/javascript/js-closure.html" rel="alternate" type="text/html" title="Javascript closure" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/javascript/js-closure</id><content type="html" xml:base="artgur.net/javascript/js-closure.html"><![CDATA[<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">NextClosure</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">a</span><span class="o">++</span>
+        <span class="k">return</span> <span class="nx">a</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;NextClosure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">next</span> <span class="o">=</span> <span class="nx">NextClosure</span><span class="p">()</span>
 
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
 
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">var NextClosure = function() { var a = 0; return function next() { a++ return a } }</summary></entry><entry><title type="html">Regex - Find any</title><link href="http://localhost:4000/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex/regex-find-any</id><content type="html" xml:base="http://localhost:4000/regex/regex-find-any.html">&lt;p&gt;How to match “any character” in the regular expression&lt;/p&gt;
+</code></pre></div></div>]]></content><author><name></name></author><category term="javascript" /><summary type="html"><![CDATA[var NextClosure = function() { var a = 0; return function next() { a++ return a } }]]></summary></entry><entry><title type="html">Regex - Find any</title><link href="artgur.net/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/regex/regex-find-any</id><content type="html" xml:base="artgur.net/regex/regex-find-any.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → any char except newline&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;\.&lt;/code&gt; → the actual dot character&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.?&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,1}&lt;/code&gt; → match any char except newline zero or one times&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.*&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{0,}&lt;/code&gt; → match any char except newline zero or more times&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.+&lt;/code&gt; = &lt;code class=&quot;highlighter-rouge&quot;&gt;.{1,}&lt;/code&gt; → match any char except newline one or more times&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">How to match “any character” in the regular expression</summary></entry><entry><title type="html">SOLID principles</title><link href="http://localhost:4000/solid.html" rel="alternate" type="text/html" title="SOLID principles" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/solid</id><content type="html" xml:base="http://localhost:4000/solid.html">&lt;h3 id=&quot;single-responsibility-principle&quot;&gt;Single responsibility principle&lt;/h3&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">.</code> → any char except newline</li>
+  <li><code class="language-plaintext highlighter-rouge">\.</code> → the actual dot character</li>
+  <li><code class="language-plaintext highlighter-rouge">.?</code> = <code class="language-plaintext highlighter-rouge">.{0,1}</code> → match any char except newline zero or one times</li>
+  <li><code class="language-plaintext highlighter-rouge">.*</code> = <code class="language-plaintext highlighter-rouge">.{0,}</code> → match any char except newline zero or more times</li>
+  <li><code class="language-plaintext highlighter-rouge">.+</code> = <code class="language-plaintext highlighter-rouge">.{1,}</code> → match any char except newline one or more times</li>
+</ul>]]></content><author><name></name></author><category term="regex" /><summary type="html"><![CDATA[How to match “any character” in the regular expression]]></summary></entry><entry><title type="html">SOLID principles</title><link href="artgur.net/solid.html" rel="alternate" type="text/html" title="SOLID principles" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/solid</id><content type="html" xml:base="artgur.net/solid.html"><![CDATA[<h3 id="single-responsibility-principle">Single responsibility principle</h3>
 
-&lt;p&gt;This mean if the one thing in specification is changed you only need to change the code in the single place or class&lt;/p&gt;
+<p>This mean if the one thing in specification is changed you only need to change the code in the single place or class</p>
 
-&lt;h3 id=&quot;openclosed-principle&quot;&gt;Open/closed principle&lt;/h3&gt;
+<h3 id="openclosed-principle">Open/closed principle</h3>
 
-&lt;p&gt;Software should be open for extension, but closed for modification.&lt;/p&gt;
+<p>Software should be open for extension, but closed for modification.</p>
 
-&lt;h3 id=&quot;liskov-substitution-principle&quot;&gt;Liskov substitution principle&lt;/h3&gt;
+<h3 id="liskov-substitution-principle">Liskov substitution principle</h3>
 
-&lt;p&gt;Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.&lt;/p&gt;
+<p>Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program.</p>
 
-&lt;h3 id=&quot;interface-segregation-principle&quot;&gt;Interface segregation principle&lt;/h3&gt;
+<h3 id="interface-segregation-principle">Interface segregation principle</h3>
 
-&lt;p&gt;The interfaces should be small and provide as little methods as possible.&lt;/p&gt;
+<p>The interfaces should be small and provide as little methods as possible.</p>
 
-&lt;h3 id=&quot;dependency-inversion-principle&quot;&gt;Dependency inversion principle&lt;/h3&gt;
+<h3 id="dependency-inversion-principle">Dependency inversion principle</h3>
 
-&lt;p&gt;The lower module must not depends on higher module. In order to achieve this the code must to relay on abstractions (in other words the code has to use interfaces/protocols)&lt;/p&gt;</content><author><name></name></author><summary type="html">Single responsibility principle</summary></entry><entry><title type="html">Git - merge &amp;amp; squash commits</title><link href="http://localhost:4000/git/squash.html" rel="alternate" type="text/html" title="Git - merge &amp; squash commits" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/git/squash</id><content type="html" xml:base="http://localhost:4000/git/squash.html">&lt;p&gt;Squash the last three commints&lt;/p&gt;
+<p>The lower module must not depends on higher module. In order to achieve this the code must to relay on abstractions (in other words the code has to use interfaces/protocols)</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Single responsibility principle]]></summary></entry><entry><title type="html">Git - merge &amp;amp; squash commits</title><link href="artgur.net/git/squash.html" rel="alternate" type="text/html" title="Git - merge &amp;amp; squash commits" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/git/squash</id><content type="html" xml:base="artgur.net/git/squash.html"><![CDATA[<p>Squash the last three commints</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase -i HEAD~3
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~3
+</code></pre></div></div>
 
-&lt;p&gt;You will see something like this&lt;/p&gt;
+<p>You will see something like this</p>
 
-&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;pick f392171 Added new feature X
+<pre><code class="language-plain">pick f392171 Added new feature X
 pick ba9dd9a Added new elements to page design
 pick df71a27 Updated CSS for new elements
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;pick&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;p&lt;/code&gt; the commit will be taken&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;squash&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;s&lt;/code&gt;, the commit will be blended with the above.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pick</code> <code class="language-plaintext highlighter-rouge">p</code> the commit will be taken</li>
+  <li><code class="language-plaintext highlighter-rouge">squash</code> <code class="language-plaintext highlighter-rouge">s</code>, the commit will be blended with the above.</li>
+</ul>
 
-&lt;p&gt;Edit to something like this&lt;/p&gt;
+<p>Edit to something like this</p>
 
-&lt;pre&gt;&lt;code class=&quot;language-plain&quot;&gt;pick f392171 New message for this three commit!
+<pre><code class="language-plain">pick f392171 New message for this three commit!
 squash ba9dd9a
 squash df71a27
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Now you can accept the change by continuing the rebase:&lt;/p&gt;
+<p>Now you can accept the change by continuing the rebase:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git rebase --continue
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">--continue</span>
+</code></pre></div></div>
 
-&lt;p&gt;After that you need to force override the history using this command:&lt;/p&gt;
+<p>After that you need to force override the history using this command:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git push origin master --force
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master <span class="nt">--force</span>
+</code></pre></div></div>
 
-&lt;h2 id=&quot;squash-merge&quot;&gt;Squash merge&lt;/h2&gt;
+<h2 id="squash-merge">Squash merge</h2>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git checkout master
-git merge --squash bugfix
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+git merge <span class="nt">--squash</span> bugfix
 git commit
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Squash the last three commints</summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="http://localhost:4000/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/view-modifier</id><content type="html" xml:base="http://localhost:4000/swift/view-modifier.html">&lt;p&gt;The notification we’ll send when a shake gesture happens.&lt;/p&gt;
+</code></pre></div></div>]]></content><author><name></name></author><category term="git" /><summary type="html"><![CDATA[Squash the last three commints]]></summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="artgur.net/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/swift/view-modifier</id><content type="html" xml:base="artgur.net/swift/view-modifier.html"><![CDATA[<p>The notification we’ll send when a shake gesture happens.</p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIDevice&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;deviceDidShakeNotification&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Notification&lt;/span&gt;
-                                              &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;Name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;rawValue&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;deviceDidShakeNotification&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIDevice</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">deviceDidShakeNotification</span> <span class="o">=</span> <span class="kt">Notification</span>
+                                              <span class="o">.</span><span class="kt">Name</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="s">"deviceDidShakeNotification"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Override the default behavior of shake gestures to send our notification instead.&lt;/p&gt;
+<p>Override the default behavior of shake gestures to send our notification instead.</p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIWindow&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-     &lt;span class=&quot;n&quot;&gt;open&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;override&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;motionEnded&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;motion&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIEvent&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;EventSubtype&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;with&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIEvent&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;?)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;motion&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;motionShake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-            &lt;span class=&quot;kt&quot;&gt;NotificationCenter&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;
-                &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deviceDidShakeNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;object&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;nil&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-     &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIWindow</span> <span class="p">{</span>
+     <span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">motionEnded</span><span class="p">(</span><span class="n">_</span> <span class="nv">motion</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="o">.</span><span class="kt">EventSubtype</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">motion</span> <span class="o">==</span> <span class="o">.</span><span class="n">motionShake</span> <span class="p">{</span>
+            <span class="kt">NotificationCenter</span>
+                <span class="o">.</span><span class="k">default</span>
+                <span class="o">.</span><span class="nf">post</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">deviceDidShakeNotification</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;A view modifier that detects shaking and calls a function of our choosing.&lt;/p&gt;
+<p>A view modifier that detects shaking and calls a function of our choosing.</p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;DeviceShakeViewModifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ViewModifier&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Void&lt;/span&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">DeviceShakeViewModifier</span><span class="p">:</span> <span class="kt">ViewModifier</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
 
-    &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Content&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;content&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onAppear&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;onReceive&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;NotificationCenter&lt;/span&gt;
-                           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;default&lt;/span&gt;
-                           &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publisher&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;UIDevice&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;deviceDidShakeNotification&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
-                               &lt;span class=&quot;nf&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    <span class="kd">func</span> <span class="nf">body</span><span class="p">(</span><span class="nv">content</span><span class="p">:</span> <span class="kt">Content</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="n">content</span>
+            <span class="o">.</span><span class="nf">onAppear</span><span class="p">()</span>
+            <span class="o">.</span><span class="nf">onReceive</span><span class="p">(</span><span class="kt">NotificationCenter</span>
+                           <span class="o">.</span><span class="k">default</span>
+                           <span class="o">.</span><span class="nf">publisher</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">deviceDidShakeNotification</span><span class="p">))</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+                               <span class="nf">action</span><span class="p">()</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;A View extension to make the modifier easier to use.&lt;/p&gt;
+<p>A View extension to make the modifier easier to use.</p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;extension&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;func&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onShake&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;perform&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;@escaping&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Void&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;modifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;DeviceShakeViewModifier&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;action&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">onShake</span><span class="p">(</span><span class="n">perform</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">modifier</span><span class="p">(</span><span class="kt">DeviceShakeViewModifier</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="n">action</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;An example view that responds to being shaken&lt;/p&gt;
+<p>An example view that responds to being shaken</p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;ContentView&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;some&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;kt&quot;&gt;Text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Shake me!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;onShake&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-                &lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Device shaken!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-            &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">The notification we’ll send when a shake gesture happens.</summary></entry><entry><title type="html">Vim notes</title><link href="http://localhost:4000/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/vim</id><content type="html" xml:base="http://localhost:4000/software/vim.html">&lt;h4 id=&quot;symbols-and-meanings&quot;&gt;Symbols and meanings&lt;/h4&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt; → current file. An example:  &lt;code class=&quot;highlighter-rouge&quot;&gt;:so %&lt;/code&gt; → Source the current file&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;$&lt;/code&gt; → end of line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt; → Current line An example: &lt;code class=&quot;highlighter-rouge&quot;&gt;:.!sh&lt;/code&gt; → Pipe current line to &lt;code class=&quot;highlighter-rouge&quot;&gt;sh&lt;/code&gt; and replace it with the output&lt;/li&gt;
-&lt;/ul&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">ContentView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">Text</span><span class="p">(</span><span class="s">"Shake me!"</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">onShake</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"Device shaken!"</span><span class="p">)</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[The notification we’ll send when a shake gesture happens.]]></summary></entry><entry><title type="html">Vim notes</title><link href="artgur.net/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/software/vim</id><content type="html" xml:base="artgur.net/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
+  <li><code class="language-plaintext highlighter-rouge">$</code> → end of line</li>
+  <li><code class="language-plaintext highlighter-rouge">.</code> → Current line An example: <code class="language-plaintext highlighter-rouge">:.!sh</code> → Pipe current line to <code class="language-plaintext highlighter-rouge">sh</code> and replace it with the output</li>
+</ul>
 
-&lt;p&gt;Entering &lt;code class=&quot;highlighter-rouge&quot;&gt;!!&lt;/code&gt; in normal mode is translated to  &lt;code class=&quot;highlighter-rouge&quot;&gt;:.!&lt;/code&gt; I. e. Typing &lt;code class=&quot;highlighter-rouge&quot;&gt;!!date&lt;/code&gt; in normal mode replaces current line with the date.&lt;/p&gt;
+<p>Entering <code class="language-plaintext highlighter-rouge">!!</code> in normal mode is translated to  <code class="language-plaintext highlighter-rouge">:.!</code> I. e. Typing <code class="language-plaintext highlighter-rouge">!!date</code> in normal mode replaces current line with the date.</p>
 
-&lt;h4 id=&quot;tips&quot;&gt;Tips&lt;/h4&gt;
+<h4 id="tips">Tips</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:e[dit]&lt;/code&gt; →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. &lt;code class=&quot;highlighter-rouge&quot;&gt;:e!&lt;/code&gt; Force reload file&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="language-plaintext highlighter-rouge">:e!</code> Force reload file</li>
+</ul>
 
-&lt;h4 id=&quot;navigation&quot;&gt;Navigation&lt;/h4&gt;
+<h4 id="navigation">Navigation</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;h&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;j&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;k&lt;/code&gt;  &lt;code class=&quot;highlighter-rouge&quot;&gt;l&lt;/code&gt; → left, down, up, right&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt; → Next whole word under cursor (previous &lt;code class=&quot;highlighter-rouge&quot;&gt;#&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;e&lt;/code&gt; → Forward to the end of word. &lt;code class=&quot;highlighter-rouge&quot;&gt;E&lt;/code&gt; can contain punctuation&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; → Move forward to the beginning of a word. &lt;code class=&quot;highlighter-rouge&quot;&gt;W&lt;/code&gt; Same as &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;, but special characters are treated as part of a word.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;b&lt;/code&gt; → Works as &lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt;, but backwards&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;}&lt;/code&gt; → Jump by paragraphs&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;(&lt;/code&gt;,&lt;code class=&quot;highlighter-rouge&quot;&gt;)&lt;/code&gt; → Jump by sentences&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;G&lt;/code&gt; → Jump to the end of the file&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;1G&lt;/code&gt; → Jump to the beginning of the file (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;gg&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;50G&lt;/code&gt; → Jump to line 50&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;0&lt;/code&gt; → Beginning of line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;_&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;^&lt;/code&gt; → first non-blank character of the line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;g_&lt;/code&gt;  → last non-blank character of the line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;fX&lt;/code&gt; → next character &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;. &lt;code class=&quot;highlighter-rouge&quot;&gt;FX&lt;/code&gt; previous. &lt;code class=&quot;highlighter-rouge&quot;&gt;;&lt;/code&gt;   repeat , &lt;code class=&quot;highlighter-rouge&quot;&gt;,&lt;/code&gt;   repeat in reverse&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;tX&lt;/code&gt; → tili next &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt; (similar to above, but the cursor is before &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;H&lt;/code&gt; → Jump to the top of the screen&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;M&lt;/code&gt; → Jump to the middle of the screen&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;L&lt;/code&gt; → Jump to the bottom of the screen&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">h</code>  <code class="language-plaintext highlighter-rouge">j</code>  <code class="language-plaintext highlighter-rouge">k</code>  <code class="language-plaintext highlighter-rouge">l</code> → left, down, up, right</li>
+  <li><code class="language-plaintext highlighter-rouge">*</code> → Next whole word under cursor (previous <code class="language-plaintext highlighter-rouge">#</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">e</code> → Forward to the end of word. <code class="language-plaintext highlighter-rouge">E</code> can contain punctuation</li>
+  <li><code class="language-plaintext highlighter-rouge">w</code> → Move forward to the beginning of a word. <code class="language-plaintext highlighter-rouge">W</code> Same as <code class="language-plaintext highlighter-rouge">w</code>, but special characters are treated as part of a word.</li>
+  <li><code class="language-plaintext highlighter-rouge">b</code> → Works as <code class="language-plaintext highlighter-rouge">w</code>, but backwards</li>
+  <li><code class="language-plaintext highlighter-rouge">{</code>,<code class="language-plaintext highlighter-rouge">}</code> → Jump by paragraphs</li>
+  <li><code class="language-plaintext highlighter-rouge">(</code>,<code class="language-plaintext highlighter-rouge">)</code> → Jump by sentences</li>
+  <li><code class="language-plaintext highlighter-rouge">G</code> → Jump to the end of the file</li>
+  <li><code class="language-plaintext highlighter-rouge">1G</code> → Jump to the beginning of the file (same as <code class="language-plaintext highlighter-rouge">gg</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">50G</code> → Jump to line 50</li>
+  <li><code class="language-plaintext highlighter-rouge">0</code> → Beginning of line</li>
+  <li><code class="language-plaintext highlighter-rouge">_</code> or <code class="language-plaintext highlighter-rouge">^</code> → first non-blank character of the line</li>
+  <li><code class="language-plaintext highlighter-rouge">g_</code>  → last non-blank character of the line</li>
+  <li><code class="language-plaintext highlighter-rouge">fX</code> → next character <code class="language-plaintext highlighter-rouge">X</code>. <code class="language-plaintext highlighter-rouge">FX</code> previous. <code class="language-plaintext highlighter-rouge">;</code>   repeat , <code class="language-plaintext highlighter-rouge">,</code>   repeat in reverse</li>
+  <li><code class="language-plaintext highlighter-rouge">tX</code> → tili next <code class="language-plaintext highlighter-rouge">X</code> (similar to above, but the cursor is before <code class="language-plaintext highlighter-rouge">X</code>)</li>
+  <li><code class="language-plaintext highlighter-rouge">H</code> → Jump to the top of the screen</li>
+  <li><code class="language-plaintext highlighter-rouge">M</code> → Jump to the middle of the screen</li>
+  <li><code class="language-plaintext highlighter-rouge">L</code> → Jump to the bottom of the screen</li>
+</ul>
 
-&lt;h4 id=&quot;scrolling&quot;&gt;Scrolling&lt;/h4&gt;
+<h4 id="scrolling">Scrolling</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;10 &amp;lt;PageUp&amp;gt;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;10&amp;lt;CTRL-B&amp;gt;&lt;/code&gt; → Move 10 pages up&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;5 &amp;lt;PageDown&amp;gt;&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;5&amp;lt;CTRL-F&amp;gt;&lt;/code&gt; → Move 5 pages down.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zz&lt;/code&gt;  → scroll the line with the cursor to the center of the screen&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zt&lt;/code&gt;  → to the top&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zb&lt;/code&gt;  → to the bottom&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">10 &lt;PageUp&gt;</code> or <code class="language-plaintext highlighter-rouge">10&lt;CTRL-B&gt;</code> → Move 10 pages up</li>
+  <li><code class="language-plaintext highlighter-rouge">5 &lt;PageDown&gt;</code> or <code class="language-plaintext highlighter-rouge">5&lt;CTRL-F&gt;</code> → Move 5 pages down.</li>
+  <li><code class="language-plaintext highlighter-rouge">zz</code>  → scroll the line with the cursor to the center of the screen</li>
+  <li><code class="language-plaintext highlighter-rouge">zt</code>  → to the top</li>
+  <li><code class="language-plaintext highlighter-rouge">zb</code>  → to the bottom</li>
+</ul>
 
-&lt;h3 id=&quot;terminal-buffers&quot;&gt;Terminal buffers&lt;/h3&gt;
+<h3 id="terminal-buffers">Terminal buffers</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:te[rm[inal]] command&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:b#&lt;/code&gt; switch buffer&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:ls&lt;/code&gt; list buffers&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:buff 1&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;:b1&lt;/code&gt; switch to buffer 1&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:te[rm[inal]] command</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:b#</code> switch buffer</li>
+  <li><code class="language-plaintext highlighter-rouge">:ls</code> list buffers</li>
+  <li><code class="language-plaintext highlighter-rouge">:buff 1</code> or <code class="language-plaintext highlighter-rouge">:b1</code> switch to buffer 1</li>
+</ul>
 
-&lt;h3 id=&quot;list-of-the-commands&quot;&gt;List of the commands&lt;/h3&gt;
+<h3 id="list-of-the-commands">List of the commands</h3>
 
-&lt;p&gt;Common meaning of letters in the commands&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;w&lt;/code&gt; → word&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; → inner&lt;/li&gt;
-&lt;/ul&gt;
+<p>Common meaning of letters in the commands</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">w</code> → word</li>
+  <li><code class="language-plaintext highlighter-rouge">i</code> → inner</li>
+</ul>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Command&lt;/th&gt;
-      &lt;th style=&quot;text-align: left&quot;&gt; &lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dd&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete one line&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;d&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete selection&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete character under cursor&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;d+&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete 2 lines&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%d&lt;/code&gt; or :&lt;code class=&quot;highlighter-rouge&quot;&gt;1,$d&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete the whole of the file&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dw&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;diw&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete what that the cursor is over&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;di(&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Delete inner brackets. &lt;code class=&quot;highlighter-rouge&quot;&gt;da(&lt;/code&gt; → including brackets&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:r[ead] !date&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Execute commend and put content into editor&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;.&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Repeat the last operation&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gU&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Uppercase the selection, &lt;code class=&quot;highlighter-rouge&quot;&gt;gu&lt;/code&gt;  → lower&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;%&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Jump to matching bracket &lt;code class=&quot;highlighter-rouge&quot;&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;[ ]&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;( )&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%!column -t&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Put text in columns&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%!sort&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Sort the whole file&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;!grep text&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Keep lines that contains &lt;code class=&quot;highlighter-rouge&quot;&gt;text&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;!sort&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Sort selected lines&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:eariler 1m&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;State from the 1 min before&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ga&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Display hex, ascii value of character under cursor&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;g8 &lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Display hex value of utf-8 character under cursor&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ciw&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Change inner word&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;yiw&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Yank inner word&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;viwp&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Select word and then replace it with previously yanked text&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;rX&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;replace every character in selection or under cursor with &lt;code class=&quot;highlighter-rouge&quot;&gt;X&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;guiw&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Lower case word&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;guu&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Lowercase line&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;gUU&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Uppercase line&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;=&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Indent the selection&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;=%&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Indent the current braces&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;G=gg&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;indent entire document&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ZZ&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Write current file, if modified, and exit (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;:wq&lt;/code&gt;)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ZQ&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Quit current file and exit (same as &lt;code class=&quot;highlighter-rouge&quot;&gt;:q!&lt;/code&gt;)&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:so %&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Source current file&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@:&lt;/code&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: left&quot;&gt;Execute last command again&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right">Command</th>
+      <th style="text-align: left"> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">dd</code></td>
+      <td style="text-align: left">Delete one line</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">d</code></td>
+      <td style="text-align: left">Delete selection</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">x</code></td>
+      <td style="text-align: left">Delete character under cursor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">d+</code></td>
+      <td style="text-align: left">Delete 2 lines</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:%d</code> or :<code class="language-plaintext highlighter-rouge">1,$d</code></td>
+      <td style="text-align: left">Delete the whole of the file</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">dw</code>, <code class="language-plaintext highlighter-rouge">diw</code></td>
+      <td style="text-align: left">Delete what that the cursor is over</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">di(</code></td>
+      <td style="text-align: left">Delete inner brackets. <code class="language-plaintext highlighter-rouge">da(</code> → including brackets</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:r[ead] !date</code></td>
+      <td style="text-align: left">Execute commend and put content into editor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">.</code></td>
+      <td style="text-align: left">Repeat the last operation</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">gU</code></td>
+      <td style="text-align: left">Uppercase the selection, <code class="language-plaintext highlighter-rouge">gu</code>  → lower</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">%</code></td>
+      <td style="text-align: left">Jump to matching bracket <code class="language-plaintext highlighter-rouge">{ }</code> <code class="language-plaintext highlighter-rouge">[ ]</code> <code class="language-plaintext highlighter-rouge">( )</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:%!column -t</code></td>
+      <td style="text-align: left">Put text in columns</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:%!sort</code></td>
+      <td style="text-align: left">Sort the whole file</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:'&lt;,'&gt;!grep text</code></td>
+      <td style="text-align: left">Keep lines that contains <code class="language-plaintext highlighter-rouge">text</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:'&lt;,'&gt;!sort</code></td>
+      <td style="text-align: left">Sort selected lines</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:eariler 1m</code></td>
+      <td style="text-align: left">State from the 1 min before</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">ga</code></td>
+      <td style="text-align: left">Display hex, ascii value of character under cursor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">g8 </code></td>
+      <td style="text-align: left">Display hex value of utf-8 character under cursor</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">ciw</code></td>
+      <td style="text-align: left">Change inner word</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">yiw</code></td>
+      <td style="text-align: left">Yank inner word</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">viwp</code></td>
+      <td style="text-align: left">Select word and then replace it with previously yanked text</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">rX</code></td>
+      <td style="text-align: left">replace every character in selection or under cursor with <code class="language-plaintext highlighter-rouge">X</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">guiw</code></td>
+      <td style="text-align: left">Lower case word</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">guu</code></td>
+      <td style="text-align: left">Lowercase line</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">gUU</code></td>
+      <td style="text-align: left">Uppercase line</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">=</code></td>
+      <td style="text-align: left">Indent the selection</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">=%</code></td>
+      <td style="text-align: left">Indent the current braces</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">G=gg</code></td>
+      <td style="text-align: left">indent entire document</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">ZZ</code></td>
+      <td style="text-align: left">Write current file, if modified, and exit (same as <code class="language-plaintext highlighter-rouge">:wq</code>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">ZQ</code></td>
+      <td style="text-align: left">Quit current file and exit (same as <code class="language-plaintext highlighter-rouge">:q!</code>)</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">:so %</code></td>
+      <td style="text-align: left">Source current file</td>
+    </tr>
+    <tr>
+      <td style="text-align: right"><code class="language-plaintext highlighter-rouge">@:</code></td>
+      <td style="text-align: left">Execute last command again</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;h4 id=&quot;status-line&quot;&gt;Status line&lt;/h4&gt;
+<h4 id="status-line">Status line</h4>
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; statusline&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;%&lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;f&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;h&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;m&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;r&lt;/span&gt;%&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;b&lt;/span&gt;\ &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;x&lt;/span&gt;%B\ \ %&lt;span class=&quot;k&quot;&gt;l&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;%&lt;span class=&quot;k&quot;&gt;c&lt;/span&gt;%V\ %P
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">:</span><span class="k">set</span> <span class="nb">statusline</span><span class="p">=</span>%<span class="p">&lt;</span>%<span class="k">f</span>%<span class="k">h</span>%<span class="k">m</span>%<span class="k">r</span>%<span class="p">=</span>%<span class="k">b</span>\ <span class="m">0</span><span class="k">x</span>%B\ \ %<span class="k">l</span><span class="p">,</span>%<span class="k">c</span>%V\ %P
+</code></pre></div></div>
 
-&lt;h4 id=&quot;visual-mode&quot;&gt;Visual Mode&lt;/h4&gt;
+<h4 id="visual-mode">Visual Mode</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;V&lt;/code&gt; → Selection by lines&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;v&lt;/code&gt; → Selection follows the cursor&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Ctrl+v&lt;/code&gt; →  Block selection
-    &lt;ul&gt;
-      &lt;li&gt;When selected block you can applay changes to each line by typing &lt;code class=&quot;highlighter-rouge&quot;&gt;I&lt;/code&gt; editing and finally pressing &lt;code class=&quot;highlighter-rouge&quot;&gt;Esc&lt;/code&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">V</code> → Selection by lines</li>
+  <li><code class="language-plaintext highlighter-rouge">v</code> → Selection follows the cursor</li>
+  <li><code class="language-plaintext highlighter-rouge">Ctrl+v</code> →  Block selection
+    <ul>
+      <li>When selected block you can applay changes to each line by typing <code class="language-plaintext highlighter-rouge">I</code> editing and finally pressing <code class="language-plaintext highlighter-rouge">Esc</code></li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h4 id=&quot;enter-insert-mode&quot;&gt;Enter Insert Mode&lt;/h4&gt;
+<h4 id="enter-insert-mode">Enter Insert Mode</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;I&lt;/code&gt; → At the first non white character of the line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;i&lt;/code&gt; → On the left of the cursor&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;A&lt;/code&gt; → At the very end of the line&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; → On the right of the cursor&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;c&lt;/code&gt; →  Delete selection and enter insert mode&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;o&lt;/code&gt; → Create new line below and enter insert mode&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;O&lt;/code&gt; → Create new line above and enter insert mode&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">I</code> → At the first non white character of the line</li>
+  <li><code class="language-plaintext highlighter-rouge">i</code> → On the left of the cursor</li>
+  <li><code class="language-plaintext highlighter-rouge">A</code> → At the very end of the line</li>
+  <li><code class="language-plaintext highlighter-rouge">a</code> → On the right of the cursor</li>
+  <li><code class="language-plaintext highlighter-rouge">c</code> →  Delete selection and enter insert mode</li>
+  <li><code class="language-plaintext highlighter-rouge">o</code> → Create new line below and enter insert mode</li>
+  <li><code class="language-plaintext highlighter-rouge">O</code> → Create new line above and enter insert mode</li>
+</ul>
 
-&lt;h4 id=&quot;split-the-editor&quot;&gt;Split the editor&lt;/h4&gt;
+<h4 id="split-the-editor">Split the editor</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:sp &amp;lt;filename&amp;gt;&lt;/code&gt; → Vertically&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:vs &amp;lt;filename&amp;gt;&lt;/code&gt; → Horizontally&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:set splitbelow&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;:set splitright&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:sp &lt;filename&gt;</code> → Vertically</li>
+  <li><code class="language-plaintext highlighter-rouge">:vs &lt;filename&gt;</code> → Horizontally</li>
+  <li><code class="language-plaintext highlighter-rouge">:set splitbelow</code>, <code class="language-plaintext highlighter-rouge">:set splitright</code></li>
+</ul>
 
-&lt;h4 id=&quot;markers&quot;&gt;Markers&lt;/h4&gt;
+<h4 id="markers">Markers</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:marks&lt;/code&gt; →  list of marks&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ma&lt;/code&gt; → set current position for mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`a&lt;/code&gt; → jump to the cursor position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'a&lt;/code&gt; →  jump to the beginning of a line of a mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;y`a&lt;/code&gt; → yank text to position of mark &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;``&lt;/code&gt; → Return to the cursor position before the latest jump&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;`.&lt;/code&gt;  → Jump to the last changed line.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:marks</code> →  list of marks</li>
+  <li><code class="language-plaintext highlighter-rouge">ma</code> → set current position for mark <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">`a</code> → jump to the cursor position of mark <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">'a</code> →  jump to the beginning of a line of a mark <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">y`a</code> → yank text to position of mark <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">``</code> → Return to the cursor position before the latest jump</li>
+  <li><code class="language-plaintext highlighter-rouge">`.</code>  → Jump to the last changed line.</li>
+</ul>
 
-&lt;h3 id=&quot;recording-macros&quot;&gt;Recording macros&lt;/h3&gt;
+<h3 id="recording-macros">Recording macros</h3>
 
-&lt;ol&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;qa&lt;/code&gt; → Start recording macro under letter &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;q&lt;/code&gt; → Stop recording&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@a&lt;/code&gt; → Play the macro saved under letter a&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;@@&lt;/code&gt; → Play the last macro&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">qa</code> → Start recording macro under letter <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">q</code> → Stop recording</li>
+  <li><code class="language-plaintext highlighter-rouge">@a</code> → Play the macro saved under letter a</li>
+  <li><code class="language-plaintext highlighter-rouge">@@</code> → Play the last macro</li>
+</ol>
 
-&lt;h4 id=&quot;searching&quot;&gt;Searching&lt;/h4&gt;
+<h4 id="searching">Searching</h4>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%s/Plug.*$//&lt;/code&gt; → Search and delete all lines that starts from Plug&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%s/foo/bar/gc&lt;/code&gt; → Replace all occurrence of foo by bar with confirmation&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;'&amp;lt;,'&amp;gt;:s/find/replacewith/&lt;/code&gt; Replace selection&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;/pattern&lt;/code&gt; → search for pattern then enter and &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; next &lt;code class=&quot;highlighter-rouge&quot;&gt;N&lt;/code&gt; previous match&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;?pattern&lt;/code&gt; → search backward for pattern&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:%s/Plug.*$//</code> → Search and delete all lines that starts from Plug</li>
+  <li><code class="language-plaintext highlighter-rouge">:%s/foo/bar/gc</code> → Replace all occurrence of foo by bar with confirmation</li>
+  <li><code class="language-plaintext highlighter-rouge">'&lt;,'&gt;:s/find/replacewith/</code> Replace selection</li>
+  <li><code class="language-plaintext highlighter-rouge">/pattern</code> → search for pattern then enter and <code class="language-plaintext highlighter-rouge">n</code> next <code class="language-plaintext highlighter-rouge">N</code> previous match</li>
+  <li><code class="language-plaintext highlighter-rouge">?pattern</code> → search backward for pattern</li>
+</ul>
 
-&lt;h3 id=&quot;registers&quot;&gt;Registers&lt;/h3&gt;
+<h3 id="registers">Registers</h3>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:reg&lt;/code&gt; → print all registers&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;ap&lt;/code&gt; → paste the register &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt; , if the macro is recorded then it will paste it&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;&quot;xy&lt;/code&gt; → yank into register &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:let @a = &quot;kkll&quot;&lt;/code&gt; → set a macro from the command mode&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:let @A='i'&lt;/code&gt;  →  append to register &lt;code class=&quot;highlighter-rouge&quot;&gt;a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:%normal @a&lt;/code&gt;  → execute the macro on all lines of the current file&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:'&amp;lt;,'&amp;gt;normal @a&lt;/code&gt;  → execute the macro on a visually selected lines&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:10,20 normal @a&lt;/code&gt; → execute the macro for lines from 10 to 20&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;:g/pattern/ normal @a&lt;/code&gt; → Search for pattern and execute macro for it&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">:reg</code> → print all registers</li>
+  <li><code class="language-plaintext highlighter-rouge">"ap</code> → paste the register <code class="language-plaintext highlighter-rouge">a</code> , if the macro is recorded then it will paste it</li>
+  <li><code class="language-plaintext highlighter-rouge">"xy</code> → yank into register <code class="language-plaintext highlighter-rouge">x</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:let @a = "kkll"</code> → set a macro from the command mode</li>
+  <li><code class="language-plaintext highlighter-rouge">:let @A='i'</code>  →  append to register <code class="language-plaintext highlighter-rouge">a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">:%normal @a</code>  → execute the macro on all lines of the current file</li>
+  <li><code class="language-plaintext highlighter-rouge">:'&lt;,'&gt;normal @a</code>  → execute the macro on a visually selected lines</li>
+  <li><code class="language-plaintext highlighter-rouge">:10,20 normal @a</code> → execute the macro for lines from 10 to 20</li>
+  <li><code class="language-plaintext highlighter-rouge">:g/pattern/ normal @a</code> → Search for pattern and execute macro for it</li>
+</ul>
 
-&lt;h4 id=&quot;functions---an-example&quot;&gt;Functions - An example&lt;/h4&gt;
+<h4 id="functions---an-example">Functions - An example</h4>
 
-&lt;p&gt;Function definition&lt;/p&gt;
+<p>Function definition</p>
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;!&lt;/span&gt; CalculateAge&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    normal &lt;span class=&quot;m&quot;&gt;03&lt;/span&gt;wdei^R&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2012&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;^R&quot;^M^&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;j&lt;/span&gt; 
-&lt;span class=&quot;k&quot;&gt;endfunction&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function</span><span class="p">!</span> CalculateAge<span class="p">()</span>
+    normal <span class="m">03</span>wdei^R<span class="p">=</span><span class="m">2012</span><span class="p">-</span>^R"^M^<span class="p">[</span><span class="m">0</span><span class="k">j</span> 
+<span class="k">endfunction</span>
+</code></pre></div></div>
 
-&lt;p&gt;Key banding to function&lt;/p&gt;
+<p>Key banding to function</p>
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nnoremap &lt;span class=&quot;p&quot;&gt;&amp;lt;&lt;/span&gt;leader&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; CalculateAge&lt;span class=&quot;p&quot;&gt;()&amp;lt;&lt;/span&gt;CR&lt;span class=&quot;p&quot;&gt;&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nnoremap <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">a</span> <span class="p">:</span><span class="k">call</span> CalculateAge<span class="p">()&lt;</span>CR<span class="p">&gt;</span>
+</code></pre></div></div>
 
-&lt;p&gt;Preloading vim with macros like&lt;/p&gt;
+<p>Preloading vim with macros like</p>
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; @&lt;span class=&quot;k&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'03wdei^R=2012-^R&quot;^M^[0j'&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> @<span class="k">a</span><span class="p">=</span><span class="s1">'03wdei^R=2012-^R"^M^[0j'</span>
+</code></pre></div></div>
 
-&lt;p&gt;Call function from the command mode&lt;/p&gt;
+<p>Call function from the command mode</p>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:call CalculateAge()
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:call CalculateAge()
+</code></pre></div></div>
 
-&lt;h4 id=&quot;configuration&quot;&gt;Configuration&lt;/h4&gt;
+<h4 id="configuration">Configuration</h4>
 
-&lt;p&gt;The config file is located at &lt;code class=&quot;highlighter-rouge&quot;&gt;.config/nvim/init.vim&lt;/code&gt;&lt;/p&gt;
+<p>The config file is located at <code class="language-plaintext highlighter-rouge">.config/nvim/init.vim</code></p>
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; empty&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;glob&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'~/.local/share/nvim/site/autoload/plug.vim'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;silent&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;!&lt;/span&gt;curl &lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;fLo &lt;span class=&quot;p&quot;&gt;~&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/.local/&lt;/span&gt;share&lt;span class=&quot;sr&quot;&gt;/nvim/&lt;/span&gt;site&lt;span class=&quot;sr&quot;&gt;/autoload/&lt;/span&gt;plug&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;create&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;dirs
-&lt;span class=&quot;se&quot;&gt;    \&lt;/span&gt; https&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;//&lt;/span&gt;raw&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;githubusercontent&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/junegunn/&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;-&lt;/span&gt;plug&lt;span class=&quot;sr&quot;&gt;/master/&lt;/span&gt;plug&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;vim&lt;/span&gt;
-  autocmd &lt;span class=&quot;nb&quot;&gt;VimEnter&lt;/span&gt; * PlugInstall &lt;span class=&quot;p&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;sync&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;|&lt;/span&gt; source $MYVIMRC
-&lt;span class=&quot;k&quot;&gt;endif&lt;/span&gt;
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="nb">empty</span><span class="p">(</span><span class="nb">glob</span><span class="p">(</span><span class="s1">'~/.local/share/nvim/site/autoload/plug.vim'</span><span class="p">))</span>
+  <span class="k">silent</span> <span class="p">!</span>curl <span class="p">-</span>fLo <span class="p">~</span><span class="sr">/.local/</span>share<span class="sr">/nvim/</span>site<span class="sr">/autoload/</span>plug<span class="p">.</span><span class="k">vim</span> <span class="p">--</span>create<span class="p">-</span>dirs
+<span class="se">    \</span> https<span class="p">:</span><span class="sr">//</span>raw<span class="p">.</span>githubusercontent<span class="p">.</span><span class="k">com</span><span class="sr">/junegunn/</span><span class="k">vim</span><span class="p">-</span>plug<span class="sr">/master/</span>plug<span class="p">.</span><span class="k">vim</span>
+  autocmd <span class="nb">VimEnter</span> * PlugInstall <span class="p">--</span><span class="k">sync</span> <span class="p">|</span> <span class="k">source</span> $MYVIMRC
+<span class="k">endif</span>
 
-&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; plug#begin&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'~/.vim/plugged'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+<span class="k">call</span> plug#begin<span class="p">(</span><span class="s1">'~/.vim/plugged'</span><span class="p">)</span>
 
-  Plug &lt;span class=&quot;s1&quot;&gt;'junegunn/fzf'&lt;/span&gt;
+  Plug <span class="s1">'junegunn/fzf'</span>
 
-  Plug &lt;span class=&quot;s1&quot;&gt;'neovim/nvim-lspconfig'&lt;/span&gt;
-  Plug &lt;span class=&quot;s1&quot;&gt;'neoclide/coc.nvim'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'branch'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'release'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  Plug <span class="s1">'neovim/nvim-lspconfig'</span>
+  Plug <span class="s1">'neoclide/coc.nvim'</span><span class="p">,</span> <span class="p">{</span><span class="s1">'branch'</span><span class="p">:</span> <span class="s1">'release'</span><span class="p">}</span>
   
-  Plug &lt;span class=&quot;s1&quot;&gt;'vim-airline/vim-airline'&lt;/span&gt;
-  Plug &lt;span class=&quot;s1&quot;&gt;'vim-airline/vim-airline-themes'&lt;/span&gt;
+  Plug <span class="s1">'vim-airline/vim-airline'</span>
+  Plug <span class="s1">'vim-airline/vim-airline-themes'</span>
   
-  Plug &lt;span class=&quot;s1&quot;&gt;'vim-syntastic/syntastic'&lt;/span&gt;
-  Plug &lt;span class=&quot;s1&quot;&gt;'tokorom/syntastic-swiftlint.vim'&lt;/span&gt;
+  Plug <span class="s1">'vim-syntastic/syntastic'</span>
+  Plug <span class="s1">'tokorom/syntastic-swiftlint.vim'</span>
   
-&lt;span class=&quot;k&quot;&gt;call&lt;/span&gt; plug#&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<span class="k">call</span> plug#end<span class="p">()</span>
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set relativenumber&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set encoding=utf-8&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;syntax on&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;map za :FZF&amp;lt;CR&amp;gt;&lt;/code&gt; → fuzzy finder over &lt;code class=&quot;highlighter-rouge&quot;&gt;za&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">set relativenumber</code></li>
+  <li><code class="language-plaintext highlighter-rouge">set encoding=utf-8</code></li>
+  <li><code class="language-plaintext highlighter-rouge">syntax on</code></li>
+  <li><code class="language-plaintext highlighter-rouge">map za :FZF&lt;CR&gt;</code> → fuzzy finder over <code class="language-plaintext highlighter-rouge">za</code></li>
+</ul>
 
-&lt;p&gt;Indentation setup&lt;/p&gt;
+<p>Indentation setup</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set tabstop=2 shiftwidth=2 expandtab&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;filetype plugin indent on&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">set tabstop=2 shiftwidth=2 expandtab</code></li>
+  <li><code class="language-plaintext highlighter-rouge">filetype plugin indent on</code></li>
+</ul>
 
-&lt;div class=&quot;language-vim highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;g:syntastic_swift_checkers&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'swiftlint'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'swiftpm'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;lua&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; EOF
-  local lspconfig &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; require&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'lspconfig'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  lspconfig&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;sourcekit&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;setup&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">g:syntastic_swift_checkers</span> <span class="p">=</span> <span class="p">[</span><span class="s1">'swiftlint'</span><span class="p">,</span> <span class="s1">'swiftpm'</span><span class="p">]</span>
+<span class="k">lua</span> <span class="p">&lt;&lt;</span> EOF
+  local lspconfig <span class="p">=</span> require<span class="p">(</span><span class="s1">'lspconfig'</span><span class="p">)</span>
+  lspconfig<span class="p">.</span>sourcekit<span class="p">.</span>setup<span class="p">{}</span>
 EOF
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;!--
+<!--
 ### Navigation in Vimr
 - jump to the next empty line (the next paragraph)`}` 
 * Recording macros
-    * `&quot;xp` pastes the contents of the register `x`.
+    * `"xp` pastes the contents of the register `x`.
 
 
-* `~ `      : invert case (upper-&gt;lower; lower-&gt;upper) of current character
+* `~ `      : invert case (upper->lower; lower->upper) of current character
 * `gf `     : open file name under cursor (SUPER)
 
 * `ggg?G`  : rot13 whole file
@@ -543,8 +524,8 @@ EOF
 
 * `'.`       : jump to last modification line (SUPER)
 * *`.*       : jump to exact spot in last modification line
-* `&lt;C-O&gt;`    : retrace your movements in file (backward)
-* `&lt;C-I&gt;`    : retrace your movements in file (forward)
+* `<C-O>`    : retrace your movements in file (backward)
+* `<C-I>`    : retrace your movements in file (forward)
 * `:ju(mps)` : list of your movements 
 :history : list of all your commands
 
@@ -558,7 +539,7 @@ EOF
 
 :wn           : write file and move to next (SUPER)
 :bd           : remove file from buffer list (SUPER)
-:sav php.html : Save current file as php.html and &quot;move&quot; to php.html
+:sav php.html : Save current file as php.html and "move" to php.html
 :w /some/path/%:r   : save file in another directory, but with the same name
 :e #          : edit alternative file
 :args         : display argument list
@@ -573,9 +554,9 @@ EOF
 :tabm n       : move tab to position n (0=leftmost position)
 
 # editing a register/recording
-&quot;ap
-&lt;you can now see register contents, edit as required&gt;
-&quot;add
+"ap
+<you can now see register contents, edit as required>
+"add
 @a
 
 
@@ -625,7 +606,7 @@ Search in multiple files
 
 
 folding from selection
-`: '&lt;,'&gt;fo`
+`: '<,'>fo`
 
 `:help folding`
 
@@ -641,244 +622,224 @@ Sequence forfolding lines `Shift+V:fo`
 `zf#j` creates a fold from the cursor down # lines.
 
 :CheckHealth
---&gt;</content><author><name></name></author><summary type="html">Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output</summary></entry><entry><title type="html">Cancelling a publisher</title><link href="http://localhost:4000/swift/cancel-upstream.html" rel="alternate" type="text/html" title="Cancelling a publisher" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/cancel-upstream</id><content type="html" xml:base="http://localhost:4000/swift/cancel-upstream.html">&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;timer&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Timer&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;publish&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;every&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;in&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;common&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;autoconnect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+-->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry><entry><title type="html">Cancelling a publisher</title><link href="artgur.net/swift/cancel-upstream.html" rel="alternate" type="text/html" title="Cancelling a publisher" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/swift/cancel-upstream</id><content type="html" xml:base="artgur.net/swift/cancel-upstream.html"><![CDATA[<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
+	<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
+	<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
+</code></pre></div></div>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;subscriber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sink&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;_&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt;
-		&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-			&lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;upstream&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;connect&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;cancel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-		&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-	&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span>
+	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+	<span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+		<span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">{</span>
+			<span class="n">timer</span><span class="o">.</span><span class="n">upstream</span><span class="o">.</span><span class="nf">connect</span><span class="p">()</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;subscriber&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;timer&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;prefix&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">let timer = Timer .publish(every: 1.0, on: .main, in: .common) .autoconnect()</summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html">&lt;p&gt;We can cross call functions from languages that:&lt;/p&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[let timer = Timer .publish(every: 1.0, on: .main, in: .common) .autoconnect()]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="artgur.net/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/programming/bridging</id><content type="html" xml:base="artgur.net/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Both are compilable → Strategy: Create a binary library and call function from it.&lt;/li&gt;
-  &lt;li&gt;Library in &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreted&lt;/code&gt; and the project in &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; → Strategy: Create an interpreter context, then load the files and execute them.&lt;/li&gt;
-  &lt;li&gt;Library in &lt;code class=&quot;highlighter-rouge&quot;&gt;compiled&lt;/code&gt; and the project in &lt;code class=&quot;highlighter-rouge&quot;&gt;interpreted&lt;/code&gt; → Strategy: Use &lt;code class=&quot;highlighter-rouge&quot;&gt;FFI&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;Both are interpreted
-    &lt;ul&gt;
-      &lt;li&gt;Probably give up. Bridging will be possible, but messy and complicated&lt;/li&gt;
-      &lt;li&gt;Create two programs and exchange data between them using pipe, sockets, message quesues, databses etc.&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Both are compilable → Strategy: Create a binary library and call function from it.</li>
+  <li>Library in <code class="language-plaintext highlighter-rouge">interpreted</code> and the project in <code class="language-plaintext highlighter-rouge">compiled</code> → Strategy: Create an interpreter context, then load the files and execute them.</li>
+  <li>Library in <code class="language-plaintext highlighter-rouge">compiled</code> and the project in <code class="language-plaintext highlighter-rouge">interpreted</code> → Strategy: Use <code class="language-plaintext highlighter-rouge">FFI</code>.</li>
+  <li>Both are interpreted
+    <ul>
+      <li>Probably give up. Bridging will be possible, but messy and complicated</li>
+      <li>Create two programs and exchange data between them using pipe, sockets, message quesues, databses etc.</li>
+    </ul>
+  </li>
+</ul>
 
-&lt;h3 id=&quot;creating-shared-and-static-library-in-go&quot;&gt;Creating shared and static library in Go&lt;/h3&gt;
+<h3 id="creating-shared-and-static-library-in-go">Creating shared and static library in Go</h3>
 
-&lt;p&gt;An example code that is shared &lt;a href=&quot;https://github.com/artur-gurgul/codebook&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;example.go&lt;/code&gt;&lt;/a&gt;:&lt;/p&gt;
+<p>An example code that is shared <a href="https://github.com/artur-gurgul/codebook"><code class="language-plaintext highlighter-rouge">example.go</code></a>:</p>
 
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;fmt&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+<span class="k">import</span> <span class="s">"C"</span>
+<span class="k">import</span> <span class="s">"fmt"</span>
 
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//export SayHello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-		&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fmt&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;GoString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+<span class="c">//export SayHello</span>
+<span class="k">func</span> <span class="n">SayHello</span><span class="p">(</span><span class="n">hello</span> <span class="o">*</span><span class="n">C</span><span class="o">.</span><span class="n">char</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">GoString</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span>
+<span class="p">}</span>
 
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div></div>
 
-&lt;ul&gt;
-  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; function is neccecery to include into library, because the final product has to have for example the GC rutines.&lt;/li&gt;
-  &lt;li&gt;The comment starting from &lt;code class=&quot;highlighter-rouge&quot;&gt;//export {function name}&lt;/code&gt; tells the comiler that this the function will be called from the outside.&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">main</code> function is neccecery to include into library, because the final product has to have for example the GC rutines.</li>
+  <li>The comment starting from <code class="language-plaintext highlighter-rouge">//export {function name}</code> tells the comiler that this the function will be called from the outside.</li>
+</ul>
 
-&lt;h4 id=&quot;creating-static-library&quot;&gt;Creating static library&lt;/h4&gt;
+<h4 id="creating-static-library">Creating static library</h4>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.a -buildmode=c-archive example.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.a -buildmode=c-archive example.go
+</code></pre></div></div>
 
-&lt;h4 id=&quot;creating-dynamic-library&quot;&gt;Creating dynamic library&lt;/h4&gt;
+<h4 id="creating-dynamic-library">Creating dynamic library</h4>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;go build -o example.dylib -buildmode=c-shared example.go
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.dylib -buildmode=c-shared example.go
+</code></pre></div></div>
 
-&lt;h3 id=&quot;creating-shared-and-static-library-in-swift&quot;&gt;Creating shared and static library in Swift&lt;/h3&gt;
+<h3 id="creating-shared-and-static-library-in-swift">Creating shared and static library in Swift</h3>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swift&lt;/code&gt;&lt;/p&gt;
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Point&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;
+<p><code class="language-plaintext highlighter-rouge">point.swift</code></p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Point</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">let</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="kd">public</span> <span class="k">let</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span>
 
-    &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;init&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;and compile with command (module name is optional)&lt;/p&gt;
+<p>and compile with command (module name is optional)</p>
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;swiftc point.swift -emit-module  -module-name Point -emit-library -static
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift <span class="nt">-emit-module</span>  -module-name Point <span class="nt">-emit-library</span> <span class="nt">-static</span>
+</code></pre></div></div>
 
-&lt;p&gt;&lt;strong&gt;Using&lt;/strong&gt;&lt;/p&gt;
+<p><strong>Using</strong></p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Point&lt;/span&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Point</span>
 
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Point&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;nf&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello library!&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;x&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;p&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<span class="k">let</span> <span class="nv">p</span> <span class="o">=</span> <span class="kt">Point</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"Hello library!"</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
 
-&lt;p&gt;compile with&lt;/p&gt;
+<p>compile with</p>
 
-&lt;div class=&quot;language-sh highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;swiftc main.swift -L ./lib/ -I ./lib/ -lpoint
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc main.swift <span class="nt">-L</span> ./lib/ <span class="nt">-I</span> ./lib/ <span class="nt">-lpoint</span>
+</code></pre></div></div>
 
-&lt;h4 id=&quot;dynamic-library-in-swift&quot;&gt;Dynamic library in Swift&lt;/h4&gt;
+<h4 id="dynamic-library-in-swift">Dynamic library in Swift</h4>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;swiftc point.swift -emit-module -emit-library
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift -emit-module -emit-library
+</code></pre></div></div>
 
-&lt;p&gt;it produces&lt;/p&gt;
+<p>it produces</p>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libpoint.a&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swiftdoc&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swiftmodule&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;point.swiftsourceinfo&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">libpoint.a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftdoc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftmodule</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftsourceinfo</code></li>
+</ul>
 
-&lt;p&gt;Compile main program the same way as it has been down with the static one&lt;/p&gt;
+<p>Compile main program the same way as it has been down with the static one</p>
 
-&lt;p&gt;Library searching paths &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/lib/&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;/usr/local/lib/&lt;/code&gt; &lt;/p&gt;
+<p>Library searching paths <code class="language-plaintext highlighter-rouge">/usr/lib/</code>, <code class="language-plaintext highlighter-rouge">/usr/local/lib/</code> </p>
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;Create package that emits library&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+<p><strong><em>Create package that emits library</em></strong></p>
 
-&lt;div class=&quot;language-swift highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// swift-tools-version:5.3&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;PackageDescription&lt;/span&gt;
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// swift-tools-version:5.3</span>
+<span class="kd">import</span> <span class="kt">PackageDescription</span>
 
-&lt;span class=&quot;k&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;Package&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyLibrary&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;products&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-        &lt;span class=&quot;c1&quot;&gt;/// type: automatic, based on the environment&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyLibrary&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
-		         &lt;span class=&quot;c1&quot;&gt;// type: .dynamic, .static&lt;/span&gt;
-		         &lt;span class=&quot;nv&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;MyLibrary&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-        &lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
-    &lt;span class=&quot;nv&quot;&gt;targets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
-        &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;target&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;MyLibrary&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]),&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
+    <span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span>
+    <span class="nv">products</span><span class="p">:</span> <span class="p">[</span>
+        <span class="c1">/// type: automatic, based on the environment</span>
+        <span class="o">.</span><span class="nf">library</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> 
+		         <span class="c1">// type: .dynamic, .static</span>
+		         <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">"MyLibrary"</span><span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[]),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></div>
 
-&lt;h3 id=&quot;calling-function-from-library-in-go&quot;&gt;Calling function from library in Go&lt;/h3&gt;
+<h3 id="calling-function-from-library-in-go">Calling function from library in Go</h3>
 
-&lt;p&gt;First off we will create C++ library that we will use in out Go program.
-File &lt;code class=&quot;highlighter-rouge&quot;&gt;example.cxx&lt;/code&gt;:&lt;/p&gt;
+<p>First off we will create C++ library that we will use in out Go program.
+File <code class="language-plaintext highlighter-rouge">example.cxx</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;stdio.h&amp;gt;
-&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="k">extern</span> <span class="s">"C"</span> <span class="p">{</span>
 
-&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;printf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello: %s&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Hello: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<span class="p">}</span></code></pre></figure>
 
-&lt;p&gt;And &lt;code class=&quot;highlighter-rouge&quot;&gt;example.hxx&lt;/code&gt;:&lt;/p&gt;
+<p>And <code class="language-plaintext highlighter-rouge">example.hxx</code>:</p>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-c--&quot; data-lang=&quot;c++&quot;&gt;&lt;span class=&quot;cp&quot;&gt;#pragma once
-&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;u&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#pragma once
+</span><span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span></code></pre></figure>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;extern &quot;C&quot; {}&lt;/code&gt; informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">extern "C" {}</code> informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:</p>
 
-&lt;h4 id=&quot;creating-static-library-1&quot;&gt;Creating static library&lt;/h4&gt;
+<h4 id="creating-static-library-1">Creating static library</h4>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clang++ -c -Wall -o lib.o ./example.cxx
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -c -Wall -o lib.o ./example.cxx
 ar rc ./libexample.a ./lib.o
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+</code></pre></div></div>
 
-&lt;h4 id=&quot;creating-dynamic-library-1&quot;&gt;Creating dynamic library&lt;/h4&gt;
+<h4 id="creating-dynamic-library-1">Creating dynamic library</h4>
 
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clang++ -dynamiclib -o libexample.dylib example.cxx
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -dynamiclib -o libexample.dylib example.cxx
+</code></pre></div></div>
 
-&lt;h2 id=&quot;statically-linking-an-example-library-in-go&quot;&gt;Statically linking an example library in Go&lt;/h2&gt;
+<h2 id="statically-linking-an-example-library-in-go">Statically linking an example library in Go</h2>
 
-&lt;div class=&quot;language-go highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;package&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
 
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo CFLAGS: -I.&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #cgo LDFLAGS: -L. -lexample&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;//&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;// #include &amp;lt;example.hxx&amp;gt;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;import&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;C&quot;&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
+<span class="c">// #cgo CFLAGS: -I.</span>
+<span class="c">// #cgo LDFLAGS: -L. -lexample</span>
+<span class="c">//</span>
+<span class="c">// #include &lt;example.hxx&gt;</span>
+<span class="k">import</span> <span class="s">"C"</span>
 
-&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;func&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;span class=&quot;x&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-	&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PrintHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;C&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CString&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello Golang&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;x&quot;&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">C</span><span class="o">.</span><span class="n">PrintHello</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">CString</span><span class="p">(</span><span class="s">"Hello Golang"</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;The program is linked staticaly with libexample when you build it.&lt;/p&gt;
+<p>The program is linked staticaly with libexample when you build it.</p>
 
-&lt;h4 id=&quot;example-of-using-library-with-ffi-in-ruby&quot;&gt;Example of using library with FFI in Ruby&lt;/h4&gt;
+<h4 id="example-of-using-library-with-ffi-in-ruby">Example of using library with FFI in Ruby</h4>
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-shell&quot; data-lang=&quot;shell&quot;&gt;gem install ffi&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gem <span class="nb">install </span>ffi</code></pre></figure>
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'ffi'&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;Example&lt;/span&gt;
-  &lt;span class=&quot;kp&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FFI&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Library&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;ffi_lib&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./example.dylib'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;attach_function&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ffi'</span>
+<span class="k">module</span> <span class="nn">Example</span>
+  <span class="kp">extend</span> <span class="no">FFI</span><span class="o">::</span><span class="no">Library</span>
+  <span class="n">ffi_lib</span> <span class="s1">'./example.dylib'</span>
+  <span class="n">attach_function</span> <span class="ss">:SayHello</span><span class="p">,</span> <span class="p">[</span><span class="ss">:string</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
-&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Example</span><span class="o">.</span><span class="no">SayHello</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
 
-&lt;p&gt;More informations about FFI: &lt;a href=&quot;https://en.wikipedia.org/wiki/Foreign_function_interface&quot;&gt;https://en.wikipedia.org/wiki/Foreign_function_interface&lt;/a&gt;&lt;/p&gt;
+<p>More informations about FFI: <a href="https://en.wikipedia.org/wiki/Foreign_function_interface">https://en.wikipedia.org/wiki/Foreign_function_interface</a></p>
 
-&lt;h4 id=&quot;call-shared-library-from-python&quot;&gt;Call shared library from Python&lt;/h4&gt;
+<h4 id="call-shared-library-from-python">Call shared library from Python</h4>
 
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ctypes&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ctypes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CDLL&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'./example.dylib'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;libc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SayHello&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="n">libc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'./example.dylib'</span><span class="p">)</span>
+<span class="n">libc</span><span class="p">.</span><span class="n">SayHello</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
 
-&lt;h2 id=&quot;interesting-websites&quot;&gt;Interesting websites&lt;/h2&gt;
+<h2 id="interesting-websites">Interesting websites</h2>
 
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://blog.filippo.io/building-python-modules-with-go-1-5/&quot;&gt;https://blog.filippo.io/building-python-modules-with-go-1-5/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&quot;&gt;https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">We can cross call functions from languages that:</summary></entry><entry><title type="html">Starting an electron app on wayland</title><link href="http://localhost:4000/software/wayland-apps.html" rel="alternate" type="text/html" title="Starting an electron app on wayland" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/wayland-apps</id><content type="html" xml:base="http://localhost:4000/software/wayland-apps.html">&lt;p&gt;Start chromium using wayland&lt;/p&gt;
+<ul>
+  <li><a href="https://blog.filippo.io/building-python-modules-with-go-1-5/">https://blog.filippo.io/building-python-modules-with-go-1-5/</a></li>
+  <li><a href="https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/">https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/</a></li>
+</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry><entry><title type="html">Starting an electron app on wayland</title><link href="artgur.net/software/wayland-apps.html" rel="alternate" type="text/html" title="Starting an electron app on wayland" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/software/wayland-apps</id><content type="html" xml:base="artgur.net/software/wayland-apps.html"><![CDATA[<p>Start chromium using wayland</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;chromium --enable-features&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;UseOzonePlatform --ozone-platform&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wayland
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chromium <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
+</code></pre></div></div>
 
-&lt;p&gt;It’s the same for electron-based apps:&lt;/p&gt;
+<p>It’s the same for electron-based apps:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;app-executable&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; --enable-features&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;UseOzonePlatform &lt;span class=&quot;se&quot;&gt;\&lt;/span&gt;
-                 --ozone-platform&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;wayland
-&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;</content><author><name></name></author><summary type="html">Start chromium using wayland</summary></entry></feed>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`</span>app-executable<span class="sb">`</span> <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="se">\</span>
+                 <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
+</code></pre></div></div>]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Start chromium using wayland]]></summary></entry></feed>

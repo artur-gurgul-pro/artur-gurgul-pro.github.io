@@ -9,7 +9,7 @@
   
   <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artgur.net/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 
   <style>
@@ -220,35 +220,30 @@
 <div id="post">
   <p><strong>Step 1 - Enable NBD on the Host</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>modprobe nbd max_part=8
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modprobe nbd max_part=8
+</code></pre></div></div>
 
 <p><strong>Step 2 - Connect the QCOW2 as network block device</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>qemu-nbd --connect=/dev/nbd0 /var/lib/vz/images/100/vm-100-disk-1.qcow2
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-nbd --connect=/dev/nbd0 /var/lib/vz/images/100/vm-100-disk-1.qcow2
+</code></pre></div></div>
 
 <p><strong>Step 3 - Find The Virtual Machine Partitions</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>fdisk /dev/nbd0 -l
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fdisk /dev/nbd0 -l
+</code></pre></div></div>
 
 <p><strong>Step 4 - Mount the partition from the VM</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>mount /dev/nbd0p1 /mnt/somepoint/
-</code></pre>
-</div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount /dev/nbd0p1 /mnt/somepoint/
+</code></pre></div></div>
 
 <p><strong>Step 5 - After you done, unmount and disconnect</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>umount /mnt/somepoint/
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>umount /mnt/somepoint/
 qemu-nbd --disconnect /dev/nbd0
 rmmod nbd
-</code></pre>
-</div>
+</code></pre></div></div>
 
 
 </div>
