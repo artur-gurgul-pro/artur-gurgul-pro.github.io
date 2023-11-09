@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artgur.net/feed.xml" rel="self" type="application/atom+xml" /><link href="artgur.net/" rel="alternate" type="text/html" /><updated>2023-11-09T01:48:15+01:00</updated><id>artgur.net/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artgur.net/feed.xml" rel="self" type="application/atom+xml" /><link href="artgur.net/" rel="alternate" type="text/html" /><updated>2023-11-09T12:16:51+01:00</updated><id>artgur.net/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="artgur.net/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/swift/dynamic-member-lockup</id><content type="html" xml:base="artgur.net/swift/dynamic-member-lockup.html"><![CDATA[<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@dynamicMemberLookup</span>
@@ -161,6 +161,7 @@ git commit
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">:e[dit]</code> →	Edit the current file. This is useful to re-edit the current file, when it has been changed outside of Vim. <code class="language-plaintext highlighter-rouge">:e!</code> Force reload file</li>
+  <li><code class="language-plaintext highlighter-rouge">:help index</code> → Get all default mappings</li>
 </ul>
 
 <h4 id="navigation">Navigation</h4>
@@ -503,6 +504,22 @@ git commit
   local lspconfig <span class="p">=</span> require<span class="p">(</span><span class="s1">'lspconfig'</span><span class="p">)</span>
   lspconfig<span class="p">.</span>sourcekit<span class="p">.</span>setup<span class="p">{}</span>
 EOF
+</code></pre></div></div>
+
+<h4 id="rename-current-file">Rename current file</h4>
+
+<div class="language-vim highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="k">function</span><span class="p">!</span> RenameFile<span class="p">()</span>
+    <span class="k">let</span> old_name <span class="p">=</span> <span class="nb">expand</span><span class="p">(</span><span class="s1">'%'</span><span class="p">)</span>
+    <span class="k">let</span> new_name <span class="p">=</span> <span class="nb">input</span><span class="p">(</span><span class="s1">'New file name: '</span><span class="p">,</span> <span class="nb">expand</span><span class="p">(</span><span class="s1">'%'</span><span class="p">),</span> <span class="s1">'file'</span><span class="p">)</span>
+    <span class="k">if</span> new_name <span class="p">!=</span> <span class="s1">''</span> &amp;&amp; new_name <span class="p">!=</span> old_name
+        exec <span class="s1">':saveas '</span> <span class="p">.</span> new_name
+        exec <span class="s1">':silent !rm '</span> <span class="p">.</span> old_name
+        exec <span class="s1">':bd '</span> <span class="p">.</span> old_file
+        <span class="k">redraw</span><span class="p">!</span>
+    <span class="k">endif</span>
+<span class="k">endfunction</span>
+<span class="nb">map</span> <span class="p">&lt;</span>leader<span class="p">&gt;</span><span class="k">n</span> <span class="p">:</span><span class="k">call</span> RenameFile<span class="p">()&lt;</span><span class="k">cr</span><span class="p">&gt;</span>
 </code></pre></div></div>
 
 <!--
