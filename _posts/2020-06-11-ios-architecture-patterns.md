@@ -28,6 +28,8 @@ func scene(_ scene: UIScene,
 
 ## Dependency injection
 
+<!-- https://www.swiftbysundell.com/tips/testing-code-that-uses-static-apis/ -->
+
 [Explanation of the code under this link](https://www.avanderlee.com/swift/dependency-injection/)
 
 

@@ -23,3 +23,9 @@ artur ALL=(ALL) chroot /path/to/chroot-env
 
 
 https://medium.com/sudo-by-icalia-labs/ios-architecture-mvvm-c-introduction-1-6-815204248518
+
+
+może dobrze byłoby przepisać generowanie strony na `Publish` i https://github.com/JohnSundell/Plot
+
+
+interesujące playgroundy: https://github.com/JohnSundell/SwiftBySundell/tree/master/Basics

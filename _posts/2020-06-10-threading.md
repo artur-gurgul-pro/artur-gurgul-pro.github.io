@@ -20,7 +20,9 @@ Chunk of jobs that can be performed on the separate thread are arranged into:
 Creating queue. Note without parameter `attributes` we will get serial queue
 
 ```swift
-let queue = DispatchQueue(label: "important.job", qos: .default, attributes: .concurrent)
+let queue = DispatchQueue(label: "important.job",
+                          qos: .default,
+                          attributes: .concurrent)
 ```
 
 #### Examples of sending jobs to queues:
@@ -376,7 +378,9 @@ Quotes from: [https://trycombine.com/posts/subscribe-on-receive-on/](https://try
 > 
 > A side effect of subscribing on the given scheduler is that `subscribe(on:)` also changes the scheduler for its downstream ....
 
-Subscription is done once and calling secund time the `subscribe(on: )` have no effect.
+Subscription is done once and calling second time the `subscribe(on: )` have no effect.
+
+`subscribe(on: DispatchQueue.global(qos: .background))` queues on this call &rarr;  `func request(_ demand: Subscribers.Demand)`
 
 **`receive(on:)`**
 
@@ -387,6 +391,8 @@ Subscription is done once and calling secund time the `subscribe(on: )` have no 
 > You can use `receive(on:)` similarly to `subscribe(on:)`. You can use multiple `receive(on:)` operators and that will always change the downstream scheduler
 
 # Usage of `RunLoop`
+
+<!-- Diffrence between queue and runloop https://www.avanderlee.com/combine/runloop-main-vs-dispatchqueue-main/ -->
 
 Doncumentation on [RunLoop](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html)
 

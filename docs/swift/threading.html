@@ -236,7 +236,9 @@
 
 <p>Creating queue. Note without parameter <code class="language-plaintext highlighter-rouge">attributes</code> we will get serial queue</p>
 
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="kt">DispatchQueue</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"important.job"</span><span class="p">,</span> <span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span> <span class="nv">attributes</span><span class="p">:</span> <span class="o">.</span><span class="n">concurrent</span><span class="p">)</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">queue</span> <span class="o">=</span> <span class="kt">DispatchQueue</span><span class="p">(</span><span class="nv">label</span><span class="p">:</span> <span class="s">"important.job"</span><span class="p">,</span>
+                          <span class="nv">qos</span><span class="p">:</span> <span class="o">.</span><span class="k">default</span><span class="p">,</span>
+                          <span class="nv">attributes</span><span class="p">:</span> <span class="o">.</span><span class="n">concurrent</span><span class="p">)</span>
 </code></pre></div></div>
 
 <h4 id="examples-of-sending-jobs-to-queues">Examples of sending jobs to queues:</h4>
@@ -561,7 +563,9 @@
   <p>A side effect of subscribing on the given scheduler is that <code class="language-plaintext highlighter-rouge">subscribe(on:)</code> also changes the scheduler for its downstream ….</p>
 </blockquote>
 
-<p>Subscription is done once and calling secund time the <code class="language-plaintext highlighter-rouge">subscribe(on: )</code> have no effect.</p>
+<p>Subscription is done once and calling second time the <code class="language-plaintext highlighter-rouge">subscribe(on: )</code> have no effect.</p>
+
+<p><code class="language-plaintext highlighter-rouge">subscribe(on: DispatchQueue.global(qos: .background))</code> queues on this call →  <code class="language-plaintext highlighter-rouge">func request(_ demand: Subscribers.Demand)</code></p>
 
 <p><strong><code class="language-plaintext highlighter-rouge">receive(on:)</code></strong></p>
 
@@ -574,6 +578,8 @@
 </blockquote>
 
 <h1 id="usage-of-runloop">Usage of <code class="language-plaintext highlighter-rouge">RunLoop</code></h1>
+
+<!-- Diffrence between queue and runloop https://www.avanderlee.com/combine/runloop-main-vs-dispatchqueue-main/ -->
 
 <p>Doncumentation on <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Multithreading/RunLoopManagement/RunLoopManagement.html">RunLoop</a></p>
 
