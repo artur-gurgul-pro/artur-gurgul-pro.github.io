@@ -37,7 +37,7 @@ func add(a: Int, b: Int, c: Int) -> Int {
 }
 ```
 
-```
+```swift
 let adding = curry(add)
 let adding5 = uncurry(adding(5))
 ```
