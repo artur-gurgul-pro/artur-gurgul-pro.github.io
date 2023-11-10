@@ -29,6 +29,12 @@ func apply<A, B, C>(_ a: A, _ f: @escaping (A, B) -> C) -> (B) -> C {
 }
 ```
 
+The apply funcion can not be compiled. I am looking for solution of this error.
+
+```
+Cannot convert value of type '(A, B) -> C' to expected argument type '(A, B, _) -> C'
+```
+
 #### Example of usage
 
 ```swift
