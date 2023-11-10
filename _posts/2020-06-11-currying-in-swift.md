@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blurable view in UIKit
+title: Currying in swift
 categories: swift
 ---
 
