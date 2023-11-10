@@ -1,5 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artgur.net/feed.xml" rel="self" type="application/atom+xml" /><link href="artgur.net/" rel="alternate" type="text/html" /><updated>2023-11-10T10:47:01+01:00</updated><id>artgur.net/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="artgur.net/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/swift/dynamic-member-lockup</id><content type="html" xml:base="artgur.net/swift/dynamic-member-lockup.html"><![CDATA[<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artgur.net/feed.xml" rel="self" type="application/atom+xml" /><link href="artgur.net/" rel="alternate" type="text/html" /><updated>2023-11-10T13:04:24+01:00</updated><id>artgur.net/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="artgur.net/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/software/debian/debian-sid</id><content type="html" xml:base="artgur.net/software/debian/debian-sid.html"><![CDATA[<p>This is the Debian setup where most of the examples shown on the website should work.</p>
+
+<p>Download links:</p>
+
+<!-- https://www.debian.org/CD/live/ -->
+
+<ul>
+  <li><a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso">amd64 - Install disc</a></li>
+  <li><a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/">amd64 - Live disc</a></li>
+  <li><a href="https://github.com/clearlinux/common/raw/master/OVMF.fd">BIOS</a></li>
+</ul>
+
+<p>Make the disk image</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
+</code></pre></div></div>
+
+<p>Other option</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f raw debian.raw 16G
+-drive file=disk.raw,format=raw
+</code></pre></div></div>
+
+<p>Start the VM</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-system-x86_64 <span class="nt">-bios</span> OVMF.fd <span class="nt">-m</span> 1G <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>debian.qcow2,format<span class="o">=</span>qcow2 <span class="se">\</span>
+                   <span class="nt">-cdrom</span> debian-12.2.0-amd64-netinst.iso
+</code></pre></div></div>
+
+<p>During installation select SSH server, standard system utilities and no desktop</p>
+
+<p>Exit the installation and power off the VM</p>
+
+<p>Start VM with command</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-system-x86_64 <span class="nt">-bios</span> OVMF.fd <span class="nt">-m</span> 1G <span class="nt">-smp</span> 6 <span class="se">\</span>
+                   <span class="nt">-net</span> user,hostfwd<span class="o">=</span>tcp::2222-:22 <span class="nt">-net</span> nic <span class="se">\</span>
+                   <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>debian.qcow2,format<span class="o">=</span>qcow2
+</code></pre></div></div>
+<h4 id="allowing-login-root-user-from-the-network">Allowing login root user from the network</h4>
+<p>This is our testing installation, so we do not care about security, but easiness and convenience.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/ssh/sshd_config
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Ctrl-o</code> <code class="language-plaintext highlighter-rouge">Ctrl-x</code></p>
+
+<p>Put this line in the file</p>
+<pre><code class="language-plain">PermitRootLogin yes
+</code></pre>
+
+<p>and then</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart sshd
+</code></pre></div></div>
+
+<p>From now on you can log in to the VM using ssh connection</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -p 2222 user@localhost
+</code></pre></div></div>
+
+<h1 id="making-it-the-sid">Making it the sid</h1>
+
+<p>/etc/apt/sources.list</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update
+apt upgrade
+apt dist-upgrade
+apt autoremove
+
+apt <span class="nb">install </span>firmware-linux-nonfree
+</code></pre></div></div>
+
+<h1 id="tools">Tools</h1>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>neovim clang
+</code></pre></div></div>
+
+<p><strong>Swift</strong></p>
+
+<p>Dependencies</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev <span class="se">\</span>
+            libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata <span class="se">\</span>
+            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev <span class="se">\</span>
+            libstdc++-9-dev
+</code></pre></div></div>
+
+<p>Missing dependencies for Debian sid</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libpython3.8 
+</code></pre></div></div>
+
+<p>Installed instead</p>
+
+<pre><code class="language-plain">apt install libpython3.10-dev python3-clang python3-lldb
+</code></pre>
+
+<p>Downloading and installing</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://download.swift.org/swift-5.9.1-release/ubuntu2204/swift-5.9.1-RELEASE/swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
+
+tar -xf swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
+mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
+</code></pre></div></div>
+
+<p>add this line to <code class="language-plaintext highlighter-rouge">/etc/profile</code> so the path will be added for all the users</p>
+
+<pre><code class="language-plain">export PATH="$PATH:/opt/swift-5.9.1/usr/bin"
+</code></pre>]]></content><author><name></name></author><category term="software" /><category term="debian" /><summary type="html"><![CDATA[This is the Debian setup where most of the examples shown on the website should work.]]></summary></entry><entry><title type="html">Dynamic member lockup in swift</title><link href="artgur.net/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/swift/dynamic-member-lockup</id><content type="html" xml:base="artgur.net/swift/dynamic-member-lockup.html"><![CDATA[<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@dynamicMemberLookup</span>
 <span class="kd">struct</span> <span class="kt">DynamicStruct</span> <span class="p">{</span>
@@ -850,13 +963,4 @@ ar rc ./libexample.a ./lib.o
 <ul>
   <li><a href="https://blog.filippo.io/building-python-modules-with-go-1-5/">https://blog.filippo.io/building-python-modules-with-go-1-5/</a></li>
   <li><a href="https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/">https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/</a></li>
-</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry><entry><title type="html">Starting an electron app on wayland</title><link href="artgur.net/software/wayland-apps.html" rel="alternate" type="text/html" title="Starting an electron app on wayland" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artgur.net/software/wayland-apps</id><content type="html" xml:base="artgur.net/software/wayland-apps.html"><![CDATA[<p>Start chromium using wayland</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chromium <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
-</code></pre></div></div>
-
-<p>It’s the same for electron-based apps:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`</span>app-executable<span class="sb">`</span> <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="se">\</span>
-                 <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
-</code></pre></div></div>]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Start chromium using wayland]]></summary></entry></feed>
+</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry></feed>
