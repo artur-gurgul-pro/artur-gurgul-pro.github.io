@@ -99,7 +99,7 @@ let combinedPublisher = Publishers.Merge(publisher1.eraseToAnyPublisher(),
 ```swift
 let numbers = [1, 2, 3, 4].publisher
 let twos = sequence(first: 2, 
-			        next: {_ in 2}).publisher
+                    next: {_ in 2}).publisher
 numbers
 	.zip(twos)
 	.map { pow(Decimal($0), $1) }
