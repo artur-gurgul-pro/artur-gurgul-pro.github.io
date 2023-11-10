@@ -15,27 +15,41 @@ func curry<A, B, C>(_ f: @escaping (A, B) -> C) -> (A) -> (B) -> C {
     { a in { b in f(a, b) } }
 }
 
-public func uncurry<T, U, V>(_ f: @escaping (T) -> (U) -> V) -> (T, U) -> V {
-    return { f($0)($1) }
+func uncurry<A, B, C>(_ f: @escaping (A) -> (B) -> C) -> (A, B) -> C {
+    { f($0)($1) }
 }
 
-public func uncurry<T, U, V, W>(_ f: @escaping (T) -> (U) -> (V) -> W) -> (T, U, V) -> W {
-    return { f($0)($1)($2) }
+func uncurry<A, B, C, D>(_ f: @escaping (A) -> (B) -> (C) -> D) -> (A, B, C) -> D {
+    { f($0)($1)($2) }
 }
 
+// Not working yet
+func apply<A, B, C>(_ a: A, _ f: @escaping (A, B) -> C) -> (B) -> C {
+    uncurry((curry(f))(a))
+}
 ```
 
 #### Example of usage
 
 ```swift
-func test(a: Int, b: Int, c: Int) -> Int {
+func add(a: Int, b: Int, c: Int) -> Int {
     a + b + c
 }
 ```
 
+```
+let adding = curry(add)
+let adding5 = uncurry(adding(5))
+```
+
+or
+
 ```swift
-let add = curry(test)
-let adding5 = uncurry(add(5))
-        
+let adding5 = apply(5, add)
+```
+
+then
+
+```swift
 print(adding5(6, 7))
 ```
