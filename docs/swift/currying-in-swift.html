@@ -243,15 +243,13 @@
     <span class="p">{</span> <span class="nf">f</span><span class="p">(</span><span class="nv">$0</span><span class="p">)(</span><span class="nv">$1</span><span class="p">)(</span><span class="nv">$2</span><span class="p">)</span> <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="c1">// Not working yet</span>
 <span class="kd">func</span> <span class="n">apply</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">a</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span> <span class="p">{</span>
-    <span class="nf">uncurry</span><span class="p">((</span><span class="nf">curry</span><span class="p">(</span><span class="n">f</span><span class="p">))(</span><span class="n">a</span><span class="p">))</span>
+    <span class="p">{</span> <span class="p">(</span><span class="nf">curry</span><span class="p">(</span><span class="n">f</span><span class="p">))(</span><span class="n">a</span><span class="p">)(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>
 
-<p>The apply funcion can not be compiled. I am looking for solution of this error.</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cannot convert value of type '(A, B) -&gt; C' to expected argument type '(A, B, _) -&gt; C'
+<span class="kd">func</span> <span class="n">apply</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">a</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="p">(</span><span class="nf">curry</span><span class="p">(</span><span class="n">f</span><span class="p">))(</span><span class="n">a</span><span class="p">)(</span><span class="nv">$0</span><span class="p">)(</span><span class="nv">$1</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div></div>
 
 <h4 id="example-of-usage">Example of usage</h4>

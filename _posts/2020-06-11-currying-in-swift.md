@@ -23,16 +23,13 @@ func uncurry<A, B, C, D>(_ f: @escaping (A) -> (B) -> (C) -> D) -> (A, B, C) -> 
     { f($0)($1)($2) }
 }
 
-// Not working yet
 func apply<A, B, C>(_ a: A, _ f: @escaping (A, B) -> C) -> (B) -> C {
-    uncurry((curry(f))(a))
+    { (curry(f))(a)($0) }
 }
-```
 
-The apply funcion can not be compiled. I am looking for solution of this error.
-
-```
-Cannot convert value of type '(A, B) -> C' to expected argument type '(A, B, _) -> C'
+func apply<A, B, C, D>(_ a: A, _ f: @escaping (A, B, C) -> D) -> (B, C) -> D {
+    { (curry(f))(a)($0)($1) }
+}
 ```
 
 #### Example of usage
