@@ -7,30 +7,13 @@
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
-  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
-
-  <style>
-    #post pre {
-      background-color: white;
-      border-left: 12px solid #eee;
-      padding: 0 .8em;
-    }
-
-    #post code {
-      background-color: transparent;
-    }
-
-    #stalker {
-      float: inherit;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
-    <div class="four columns sidebar no-print">
+    <div class="four columns sidebar">
       <nav>
   <!-- <a href="/">
     <img src="/logo.png" id="logo" alt="Blog logo"/>
@@ -221,8 +204,9 @@
 
     </div>
 
-    <div class="eleven columns content">
-      <h1 class="title">Currying</h1>
+    <div class="scroll">
+      <div class="content">
+        <h1 class="title">Currying</h1>
 
 <div id="post">
   <h1 id="swift">Swift</h1>
@@ -290,7 +274,7 @@
 <span class="kd">let</span> <span class="nx">add</span> <span class="o">=</span> <span class="nx">currying</span><span class="p">(</span><span class="nx">sum</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
 </code></pre></div></div>
 
-<h4 id="other-implementation">Other implementation</h4>
+<h4 id="advanced-implementation">Advanced implementation</h4>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kd">function</span> <span class="nx">curried</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
@@ -313,45 +297,29 @@
 
 <span class="kd">let</span> <span class="nx">curriedSum</span> <span class="o">=</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
 
-<span class="c1">// =&gt; Callable normally</span>
+<span class="c1">// Callable normally</span>
 <span class="nx">curriedSum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> 
 
-<span class="c1">// =&gt; Currying of 1st argument</span>
+<span class="c1">// Currying of 1st argument</span>
 <span class="nx">curriedSum</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> 
 
-<span class="c1">// full currying all arguments</span>
+<span class="c1">// Currying all arguments</span>
 <span class="nx">curriedSum</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div></div>
 
 </div>
 
-        
-    <ul class="tag_list_in_post"></ul>
-      <div class="footer">
-        <div class="disclaimer">
+          
+       <div class="footer">
+          <div class="disclaimer">
   <p>
   © Artur Gurgul, 2016 &mdash; Public Domain Licence
   </p>
 </div>
 
+        </div>
       </div>
     </div>
   </div>
-
-  
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-41036379-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
 </body>
 </html>

@@ -3,10 +3,7 @@ layout: default
 title: Articles
 ---
 
-<link rel="stylesheet" href="/media/cv-screen.css" />
-
 <div id="home">
-
   <div class="cv-page">
     <div class="contact-box">
       ul. Tadeusza Fijewskiego 5,<br/>
@@ -14,14 +11,11 @@ title: Articles
       Tel: +PL.51&xcirc;5&xcirc;9533<br/>
       Email: artur.gurgul AT Gmail
     </div>
-
     <div style="font-style: italic; color: #555">
       {{ site.data.cv.about }}
     </div>
-
     <hr>
     <h2>Professional experience</h2>
-
     {% for experience in site.data.cv.experience %}
       <div class="job-item">
         <div class="job-headline">
@@ -37,43 +31,9 @@ title: Articles
         </div>
       </div>
     {% endfor %}
-<!--
-
-    <div class="job-item">
-      <div class="job-headline">
-        <h3 class="job-title">
-          
-        </h3>
-        <div class="cv-date">
-          
-        </div>
-      </div>
-      <div class="job-description">
-        
-      </div>
-    </div>
-
-    <div class="job-item">
-      <div class="job-headline">
-        <h3 class="job-title">
-         
-        </h3>
-        <div class="cv-date">
-          
-        </div>
-      </div>
-      <div class="job-description">
-       
-      </div>
-    </div>
--->
-
-
 
     <div class="skills-container">
-
       <h2 style="width: 100%">Education</h2>
-
       <p style="padding-bottom: 20px;">
         {{ site.data.cv.education }}
       </p>
@@ -82,9 +42,7 @@ title: Articles
 
       <div>
         {{ site.data.cv.skills }}
-        
       </div>  
     </div>
   </div>
-
 </div>

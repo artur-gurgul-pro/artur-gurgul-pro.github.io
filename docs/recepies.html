@@ -7,30 +7,13 @@
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
-  <link href="//fonts.googleapis.com/css?family=Open+Sans:600,800" rel="stylesheet" type="text/css">
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
-
-  <style>
-    #post pre {
-      background-color: white;
-      border-left: 12px solid #eee;
-      padding: 0 .8em;
-    }
-
-    #post code {
-      background-color: transparent;
-    }
-
-    #stalker {
-      float: inherit;
-    }
-  </style>
 </head>
 <body>
   <div class="container">
-    <div class="four columns sidebar no-print">
+    <div class="four columns sidebar">
       <nav>
   <!-- <a href="/">
     <img src="/logo.png" id="logo" alt="Blog logo"/>
@@ -221,8 +204,9 @@
 
     </div>
 
-    <div class="eleven columns content">
-      <h1 class="title">Recepies</h1>
+    <div class="scroll">
+      <div class="content">
+        <h1 class="title">Recepies</h1>
 
 <div id="post">
   <h5 id="read-a-dns-records">Read a DNS records</h5>
@@ -384,8 +368,10 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iptables <span class="nt">-I</span> INPUT <span class="nt">-m</span> tcp <span class="nt">-p</span> tcp <span class="nt">--dport</span> 8090 <span class="nt">-j</span> ACCEPT
 </code></pre></div></div>
 <h4 id="search-files-that-contains-particular-string">Search files that contains particular string</h4>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">grep</span> <span class="nt">-rnw</span> <span class="s2">"."</span> <span class="nt">-e</span> <span class="s2">"Search key"</span>
 </code></pre></div></div>
+
 <h4 id="remove-garbage-files">Remove garbage files</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find ./ -name ".DS_Store" -depth -exec rm {} \;
@@ -427,21 +413,18 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 www.google.....com
 www.linkedin.com
 www.linuxsay.com
-
 </code></pre></div></div>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span><span class="nb">cat </span>domains.txt | <span class="nb">tr</span> <span class="nt">-s</span> <span class="s1">'.'</span> 
 
 www.google.com
 www.linkedin.com
-
 </code></pre></div></div>
 
 <h4 id="extract-digit">Extract digit</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"My UID is </span><span class="nv">$UID</span><span class="s2">"</span> | <span class="nb">tr</span> <span class="nt">-cd</span> <span class="s2">"[:digit:]</span><span class="se">\n</span><span class="s2">"</span>
 <span class="nb">echo</span> <span class="s2">"My UID is </span><span class="nv">$UID</span><span class="s2">"</span> | <span class="nb">tr</span> <span class="nt">-d</span> <span class="s2">"a-zA-Z"</span>
-
 </code></pre></div></div>
 
 <h4 id="translate-single-character">Translate single character</h4>
@@ -501,7 +484,7 @@ imlib2_grab screenshot.png
 <span class="o">}</span>
 </code></pre></div></div>
 
-<p>usage</p>
+<p>Usage</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspdf <span class="s2">"filename"</span> <span class="s2">"https://superuser.com/questions/592974/how-to-print-to-save-as-pdf-from-a-command-line-with-chrome-or-chromium"</span>
 </code></pre></div></div>
@@ -518,7 +501,7 @@ path=("$GEM_HOME/bin" $path)
         <span class="nt">-net</span> user,hostfwd<span class="o">=</span>tcp::3389-:3389,hostfwd<span class="o">=</span>tcp::443-:443,hostfwd<span class="o">=</span>tcp::992-:992 
 </code></pre></div></div>
 
-<h4 id="sql-using-regex">sql using regex</h4>
+<h4 id="sql-using-regex">SQL using regex</h4>
 <p>Add a check constraint to the <code class="language-plaintext highlighter-rouge">id</code> column to enforce alphanumeric strings of exactly 5 characters long</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">short_urls</span> <span class="k">ADD</span> <span class="k">CONSTRAINT</span> <span class="n">id</span> <span class="k">CHECK</span> <span class="p">(</span><span class="n">id</span> <span class="o">~</span> <span class="s1">'^[a-zA-Z0-9]{5}$'</span><span class="p">);</span>
@@ -557,33 +540,17 @@ path=("$GEM_HOME/bin" $path)
 
 </div>
 
-        
-    <ul class="tag_list_in_post"></ul>
-      <div class="footer">
-        <div class="disclaimer">
+          
+       <div class="footer">
+          <div class="disclaimer">
   <p>
   © Artur Gurgul, 2016 &mdash; Public Domain Licence
   </p>
 </div>
 
+        </div>
       </div>
     </div>
   </div>
-
-  
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-41036379-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
-
 </body>
 </html>

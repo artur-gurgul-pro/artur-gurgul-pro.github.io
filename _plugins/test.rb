@@ -14,6 +14,6 @@ Jekyll::Hooks.register :site, :pre_render do |site|
     #site.test()
     #site.category = "okokokoko"
     #puts site.pages
-    puts site.posts
+    #puts site.posts
   end
 
