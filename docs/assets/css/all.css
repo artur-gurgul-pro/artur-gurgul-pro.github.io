@@ -52,6 +52,13 @@ body,
 .content {
 	width: 800px;
 }
+
+.sidebar {
+	box-sizing: border-box;
+	border-right: 1px solid #DDD;
+	height: 100%;
+
+}
 .scroll {
 	height: 100%;
 	width: 100%;
@@ -549,6 +556,7 @@ nav h2 {
 	padding: 0 .2em;
 }
 
+
 #post pre code {
 	border: none;
 }
@@ -568,7 +576,7 @@ nav h2 {
 
 .content {
 	font: 400 16px/22px  -apple-system, BlinkMacSystemFont, sans-serif;
-	border-left: 1px solid #DDD;
+	
 	padding-left: 40px;
 	padding-top: 25px;
 	min-height: 400px;
