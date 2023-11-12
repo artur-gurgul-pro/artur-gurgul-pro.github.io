@@ -5,6 +5,14 @@
 	padding: 0px;
 }
 
+[id]::before {
+    content: '';
+    display: block;
+    height:      50px;
+    margin-top: -50px;
+    visibility: hidden;
+  }
+
 .contact-box {
 	padding-bottom: 4em !important;
 }
