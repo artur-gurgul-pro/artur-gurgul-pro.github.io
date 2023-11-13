@@ -93,13 +93,6 @@
       >Chroot environment of Debian sid</a></li>
   
     
-    <li><span>&raquo;</span><a href="/swift/cancel-upstream.html"
-      
-      
-
-      >Cancelling a publisher</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/programming/bridging.html"
       
       
@@ -142,13 +135,6 @@
       
 
       >Publishers notes and examples</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/swift/blurable.html"
-      
-      
-
-      >Blurable view in UIKit</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/threading.html"
@@ -271,6 +257,27 @@
 	<span class="p">})</span><span class="o">.</span><span class="nf">store</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">cancellables</span><span class="p">)</span>
 </code></pre></div></div>
 
+<h4 id="cancelling-a-publisher">Cancelling a publisher</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
+	<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
+	<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span>
+	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+	<span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+		<span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">{</span>
+			<span class="n">timer</span><span class="o">.</span><span class="n">upstream</span><span class="o">.</span><span class="nf">connect</span><span class="p">()</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It will work similar to this</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
 
 </div>
 

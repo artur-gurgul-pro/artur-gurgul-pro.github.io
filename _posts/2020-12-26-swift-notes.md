@@ -70,3 +70,22 @@ for i in 1...100 where i%2 != 0 {
 
 } 
 ```
+
+#### Blurable view in UIKit
+
+```swift
+extension Blurable where Self: UIView {
+    func addBlur(_ alpha: CGFloat = 0.5) {
+        let effect = UIBlurEffect(style: .prominent)
+        let effectView = UIVisualEffectView(effect: effect)
+        effectView.frame = self.bounds
+        effectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        effectView.alpha = alpha
+        self.addSubview(effectView)
+    }
+}
+```
+
+```swift
+extension BackgroundView: Blurable {}
+```

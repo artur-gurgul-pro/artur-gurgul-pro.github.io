@@ -95,13 +95,6 @@
       >Chroot environment of Debian sid</a></li>
   
     
-    <li><span>&raquo;</span><a href="/swift/cancel-upstream.html"
-      
-      
-
-      >Cancelling a publisher</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/programming/bridging.html"
       
       
@@ -142,13 +135,6 @@
       
 
       >Publishers notes and examples</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/swift/blurable.html"
-      
-      
-
-      >Blurable view in UIKit</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/threading.html"
@@ -232,6 +218,23 @@
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">100</span> <span class="k">where</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
 
 <span class="p">}</span> 
+</code></pre></div></div>
+
+<h4 id="blurable-view-in-uikit">Blurable view in UIKit</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Blurable</span> <span class="k">where</span> <span class="k">Self</span><span class="p">:</span> <span class="kt">UIView</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="kd">func</span> <span class="nf">addBlur</span><span class="p">(</span><span class="n">_</span> <span class="nv">alpha</span><span class="p">:</span> <span class="kt">CGFloat</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">)</span> <span class="p">{</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">effect</span> <span class="o">=</span> <span class="kt">UIBlurEffect</span><span class="p">(</span><span class="nv">style</span><span class="p">:</span> <span class="o">.</span><span class="n">prominent</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">let</span> <span class="nv">effectView</span> <span class="o">=</span> <span class="kt">UIVisualEffectView</span><span class="p">(</span><span class="nv">effect</span><span class="p">:</span> <span class="n">effect</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">effectView</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="k">self</span><span class="o">.</span><span class="n">bounds</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">effectView</span><span class="o">.</span><span class="n">autoresizingMask</span> <span class="o">=</span> <span class="p">[</span><span class="o">.</span><span class="n">flexibleWidth</span><span class="p">,</span> <span class="o">.</span><span class="n">flexibleHeight</span><span class="p">]</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="n">effectView</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+<span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="err"> </span> <span class="k">self</span><span class="o">.</span><span class="nf">addSubview</span><span class="p">(</span><span class="n">effectView</span><span class="p">)</span>
+<span class="err"> </span> <span class="err"> </span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">BackgroundView</span><span class="p">:</span> <span class="kt">Blurable</span> <span class="p">{}</span>
 </code></pre></div></div>
 
 </div>
