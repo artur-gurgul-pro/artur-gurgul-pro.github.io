@@ -18,3 +18,18 @@ let dynamicStruct = DynamicStruct()
 let result = dynamicStruct.someDynamicMember
 print(result) // Output: "You accessed dynamic member 'someDynamicMember'"
 ```
+
+Key Value Coding
+
+```swift
+class SomeClass: NSObject {
+  @objc dynamic var name = "Name"
+}```
+
+```swift
+object.value(forKey: "name") as String
+```
+
+```swift
+object.setValue("New name", forKey: "name")
+```

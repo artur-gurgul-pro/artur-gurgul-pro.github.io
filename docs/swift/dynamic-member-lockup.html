@@ -195,6 +195,19 @@
 <span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">// Output: "You accessed dynamic member 'someDynamicMember'"</span>
 </code></pre></div></div>
 
+<p>Key Value Coding</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span><span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
+  <span class="kd">@objc</span> <span class="kd">dynamic</span> <span class="k">var</span> <span class="nv">name</span> <span class="o">=</span> <span class="s">"Name"</span>
+<span class="p">}</span><span class="err">```</span>
+
+<span class="err">```</span><span class="n">swift</span>
+<span class="n">object</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span> <span class="k">as</span> <span class="kt">String</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="s">"New name"</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span>
+</code></pre></div></div>
+
 </div>
 
           
