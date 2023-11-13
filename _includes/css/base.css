@@ -604,3 +604,12 @@ nav h2 {
 #stalker {
 	float: inherit;
 }
+
+.disclaimer {
+	color: #aaa;
+	font-weight: 700;
+	font-size: smaller;
+	text-align: center;
+	padding-top: 40px;
+	padding-bottom: 10px;
+}
