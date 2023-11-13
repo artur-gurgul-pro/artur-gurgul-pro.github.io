@@ -214,6 +214,36 @@ class ExamplePresenter {
 - Presenters might become massive
 - Controllers still handle navigation. Possible solutions &rarr;  extend the pattern with Router or Coordinator.
 
+#### Common layers
+
+- Data access layer: `CRUD` operations facilitated with `CoreData` `Realm` etc.
+- Services: Classes that interacts with database entities, like retrieve data, transform them into objects.
+- Extensions/utils
+
+## Model-View-ViewModel
+
+`ViewModel` has no references to the view. 
+
+<p>
+{% svg ../svgs/mvvm.svg class="center-image" %}
+</p>
+
+Binding is done using: `Combine Framework`, `RxSwift`, `Bond` or `KVO` or using delegation pattern 
+
+* **`Model`** does same things as in `MVP` and `MVC`.
+* **`View`** also is similar, but binds with `ViewModel` 
+* **`ViewModel`** keeps updated state of the view, and process data for i
+
+#### Advantages 
+
+- Better reparation of responsibilities
+- Better testability, without needing to take into account the views
+
+#### Disadvantages 
+
+- Might be slower and introduce dependency on external libraries
+- Harder to learn and can become complex
+
 <!--
 https://nalexn.github.io/clean-architecture-swiftui/
 https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
