@@ -20,5 +20,4 @@ var next = NextClosure()
 console.log(next())
 console.log(next())
 console.log(next())
-
 ```

@@ -4,6 +4,8 @@ title: Add share gesture as view modifier
 categories: swift
 ---
 
+<!-- https://swiftbysundell.com/articles/swiftui-views-versus-modifiers/ -->
+
 The notification we'll send when a shake gesture happens.
 
 ```swift

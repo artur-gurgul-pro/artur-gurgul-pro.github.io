@@ -23,13 +23,6 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
-    <li><span>&raquo;</span><a href="/software/wayland-apps.html"
-      
-      
-
-      >Starting an electron app on wayland</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/software/vim.html"
       
       
@@ -42,6 +35,13 @@
       
 
       >Add share gesture as view modifier</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/swift-notes.html"
+      
+      
+
+      >Notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/git/squash.html"
@@ -154,13 +154,6 @@
       
 
       >Threading</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
-      
-      
-
-      >Linux - RAM disk</a></li>
   
     
     <li><span>&raquo;</span><a href="/recepies.html"
@@ -449,6 +442,19 @@ imlib2_grab screenshot.png
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">alias </span><span class="nv">weather</span><span class="o">=</span><span class="s1">'curl wttr.in'</span>
 </code></pre></div></div>
 
+<h4 id="starting-an-electron-app-on-wayland">Starting an electron app on wayland</h4>
+
+<p>Start chromium using wayland</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chromium <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
+</code></pre></div></div>
+
+<p>It’s the same for electron-based apps:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="sb">`</span>app-executable<span class="sb">`</span> <span class="nt">--enable-features</span><span class="o">=</span>UseOzonePlatform <span class="se">\</span>
+                 <span class="nt">--ozone-platform</span><span class="o">=</span>wayland
+</code></pre></div></div>
+
 <h4 id="save-website-as-pdf">Save website As PDF</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">function </span>aspdf <span class="o">{</span>
@@ -508,6 +514,23 @@ path=("$GEM_HOME/bin" $path)
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cp </span>iwlwifi-cc-a0-46.ucode /lib/firmware
 </code></pre></div></div>
+
+<h3 id="linux---ram-disk">Linux - RAM disk</h3>
+
+<p>This might be useful for spead up programs that heavily use disk.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount -t TYPE -o size=SIZE FSTYPE MOUNTPOINT
+</code></pre></div></div>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">TYPE</code> → either <code class="language-plaintext highlighter-rouge">tmpfs</code> or <code class="language-plaintext highlighter-rouge">ramfs</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">SIZE</code> → ie. <code class="language-plaintext highlighter-rouge">512m</code></li>
+  <li><code class="language-plaintext highlighter-rouge">FSTYPE</code> → File system type, either <code class="language-plaintext highlighter-rouge">tmpfs</code>, <code class="language-plaintext highlighter-rouge">ramfs</code>, <code class="language-plaintext highlighter-rouge">ext4</code>, etc.</li>
+</ul>
+
+<p>To make this setting persistent you might want to add to <code class="language-plaintext highlighter-rouge">/etc/fstab</code> fallowing line</p>
+
+<pre><code class="language-plain">tmpfs /mnt/ramdisk tmpfs nodev,nosuid,noexec,nodiratime,size=1024M 0 0
+</code></pre>
 
 
 </div>

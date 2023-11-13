@@ -23,13 +23,6 @@
     <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
   
     
-    <li><span>&raquo;</span><a href="/software/wayland-apps.html"
-      
-      
-
-      >Starting an electron app on wayland</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/software/vim.html"
       
       
@@ -42,6 +35,13 @@
       
 
       >Add share gesture as view modifier</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/swift-notes.html"
+      
+      
+
+      >Notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/git/squash.html"
@@ -158,13 +158,6 @@
       >Threading</a></li>
   
     
-    <li><span>&raquo;</span><a href="/linux/recepies/creating-ram-disk.html"
-      
-      
-
-      >Linux - RAM disk</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/recepies.html"
       
       
@@ -181,27 +174,27 @@
         <h1 class="title">Linux - Mount disk from qcow2 image</h1>
 
 <div id="post">
-  <p><strong>Step 1 - Enable NBD on the Host</strong></p>
+  <p>Step 1 - Enable NBD on the Host</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modprobe nbd max_part=8
 </code></pre></div></div>
 
-<p><strong>Step 2 - Connect the QCOW2 as network block device</strong></p>
+<p>Step 2 - Connect the QCOW2 as network block device</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-nbd --connect=/dev/nbd0 /var/lib/vz/images/100/vm-100-disk-1.qcow2
 </code></pre></div></div>
 
-<p><strong>Step 3 - Find The Virtual Machine Partitions</strong></p>
+<p>Step 3 - Find The Virtual Machine Partitions</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fdisk /dev/nbd0 -l
 </code></pre></div></div>
 
-<p><strong>Step 4 - Mount the partition from the VM</strong></p>
+<p>Step 4 - Mount the partition from the VM</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount /dev/nbd0p1 /mnt/somepoint/
 </code></pre></div></div>
 
-<p><strong>Step 5 - After you done, unmount and disconnect</strong></p>
+<p>Step 5 - After you done, unmount and disconnect</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>umount /mnt/somepoint/
 qemu-nbd --disconnect /dev/nbd0

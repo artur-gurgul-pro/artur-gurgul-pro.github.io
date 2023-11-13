@@ -24,7 +24,8 @@ Key Value Coding
 ```swift
 class SomeClass: NSObject {
   @objc dynamic var name = "Name"
-}```
+}
+```
 
 ```swift
 object.value(forKey: "name") as String

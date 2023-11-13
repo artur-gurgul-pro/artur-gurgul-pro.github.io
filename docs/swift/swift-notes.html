@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Gurgul - Notes</title>
+  <meta name="author" content="Artur Gurgul" />
+  <meta name="description" content="The blog of Artur Gurgul" />
+  
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <nav>
+  <h2 style="font-size: 20px;margin: 0px;">Hi. I'm <a href="/"> Artur Gurgul</a>,</h2>
+   <h2 style="font-size: 15px;margin-top: -0.5em;">and this is my notepad.</h2>
+  <hr class="hr-text" data-content="Contents"/>
+  
+  <ul id="blog-posts" class="posts">
+    <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
+  
+    
+    <li><span>&raquo;</span><a href="/software/vim.html"
+      
+      
+
+      >Vim notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/view-modifier.html"
+      
+      
+
+      >Add share gesture as view modifier</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/swift-notes.html"
+      
+      
+        style="font-weight: bold;"
+      
+
+      >Notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/git/squash.html"
+      
+      
+
+      >Git - merge & squash commits</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/solid.html"
+      
+      
+
+      >SOLID principles</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
+      
+      
+
+      >Regex - Find any</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/javascript/js-closure.html"
+      
+      
+
+      >Javascript closure</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/dynamic-member-lockup.html"
+      
+      
+
+      >Dynamic member lockup in swift</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/software/debian/debian-sid.html"
+      
+      
+
+      >Installing Debian sid on QEMU</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/software/debian/debian-chroot.html"
+      
+      
+
+      >Chroot environment of Debian sid</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/cancel-upstream.html"
+      
+      
+
+      >Cancelling a publisher</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/bridging.html"
+      
+      
+
+      >Bridging between languages</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/recepies/power-management.html"
+      
+      
+
+      >Ubuntu - Power management</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/mounting-qcow2-image.html"
+      
+      
+
+      >Linux - Mount disk from qcow2 image</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
+      
+      
+
+      >iOS Architecture Patterns</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/currying.html"
+      
+      
+
+      >Currying</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/combine-framework-notes.html"
+      
+      
+
+      >Publishers notes and examples</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/blurable.html"
+      
+      
+
+      >Blurable view in UIKit</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/threading.html"
+      
+      
+
+      >Threading</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/recepies.html"
+      
+      
+
+      >Recepies</a></li>
+  
+  </ul>
+</nav>
+
+    </div>
+
+    <div class="scroll">
+      <div class="content">
+        <h1 class="title">Notes</h1>
+
+<div id="post">
+  <h4 id="autoclosure">Autoclosure</h4>
+
+<p>Lazy evaluation of the function’s arguments. Instead of eager calculation of values, the clousre is passed, and executed only when needed.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">test</span><span class="p">(</span><span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@autoclosure</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="nf">test</span><span class="p">(</span><span class="mi">8</span><span class="o">==</span><span class="mi">9</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="destructuring-assignment">Destructuring Assignment</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="p">(</span><span class="nv">name</span><span class="p">,</span> <span class="nv">surname</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="s">"Artur"</span><span class="p">,</span> <span class="s">"Gurgul"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="checking-if-value-is-in-range">Checking if value is in range</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="k">if</span> <span class="k">case</span> <span class="mi">100</span><span class="o">...</span><span class="mi">101</span> <span class="o">=</span> <span class="n">i</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">100</span><span class="o">...</span><span class="mi">101</span><span class="p">)</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="accessing-tupple-values">Accessing tupple values</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">)</span><span class="o">.</span><span class="mi">0</span>
+</code></pre></div></div>
+
+<h4 id="pattern-matchiung">Pattern matchiung</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Example</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nf">first</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">secund</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">example</span><span class="p">:</span> <span class="kt">Example</span> <span class="o">=</span> <span class="o">.</span><span class="nf">first</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="n">example</span> <span class="p">{</span>
+<span class="k">case</span> <span class="o">.</span><span class="nf">first</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">),</span> <span class="o">.</span><span class="nf">secund</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">first</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">=</span> <span class="n">example</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>print odd numbers</em></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">100</span> <span class="k">where</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+
+<span class="p">}</span> 
+</code></pre></div></div>
+
+</div>
+
+          
+       <div class="footer">
+          <div class="disclaimer">
+  <p>
+  © Artur Gurgul, 2024 &mdash; Public Domain Licence
+  </p>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -3,12 +3,6 @@
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["software"],
 "tags": [],
-"title": "Starting an electron app on wayland",
-"url": "/software/wayland-apps.html"},
-
-{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
-"categories": ["software"],
-"tags": [],
 "title": "Vim notes",
 "url": "/software/vim.html"},
 
@@ -17,6 +11,12 @@
 "tags": [],
 "title": "Add share gesture as view modifier",
 "url": "/swift/view-modifier.html"},
+
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": ["swift"],
+"tags": [],
+"title": "Notes",
+"url": "/swift/swift-notes.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["git"],
@@ -113,12 +113,6 @@
 "tags": [],
 "title": "Threading",
 "url": "/swift/threading.html"},
-
-{"date": "Wed, 10 Jun 2020 00:00:00 +0200",
-"categories": ["linux","recepies"],
-"tags": [],
-"title": "Linux - RAM disk",
-"url": "/linux/recepies/creating-ram-disk.html"},
 
 {"date": "Wed, 19 Oct 2016 12:09:07 +0200",
 "categories": [],

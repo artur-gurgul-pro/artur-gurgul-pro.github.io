@@ -1,118 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-13T09:43:54+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Installing Debian sid on QEMU</title><link href="artur.gurgul.pro/software/debian/debian-sid.html" rel="alternate" type="text/html" title="Installing Debian sid on QEMU" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/debian/debian-sid</id><content type="html" xml:base="artur.gurgul.pro/software/debian/debian-sid.html"><![CDATA[<p>This is the Debian setup where most of the examples shown on the website should work.</p>
-
-<p>Download links:</p>
-
-<!-- https://www.debian.org/CD/live/ -->
-
-<ul>
-  <li><a href="https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.2.0-amd64-netinst.iso">amd64 - Install disc</a></li>
-  <li><a href="https://cdimage.debian.org/debian-cd/current-live/amd64/iso-hybrid/">amd64 - Live disc</a></li>
-  <li><a href="https://github.com/clearlinux/common/raw/master/OVMF.fd">BIOS</a></li>
-</ul>
-
-<p>Make the disk image</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
-</code></pre></div></div>
-
-<p>Other option</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f raw debian.raw 16G
--drive file=disk.raw,format=raw
-</code></pre></div></div>
-
-<p>Start the VM</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-system-x86_64 <span class="nt">-bios</span> OVMF.fd <span class="nt">-m</span> 1G <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>debian.qcow2,format<span class="o">=</span>qcow2 <span class="se">\</span>
-                   <span class="nt">-cdrom</span> debian-12.2.0-amd64-netinst.iso
-</code></pre></div></div>
-
-<p>During installation select SSH server, standard system utilities and no desktop</p>
-
-<p>Exit the installation and power off the VM</p>
-
-<p>Start VM with command</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-system-x86_64 <span class="nt">-bios</span> OVMF.fd <span class="nt">-m</span> 1G <span class="nt">-smp</span> 6 <span class="se">\</span>
-                   <span class="nt">-net</span> user,hostfwd<span class="o">=</span>tcp::2222-:22 <span class="nt">-net</span> nic <span class="se">\</span>
-                   <span class="nt">-drive</span> <span class="nv">file</span><span class="o">=</span>debian.qcow2,format<span class="o">=</span>qcow2
-</code></pre></div></div>
-<h4 id="allowing-login-root-user-from-the-network">Allowing login root user from the network</h4>
-<p>This is our testing installation, so we do not care about security, but easiness and convenience.</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano /etc/ssh/sshd_config
-</code></pre></div></div>
-
-<p><code class="language-plaintext highlighter-rouge">Ctrl-o</code> <code class="language-plaintext highlighter-rouge">Ctrl-x</code></p>
-
-<p>Put this line in the file</p>
-<pre><code class="language-plain">PermitRootLogin yes
-</code></pre>
-
-<p>and then</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>systemctl restart sshd
-</code></pre></div></div>
-
-<p>From now on you can log in to the VM using ssh connection</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -p 2222 user@localhost
-</code></pre></div></div>
-
-<h1 id="making-it-the-sid">Making it the sid</h1>
-
-<p>/etc/apt/sources.list</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>deb https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
-deb-src https://deb.debian.org/debian/ sid main contrib non-free non-free-firmware
-</code></pre></div></div>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt update
-apt upgrade
-apt dist-upgrade
-apt autoremove
-
-apt <span class="nb">install </span>firmware-linux-nonfree
-</code></pre></div></div>
-
-<h1 id="tools">Tools</h1>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>neovim clang
-</code></pre></div></div>
-
-<p><strong>Swift</strong></p>
-
-<p>Dependencies</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt <span class="nb">install </span>build-essential libcurl4-openssl-dev binutils git gnupg2 libc6-dev <span class="se">\</span>
-            libedit2 libsqlite3-0 libxml2-dev libz3-dev pkg-config tzdata <span class="se">\</span>
-            tzdata unzip zlib1g-dev libgcc-9-dev libncurses-dev <span class="se">\</span>
-            libstdc++-9-dev
-</code></pre></div></div>
-
-<p>Missing dependencies for Debian sid</p>
-
-<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>libpython3.8 
-</code></pre></div></div>
-
-<p>Installed instead</p>
-
-<pre><code class="language-plain">apt install libpython3.10-dev python3-clang python3-lldb
-</code></pre>
-
-<p>Downloading and installing</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://download.swift.org/swift-5.9.1-release/ubuntu2204/swift-5.9.1-RELEASE/swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
-
-tar -xf swift-5.9.1-RELEASE-ubuntu22.04.tar.gz
-mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
-</code></pre></div></div>
-
-<p>add this line to <code class="language-plaintext highlighter-rouge">/etc/profile</code> so the path will be added for all the users</p>
-
-<pre><code class="language-plain">export PATH="$PATH:/opt/swift-5.9.1/usr/bin"
-</code></pre>]]></content><author><name></name></author><category term="software" /><category term="debian" /><summary type="html"><![CDATA[This is the Debian setup where most of the examples shown on the website should work.]]></summary></entry><entry><title type="html">Dynamic member lockup in swift</title><link href="artur.gurgul.pro/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/dynamic-member-lockup</id><content type="html" xml:base="artur.gurgul.pro/swift/dynamic-member-lockup.html"><![CDATA[<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-13T14:02:01+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Dynamic member lockup in swift</title><link href="artur.gurgul.pro/swift/dynamic-member-lockup.html" rel="alternate" type="text/html" title="Dynamic member lockup in swift" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/dynamic-member-lockup</id><content type="html" xml:base="artur.gurgul.pro/swift/dynamic-member-lockup.html"><![CDATA[<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@dynamicMemberLookup</span>
 <span class="kd">struct</span> <span class="kt">DynamicStruct</span> <span class="p">{</span>
@@ -130,10 +17,10 @@ mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span><span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
   <span class="kd">@objc</span> <span class="kd">dynamic</span> <span class="k">var</span> <span class="nv">name</span> <span class="o">=</span> <span class="s">"Name"</span>
-<span class="p">}</span><span class="err">```</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-<span class="err">```</span><span class="n">swift</span>
-<span class="n">object</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span> <span class="k">as</span> <span class="kt">String</span>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span> <span class="k">as</span> <span class="kt">String</span>
 </code></pre></div></div>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="s">"New name"</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span>
@@ -151,7 +38,6 @@ mv swift-5.9.1-RELEASE-ubuntu22.04 /opt/swift-5.9.1
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
-
 </code></pre></div></div>]]></content><author><name></name></author><category term="javascript" /><summary type="html"><![CDATA[var NextClosure = function() { var a = 0; return function next() { a++ return a } }]]></summary></entry><entry><title type="html">Regex - Find any</title><link href="artur.gurgul.pro/regex/regex-find-any.html" rel="alternate" type="text/html" title="Regex - Find any" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex/regex-find-any</id><content type="html" xml:base="artur.gurgul.pro/regex/regex-find-any.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
 <ul>
@@ -217,7 +103,67 @@ squash df71a27
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
 git merge <span class="nt">--squash</span> bugfix
 git commit
-</code></pre></div></div>]]></content><author><name></name></author><category term="git" /><summary type="html"><![CDATA[Squash the last three commints]]></summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="artur.gurgul.pro/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/view-modifier</id><content type="html" xml:base="artur.gurgul.pro/swift/view-modifier.html"><![CDATA[<p>The notification we’ll send when a shake gesture happens.</p>
+</code></pre></div></div>]]></content><author><name></name></author><category term="git" /><summary type="html"><![CDATA[Squash the last three commints]]></summary></entry><entry><title type="html">Notes</title><link href="artur.gurgul.pro/swift/swift-notes.html" rel="alternate" type="text/html" title="Notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/swift-notes</id><content type="html" xml:base="artur.gurgul.pro/swift/swift-notes.html"><![CDATA[<h4 id="autoclosure">Autoclosure</h4>
+
+<p>Lazy evaluation of the function’s arguments. Instead of eager calculation of values, the clousre is passed, and executed only when needed.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">test</span><span class="p">(</span><span class="n">_</span> <span class="nv">closure</span><span class="p">:</span> <span class="kd">@autoclosure</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="nf">test</span><span class="p">(</span><span class="mi">8</span><span class="o">==</span><span class="mi">9</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="destructuring-assignment">Destructuring Assignment</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="p">(</span><span class="nv">name</span><span class="p">,</span> <span class="nv">surname</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="s">"Artur"</span><span class="p">,</span> <span class="s">"Gurgul"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="checking-if-value-is-in-range">Checking if value is in range</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">101</span>
+<span class="k">if</span> <span class="k">case</span> <span class="mi">100</span><span class="o">...</span><span class="mi">101</span> <span class="o">=</span> <span class="n">i</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">100</span><span class="o">...</span><span class="mi">101</span><span class="p">)</span><span class="o">.</span><span class="nf">contains</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="p">{</span>
+    <span class="o">&lt;</span><span class="err">#</span><span class="kt">Code</span><span class="err">#</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="accessing-tupple-values">Accessing tupple values</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">)</span><span class="o">.</span><span class="mi">0</span>
+</code></pre></div></div>
+
+<h4 id="pattern-matchiung">Pattern matchiung</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Example</span> <span class="p">{</span>
+    <span class="k">case</span> <span class="nf">first</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
+    <span class="k">case</span> <span class="nf">secund</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">example</span><span class="p">:</span> <span class="kt">Example</span> <span class="o">=</span> <span class="o">.</span><span class="nf">first</span><span class="p">(</span><span class="s">"test"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">switch</span> <span class="n">example</span> <span class="p">{</span>
+<span class="k">case</span> <span class="o">.</span><span class="nf">first</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">),</span> <span class="o">.</span><span class="nf">secund</span><span class="p">(</span><span class="k">let</span> <span class="nv">value</span><span class="p">):</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="k">case</span> <span class="kd">let</span> <span class="o">.</span><span class="nf">first</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">=</span> <span class="n">example</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p><em>print odd numbers</em></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mi">1</span><span class="o">...</span><span class="mi">100</span> <span class="k">where</span> <span class="n">i</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span> <span class="p">{</span>
+
+<span class="p">}</span> 
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Autoclosure]]></summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="artur.gurgul.pro/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/view-modifier</id><content type="html" xml:base="artur.gurgul.pro/swift/view-modifier.html"><![CDATA[<!-- https://swiftbysundell.com/articles/swiftui-views-versus-modifiers/ -->
+
+<p>The notification we’ll send when a shake gesture happens.</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIDevice</span> <span class="p">{</span>
     <span class="kd">static</span> <span class="k">let</span> <span class="nv">deviceDidShakeNotification</span> <span class="o">=</span> <span class="kt">Notification</span>
@@ -274,7 +220,218 @@ git commit
             <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[The notification we’ll send when a shake gesture happens.]]></summary></entry><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Cancelling a publisher</title><link href="artur.gurgul.pro/swift/cancel-upstream.html" rel="alternate" type="text/html" title="Cancelling a publisher" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/cancel-upstream</id><content type="html" xml:base="artur.gurgul.pro/swift/cancel-upstream.html"><![CDATA[<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
+	<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
+	<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span>
+	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+	<span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+		<span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">{</span>
+			<span class="n">timer</span><span class="o">.</span><span class="n">upstream</span><span class="o">.</span><span class="nf">connect</span><span class="p">()</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[let timer = Timer .publish(every: 1.0, on: .main, in: .common) .autoconnect()]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="artur.gurgul.pro/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/bridging</id><content type="html" xml:base="artur.gurgul.pro/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
+
+<ul>
+  <li>Both are compilable → Strategy: Create a binary library and call function from it.</li>
+  <li>Library in <code class="language-plaintext highlighter-rouge">interpreted</code> and the project in <code class="language-plaintext highlighter-rouge">compiled</code> → Strategy: Create an interpreter context, then load the files and execute them.</li>
+  <li>Library in <code class="language-plaintext highlighter-rouge">compiled</code> and the project in <code class="language-plaintext highlighter-rouge">interpreted</code> → Strategy: Use <code class="language-plaintext highlighter-rouge">FFI</code>.</li>
+  <li>Both are interpreted
+    <ul>
+      <li>Probably give up. Bridging will be possible, but messy and complicated</li>
+      <li>Create two programs and exchange data between them using pipe, sockets, message quesues, databses etc.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="creating-shared-and-static-library-in-go">Creating shared and static library in Go</h3>
+
+<p>An example code that is shared <a href="https://github.com/artur-gurgul/codebook"><code class="language-plaintext highlighter-rouge">example.go</code></a>:</p>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="s">"C"</span>
+<span class="k">import</span> <span class="s">"fmt"</span>
+
+<span class="c">//export SayHello</span>
+<span class="k">func</span> <span class="n">SayHello</span><span class="p">(</span><span class="n">hello</span> <span class="o">*</span><span class="n">C</span><span class="o">.</span><span class="n">char</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">GoString</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
+</code></pre></div></div>
+
+<ul>
+  <li>The <code class="language-plaintext highlighter-rouge">main</code> function is neccecery to include into library, because the final product has to have for example the GC rutines.</li>
+  <li>The comment starting from <code class="language-plaintext highlighter-rouge">//export {function name}</code> tells the comiler that this the function will be called from the outside.</li>
+</ul>
+
+<h4 id="creating-static-library">Creating static library</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.a -buildmode=c-archive example.go
+</code></pre></div></div>
+
+<h4 id="creating-dynamic-library">Creating dynamic library</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.dylib -buildmode=c-shared example.go
+</code></pre></div></div>
+
+<h3 id="creating-shared-and-static-library-in-swift">Creating shared and static library in Swift</h3>
+
+<p><code class="language-plaintext highlighter-rouge">point.swift</code></p>
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Point</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="k">let</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span>
+    <span class="kd">public</span> <span class="k">let</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>and compile with command (module name is optional)</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift <span class="nt">-emit-module</span>  -module-name Point <span class="nt">-emit-library</span> <span class="nt">-static</span>
+</code></pre></div></div>
+
+<p><strong>Using</strong></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Point</span>
+
+<span class="k">let</span> <span class="nv">p</span> <span class="o">=</span> <span class="kt">Point</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
+<span class="nf">print</span><span class="p">(</span><span class="s">"Hello library!"</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>compile with</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc main.swift <span class="nt">-L</span> ./lib/ <span class="nt">-I</span> ./lib/ <span class="nt">-lpoint</span>
+</code></pre></div></div>
+
+<h4 id="dynamic-library-in-swift">Dynamic library in Swift</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift -emit-module -emit-library
+</code></pre></div></div>
+
+<p>it produces</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">libpoint.a</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftdoc</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftmodule</code></li>
+  <li><code class="language-plaintext highlighter-rouge">point.swiftsourceinfo</code></li>
+</ul>
+
+<p>Compile main program the same way as it has been down with the static one</p>
+
+<p>Library searching paths <code class="language-plaintext highlighter-rouge">/usr/lib/</code>, <code class="language-plaintext highlighter-rouge">/usr/local/lib/</code> </p>
+
+<p><strong><em>Create package that emits library</em></strong></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// swift-tools-version:5.3</span>
+<span class="kd">import</span> <span class="kt">PackageDescription</span>
+
+<span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
+    <span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span>
+    <span class="nv">products</span><span class="p">:</span> <span class="p">[</span>
+        <span class="c1">/// type: automatic, based on the environment</span>
+        <span class="o">.</span><span class="nf">library</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> 
+		         <span class="c1">// type: .dynamic, .static</span>
+		         <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">"MyLibrary"</span><span class="p">]</span>
+        <span class="p">),</span>
+    <span class="p">],</span>
+    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
+        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[]),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="calling-function-from-library-in-go">Calling function from library in Go</h3>
+
+<p>First off we will create C++ library that we will use in out Go program.
+File <code class="language-plaintext highlighter-rouge">example.cxx</code>:</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
+</span>
+<span class="k">extern</span> <span class="s">"C"</span> <span class="p">{</span>
+
+<span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">"Hello: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span></code></pre></figure>
+
+<p>And <code class="language-plaintext highlighter-rouge">example.hxx</code>:</p>
+
+<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#pragma once
+</span><span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span></code></pre></figure>
+
+<p><code class="language-plaintext highlighter-rouge">extern "C" {}</code> informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:</p>
+
+<h4 id="creating-static-library-1">Creating static library</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -c -Wall -o lib.o ./example.cxx
+ar rc ./libexample.a ./lib.o
+</code></pre></div></div>
+
+<h4 id="creating-dynamic-library-1">Creating dynamic library</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -dynamiclib -o libexample.dylib example.cxx
+</code></pre></div></div>
+
+<h2 id="statically-linking-an-example-library-in-go">Statically linking an example library in Go</h2>
+
+<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="c">// #cgo CFLAGS: -I.</span>
+<span class="c">// #cgo LDFLAGS: -L. -lexample</span>
+<span class="c">//</span>
+<span class="c">// #include &lt;example.hxx&gt;</span>
+<span class="k">import</span> <span class="s">"C"</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">C</span><span class="o">.</span><span class="n">PrintHello</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">CString</span><span class="p">(</span><span class="s">"Hello Golang"</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>The program is linked staticaly with libexample when you build it.</p>
+
+<h4 id="example-of-using-library-with-ffi-in-ruby">Example of using library with FFI in Ruby</h4>
+
+<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gem <span class="nb">install </span>ffi</code></pre></figure>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ffi'</span>
+<span class="k">module</span> <span class="nn">Example</span>
+  <span class="kp">extend</span> <span class="no">FFI</span><span class="o">::</span><span class="no">Library</span>
+  <span class="n">ffi_lib</span> <span class="s1">'./example.dylib'</span>
+  <span class="n">attach_function</span> <span class="ss">:SayHello</span><span class="p">,</span> <span class="p">[</span><span class="ss">:string</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div></div>
+
+<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Example</span><span class="o">.</span><span class="no">SayHello</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>More informations about FFI: <a href="https://en.wikipedia.org/wiki/Foreign_function_interface">https://en.wikipedia.org/wiki/Foreign_function_interface</a></p>
+
+<h4 id="call-shared-library-from-python">Call shared library from Python</h4>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ctypes</span>
+<span class="n">libc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'./example.dylib'</span><span class="p">)</span>
+<span class="n">libc</span><span class="p">.</span><span class="n">SayHello</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="interesting-websites">Interesting websites</h2>
+
+<ul>
+  <li><a href="https://blog.filippo.io/building-python-modules-with-go-1-5/">https://blog.filippo.io/building-python-modules-with-go-1-5/</a></li>
+  <li><a href="https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/">https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/</a></li>
+</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
   <li><code class="language-plaintext highlighter-rouge">$</code> → end of line</li>
@@ -765,215 +922,4 @@ Sequence forfolding lines `Shift+V:fo`
 `zf#j` creates a fold from the cursor down # lines.
 
 :CheckHealth
--->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry><entry><title type="html">Cancelling a publisher</title><link href="artur.gurgul.pro/swift/cancel-upstream.html" rel="alternate" type="text/html" title="Cancelling a publisher" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/cancel-upstream</id><content type="html" xml:base="artur.gurgul.pro/swift/cancel-upstream.html"><![CDATA[<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
-	<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
-	<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
-</code></pre></div></div>
-
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span>
-	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
-	<span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
-		<span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">{</span>
-			<span class="n">timer</span><span class="o">.</span><span class="n">upstream</span><span class="o">.</span><span class="nf">connect</span><span class="p">()</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
-		<span class="p">}</span>
-	<span class="p">}</span>
-</code></pre></div></div>
-
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[let timer = Timer .publish(every: 1.0, on: .main, in: .common) .autoconnect()]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="artur.gurgul.pro/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/bridging</id><content type="html" xml:base="artur.gurgul.pro/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
-
-<ul>
-  <li>Both are compilable → Strategy: Create a binary library and call function from it.</li>
-  <li>Library in <code class="language-plaintext highlighter-rouge">interpreted</code> and the project in <code class="language-plaintext highlighter-rouge">compiled</code> → Strategy: Create an interpreter context, then load the files and execute them.</li>
-  <li>Library in <code class="language-plaintext highlighter-rouge">compiled</code> and the project in <code class="language-plaintext highlighter-rouge">interpreted</code> → Strategy: Use <code class="language-plaintext highlighter-rouge">FFI</code>.</li>
-  <li>Both are interpreted
-    <ul>
-      <li>Probably give up. Bridging will be possible, but messy and complicated</li>
-      <li>Create two programs and exchange data between them using pipe, sockets, message quesues, databses etc.</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="creating-shared-and-static-library-in-go">Creating shared and static library in Go</h3>
-
-<p>An example code that is shared <a href="https://github.com/artur-gurgul/codebook"><code class="language-plaintext highlighter-rouge">example.go</code></a>:</p>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="k">import</span> <span class="s">"C"</span>
-<span class="k">import</span> <span class="s">"fmt"</span>
-
-<span class="c">//export SayHello</span>
-<span class="k">func</span> <span class="n">SayHello</span><span class="p">(</span><span class="n">hello</span> <span class="o">*</span><span class="n">C</span><span class="o">.</span><span class="n">char</span><span class="p">)</span> <span class="p">{</span>
-		<span class="n">fmt</span><span class="o">.</span><span class="n">Print</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">GoString</span><span class="p">(</span><span class="n">hello</span><span class="p">))</span>
-<span class="p">}</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{}</span>
-</code></pre></div></div>
-
-<ul>
-  <li>The <code class="language-plaintext highlighter-rouge">main</code> function is neccecery to include into library, because the final product has to have for example the GC rutines.</li>
-  <li>The comment starting from <code class="language-plaintext highlighter-rouge">//export {function name}</code> tells the comiler that this the function will be called from the outside.</li>
-</ul>
-
-<h4 id="creating-static-library">Creating static library</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.a -buildmode=c-archive example.go
-</code></pre></div></div>
-
-<h4 id="creating-dynamic-library">Creating dynamic library</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>go build -o example.dylib -buildmode=c-shared example.go
-</code></pre></div></div>
-
-<h3 id="creating-shared-and-static-library-in-swift">Creating shared and static library in Swift</h3>
-
-<p><code class="language-plaintext highlighter-rouge">point.swift</code></p>
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Point</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="k">let</span> <span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span>
-    <span class="kd">public</span> <span class="k">let</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span>
-
-    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="k">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>and compile with command (module name is optional)</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift <span class="nt">-emit-module</span>  -module-name Point <span class="nt">-emit-library</span> <span class="nt">-static</span>
-</code></pre></div></div>
-
-<p><strong>Using</strong></p>
-
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">import</span> <span class="kt">Point</span>
-
-<span class="k">let</span> <span class="nv">p</span> <span class="o">=</span> <span class="kt">Point</span><span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="mi">20</span><span class="p">)</span>
-<span class="nf">print</span><span class="p">(</span><span class="s">"Hello library!"</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>compile with</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc main.swift <span class="nt">-L</span> ./lib/ <span class="nt">-I</span> ./lib/ <span class="nt">-lpoint</span>
-</code></pre></div></div>
-
-<h4 id="dynamic-library-in-swift">Dynamic library in Swift</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>swiftc point.swift -emit-module -emit-library
-</code></pre></div></div>
-
-<p>it produces</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">libpoint.a</code></li>
-  <li><code class="language-plaintext highlighter-rouge">point.swiftdoc</code></li>
-  <li><code class="language-plaintext highlighter-rouge">point.swiftmodule</code></li>
-  <li><code class="language-plaintext highlighter-rouge">point.swiftsourceinfo</code></li>
-</ul>
-
-<p>Compile main program the same way as it has been down with the static one</p>
-
-<p>Library searching paths <code class="language-plaintext highlighter-rouge">/usr/lib/</code>, <code class="language-plaintext highlighter-rouge">/usr/local/lib/</code> </p>
-
-<p><strong><em>Create package that emits library</em></strong></p>
-
-<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// swift-tools-version:5.3</span>
-<span class="kd">import</span> <span class="kt">PackageDescription</span>
-
-<span class="k">let</span> <span class="nv">package</span> <span class="o">=</span> <span class="kt">Package</span><span class="p">(</span>
-    <span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span>
-    <span class="nv">products</span><span class="p">:</span> <span class="p">[</span>
-        <span class="c1">/// type: automatic, based on the environment</span>
-        <span class="o">.</span><span class="nf">library</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> 
-		         <span class="c1">// type: .dynamic, .static</span>
-		         <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span><span class="s">"MyLibrary"</span><span class="p">]</span>
-        <span class="p">),</span>
-    <span class="p">],</span>
-    <span class="nv">targets</span><span class="p">:</span> <span class="p">[</span>
-        <span class="o">.</span><span class="nf">target</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="s">"MyLibrary"</span><span class="p">,</span> <span class="nv">dependencies</span><span class="p">:</span> <span class="p">[]),</span>
-    <span class="p">]</span>
-<span class="p">)</span>
-</code></pre></div></div>
-
-<h3 id="calling-function-from-library-in-go">Calling function from library in Go</h3>
-
-<p>First off we will create C++ library that we will use in out Go program.
-File <code class="language-plaintext highlighter-rouge">example.cxx</code>:</p>
-
-<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span>
-<span class="k">extern</span> <span class="s">"C"</span> <span class="p">{</span>
-
-<span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">"Hello: %s</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">u</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="p">}</span></code></pre></figure>
-
-<p>And <code class="language-plaintext highlighter-rouge">example.hxx</code>:</p>
-
-<figure class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="cp">#pragma once
-</span><span class="kt">void</span> <span class="n">PrintHello</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span><span class="o">*</span> <span class="n">u</span><span class="p">)</span></code></pre></figure>
-
-<p><code class="language-plaintext highlighter-rouge">extern "C" {}</code> informs the compiler that we want the function names to be preserved. That is, to not “mangle” the names as is done for C++ code:</p>
-
-<h4 id="creating-static-library-1">Creating static library</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -c -Wall -o lib.o ./example.cxx
-ar rc ./libexample.a ./lib.o
-</code></pre></div></div>
-
-<h4 id="creating-dynamic-library-1">Creating dynamic library</h4>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clang++ -dynamiclib -o libexample.dylib example.cxx
-</code></pre></div></div>
-
-<h2 id="statically-linking-an-example-library-in-go">Statically linking an example library in Go</h2>
-
-<div class="language-go highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">package</span> <span class="n">main</span>
-
-<span class="c">// #cgo CFLAGS: -I.</span>
-<span class="c">// #cgo LDFLAGS: -L. -lexample</span>
-<span class="c">//</span>
-<span class="c">// #include &lt;example.hxx&gt;</span>
-<span class="k">import</span> <span class="s">"C"</span>
-
-<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
-	<span class="n">C</span><span class="o">.</span><span class="n">PrintHello</span><span class="p">(</span><span class="n">C</span><span class="o">.</span><span class="n">CString</span><span class="p">(</span><span class="s">"Hello Golang"</span><span class="p">))</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>The program is linked staticaly with libexample when you build it.</p>
-
-<h4 id="example-of-using-library-with-ffi-in-ruby">Example of using library with FFI in Ruby</h4>
-
-<figure class="highlight"><pre><code class="language-shell" data-lang="shell">gem <span class="nb">install </span>ffi</code></pre></figure>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">require</span> <span class="s1">'ffi'</span>
-<span class="k">module</span> <span class="nn">Example</span>
-  <span class="kp">extend</span> <span class="no">FFI</span><span class="o">::</span><span class="no">Library</span>
-  <span class="n">ffi_lib</span> <span class="s1">'./example.dylib'</span>
-  <span class="n">attach_function</span> <span class="ss">:SayHello</span><span class="p">,</span> <span class="p">[</span><span class="ss">:string</span><span class="p">]</span>
-<span class="k">end</span>
-</code></pre></div></div>
-
-<div class="language-ruby highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="no">Example</span><span class="o">.</span><span class="no">SayHello</span><span class="p">(</span><span class="s2">"Hello"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<p>More informations about FFI: <a href="https://en.wikipedia.org/wiki/Foreign_function_interface">https://en.wikipedia.org/wiki/Foreign_function_interface</a></p>
-
-<h4 id="call-shared-library-from-python">Call shared library from Python</h4>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ctypes</span>
-<span class="n">libc</span> <span class="o">=</span> <span class="n">ctypes</span><span class="p">.</span><span class="n">CDLL</span><span class="p">(</span><span class="s">'./example.dylib'</span><span class="p">)</span>
-<span class="n">libc</span><span class="p">.</span><span class="n">SayHello</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">)</span>
-</code></pre></div></div>
-
-<h2 id="interesting-websites">Interesting websites</h2>
-
-<ul>
-  <li><a href="https://blog.filippo.io/building-python-modules-with-go-1-5/">https://blog.filippo.io/building-python-modules-with-go-1-5/</a></li>
-  <li><a href="https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/">https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/</a></li>
-</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry></feed>
+-->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry></feed>
