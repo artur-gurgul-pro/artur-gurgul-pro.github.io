@@ -510,6 +510,10 @@ img {
 	margin-right: auto;
 }
 
+.posts {
+	padding: 20px;
+  }
+
 ul.posts {
 	margin-top: 0;
 	list-style-type: none;
