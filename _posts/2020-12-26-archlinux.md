@@ -140,7 +140,7 @@ or pipe to the program like
 echo ',,c;' | sfdisk /dev/sdd
 ```
 
-#### First way: Using `fdisk`
+#### Secund way: Using `fdisk`
 
 ```bash
 fdisk /dev/sda << FDISK_CMDS
@@ -272,7 +272,6 @@ pacman -S grub efibootmgr dosfstools os-prober mtools --noconfirm
 mkdir /boot/EFI
 mount /dev/sda1 /boot/EFI
 grub-install --target=x86_64-efi --efi-directory=EFI --bootloader-id=grub_uefi --recheck
-
 
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
