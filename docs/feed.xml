@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-13T15:08:16+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-14T10:36:42+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Javascript closure</title><link href="artur.gurgul.pro/javascript/js-closure.html" rel="alternate" type="text/html" title="Javascript closure" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/javascript/js-closure</id><content type="html" xml:base="artur.gurgul.pro/javascript/js-closure.html"><![CDATA[<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">NextClosure</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
     <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
     <span class="k">return</span> <span class="kd">function</span> <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
@@ -153,7 +153,38 @@ git commit
 </code></pre></div></div>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">BackgroundView</span><span class="p">:</span> <span class="kt">Blurable</span> <span class="p">{}</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Autoclosure]]></summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="artur.gurgul.pro/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/view-modifier</id><content type="html" xml:base="artur.gurgul.pro/swift/view-modifier.html"><![CDATA[<!-- https://swiftbysundell.com/articles/swiftui-views-versus-modifiers/ -->
+</code></pre></div></div>
+
+<h2 id="difference-between-observedobject-state-and-environmentobject">Difference between @ObservedObject, @State, and @EnvironmentObject</h2>
+
+<p><a href="https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject">https://www.hackingwithswift.com/quick-start/swiftui/whats-the-difference-between-observedobject-state-and-environmentobject</a></p>
+
+<blockquote>
+  <ul>
+    <li>Use <code class="language-plaintext highlighter-rouge">@State</code> for simple properties that belong to a single view. They should usually be marked <code class="language-plaintext highlighter-rouge">private</code>.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">@ObservedObject</code> for complex properties that might belong to several views. Most times you’re using a reference type you should be using <code class="language-plaintext highlighter-rouge">@ObservedObject</code> for it.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">@StateObject</code> once for each observable object you use, in whichever part of your code is responsible for creating it.</li>
+    <li>Use <code class="language-plaintext highlighter-rouge">@EnvironmentObject</code> for properties that were created elsewhere in the app, such as shared data.</li>
+  </ul>
+</blockquote>
+
+<h3 id="cold-vs-hot-observables">Cold vs hot observables</h3>
+
+<p>From: Anton Moiseev’s Book <a href="https://www.manning.com/books/angular-development-with-typescript-second-edition">“Angular Development with Typescript, Second Edition.”</a> :</p>
+
+<blockquote>
+  <p><strong>Hot and cold observables</strong></p>
+
+  <p>There are <strong>two</strong> types of <strong>observables</strong>: hot and cold. The main difference is that a <strong>cold observable</strong> <strong>creates</strong> a <strong>data producer</strong> for <strong>each subscriber</strong>, whereas a <strong>hot observable creates</strong> a <strong>data producer first</strong>, and <strong>each subscriber</strong> gets the <strong>data</strong> from <strong>one producer</strong>, <strong>starting</strong> from <strong>the moment of</strong> <strong>subscription</strong>.</p>
+
+  <p>Let’s compare watching a <strong>movie</strong> on <strong>Netflix</strong> to going into a <strong>movie theater</strong>. Think of yourself as an <strong>observer</strong>. Anyone who decides to watch Mission: Impossible on Netflix will get the entire movie, regardless of when they hit the play button. Netflix creates a new <strong>producer</strong> to stream a movie just for you. This is a <strong>cold observable</strong>.</p>
+
+  <p>If you go to a movie theater and the showtime is 4 p.m., the producer is created at 4 p.m., and the streaming begins. If some people (<strong>subscribers</strong>) are late to the show, they miss the beginning of the movie and can only watch it starting from the moment of arrival. This is a <strong>hot observable</strong>.</p>
+
+  <p>A <strong>cold observable</strong> starts producing data when some code invokes a <strong>subscribe()</strong> function on it. For example, your app may declare an observable providing a URL on the server to get certain products. The request will be made only when you subscribe to it. If another script makes the same request to the server, it’ll get the same set of data.</p>
+
+  <p>A <strong>hot observable</strong> produces data even if no subscribers are interested in the data. For example, an accelerometer in your smartphone produces data about the position of your device, even if no app subscribes to this data. A server can produce the latest stock prices even if no user is interested in this stock.</p>
+</blockquote>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Autoclosure]]></summary></entry><entry><title type="html">Add share gesture as view modifier</title><link href="artur.gurgul.pro/swift/view-modifier.html" rel="alternate" type="text/html" title="Add share gesture as view modifier" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/view-modifier</id><content type="html" xml:base="artur.gurgul.pro/swift/view-modifier.html"><![CDATA[<!-- https://swiftbysundell.com/articles/swiftui-views-versus-modifiers/ -->
 
 <p>The notification we’ll send when a shake gesture happens.</p>
 
