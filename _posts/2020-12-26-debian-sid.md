@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Installing Debian sid on QEMU"
-categories: software debian
+title: Installing Debian sid on QEMU
+categories: linux
 ---
 
 This is the Debian setup where most of the examples shown on the website should work.

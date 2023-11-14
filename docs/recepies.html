@@ -79,7 +79,7 @@
       >Dynamic member lockup in swift</a></li>
   
     
-    <li><span>&raquo;</span><a href="/software/debian/debian-sid.html"
+    <li><span>&raquo;</span><a href="/linux/debian-sid.html"
       
       
 
@@ -112,6 +112,13 @@
       
 
       >Linux - Mount disk from qcow2 image</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/archlinux.html"
+      
+      
+
+      >Archlinux</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
@@ -196,6 +203,21 @@
 mcdiff file1 file2
 </code></pre></div></div>
 
+<h3 id="disk-manager">Disk manager</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cfdisk /dev/sda
+</code></pre></div></div>
+
+<h4 id="list-disks">List disks</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>parted -l
+</code></pre></div></div>
+
+<h4 id="informations-about-disk">informations about disk</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fdisk <span class="nt">-l</span> /dev/sda
+</code></pre></div></div>
+
 <h4 id="power-off-the-disk">Power off the disk</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udisksctl power-off -b /dev/sdX
@@ -257,6 +279,10 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> ~/.ssh/id_rsa.pub | pbcopy
 </code></pre></div></div>
 
+<h4 id="change-password-that-was-saved-in-a-variable">change password that was saved in a variable</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cho <span class="s2">"</span><span class="nv">$archpass</span><span class="s2">"</span> | passwd <span class="s2">"</span><span class="nv">$archuser</span><span class="s2">"</span> <span class="nt">--stdin</span>
+</code></pre></div></div>
 <h4 id="git-diff-between-branches">Git diff between branches</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git diff release-1.2.0..release-1.2.1
@@ -281,6 +307,16 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
  <span class="n">pod</span> <span class="s1">'WASHD'</span><span class="p">,</span> <span class="ss">:path</span> <span class="o">=&gt;</span> <span class="s1">'/Users/artur/projs/easyuitextfields'</span>
 </code></pre></div></div>
 
+<h4 id="sqlite-select-and-search-results-with-fzf">SQLite select and search results with FZF</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s2">"select * from bookmarks"</span> | sqlite3 bookmarks.db | fzf
+</code></pre></div></div>
+
+<h4 id="open-file-with-fzf">Open file with FZF</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nvim <span class="nt">-o</span> <span class="sb">`</span>fzf<span class="sb">`</span>
+</code></pre></div></div>
+
 <h4 id="set-default-shell-zsh-in-this-case">Set default shell. ZSH in this case</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo chsh --shell /usr/bin/zsh user
@@ -289,6 +325,7 @@ alias hexec='eval `history | fzf | cut  -s -d " " -f4-`'
 <h4 id="show-git-object">Show Git object</h4>
 <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pigz <span class="nt">-d</span> &lt; .git/objects/02/f2cc93fee0b3cb7c9b75f49e4ded3f9b1480eb
 </code></pre></div></div>
+
 <h4 id="list-of-wireless-cards">list of wireless cards</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lspci -knn | grep Net -A2

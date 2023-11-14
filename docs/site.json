@@ -49,10 +49,10 @@
 "url": "/swift/dynamic-member-lockup.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
-"categories": ["software","debian"],
+"categories": ["linux"],
 "tags": [],
 "title": "Installing Debian sid on QEMU",
-"url": "/software/debian/debian-sid.html"},
+"url": "/linux/debian-sid.html"},
 
 {"date": "Sat, 26 Dec 2020 00:00:00 +0100",
 "categories": ["software","debian"],
@@ -77,6 +77,12 @@
 "tags": [],
 "title": "Linux - Mount disk from qcow2 image",
 "url": "/linux/mounting-qcow2-image.html"},
+
+{"date": "Mon, 19 Oct 2020 12:09:07 +0200",
+"categories": ["linux"],
+"tags": [],
+"title": "Archlinux",
+"url": "/linux/archlinux.html"},
 
 {"date": "Thu, 11 Jun 2020 00:00:00 +0200",
 "categories": ["swift"],
