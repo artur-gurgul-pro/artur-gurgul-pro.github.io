@@ -469,6 +469,14 @@ imlib2_grab screenshot.png
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aspdf <span class="s2">"filename"</span> <span class="s2">"https://superuser.com/questions/592974/how-to-print-to-save-as-pdf-from-a-command-line-with-chrome-or-chromium"</span>
 </code></pre></div></div>
 
+<h3 id="export-markdown-as-pdf">Export Markdown as PDF</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pandoc README.md <span class="nt">-o</span> README.pdf
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pandoc <span class="nt">--from</span><span class="o">=</span>gfm <span class="nt">--to</span><span class="o">=</span>pdf <span class="nt">-o</span> README.pdf README.md
+</code></pre></div></div>
+
 <h4 id="gem-path">Gem path</h4>
 
 <pre><code class="language-hash">export GEM_HOME=$HOME/.gem
