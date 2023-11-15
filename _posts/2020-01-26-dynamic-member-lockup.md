@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Dynamic member lockup in swift"
+title:  "Dynamic member lockup"
 categories: swift
 ---
 

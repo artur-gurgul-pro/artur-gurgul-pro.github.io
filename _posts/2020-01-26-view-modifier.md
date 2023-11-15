@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Add share gesture as view modifier
+title: View modifiers
 categories: swift
 ---
 
