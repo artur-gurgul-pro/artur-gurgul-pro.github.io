@@ -320,6 +320,11 @@ w
 </span><span class="no">FDISK_CMDS
 </span></code></pre></div></div>
 
+<h4 id="therd-way">Therd way</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cfdisk /dev/sda
+</code></pre></div></div>
+
 <p>Formatting</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkfs.fat <span class="nt">-F32</span> /dev/sda1
@@ -438,6 +443,29 @@ grub-mkconfig <span class="nt">-o</span> /boot/grub/grub.cfg
 
 ping -c2 google.com
 </code></pre></div></div>
+
+<h2 id="sway">Sway</h2>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman <span class="nt">-S</span> git meson wlroots wayland wayland-protocols <span class="se">\</span>
+              pcre2 json-c pango cairo gdk-pixbuf2
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/swaywm/sway.git
+</code></pre></div></div>
+
+<p>building</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout v1.8
+</code></pre></div></div>
+
+<p>Disable waring as errors in  <code class="language-plaintext highlighter-rouge">meson.build</code> 10 line <code class="language-plaintext highlighter-rouge">'werror=false'</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>meson build/
+ninja <span class="nt">-C</span> build/
+<span class="nb">sudo </span>ninja <span class="nt">-C</span> build/ <span class="nb">install</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code></code></pre></div></div>
 
 
 </div>

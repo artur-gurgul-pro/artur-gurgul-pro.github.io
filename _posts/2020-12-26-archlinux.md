@@ -169,6 +169,12 @@ w
 FDISK_CMDS
 ```
 
+#### Therd way
+
+```bash
+cfdisk /dev/sda
+```
+
 Formatting
 
 ```bash
@@ -305,3 +311,30 @@ ip a
 ping -c2 google.com
 ```
 
+## Sway
+
+```bash
+pacman -S git meson wlroots wayland wayland-protocols \
+              pcre2 json-c pango cairo gdk-pixbuf2
+```
+
+```bash
+git clone https://github.com/swaywm/sway.git
+```
+
+building 
+
+```bash
+git checkout v1.8
+```
+
+Disable waring as errors in  `meson.build` 10 line `'werror=false'`
+
+```bash
+meson build/
+ninja -C build/
+sudo ninja -C build/ install
+```
+
+```
+```
