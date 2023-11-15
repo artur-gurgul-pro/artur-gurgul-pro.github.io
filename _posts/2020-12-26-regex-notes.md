@@ -1,7 +1,6 @@
 ---
 layout: post
-title:  "Regex - Find any"
-categories: regex
+title: Regex - notes
 ---
 
 How to match “any character” in the regular expression

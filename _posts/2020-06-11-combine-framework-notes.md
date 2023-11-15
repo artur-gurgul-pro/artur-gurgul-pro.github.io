@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Publishers notes and examples
+title: Combine framework - notes
 categories: swift
 ---
 

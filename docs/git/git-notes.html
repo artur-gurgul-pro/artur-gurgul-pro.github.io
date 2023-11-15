@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Linux - Mount disk from qcow2 image</title>
+  <title>Artur Gurgul - Git - notes</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -41,28 +41,21 @@
       
       
 
-      >Notes</a></li>
+      >Swift - notes</a></li>
   
     
-    <li><span>&raquo;</span><a href="/git/squash.html"
-      
-      
-
-      >Git - merge & squash commits</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/solid.html"
+    <li><span>&raquo;</span><a href="/programming/solid.html"
       
       
 
       >SOLID principles</a></li>
   
     
-    <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
+    <li><span>&raquo;</span><a href="/regex-notes.html"
       
       
 
-      >Regex - Find any</a></li>
+      >Regex - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/javascript/js-closure.html"
@@ -70,6 +63,15 @@
       
 
       >Javascript closure</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/git/git-notes.html"
+      
+      
+        style="font-weight: bold;"
+      
+
+      >Git - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/dynamic-member-lockup.html"
@@ -86,34 +88,11 @@
       >Installing Debian sid on QEMU</a></li>
   
     
-    <li><span>&raquo;</span><a href="/software/debian/debian-chroot.html"
-      
-      
-
-      >Chroot environment of Debian sid</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/programming/bridging.html"
       
       
 
       >Bridging between languages</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/linux/recepies/power-management.html"
-      
-      
-
-      >Ubuntu - Power management</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/linux/mounting-qcow2-image.html"
-      
-      
-        style="font-weight: bold;"
-      
-
-      >Linux - Mount disk from qcow2 image</a></li>
   
     
     <li><span>&raquo;</span><a href="/linux/archlinux.html"
@@ -141,7 +120,7 @@
       
       
 
-      >Publishers notes and examples</a></li>
+      >Combine framework - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/threading.html"
@@ -164,36 +143,49 @@
 
     <div class="scroll">
       <div class="content">
-        <h1 class="title">Linux - Mount disk from qcow2 image</h1>
+        <h1 class="title">Git - notes</h1>
 
 <div id="post">
-  <p>Step 1 - Enable NBD on the Host</p>
+  <p>Squash the last three commits</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modprobe nbd max_part=8
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~3
 </code></pre></div></div>
 
-<p>Step 2 - Connect the QCOW2 as network block device</p>
+<p>You will see something like this</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-nbd --connect=/dev/nbd0 /var/lib/vz/images/100/vm-100-disk-1.qcow2
+<pre><code class="language-plain">pick f392171 Added new feature X
+pick ba9dd9a Added new elements to page design
+pick df71a27 Updated CSS for new elements
+</code></pre>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">pick</code> <code class="language-plaintext highlighter-rouge">p</code> the commit will be taken</li>
+  <li><code class="language-plaintext highlighter-rouge">squash</code> <code class="language-plaintext highlighter-rouge">s</code>, the commit will be blended with the above.</li>
+</ul>
+
+<p>Edit to something like this</p>
+
+<pre><code class="language-plain">pick f392171 New message for this three commit!
+squash ba9dd9a
+squash df71a27
+</code></pre>
+
+<p>Now you can accept the change by continuing the rebase:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">--continue</span>
 </code></pre></div></div>
 
-<p>Step 3 - Find The Virtual Machine Partitions</p>
+<p>After that you need to force override the history using this command:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fdisk /dev/nbd0 -l
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master <span class="nt">--force</span>
 </code></pre></div></div>
 
-<p>Step 4 - Mount the partition from the VM</p>
+<h2 id="squash-merge">Squash merge</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount /dev/nbd0p1 /mnt/somepoint/
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
+git merge <span class="nt">--squash</span> bugfix
+git commit
 </code></pre></div></div>
-
-<p>Step 5 - After you done, unmount and disconnect</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>umount /mnt/somepoint/
-qemu-nbd --disconnect /dev/nbd0
-rmmod nbd
-</code></pre></div></div>
-
 
 </div>
 

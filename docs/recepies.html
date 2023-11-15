@@ -41,28 +41,21 @@
       
       
 
-      >Notes</a></li>
+      >Swift - notes</a></li>
   
     
-    <li><span>&raquo;</span><a href="/git/squash.html"
-      
-      
-
-      >Git - merge & squash commits</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/solid.html"
+    <li><span>&raquo;</span><a href="/programming/solid.html"
       
       
 
       >SOLID principles</a></li>
   
     
-    <li><span>&raquo;</span><a href="/regex/regex-find-any.html"
+    <li><span>&raquo;</span><a href="/regex-notes.html"
       
       
 
-      >Regex - Find any</a></li>
+      >Regex - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/javascript/js-closure.html"
@@ -70,6 +63,13 @@
       
 
       >Javascript closure</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/git/git-notes.html"
+      
+      
+
+      >Git - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/dynamic-member-lockup.html"
@@ -86,32 +86,11 @@
       >Installing Debian sid on QEMU</a></li>
   
     
-    <li><span>&raquo;</span><a href="/software/debian/debian-chroot.html"
-      
-      
-
-      >Chroot environment of Debian sid</a></li>
-  
-    
     <li><span>&raquo;</span><a href="/programming/bridging.html"
       
       
 
       >Bridging between languages</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/linux/recepies/power-management.html"
-      
-      
-
-      >Ubuntu - Power management</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/linux/mounting-qcow2-image.html"
-      
-      
-
-      >Linux - Mount disk from qcow2 image</a></li>
   
     
     <li><span>&raquo;</span><a href="/linux/archlinux.html"
@@ -139,7 +118,7 @@
       
       
 
-      >Publishers notes and examples</a></li>
+      >Combine framework - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/threading.html"
@@ -566,6 +545,104 @@ UUID=1a38b8ca-e1f5-45e6-bbe8-3abd2775b3a6  /               ext4    errors=remoun
 /dev/disk/by-uuid/4D3C-4E36                /mnt/4D3C-4E36  auto    nosuid,nodev,nofail,x-gvfs-show  0       0
 
 UUID=e21eebe4-471a-4375-8c4c-618b3733a940  /home           ext4    nodev,nosuid                     0       2
+</code></pre></div></div>
+
+<h3 id="linux---mount-disk-from-qcow2-image">Linux - Mount disk from <code class="language-plaintext highlighter-rouge">qcow2</code> image</h3>
+
+<p>Step 1 - Enable NBD on the Host</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>modprobe nbd <span class="nv">max_part</span><span class="o">=</span>8
+</code></pre></div></div>
+
+<p>Step 2 - Connect the QCOW2 as network block device</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-nbd <span class="nt">--connect</span><span class="o">=</span>/dev/nbd0 /var/lib/vz/images/100/vm-100-disk-1.qcow2
+</code></pre></div></div>
+
+<p>Step 3 - Find The Virtual Machine Partitions</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fdisk /dev/nbd0 <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>Step 4 - Mount the partition from the VM</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount /dev/nbd0p1 /mnt/somepoint/
+</code></pre></div></div>
+
+<p>Step 5 - After you done, unmount and disconnect</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>umount /mnt/somepoint/
+qemu-nbd <span class="nt">--disconnect</span> /dev/nbd0
+rmmod nbd
+</code></pre></div></div>
+
+<h3 id="ubuntu---power-management">Ubuntu - Power management</h3>
+
+<p>To make Ubuntu do nothing when laptop lid is closed:</p>
+
+<p>From For 13.10 onwards:</p>
+
+<p>Open the <code class="language-plaintext highlighter-rouge">/etc/systemd/logind.conf</code> file in a text editor as root, for example:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> <span class="nt">-H</span> gedit /etc/systemd/logind.conf
+</code></pre></div></div>
+
+<p>If <code class="language-plaintext highlighter-rouge">HandleLidSwitch</code> is not set to ignore then change it:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">HandleLidSwitch</span><span class="o">=</span>ignore
+</code></pre></div></div>
+
+<p>Other settings that the action can be ignored: <code class="language-plaintext highlighter-rouge">HandleLidSwitchExternalPower</code>, <code class="language-plaintext highlighter-rouge">HandleLidSwitchDocked</code>, <code class="language-plaintext highlighter-rouge">IdleAction</code>.</p>
+
+<p>Restart the systemd daemon (be aware that this command will log you out):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>systemctl restart systemd-logind
+</code></pre></div></div>
+
+<p>or, from 15.04 onwards:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>service systemd-logind restart
+</code></pre></div></div>
+
+<h3 id="chroot-environment-of-debian-sid">Chroot environment of Debian sid</h3>
+
+<p>Install Bootstrap</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>debootstrap
+</code></pre></div></div>
+
+<p>Create a directory that you want to use for the base system (<em>chroot-debian</em> in this case)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">mkdir </span>chroot-debian
+</code></pre></div></div>
+
+<p>Create a base system</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>debootstrap sid chroot-debian http://deb.debian.org/debian
+</code></pre></div></div>
+
+<p>Valid names <code class="language-plaintext highlighter-rouge">sid</code>, <code class="language-plaintext highlighter-rouge">stable</code> or any debian code name</p>
+
+<p>Mount  filesystems</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>mount <span class="nt">-o</span> <span class="nb">bind</span> /dev chroot-debian/dev
+<span class="nb">sudo </span>mount <span class="nt">-t</span> sysfs none chroot-debian/sys
+<span class="nb">sudo </span>mount <span class="nt">-o</span> <span class="nb">bind</span> /proc chroot-debian/proc
+</code></pre></div></div>
+
+<p>Optionally, copy DNS resolver configuration.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo cp /etc/resolv.conf /path/to/chroot-env/etc/resolv.conf
+</code></pre></div></div>
+
+<p>Start chrooting</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo chroot </span>chroot-debian /bin/bash
+</code></pre></div></div>
+
+<p>Once done, exit the session and unmount</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>umount chroot-debian/dev chroot-debian/proc
 </code></pre></div></div>
 
 </div>
