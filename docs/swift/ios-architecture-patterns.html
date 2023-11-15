@@ -513,7 +513,60 @@
   <li>Harder to learn and can become complex</li>
 </ul>
 
+<h4 id="extension-with-coordinator-mvvm-c"><strong>Extension with Coordinator MVVM-C</strong></h4>
+
+<p>Role of <code class="language-plaintext highlighter-rouge">Coordinator</code> is to manage navigation flow.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">protocol</span> <span class="kt">Coordinator</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span>
+    <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>and an example implementation</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">ExampleCoordinator</span><span class="p">:</span> <span class="kt">Coordinator</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span>
+    <span class="nf">init</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="kt">UINavigationController</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">navigationController</span> <span class="o">=</span> <span class="kt">UINavigationController</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">viewModel</span> <span class="o">=</span> <span class="kt">ExampleViewModel</span><span class="p">(</span><span class="nv">someService</span><span class="p">:</span> <span class="kt">SomeService</span><span class="p">(),</span>
+                                         <span class="nv">coordinator</span><span class="p">:</span> <span class="k">self</span><span class="p">)</span>
+        <span class="n">navigationController</span><span class="o">.</span><span class="nf">pushViewController</span><span class="p">(</span><span class="kt">ExampleController</span><span class="p">(</span><span class="n">viewModel</span><span class="p">),</span>
+                                                <span class="nv">animated</span><span class="p">:</span> <span class="kc">true</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">func</span> <span class="nf">showList</span><span class="p">(</span><span class="n">_</span> <span class="nv">list</span><span class="p">:</span> <span class="kt">ExampleListModel</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">listCoordinator</span> <span class="o">=</span> <span class="kt">ListCoordinator</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="n">navigationController</span>
+                                              <span class="nv">list</span><span class="p">:</span> <span class="n">list</span><span class="p">)</span>
+        <span class="n">listCoordinator</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>In the book I am reading the author created an <code class="language-plaintext highlighter-rouge">ExampleCoordinatorProtocol</code> with a <code class="language-plaintext highlighter-rouge">func showList(_ list: ExampleListModel)</code> where the <code class="language-plaintext highlighter-rouge">ExampleCoordinator</code> implemented it. I think it does not make any sense, however if we might want to inject the coordinator then we might want to relay on an abstraction.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">scene</span><span class="p">(</span><span class="n">_</span> <span class="nv">scene</span><span class="p">:</span> <span class="kt">UIScene</span><span class="p">,</span>
+           <span class="n">willConnectTo</span> <span class="nv">session</span><span class="p">:</span> <span class="kt">UISceneSession</span><span class="p">,</span>
+           <span class="n">options</span> <span class="nv">connectionOptions</span><span class="p">:</span> <span class="kt">UIScene</span><span class="o">.</span><span class="kt">ConnectionOptions</span><span class="p">)</span> <span class="p">{</span>
+    
+    <span class="k">guard</span> <span class="k">let</span> <span class="nv">scene</span> <span class="o">=</span> <span class="p">(</span><span class="n">scene</span> <span class="k">as?</span> <span class="kt">UIWindowScene</span><span class="p">)</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+    
+    <span class="k">let</span> <span class="nv">window</span> <span class="o">=</span> <span class="kt">UIWindow</span><span class="p">(</span><span class="nv">windowScene</span><span class="p">:</span> <span class="n">scene</span><span class="p">)</span>
+    <span class="k">let</span> <span class="nv">navigationController</span> <span class="o">=</span> <span class="kt">UINavigationController</span><span class="p">()</span>
+    <span class="n">exampleCoordinator</span> <span class="o">=</span> <span class="kt">ExampleCoordinator</span><span class="p">(</span><span class="nv">navigationController</span><span class="p">:</span> <span class="n">navigationController</span><span class="p">)</span>
+    <span class="n">exampleCoordinator</span><span class="p">?</span><span class="o">.</span><span class="nf">start</span><span class="p">()</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">rootViewController</span> <span class="o">=</span> <span class="n">navigationController</span>
+    <span class="n">window</span><span class="o">.</span><span class="nf">makeKeyAndVisible</span><span class="p">()</span>
+    <span class="k">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">window</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
 <!--
+https://github.com/ochococo/Design-Patterns-In-Swift
+
 https://nalexn.github.io/clean-architecture-swiftui/
 https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
 ## VIPER

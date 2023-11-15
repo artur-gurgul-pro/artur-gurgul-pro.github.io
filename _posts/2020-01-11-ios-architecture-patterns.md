@@ -244,7 +244,64 @@ Binding is done using: `Combine Framework`, `RxSwift`, `Bond` or `KVO` or using 
 - Might be slower and introduce dependency on external libraries
 - Harder to learn and can become complex
 
+
+#### **Extension with Coordinator MVVM-C**
+
+Role of `Coordinator` is to manage navigation flow.
+
+```swift
+protocol Coordinator {
+    var navigationController: UINavigationController { get set }
+    func start()
+}
+```
+
+and an example implementation
+
+```swift
+class ExampleCoordinator: Coordinator {
+    var navigationController: UINavigationController
+    init(navigationController: UINavigationController) {
+        self.navigationController = UINavigationController
+    }
+
+    func start() {
+        let viewModel = ExampleViewModel(someService: SomeService(),
+                                         coordinator: self)
+        navigationController.pushViewController(ExampleController(viewModel),
+                                                animated: true)
+    }
+
+    func showList(_ list: ExampleListModel) {
+        let listCoordinator = ListCoordinator(navigationController: navigationController
+                                              list: list)
+        listCoordinator.start()
+    }
+}
+```
+
+In the book I am reading the author created an `ExampleCoordinatorProtocol` with a `func showList(_ list: ExampleListModel)` where the `ExampleCoordinator` implemented it. I think it does not make any sense, however if we might want to inject the coordinator then we might want to relay on an abstraction.
+
+```swift
+func scene(_ scene: UIScene,
+           willConnectTo session: UISceneSession,
+           options connectionOptions: UIScene.ConnectionOptions) {
+    
+    guard let scene = (scene as? UIWindowScene) else { return }
+    
+    let window = UIWindow(windowScene: scene)
+    let navigationController = UINavigationController()
+    exampleCoordinator = ExampleCoordinator(navigationController: navigationController)
+    exampleCoordinator?.start()
+    window.rootViewController = navigationController
+    window.makeKeyAndVisible()
+    self.window = window
+}
+```
+
 <!--
+https://github.com/ochococo/Design-Patterns-In-Swift
+
 https://nalexn.github.io/clean-architecture-swiftui/
 https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
 ## VIPER
