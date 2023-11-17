@@ -113,7 +113,7 @@ table {
 
 body {
 	background: #fff;
-	font: 14px/21px "OpenSans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font: 14px/21px -apple-system, BlinkMacSystemFont, sans-serif;
 	color: #444;
 	-webkit-font-smoothing: antialiased;
 	-webkit-text-size-adjust: 100%;
@@ -582,6 +582,19 @@ nav h2 {
 .sidebar a {
 	font-weight: 600;
 }
+
+text {
+	font: 500 12px/22px  -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* path, rect {
+	stroke: red;
+} */
+
+g {
+	font: 500 12px/22px  -apple-system, BlinkMacSystemFont, sans-serif;
+}
+/* stroke-width="2" */
 
 .content {
 	font: 400 16px/22px  -apple-system, BlinkMacSystemFont, sans-serif;

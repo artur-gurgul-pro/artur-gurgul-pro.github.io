@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Gurgul - Interesting Swift snippets</title>
+  <meta name="author" content="Artur Gurgul" />
+  <meta name="description" content="The blog of Artur Gurgul" />
+  
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <nav>
+  <h2 style="font-size: 20px;margin: 0px;">Hi. I'm <a href="/"> Artur Gurgul</a>,</h2>
+   <h2 style="font-size: 15px;margin-top: -0.5em;">and this is my notepad.</h2>
+  <hr class="hr-text" data-content="Contents"/>
+  
+  <ul id="blog-posts" class="posts">
+    <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
+  
+    
+    <li><span>&raquo;</span><a href="/software/vim.html"
+      
+      
+
+      >Vim notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/regex-notes.html"
+      
+      
+
+      >Regex - notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/recepies.html"
+      
+      
+
+      >Recepies</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/software/git-notes.html"
+      
+      
+
+      >Git - notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/installation.html"
+      
+      
+
+      >Linux installation</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/solid.html"
+      
+      
+
+      >SOLID principles</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/bridging.html"
+      
+      
+
+      >Bridging between languages</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/javascript-notes.html"
+      
+      
+
+      >Currying</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/swift-notes.html"
+      
+      
+
+      >Swift - notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/Interesting-snippets.html"
+      
+      
+        style="font-weight: bold;"
+      
+
+      >Interesting Swift snippets</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
+      
+      
+
+      >iOS Architecture Patterns</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/threading.html"
+      
+      
+
+      >Threading</a></li>
+  
+  </ul>
+</nav>
+
+    </div>
+
+    <div class="scroll">
+      <div class="content">
+        <h1 class="title">Interesting Swift snippets</h1>
+
+<div id="post">
+  <!-- https://swiftbysundell.com/articles/swiftui-views-versus-modifiers/ -->
+
+<h1 id="view-modifier">View modifier</h1>
+
+<p>The notification we’ll send when a shake gesture happens.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIDevice</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">let</span> <span class="nv">deviceDidShakeNotification</span> <span class="o">=</span> <span class="kt">Notification</span>
+                                              <span class="o">.</span><span class="kt">Name</span><span class="p">(</span><span class="nv">rawValue</span><span class="p">:</span> <span class="s">"deviceDidShakeNotification"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Override the default behavior of shake gestures to send our notification instead.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIWindow</span> <span class="p">{</span>
+     <span class="kd">open</span> <span class="k">override</span> <span class="kd">func</span> <span class="nf">motionEnded</span><span class="p">(</span><span class="n">_</span> <span class="nv">motion</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="o">.</span><span class="kt">EventSubtype</span><span class="p">,</span> <span class="n">with</span> <span class="nv">event</span><span class="p">:</span> <span class="kt">UIEvent</span><span class="p">?)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">motion</span> <span class="o">==</span> <span class="o">.</span><span class="n">motionShake</span> <span class="p">{</span>
+            <span class="kt">NotificationCenter</span>
+                <span class="o">.</span><span class="k">default</span>
+                <span class="o">.</span><span class="nf">post</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">deviceDidShakeNotification</span><span class="p">,</span> <span class="nv">object</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+        <span class="p">}</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>A view modifier that detects shaking and calls a function of our choosing.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">DeviceShakeViewModifier</span><span class="p">:</span> <span class="kt">ViewModifier</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">action</span><span class="p">:</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span>
+
+    <span class="kd">func</span> <span class="nf">body</span><span class="p">(</span><span class="nv">content</span><span class="p">:</span> <span class="kt">Content</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="n">content</span>
+            <span class="o">.</span><span class="nf">onAppear</span><span class="p">()</span>
+            <span class="o">.</span><span class="nf">onReceive</span><span class="p">(</span><span class="kt">NotificationCenter</span>
+                           <span class="o">.</span><span class="k">default</span>
+                           <span class="o">.</span><span class="nf">publisher</span><span class="p">(</span><span class="nv">for</span><span class="p">:</span> <span class="kt">UIDevice</span><span class="o">.</span><span class="n">deviceDidShakeNotification</span><span class="p">))</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+                               <span class="nf">action</span><span class="p">()</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>A View extension to make the modifier easier to use.</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">onShake</span><span class="p">(</span><span class="n">perform</span> <span class="nv">action</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="nf">modifier</span><span class="p">(</span><span class="kt">DeviceShakeViewModifier</span><span class="p">(</span><span class="nv">action</span><span class="p">:</span> <span class="n">action</span><span class="p">))</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>An example view that responds to being shaken</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">struct</span> <span class="kt">ContentView</span><span class="p">:</span> <span class="kt">View</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">body</span><span class="p">:</span> <span class="kd">some</span> <span class="kt">View</span> <span class="p">{</span>
+        <span class="kt">Text</span><span class="p">(</span><span class="s">"Shake me!"</span><span class="p">)</span>
+            <span class="o">.</span><span class="n">onShake</span> <span class="p">{</span>
+                <span class="nf">print</span><span class="p">(</span><span class="s">"Device shaken!"</span><span class="p">)</span>
+            <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="swizzling">Swizzling</h1>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">UIViewController</span> <span class="p">{</span>
+    <span class="kd">@objc</span> <span class="kd">dynamic</span> <span class="kd">func</span> <span class="nf">newViewDidAppear</span><span class="p">(</span><span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nf">viewDidAppear</span><span class="p">(</span><span class="n">animated</span><span class="p">)</span>
+        <span class="nf">print</span><span class="p">(</span><span class="s">"View appeared"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">private</span> <span class="k">let</span> <span class="nv">swizzling</span><span class="p">:</span> <span class="kt">Void</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="k">let</span> <span class="nv">originalMethod</span> <span class="o">=</span> <span class="nf">class_getInstanceMethod</span><span class="p">(</span><span class="kt">UIViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span>
+                                                 <span class="cp">#selector(UIViewController.viewDidLoad))</span>
+    <span class="k">let</span> <span class="nv">swizzledMethod</span> <span class="o">=</span> <span class="nf">class_getInstanceMethod</span><span class="p">(</span><span class="kt">UIViewController</span><span class="o">.</span><span class="k">self</span><span class="p">,</span>
+                                                 <span class="cp">#selector(UIViewController.newViewDidAppear))</span>
+    <span class="k">if</span> <span class="k">let</span> <span class="nv">originalMethod</span> <span class="o">=</span> <span class="n">originalMethod</span><span class="p">,</span> <span class="k">let</span> <span class="nv">swizzledMethod</span> <span class="o">=</span> <span class="n">swizzledMethod</span> <span class="p">{</span>
+        <span class="nf">method_exchangeImplementations</span><span class="p">(</span><span class="n">originalMethod</span><span class="p">,</span> <span class="n">swizzledMethod</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}()</span>
+</code></pre></div></div>
+
+<h1 id="class-vs-static-values">class vs static values</h1>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">Car</span> <span class="p">{</span>
+    <span class="kd">static</span> <span class="k">var</span> <span class="nv">start</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">100</span>
+    <span class="p">}</span>
+
+    <span class="kd">class</span> <span class="k">var</span> <span class="nv">stop</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">0</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">Student</span><span class="p">:</span> <span class="kt">Person</span> <span class="p">{</span>
+    <span class="c1">// Not allowed</span>
+    <span class="c1">// override static var start: Int {</span>
+    <span class="c1">//    return 150</span>
+    <span class="c1">// }</span>
+
+    <span class="k">override</span> <span class="kd">class</span> <span class="k">var</span> <span class="nv">stop</span><span class="p">:</span> <span class="kt">Int</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">5</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="always-publisher-example">Always Publisher example</h1>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">struct</span> <span class="kt">Always</span><span class="o">&lt;</span><span class="kt">Output</span><span class="o">&gt;</span><span class="p">:</span> <span class="kt">Publisher</span> <span class="p">{</span>
+    <span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Failure</span> <span class="o">=</span> <span class="kt">Never</span>
+    <span class="kd">public</span> <span class="k">let</span> <span class="nv">output</span><span class="p">:</span> <span class="kt">Output</span>
+
+    <span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">output</span><span class="p">:</span> <span class="kt">Output</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">output</span>
+    <span class="p">}</span>
+
+    <span class="kd">public</span> <span class="kd">func</span> <span class="n">receive</span><span class="o">&lt;</span><span class="kt">S</span><span class="p">:</span> <span class="kt">Subscriber</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">subscriber</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span>
+                <span class="k">where</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Input</span> <span class="o">==</span> <span class="kt">Output</span><span class="p">,</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Failure</span> <span class="o">==</span> <span class="kt">Failure</span> <span class="p">{</span>
+        <span class="k">let</span> <span class="nv">subscription</span> <span class="o">=</span> <span class="kt">Subscription</span><span class="p">(</span><span class="nv">output</span><span class="p">:</span> <span class="n">output</span><span class="p">,</span> 
+                                        <span class="nv">subscriber</span><span class="p">:</span> <span class="n">subscriber</span><span class="p">)</span>
+        <span class="n">subscriber</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="nv">subscription</span><span class="p">:</span> <span class="n">subscription</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">private</span> <span class="kd">extension</span> <span class="kt">Always</span> <span class="p">{</span>
+    <span class="kd">final</span> <span class="kd">class</span> <span class="kt">Subscription</span><span class="o">&lt;</span><span class="kt">S</span><span class="p">:</span> <span class="kt">Subscriber</span><span class="o">&gt;</span> 
+                <span class="k">where</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Input</span> <span class="o">==</span> <span class="kt">Output</span><span class="p">,</span> <span class="kt">S</span><span class="o">.</span><span class="kt">Failure</span> <span class="o">==</span> <span class="kt">Failure</span> <span class="p">{</span>
+        <span class="kd">private</span> <span class="k">let</span> <span class="nv">output</span><span class="p">:</span> <span class="kt">Output</span>
+        <span class="kd">private</span> <span class="k">var</span> <span class="nv">subscriber</span><span class="p">:</span> <span class="kt">S</span><span class="p">?</span>
+
+    <span class="nf">init</span><span class="p">(</span><span class="nv">output</span><span class="p">:</span> <span class="kt">Output</span><span class="p">,</span> <span class="nv">subscriber</span><span class="p">:</span> <span class="kt">S</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">output</span>
+        <span class="k">self</span><span class="o">.</span><span class="n">subscriber</span> <span class="o">=</span> <span class="n">subscriber</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Always</span><span class="o">.</span><span class="kt">Subscription</span><span class="p">:</span> <span class="kt">Cancellable</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">subscriber</span> <span class="o">=</span> <span class="kc">nil</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">extension</span> <span class="kt">Always</span><span class="o">.</span><span class="kt">Subscription</span><span class="p">:</span> <span class="kt">Subscription</span> <span class="p">{</span>
+  <span class="kd">func</span> <span class="nf">request</span><span class="p">(</span><span class="n">_</span> <span class="nv">demand</span><span class="p">:</span> <span class="kt">Subscribers</span><span class="o">.</span><span class="kt">Demand</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">var</span> <span class="nv">demand</span> <span class="o">=</span> <span class="n">demand</span>
+    <span class="k">while</span> <span class="k">let</span> <span class="nv">subscriber</span> <span class="o">=</span> <span class="n">subscriber</span><span class="p">,</span> <span class="n">demand</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+      <span class="n">demand</span> <span class="o">-=</span> <span class="mi">1</span>
+      <span class="n">demand</span> <span class="o">+=</span> <span class="n">subscriber</span><span class="o">.</span><span class="nf">receive</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="buffered-publisher">Buffered publisher</h1>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">publisher</span> <span class="o">=</span> <span class="kt">PassthroughSubject</span><span class="o">&lt;</span><span class="kt">Int</span><span class="p">,</span> <span class="kt">Never</span><span class="o">&gt;</span><span class="p">()</span>
+<span class="n">publisher</span><span class="o">.</span><span class="nf">send</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">buffered</span> <span class="o">=</span> <span class="n">publisher</span><span class="o">.</span><span class="nf">buffer</span><span class="p">(</span><span class="nv">size</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nv">prefetch</span><span class="p">:</span> <span class="o">.</span><span class="n">keepFull</span><span class="p">,</span> <span class="nv">whenFull</span><span class="p">:</span> <span class="o">.</span><span class="n">dropOldest</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h1 id="combine-publishers">Combine publishers</h1>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">let</span> <span class="nv">publisher1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">publisher</span>
+ <span class="k">let</span> <span class="nv">publisher2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">publisher</span>
+</code></pre></div></div>
+
+<p>Emits first and then second</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="k">let</span> <span class="nv">combinedPublisher</span> <span class="o">=</span> <span class="kt">Publishers</span>
+                             <span class="o">.</span><span class="kt">Concatenate</span><span class="p">(</span><span class="nv">prefix</span><span class="p">:</span> <span class="n">publisher1</span><span class="o">.</span><span class="nf">eraseToAnyPublisher</span><span class="p">(),</span>
+                                          <span class="nv">suffix</span><span class="p">:</span> <span class="n">publisher2</span><span class="o">.</span><span class="nf">eraseToAnyPublisher</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p>Combine without ordering</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">combinedPublisher</span> <span class="o">=</span> <span class="kt">Publishers</span><span class="o">.</span><span class="kt">Merge</span><span class="p">(</span><span class="n">publisher1</span><span class="o">.</span><span class="nf">eraseToAnyPublisher</span><span class="p">(),</span>
+                                         <span class="n">publisher2</span><span class="o">.</span><span class="nf">eraseToAnyPublisher</span><span class="p">())</span>
+</code></pre></div></div>
+
+<p><strong><em>Other operators worth to look at</em></strong></p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Zip</code> - pair the emitted object, like a zip in the jacket</li>
+  <li><a href="https://developer.apple.com/documentation/combine/publisher/combinelatest%28_:%29"><code class="language-plaintext highlighter-rouge">CombineLatest</code></a> - When <code class="language-plaintext highlighter-rouge">publisher1</code> and <code class="language-plaintext highlighter-rouge">publisher2</code> emitted some event then the latest values from each are taken and reemitted. From now on each change from either publisher is passed down.</li>
+</ul>
+
+<h4 id="example-of-zip">Example of zip</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span><span class="o">.</span><span class="n">publisher</span>
+<span class="k">let</span> <span class="nv">twos</span> <span class="o">=</span> <span class="nf">sequence</span><span class="p">(</span><span class="nv">first</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> 
+                    <span class="nv">next</span><span class="p">:</span> <span class="p">{</span><span class="n">_</span> <span class="k">in</span> <span class="mi">2</span><span class="p">})</span><span class="o">.</span><span class="n">publisher</span>
+<span class="n">numbers</span>
+	<span class="o">.</span><span class="nf">zip</span><span class="p">(</span><span class="n">twos</span><span class="p">)</span>
+	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="nf">pow</span><span class="p">(</span><span class="kt">Decimal</span><span class="p">(</span><span class="nv">$0</span><span class="p">),</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">}</span>
+	<span class="o">.</span><span class="nf">sink</span><span class="p">(</span><span class="nv">receiveValue</span><span class="p">:</span> <span class="p">{</span> <span class="n">p</span> <span class="k">in</span>
+		<span class="nf">print</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+	<span class="p">})</span><span class="o">.</span><span class="nf">store</span><span class="p">(</span><span class="nv">in</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">cancellables</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="cancelling-a-publisher">Cancelling a publisher</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">timer</span> <span class="o">=</span> <span class="kt">Timer</span>
+	<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
+	<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">var</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span>
+	<span class="o">.</span><span class="n">map</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span> <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span> <span class="p">}</span>
+	<span class="o">.</span><span class="n">sink</span> <span class="p">{</span> <span class="n">_</span> <span class="k">in</span>
+		<span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="p">{</span>
+			<span class="n">timer</span><span class="o">.</span><span class="n">upstream</span><span class="o">.</span><span class="nf">connect</span><span class="p">()</span><span class="o">.</span><span class="nf">cancel</span><span class="p">()</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+</code></pre></div></div>
+
+<p>It will work similar to this</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@dynamicMemberLookup</span>
+<span class="kd">struct</span> <span class="kt">DynamicStruct</span> <span class="p">{</span>
+    <span class="nf">subscript</span><span class="p">(</span><span class="n">dynamicMember</span> <span class="nv">member</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">"You accessed dynamic member '</span><span class="se">\(</span><span class="n">member</span><span class="se">)</span><span class="s">'"</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">dynamicStruct</span> <span class="o">=</span> <span class="kt">DynamicStruct</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">result</span> <span class="o">=</span> <span class="n">dynamicStruct</span><span class="o">.</span><span class="n">someDynamicMember</span>
+<span class="nf">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">// Output: "You accessed dynamic member 'someDynamicMember'"</span>
+</code></pre></div></div>
+
+<p>Key Value Coding</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">SomeClass</span><span class="p">:</span> <span class="kt">NSObject</span> <span class="p">{</span>
+  <span class="kd">@objc</span> <span class="kd">dynamic</span> <span class="k">var</span> <span class="nv">name</span> <span class="o">=</span> <span class="s">"Name"</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span> <span class="k">as</span> <span class="kt">String</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="s">"New name"</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="swift---currying">Swift - currying</h3>
+
+<p><a href="https://thoughtbot.com/blog/introduction-to-function-currying-in-swift">https://thoughtbot.com/blog/introduction-to-function-currying-in-swift</a></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="n">curry</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="n">a</span> <span class="k">in</span> <span class="p">{</span> <span class="n">b</span> <span class="k">in</span> <span class="p">{</span> <span class="n">c</span> <span class="k">in</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+    
+<span class="kd">func</span> <span class="n">curry</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="n">a</span> <span class="k">in</span> <span class="p">{</span> <span class="n">b</span> <span class="k">in</span> <span class="nf">f</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="n">uncurry</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="nf">f</span><span class="p">(</span><span class="nv">$0</span><span class="p">)(</span><span class="nv">$1</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="n">uncurry</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="nf">f</span><span class="p">(</span><span class="nv">$0</span><span class="p">)(</span><span class="nv">$1</span><span class="p">)(</span><span class="nv">$2</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="n">currying</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">a</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">C</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="p">(</span><span class="nf">curry</span><span class="p">(</span><span class="n">f</span><span class="p">))(</span><span class="n">a</span><span class="p">)(</span><span class="nv">$0</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span> <span class="n">currying</span><span class="o">&lt;</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">,</span> <span class="kt">D</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">a</span><span class="p">:</span> <span class="kt">A</span><span class="p">,</span> <span class="n">_</span> <span class="nv">f</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">A</span><span class="p">,</span> <span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">(</span><span class="kt">B</span><span class="p">,</span> <span class="kt">C</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">D</span> <span class="p">{</span>
+    <span class="p">{</span> <span class="p">(</span><span class="nf">curry</span><span class="p">(</span><span class="n">f</span><span class="p">))(</span><span class="n">a</span><span class="p">)(</span><span class="nv">$0</span><span class="p">)(</span><span class="nv">$1</span><span class="p">)</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h4 id="example-of-usage">Example of usage</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="nv">a</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">b</span><span class="p">:</span> <span class="kt">Int</span><span class="p">,</span> <span class="nv">c</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="p">{</span>
+    <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">adding</span> <span class="o">=</span> <span class="nf">curry</span><span class="p">(</span><span class="n">add</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">adding5</span> <span class="o">=</span> <span class="nf">uncurry</span><span class="p">(</span><span class="nf">adding</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">let</span> <span class="nv">adding5</span> <span class="o">=</span> <span class="nf">currying</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">add</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>then</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="nf">adding5</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</code></pre></div></div>
+
+
+</div>
+
+          
+       <div class="footer">
+          <div class="disclaimer">
+  <p>
+  © Artur Gurgul, 2024 &mdash; Public Domain Licence
+  </p>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -6,7 +6,7 @@ categories: swift
 
 #### Autoclosure
 
-Lazy evaluation of the function's arguments. Instead of eager calculation of values, the clousre is passed, and executed only when needed.
+Lazy evaluation of the function's arguments. Instead of eager calculation of values, the clousure is passed, and executed only when needed.
 
 ```swift
 func test(_ closure: @autoclosure() -> Bool) {

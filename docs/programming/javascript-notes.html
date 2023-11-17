@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Artur Gurgul - Currying</title>
+  <meta name="author" content="Artur Gurgul" />
+  <meta name="description" content="The blog of Artur Gurgul" />
+  
+  <link rel="shortcut icon" href="/favicon.png">
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="stylesheet" href="/assets/css/all.css">
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <nav>
+  <h2 style="font-size: 20px;margin: 0px;">Hi. I'm <a href="/"> Artur Gurgul</a>,</h2>
+   <h2 style="font-size: 15px;margin-top: -0.5em;">and this is my notepad.</h2>
+  <hr class="hr-text" data-content="Contents"/>
+  
+  <ul id="blog-posts" class="posts">
+    <!-- <li><span style="font-weight: bold; color: #3498db;">&raquo;</span><a href="/" style="font-weight: 600;">Selected</a></li> -->
+  
+    
+    <li><span>&raquo;</span><a href="/software/vim.html"
+      
+      
+
+      >Vim notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/regex-notes.html"
+      
+      
+
+      >Regex - notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/recepies.html"
+      
+      
+
+      >Recepies</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/software/git-notes.html"
+      
+      
+
+      >Git - notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/linux/installation.html"
+      
+      
+
+      >Linux installation</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/solid.html"
+      
+      
+
+      >SOLID principles</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/bridging.html"
+      
+      
+
+      >Bridging between languages</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/programming/javascript-notes.html"
+      
+      
+        style="font-weight: bold;"
+      
+
+      >Currying</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/swift-notes.html"
+      
+      
+
+      >Swift - notes</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/Interesting-snippets.html"
+      
+      
+
+      >Interesting Swift snippets</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
+      
+      
+
+      >iOS Architecture Patterns</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/swift/threading.html"
+      
+      
+
+      >Threading</a></li>
+  
+  </ul>
+</nav>
+
+    </div>
+
+    <div class="scroll">
+      <div class="content">
+        <h1 class="title">Currying</h1>
+
+<div id="post">
+  <h3 id="currying---javascript">Currying - JavaScript</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">currying</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">(...</span><span class="nx">_arg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="nx">fn</span><span class="p">(...</span><span class="nx">args</span><span class="p">,</span> <span class="p">...</span><span class="nx">_arg</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">b</span><span class="p">,</span><span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span>
+<span class="p">}</span>
+<span class="kd">let</span> <span class="nx">add</span> <span class="o">=</span> <span class="nx">currying</span><span class="p">(</span><span class="nx">sum</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="advanced-implementation">Advanced implementation</h4>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="nx">curried</span><span class="p">(...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">args</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;=</span> <span class="nx">func</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="nx">func</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">)</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="kd">function</span><span class="p">(...</span><span class="nx">args2</span><span class="p">)</span> <span class="p">{</span> 
+                <span class="k">return</span> <span class="nx">curried</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="k">this</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">args2</span><span class="p">))</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Usage</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">,</span> <span class="nx">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span> <span class="o">+</span> <span class="nx">c</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">curriedSum</span> <span class="o">=</span> <span class="nx">curry</span><span class="p">(</span><span class="nx">sum</span><span class="p">);</span>
+
+<span class="c1">// Callable normally</span>
+<span class="nx">curriedSum</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> 
+
+<span class="c1">// Currying of 1st argument</span>
+<span class="nx">curriedSum</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> 
+
+<span class="c1">// Currying all arguments</span>
+<span class="nx">curriedSum</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="mi">2</span><span class="p">)(</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="closures">Closures</h3>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">NextClosure</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">return</span> <span class="kd">function</span> <span class="nx">next</span><span class="p">()</span> <span class="p">{</span>
+        <span class="nx">a</span><span class="o">++</span>
+        <span class="k">return</span> <span class="nx">a</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">next</span> <span class="o">=</span> <span class="nx">NextClosure</span><span class="p">()</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
+</code></pre></div></div>
+
+</div>
+
+          
+       <div class="footer">
+          <div class="disclaimer">
+  <p>
+  © Artur Gurgul, 2024 &mdash; Public Domain Licence
+  </p>
+</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

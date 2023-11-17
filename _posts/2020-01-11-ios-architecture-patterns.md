@@ -3,8 +3,6 @@ layout: post
 title: iOS Architecture Patterns
 categories: swift
 ---
-
-
 ### Remove story board dependency
 
 1. Remove `Main.storyboard` file
@@ -299,12 +297,19 @@ func scene(_ scene: UIScene,
 }
 ```
 
+## VIPER
+
+<p>
+ {% svg ../svgs/viper-ownership.svg class="center-image" %}
+</p>
+
 <!--
 https://github.com/ochococo/Design-Patterns-In-Swift
 
 https://nalexn.github.io/clean-architecture-swiftui/
 https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
-## VIPER
+
+-->
 
 **`Entity.swift`**
 
@@ -479,7 +484,7 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
 }
 ```
 
-
+<!-- 
 
 # Factory
 

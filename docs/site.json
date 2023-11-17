@@ -12,11 +12,11 @@
 "title": "Regex - notes",
 "url": "/regex-notes.html"},
 
-{"date": "Mon, 19 Oct 2020 12:09:07 +0200",
-"categories": ["linux"],
+{"date": "Sat, 26 Dec 2020 00:00:00 +0100",
+"categories": [],
 "tags": [],
-"title": "Archlinux",
-"url": "/linux/archlinux.html"},
+"title": "Recepies",
+"url": "/recepies.html"},
 
 {"date": "Sun, 26 Apr 2020 00:00:00 +0200",
 "categories": ["software"],
@@ -27,20 +27,14 @@
 {"date": "Thu, 26 Mar 2020 00:00:00 +0100",
 "categories": ["linux"],
 "tags": [],
-"title": "Installing Debian sid on QEMU",
-"url": "/linux/debian-sid.html"},
+"title": "Linux installation",
+"url": "/linux/installation.html"},
 
 {"date": "Wed, 26 Feb 2020 00:00:00 +0100",
 "categories": ["programming"],
 "tags": [],
 "title": "SOLID principles",
 "url": "/programming/solid.html"},
-
-{"date": "Wed, 26 Feb 2020 00:00:00 +0100",
-"categories": ["programming"],
-"tags": [],
-"title": "Closures",
-"url": "/programming/closures.html"},
 
 {"date": "Wed, 26 Feb 2020 00:00:00 +0100",
 "categories": ["programming"],
@@ -52,13 +46,7 @@
 "categories": ["programming"],
 "tags": [],
 "title": "Currying",
-"url": "/programming/currying.html"},
-
-{"date": "Sun, 26 Jan 2020 00:00:00 +0100",
-"categories": ["swift"],
-"tags": [],
-"title": "View modifiers",
-"url": "/swift/view-modifier.html"},
+"url": "/programming/javascript-notes.html"},
 
 {"date": "Sun, 26 Jan 2020 00:00:00 +0100",
 "categories": ["swift"],
@@ -69,8 +57,8 @@
 {"date": "Sun, 26 Jan 2020 00:00:00 +0100",
 "categories": ["swift"],
 "tags": [],
-"title": "Dynamic member lockup",
-"url": "/swift/dynamic-member-lockup.html"},
+"title": "Interesting Swift snippets",
+"url": "/swift/Interesting-snippets.html"},
 
 {"date": "Sat, 11 Jan 2020 00:00:00 +0100",
 "categories": ["swift"],
@@ -78,22 +66,10 @@
 "title": "iOS Architecture Patterns",
 "url": "/swift/ios-architecture-patterns.html"},
 
-{"date": "Sat, 11 Jan 2020 00:00:00 +0100",
-"categories": ["swift"],
-"tags": [],
-"title": "Combine framework - notes",
-"url": "/swift/combine-framework-notes.html"},
-
 {"date": "Thu, 02 Jan 2020 00:00:00 +0100",
 "categories": ["swift"],
 "tags": [],
 "title": "Threading",
 "url": "/swift/threading.html"},
-
-{"date": "Wed, 19 Oct 2016 12:09:07 +0200",
-"categories": [],
-"tags": [],
-"title": "Recepies",
-"url": "/recepies.html"},
 
 false]
