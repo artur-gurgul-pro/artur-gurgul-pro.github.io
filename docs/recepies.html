@@ -625,6 +625,19 @@ rmmod nbd
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>umount chroot-debian/dev chroot-debian/proc
 </code></pre></div></div>
 
+<h4 id="pass-variables-to-chrooted-environment">Pass variables to chrooted environment</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chroot</span> ./ <span class="nb">env</span> <span class="nt">-i</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</span>
+</code></pre></div></div>
+
+<h1 id="allowing-user-to-run-a-command-as-root">Allowing user to run a command as root</h1>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>visudo
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>artur ALL=(ALL) chroot /path/to/chroot-env
+</code></pre></div></div>
+
 </div>
 
           

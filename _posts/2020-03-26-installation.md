@@ -467,3 +467,7 @@ ninja -C build/
 sudo ninja -C build/ install
 ```
 
+# Interesting software
+
+- zathura - PDF reader
+- poppler => gives pdftotext

@@ -77,3 +77,22 @@ console.log(next())
 console.log(next())
 console.log(next())
 ```
+
+
+### Manipulating SVG
+
+```html
+<svg id="display" width="50" height="50" style="background-color: aqua;"></svg>
+```
+
+
+```javascript
+let element = document.createElementNS("http://www.w3.org/2000/svg", 'rect')
+element.setAttribute("x", 25)
+element.setAttribute("y", 25)
+element.setAttribute("width", 25)
+element.setAttribute("height",25)
+element.setAttribute("fill", "black")
+let display = document.getElementById("display")
+display.appendChild(element)
+```

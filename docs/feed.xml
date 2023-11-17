@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-17T21:47:42+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-17T22:18:09+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
 <ul>
@@ -512,6 +512,19 @@ rmmod nbd
 <p>Once done, exit the session and unmount</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>umount chroot-debian/dev chroot-debian/proc
+</code></pre></div></div>
+
+<h4 id="pass-variables-to-chrooted-environment">Pass variables to chrooted environment</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chroot</span> ./ <span class="nb">env</span> <span class="nt">-i</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"</span>
+</code></pre></div></div>
+
+<h1 id="allowing-user-to-run-a-command-as-root">Allowing user to run a command as root</h1>
+
+<div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>visudo
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>artur ALL=(ALL) chroot /path/to/chroot-env
 </code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
@@ -1454,7 +1467,14 @@ ping -c2 google.com
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>meson build/
 ninja <span class="nt">-C</span> build/
 <span class="nb">sudo </span>ninja <span class="nt">-C</span> build/ <span class="nb">install</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="linux" /><summary type="html"><![CDATA[In case of installation on VM make the disk image]]></summary></entry><entry><title type="html">SOLID principles</title><link href="artur.gurgul.pro/programming/solid.html" rel="alternate" type="text/html" title="SOLID principles" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/solid</id><content type="html" xml:base="artur.gurgul.pro/programming/solid.html"><![CDATA[<h3 id="single-responsibility-principle">Single responsibility principle</h3>
+</code></pre></div></div>
+
+<h1 id="interesting-software">Interesting software</h1>
+
+<ul>
+  <li>zathura - PDF reader</li>
+  <li>poppler =&gt; gives pdftotext</li>
+</ul>]]></content><author><name></name></author><category term="linux" /><summary type="html"><![CDATA[In case of installation on VM make the disk image]]></summary></entry><entry><title type="html">SOLID principles</title><link href="artur.gurgul.pro/programming/solid.html" rel="alternate" type="text/html" title="SOLID principles" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/solid</id><content type="html" xml:base="artur.gurgul.pro/programming/solid.html"><![CDATA[<h3 id="single-responsibility-principle">Single responsibility principle</h3>
 
 <p>This mean if the one thing in specification is changed you only need to change the code in the single place or class</p>
 
@@ -1731,6 +1751,21 @@ ar rc ./libexample.a ./lib.o
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
 <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">next</span><span class="p">())</span>
+</code></pre></div></div>
+
+<h3 id="manipulating-svg">Manipulating SVG</h3>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;svg</span> <span class="na">id=</span><span class="s">"display"</span> <span class="na">width=</span><span class="s">"50"</span> <span class="na">height=</span><span class="s">"50"</span> <span class="na">style=</span><span class="s">"background-color: aqua;"</span><span class="nt">&gt;&lt;/svg&gt;</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">element</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElementNS</span><span class="p">(</span><span class="dl">"</span><span class="s2">http://www.w3.org/2000/svg</span><span class="dl">"</span><span class="p">,</span> <span class="dl">'</span><span class="s1">rect</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">x</span><span class="dl">"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">y</span><span class="dl">"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">width</span><span class="dl">"</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">height</span><span class="dl">"</span><span class="p">,</span><span class="mi">25</span><span class="p">)</span>
+<span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">fill</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">black</span><span class="dl">"</span><span class="p">)</span>
+<span class="kd">let</span> <span class="nx">display</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">display</span><span class="dl">"</span><span class="p">)</span>
+<span class="nx">display</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
 </code></pre></div></div>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[Currying - JavaScript]]></summary></entry><entry><title type="html">Swift - notes</title><link href="artur.gurgul.pro/swift/swift-notes.html" rel="alternate" type="text/html" title="Swift - notes" /><published>2020-01-26T00:00:00+01:00</published><updated>2020-01-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/swift-notes</id><content type="html" xml:base="artur.gurgul.pro/swift/swift-notes.html"><![CDATA[<h4 id="autoclosure">Autoclosure</h4>
 
 <p>Lazy evaluation of the function’s arguments. Instead of eager calculation of values, the clousure is passed, and executed only when needed.</p>
