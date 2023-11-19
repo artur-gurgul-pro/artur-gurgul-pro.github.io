@@ -303,6 +303,39 @@ func scene(_ scene: UIScene,
  {% svg ../svgs/viper-ownership.svg class="center-image" %}
 </p>
 
+
+#### View
+
+It includes `UIViewController`
+
+- Made only to preserve elements like Buttons Labels
+- It sends informations to presenters, and receive messages what to show and knows how
+
+#### Interactor 
+
+- Receives informations form databases, servers etc.
+- The book says that the Interactor receive actions from presenter, and returns the result via Delegation Pattern. 
+- The interactor never sends entities to the Presenter
+
+#### Presenter
+
+- Is in the centre and serves as a link
+- Process events from the view and requests data from the Interctor. It receives that as primitives, never Entities.
+- it handles navigation to the other screens using the Router
+
+#### Entity
+
+- Simple models usually data structures
+- They can only be used by the Interactor
+
+#### Router
+
+- Creates screens
+- Handles navigation, but itself does not know where to go to.
+ - _The book says it is the owner of the `UINavigationController` and UIViewController, but it is contrary to other parts of the book, so I do not know_
+- Similar to `Coordinator` form MVVM-C
+
+
 <!--
 https://github.com/ochococo/Design-Patterns-In-Swift
 
@@ -483,6 +516,19 @@ extension UserViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 ```
+
+
+<!--
+RIBs
+https://github.com/uber/RIBs
+https://medium.com/swlh/ios-architecture-exploring-ribs-3db765284fd8
+https://github.com/uber/RIBs/wiki
+-->
+
+<!--
+redux
+https://medium.com/mackmobile/getting-started-with-redux-in-swift-54e00f323e2b
+-->
 
 <!-- 
 

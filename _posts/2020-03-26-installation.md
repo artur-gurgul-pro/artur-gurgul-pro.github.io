@@ -198,7 +198,7 @@ Select thf freespace and hit `[New]` and `Enter` => `[Write]` => `enter` => `yes
 
 Now we have unformatted partition. To screate FAT32 execute this commend
 
-   mkfs.vfat -F 32 /dev/sdb4
+   
 
 Mount it as home folder
    mount /dev/sdb4 /root
@@ -207,7 +207,7 @@ Mount it as home folder
 
    # this command was given by arch wiki but do not work for me
    # https://wiki.archlinux.org/index.php/FAT
-   mount -i -t vfat -oumask=0000,iocharset=utf8 /dev/sdb4 /root
+   
 
 
 Now I realized I can edit system, so the partition that I have just created I can mount on start. There are steps I took.

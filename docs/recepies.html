@@ -78,7 +78,7 @@
       
       
 
-      >Currying</a></li>
+      >Javascript - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/swift-notes.html"
@@ -86,13 +86,6 @@
       
 
       >Swift - notes</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/swift/Interesting-snippets.html"
-      
-      
-
-      >Interesting Swift snippets</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
@@ -197,6 +190,15 @@ apt search linux-headers-$(uname -r)
 <p>List disk with uuid’s</p>
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsbkl <span class="nt">-f</span>
 </code></pre></div></div>
+
+<h4 id="mkfs">MKFS</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkfs.vfat <span class="nt">-F</span> 32 /dev/sdb4
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount <span class="nt">-i</span> <span class="nt">-t</span> vfat <span class="nt">-oumask</span><span class="o">=</span>0000,iocharset<span class="o">=</span>utf8 /dev/sdb4 /root
+</code></pre></div></div>
+
 <h4 id="reloading-local-dns">reloading local DNS</h4>
 
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo</span> /etc/init.d/dns-clean start

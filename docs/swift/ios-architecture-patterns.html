@@ -76,7 +76,7 @@
       
       
 
-      >Currying</a></li>
+      >Javascript - notes</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/swift-notes.html"
@@ -84,13 +84,6 @@
       
 
       >Swift - notes</a></li>
-  
-    
-    <li><span>&raquo;</span><a href="/swift/Interesting-snippets.html"
-      
-      
-
-      >Interesting Swift snippets</a></li>
   
     
     <li><span>&raquo;</span><a href="/swift/ios-architecture-patterns.html"
@@ -608,6 +601,47 @@
 </svg>
 </p>
 
+<h4 id="view-1">View</h4>
+
+<p>It includes <code class="language-plaintext highlighter-rouge">UIViewController</code></p>
+
+<ul>
+  <li>Made only to preserve elements like Buttons Labels</li>
+  <li>It sends informations to presenters, and receive messages what to show and knows how</li>
+</ul>
+
+<h4 id="interactor">Interactor</h4>
+
+<ul>
+  <li>Receives informations form databases, servers etc.</li>
+  <li>The book says that the Interactor receive actions from presenter, and returns the result via Delegation Pattern.</li>
+  <li>The interactor never sends entities to the Presenter</li>
+</ul>
+
+<h4 id="presenter-1">Presenter</h4>
+
+<ul>
+  <li>Is in the centre and serves as a link</li>
+  <li>Process events from the view and requests data from the Interctor. It receives that as primitives, never Entities.</li>
+  <li>it handles navigation to the other screens using the Router</li>
+</ul>
+
+<h4 id="entity">Entity</h4>
+
+<ul>
+  <li>Simple models usually data structures</li>
+  <li>They can only be used by the Interactor</li>
+</ul>
+
+<h4 id="router">Router</h4>
+
+<ul>
+  <li>Creates screens</li>
+  <li>Handles navigation, but itself does not know where to go to.</li>
+  <li><em>The book says it is the owner of the <code class="language-plaintext highlighter-rouge">UINavigationController</code> and UIViewController, but it is contrary to other parts of the book, so I do not know</em></li>
+  <li>Similar to <code class="language-plaintext highlighter-rouge">Coordinator</code> form MVVM-C</li>
+</ul>
+
 <!--
 https://github.com/ochococo/Design-Patterns-In-Swift
 
@@ -782,6 +816,18 @@ https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
+
+<!--
+RIBs
+https://github.com/uber/RIBs
+https://medium.com/swlh/ios-architecture-exploring-ribs-3db765284fd8
+https://github.com/uber/RIBs/wiki
+-->
+
+<!--
+redux
+https://medium.com/mackmobile/getting-started-with-redux-in-swift-54e00f323e2b
+-->
 
 <!-- 
 

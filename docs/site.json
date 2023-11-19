@@ -45,7 +45,7 @@
 {"date": "Tue, 11 Feb 2020 00:00:00 +0100",
 "categories": ["programming"],
 "tags": [],
-"title": "Currying",
+"title": "Javascript - notes",
 "url": "/programming/javascript-notes.html"},
 
 {"date": "Sun, 26 Jan 2020 00:00:00 +0100",
@@ -53,12 +53,6 @@
 "tags": [],
 "title": "Swift - notes",
 "url": "/swift/swift-notes.html"},
-
-{"date": "Sun, 26 Jan 2020 00:00:00 +0100",
-"categories": ["swift"],
-"tags": [],
-"title": "Interesting Swift snippets",
-"url": "/swift/Interesting-snippets.html"},
 
 {"date": "Sat, 11 Jan 2020 00:00:00 +0100",
 "categories": ["swift"],

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Currying 
+title: Javascript - notes
 categories: programming
 ---
 
