@@ -454,3 +454,35 @@ then
 print(adding5(6, 7))
 ```
 
+## Check availability 
+
+[https://www.avanderlee.com/swift/available-deprecated-renamed/](https://www.avanderlee.com/swift/available-deprecated-renamed/)
+
+```swift
+if #available(iOS 15, *) {
+    print("This code only runs on iOS 15 and up")
+} else {
+    print("This code only runs on iOS 14 and lower")
+}
+```
+
+```swift
+guard #available(iOS 15, *) else {
+    print("Returning if iOS 14 or lower")
+    return
+}
+
+print("This code only runs on iOS 15 and up")
+```
+
+```swift
+@available(iOS 14, *)
+final class NewAppIntroduction {
+    // ..
+}
+```
+
+```swift
+@available(iOS, deprecated: 12, obsoleted: 13, message: "We no longer show an app introduction on iOS 14 and up")
+@available(*, unavailable, renamed: "launchOnboarding")
+```

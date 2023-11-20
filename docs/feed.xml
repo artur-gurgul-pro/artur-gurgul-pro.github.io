@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-19T20:09:47+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-20T18:22:11+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
@@ -2187,6 +2187,35 @@ ar rc ./libexample.a ./lib.o
 <p>then</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="nf">adding5</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h2 id="check-availability">Check availability</h2>
+
+<p><a href="https://www.avanderlee.com/swift/available-deprecated-renamed/">https://www.avanderlee.com/swift/available-deprecated-renamed/</a></p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="kd">#available(iOS 15, *)</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"This code only runs on iOS 15 and up"</span><span class="p">)</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"This code only runs on iOS 14 and lower"</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">guard</span> <span class="kd">#available(iOS 15, *)</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nf">print</span><span class="p">(</span><span class="s">"Returning if iOS 14 or lower"</span><span class="p">)</span>
+    <span class="k">return</span>
+<span class="p">}</span>
+
+<span class="nf">print</span><span class="p">(</span><span class="s">"This code only runs on iOS 15 and up"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span> <span class="mi">14</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span>
+<span class="kd">final</span> <span class="kd">class</span> <span class="kt">NewAppIntroduction</span> <span class="p">{</span>
+    <span class="c1">// ..</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span><span class="p">,</span> <span class="nv">deprecated</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nv">obsoleted</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"We no longer show an app introduction on iOS 14 and up"</span><span class="p">)</span>
+<span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">unavailable</span><span class="p">,</span> <span class="nv">renamed</span><span class="p">:</span> <span class="s">"launchOnboarding"</span><span class="p">)</span>
 </code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Autoclosure]]></summary></entry><entry><title type="html">iOS Architecture Patterns</title><link href="artur.gurgul.pro/swift/ios-architecture-patterns.html" rel="alternate" type="text/html" title="iOS Architecture Patterns" /><published>2020-01-11T00:00:00+01:00</published><updated>2020-01-11T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/ios-architecture-patterns</id><content type="html" xml:base="artur.gurgul.pro/swift/ios-architecture-patterns.html"><![CDATA[<h3 id="remove-story-board-dependency">Remove story board dependency</h3>
 
 <ol>
