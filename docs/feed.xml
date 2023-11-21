@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-20T18:22:11+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-22T00:00:41+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
@@ -852,6 +852,9 @@ path=("$GEM_HOME/bin" $path)
 
 <p>Edit file → <code class="language-plaintext highlighter-rouge">/etc/default/console-setup</code></p>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dpkg-reconfigure <span class="nt">-plow</span> console-setup
+</code></pre></div></div>
+
 <h4 id="redirect-errors-to-null-device">Redirect errors to null device</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find / 2&gt;/dev/null
@@ -1017,7 +1020,63 @@ rmmod nbd
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>artur ALL=(ALL) chroot /path/to/chroot-env
-</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
+</code></pre></div></div>
+
+<h4 id="nginx---serving-files-setup-dav">Nginx - serving files setup DAV</h4>
+
+<p>Full version with 3rd party extensions</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install nginx-full
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    location / {
+        index nonextistent;
+        autoindex on;
+        autoindex_format json;
+    }
+
+	location /restricted {
+		fancyindex on;
+        fancyindex_exact_size off;
+		auth_basic "Restricted";
+	    auth_basic_user_file "/etc/nginx/.htpasswd";
+	}
+
+    location /dropbox {
+        index nonextistent;
+        autoindex on;
+        autoindex_format json;
+
+        dav_methods PUT DELETE MKCOL COPY MOVE;
+        dav_ext_methods PROPFIND OPTIONS LOCK UNLOCK;
+        dav_access user:rw group:r all:r;
+
+        # client_max_body_size 0;
+        create_full_put_path on;
+        client_body_temp_path /tmp/;
+
+		limit_except GET PROPFIND OPTIONS HEAD {
+	        auth_basic "Restricted";
+	        auth_basic_user_file "/etc/nginx/.htpasswd";
+	    }
+        # auth_pam "Restricted";  
+        # auth_pam_service_name "common-auth";
+    }
+</code></pre></div></div>
+
+<p>Create password</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="nt">-n</span> <span class="s1">'sammy:'</span> <span class="o">&gt;&gt;</span> /etc/nginx/.htpasswd
+openssl passwd <span class="nt">-apr1</span> <span class="o">&gt;&gt;</span> /etc/nginx/.htpasswd
+</code></pre></div></div>
+
+<p>Another method to set the password</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>htpasswd <span class="nt">-c</span> /etc/nginx/.htpasswd sammy
+htpasswd /etc/nginx/.htpasswd another_user
+</code></pre></div></div>
+
+<p><strong>UI Client <code class="language-plaintext highlighter-rouge">Cyberduck</code></strong></p>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.</code> → any char except newline</li>
@@ -1109,7 +1168,8 @@ git commit
 
 <p>then  flush the data by ejecting the drive</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>diskutil eject /dev/disk2
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo sync
+</span>diskutil eject /dev/disk2
 </code></pre></div></div>
 
 <h1 id="debian-sid">Debian sid</h1>
@@ -1401,7 +1461,7 @@ pacman <span class="nt">-S</span> zsh <span class="nt">--noconfirm</span>
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>useradd <span class="nt">-mg</span> <span class="nb">users</span> <span class="nt">-G</span> wheel,storage,power <span class="nt">-s</span> /usr/bin/zsh user
 </code></pre></div></div>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd user
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>passwd user
 </code></pre></div></div>
 
 <p>You can force user to change password</p>
@@ -1438,52 +1498,114 @@ grub-mkconfig <span class="nt">-o</span> /boot/grub/grub.cfg
   <li><code class="language-plaintext highlighter-rouge">poweroff</code></li>
 </ul>
 
-<h2 id="more-customisation">More customisation</h2>
+<!--
+## More customisation
 
-<h4 id="dhcp">DHCP</h4>
+#### DHCP
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman -S dhcpcd --noconfirm
-</code></pre></div></div>
+```
+pacman -S dhcpcd --noconfirm
+```
 
-<div class="language-s highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">systemctl</span><span class="w"> </span><span class="n">enable</span><span class="w"> </span><span class="n">dhcpcd</span><span class="w">
-</span><span class="n">systemctl</span><span class="w"> </span><span class="n">start</span><span class="w"> </span><span class="n">dhcpcd</span><span class="w">
-</span></code></pre></div></div>
+```s
+systemctl enable dhcpcd
+systemctl start dhcpcd
+```
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dhcpcd enp3s0f0
-</code></pre></div></div>
+```bash
+dhcpcd enp3s0f0
+```
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ip a
+```
+ip a
 
 ping -c2 google.com
-</code></pre></div></div>
+```
 
-<h2 id="sway">Sway</h2>
+## Sway
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pacman <span class="nt">-S</span> git meson wlroots wayland wayland-protocols <span class="se">\</span>
+```bash
+pacman -S git meson wlroots wayland wayland-protocols \
               pcre2 json-c pango cairo gdk-pixbuf2
-</code></pre></div></div>
+```
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/swaywm/sway.git
-</code></pre></div></div>
+```bash
+git clone https://github.com/swaywm/sway.git
+```
 
-<p>building</p>
+building 
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout v1.8
-</code></pre></div></div>
+```bash
+git checkout v1.8
+```
 
-<p>Disable waring as errors in  <code class="language-plaintext highlighter-rouge">meson.build</code> 10 line <code class="language-plaintext highlighter-rouge">'werror=false'</code></p>
+Disable waring as errors in  `meson.build` 10 line `'werror=false'`
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>meson build/
-ninja <span class="nt">-C</span> build/
-<span class="nb">sudo </span>ninja <span class="nt">-C</span> build/ <span class="nb">install</span>
-</code></pre></div></div>
+```bash
+meson build/
+ninja -C build/
+sudo ninja -C build/ install
+```
 
-<h1 id="interesting-software">Interesting software</h1>
+# Interesting software
 
-<ul>
-  <li>zathura - PDF reader</li>
-  <li>poppler =&gt; gives pdftotext</li>
-</ul>]]></content><author><name></name></author><category term="linux" /><summary type="html"><![CDATA[In case of installation on VM make the disk image]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="artur.gurgul.pro/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/bridging</id><content type="html" xml:base="artur.gurgul.pro/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
+- zathura - PDF reader
+- poppler => gives pdftotext
+
+
+
+# Building own environment (inside QEMU) - Archlinux
+
+```bash
+pacman -S qemu-guest-agent
+systemctl enable --now qemu-guest-agent
+```
+
+### install software to build and run
+
+```bash
+pacman -S egl-wayland meson wlroots wayland wayland-protocols pcre2 json-c pango cairo gdk-pixbuf2 scdoc cmake less xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk ttf-bitstream-vera gnu-free-fonts noto-fonts ttf-croscore ttf-dejavu ttf-droid ttf-ibm-plex ttf-liberation xorg
+```
+
+```bash
+git clone https://github.com/swaywm/sway.git
+cd sway/
+git checkout v1.8
+
+meson build/
+ninja -C build/
+sudo ninja -C build/ install
+```
+
+
+# Building own environment (inside QEMU) - Debian
+
+
+
+```
+apt install -y libnvidia-egl-wayland-dev   meson libwlroots-dev wayland-utils wayland-protocols libpcre2-dev libjson-c-dev \
+  libpango-1.0-0 libpangocairo-1.0-0 libcairo2-dev libpango1.0-dev libgdk-pixbuf2.0-dev scdoc cmake xwayland bochs bochs-sdl bochs-term  bochs-wx bochs-x \
+  vgabios xscreensaver-gl xscreensaver-gl-extra mesa-vulkan-drivers mesa-utils-bin mesa-utils mesa-drm-shim mesa-common-dev \
+  libglx-mesa0 libglw1-mesa-dev libgl1-mesa-dri libglapi-mesa libgl1-mesa-dri libgbm-dev weston libweston-12-dev curl htop \
+  openssh-server neovim zsh ruby python3 cmake rust-all ruby-dev ruby-full build-essential npm r-base r-base-dev fzf rclone \
+  rtorrent htop bundler neomutt golang ghc cabal-install gulp npm neovim mc tree cmake scala maven imagemagick hexedit erlang \
+  nasm binutils nim tmux wget httpie yarn meson util-linux ninja-build git fakeroot build-essential ncurses-dev xz-utils \
+  libssl-dev bc flex libelf-dev bison python3-pip libisl-dev texinfo libmpfr-dev libmpc-dev libgmp3-dev genisoimage clang \
+  libboost-tools-dev libboost-dev libboost-system-dev gcc g++ make pkg-config libgtk-3-dev libgstreamer1.0-dev \
+  libgstreamer-plugins-base1.0-dev cmake ninja-build coreutils libxml2-dev libsqlite3-dev libicu-dev libxslt-dev libjpeg-dev \
+  libpng-dev libwebp-dev libsecret-1-dev binutils git gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libsqlite3-0 libstdc++-9-dev \
+  libxml2 libz3-dev pkg-config tzdata zlib1g-dev python3 apt-file libwayland-server++1 libwayland-server0 freerdp2-dev \
+  freerdp2-wayland libpam-freerdp2-dev libavutil-dev libavcodec-dev libavutil-dev libavformat-dev fossil krusader texlive-full \
+  openssh-server neovim zsh ruby python3 cmake binutils git gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libsqlite3-0 \
+  libstdc++-9-dev libxml2 libz3-dev pkg-config tzdata zlib1g-dev python3 rust-all ruby-dev ruby-full build-essential npm \
+  r-base r-base-dev fzf rclone rtorrent htop bundler neomutt golang ghc cabal-install gulp npm neovim mc tree cmake scala \
+  maven imagemagick hexedit erlang nasm  binutils nim  tmux wget httpie  yarn meson util-linux ninja-build python3-pip libisl-dev \
+  texinfo libmpfr-dev libmpc-dev libgmp3-dev genisoimage clang libboost-tools-dev libboost-dev libboost-system-dev git fakeroot \
+  build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison gcc g++ make pkg-config cmake ninja-build \
+  coreutils  libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxml2-dev libsqlite3-dev libicu-dev libxslt-dev \
+  libjpeg-dev libpng-dev libwebp-dev libsecret-1-dev
+```
+-->]]></content><author><name></name></author><category term="linux" /><summary type="html"><![CDATA[In case of installation on VM make the disk image]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="artur.gurgul.pro/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/bridging</id><content type="html" xml:base="artur.gurgul.pro/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
 
 <ul>
   <li>Both are compilable → Strategy: Create a binary library and call function from it.</li>

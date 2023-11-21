@@ -57,6 +57,7 @@ sudo dd if=archlinux-2021.01.01-x86_64.iso of=/dev/disk2
 then  flush the data by ejecting the drive
 
 ```bash
+sudo sync
 diskutil eject /dev/disk2
 ```
 
@@ -378,7 +379,7 @@ Create user
 useradd -mg users -G wheel,storage,power -s /usr/bin/zsh user
 ```
 
-```
+```bash
 passwd user
 ```
 
@@ -419,6 +420,7 @@ then `exit` and
 - `umount -a`
 - `poweroff`
 
+<!--
 ## More customisation
 
 #### DHCP
@@ -471,3 +473,58 @@ sudo ninja -C build/ install
 
 - zathura - PDF reader
 - poppler => gives pdftotext
+
+
+
+# Building own environment (inside QEMU) - Archlinux
+
+```bash
+pacman -S qemu-guest-agent
+systemctl enable --now qemu-guest-agent
+```
+
+### install software to build and run
+
+```bash
+pacman -S egl-wayland meson wlroots wayland wayland-protocols pcre2 json-c pango cairo gdk-pixbuf2 scdoc cmake less xorg-xwayland xdg-desktop-portal-wlr xdg-desktop-portal-gtk ttf-bitstream-vera gnu-free-fonts noto-fonts ttf-croscore ttf-dejavu ttf-droid ttf-ibm-plex ttf-liberation xorg
+```
+
+```bash
+git clone https://github.com/swaywm/sway.git
+cd sway/
+git checkout v1.8
+
+meson build/
+ninja -C build/
+sudo ninja -C build/ install
+```
+
+
+# Building own environment (inside QEMU) - Debian
+
+
+
+```
+apt install -y libnvidia-egl-wayland-dev   meson libwlroots-dev wayland-utils wayland-protocols libpcre2-dev libjson-c-dev \
+  libpango-1.0-0 libpangocairo-1.0-0 libcairo2-dev libpango1.0-dev libgdk-pixbuf2.0-dev scdoc cmake xwayland bochs bochs-sdl bochs-term  bochs-wx bochs-x \
+  vgabios xscreensaver-gl xscreensaver-gl-extra mesa-vulkan-drivers mesa-utils-bin mesa-utils mesa-drm-shim mesa-common-dev \
+  libglx-mesa0 libglw1-mesa-dev libgl1-mesa-dri libglapi-mesa libgl1-mesa-dri libgbm-dev weston libweston-12-dev curl htop \
+  openssh-server neovim zsh ruby python3 cmake rust-all ruby-dev ruby-full build-essential npm r-base r-base-dev fzf rclone \
+  rtorrent htop bundler neomutt golang ghc cabal-install gulp npm neovim mc tree cmake scala maven imagemagick hexedit erlang \
+  nasm binutils nim tmux wget httpie yarn meson util-linux ninja-build git fakeroot build-essential ncurses-dev xz-utils \
+  libssl-dev bc flex libelf-dev bison python3-pip libisl-dev texinfo libmpfr-dev libmpc-dev libgmp3-dev genisoimage clang \
+  libboost-tools-dev libboost-dev libboost-system-dev gcc g++ make pkg-config libgtk-3-dev libgstreamer1.0-dev \
+  libgstreamer-plugins-base1.0-dev cmake ninja-build coreutils libxml2-dev libsqlite3-dev libicu-dev libxslt-dev libjpeg-dev \
+  libpng-dev libwebp-dev libsecret-1-dev binutils git gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libsqlite3-0 libstdc++-9-dev \
+  libxml2 libz3-dev pkg-config tzdata zlib1g-dev python3 apt-file libwayland-server++1 libwayland-server0 freerdp2-dev \
+  freerdp2-wayland libpam-freerdp2-dev libavutil-dev libavcodec-dev libavutil-dev libavformat-dev fossil krusader texlive-full \
+  openssh-server neovim zsh ruby python3 cmake binutils git gnupg2 libc6-dev libcurl4 libedit2 libgcc-9-dev libsqlite3-0 \
+  libstdc++-9-dev libxml2 libz3-dev pkg-config tzdata zlib1g-dev python3 rust-all ruby-dev ruby-full build-essential npm \
+  r-base r-base-dev fzf rclone rtorrent htop bundler neomutt golang ghc cabal-install gulp npm neovim mc tree cmake scala \
+  maven imagemagick hexedit erlang nasm  binutils nim  tmux wget httpie  yarn meson util-linux ninja-build python3-pip libisl-dev \
+  texinfo libmpfr-dev libmpc-dev libgmp3-dev genisoimage clang libboost-tools-dev libboost-dev libboost-system-dev git fakeroot \
+  build-essential ncurses-dev xz-utils libssl-dev bc flex libelf-dev bison gcc g++ make pkg-config cmake ninja-build \
+  coreutils  libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxml2-dev libsqlite3-dev libicu-dev libxslt-dev \
+  libjpeg-dev libpng-dev libwebp-dev libsecret-1-dev
+```
+-->
