@@ -152,6 +152,13 @@ git merge <span class="nt">--squash</span> bugfix
 git commit
 </code></pre></div></div>
 
+<h3 id="checkout-bare-repository">Checkout bare repository</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone --bare https://github.com/nextcloud/server.git /var/www/nextcloud.git --recursive
+
+git --work-tree=/var/www/nextcloud --git dir=/home/artur/pub/drive/nextcloud.git checkout -f v27.1.4 --recursive
+</code></pre></div></div>
+
 </div>
 
           

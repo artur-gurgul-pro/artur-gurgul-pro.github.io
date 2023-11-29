@@ -111,25 +111,27 @@
         <h1 class="title">Recepies</h1>
 
 <div id="post">
-  <h5 id="read-a-dns-records">Read a DNS records</h5>
+  <h4 id="read-a-dns-records">Read a DNS records</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
 </code></pre></div></div>
 
-<h5 id="io-stats">I/O Stats</h5>
+<h4 id="io-stats">I/O Stats</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iostat
 </code></pre></div></div>
 
-<h5 id="checking-type-of-executable-files">Checking type of executable files</h5>
+<h4 id="checking-type-of-executable-files">Checking type of executable files</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>otool -hv test.so
 </code></pre></div></div>
 
-<h5 id="gzip-of-image">Gzip of image</h5>
+<h4 id="gzip-of-image">Gzip of image</h4>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>/dev/sdb | <span class="nb">gzip</span> <span class="o">&gt;</span> ~/backup.img.gz
 </code></pre></div></div>
-<h5 id="get-directory-size">Get directory size</h5>
+
+<h4 id="get-directory-size">Get directory size</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>du -sh MacOSBackup
 </code></pre></div></div>
@@ -166,14 +168,14 @@ mcdiff file1 file2
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udisksctl power-off -b /dev/sdX
 </code></pre></div></div>
-<h5 id="generate-random-password">Generate random password</h5>
+<h4 id="generate-random-password">Generate random password</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwgen <span class="nt">-s</span> <span class="nt">-1</span> 32
 </code></pre></div></div>
 <p>or</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl rand -hex 12
 </code></pre></div></div>
-<h5 id="list-block-devices">List block devices</h5>
+<h4 id="list-block-devices">List block devices</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
 </code></pre></div></div>
@@ -197,6 +199,28 @@ apt search linux-headers-$(uname -r)
 </code></pre></div></div>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount <span class="nt">-i</span> <span class="nt">-t</span> vfat <span class="nt">-oumask</span><span class="o">=</span>0000,iocharset<span class="o">=</span>utf8 /dev/sdb4 /root
+</code></pre></div></div>
+
+<h4 id="see-what-processes-are-using-the-drive">See what processes are using the drive</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsof /where/drive/is/mounted
+</code></pre></div></div>
+
+<h4 id="see-the-stats-of-io">See the stats of IO</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install sysstat iotop
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iostat -dh 2
+iotop -o
+sar -p -d -b 1
+vmstat -d 1
+vmstat -p /dev/sda2 1
+</code></pre></div></div>
+
+<h3 id="rsync">Rsync</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync -ah --progress /Volumes/Data /Volumes/Data\ 1/Junk/1TB\ Drive
 </code></pre></div></div>
 
 <h4 id="reloading-local-dns">reloading local DNS</h4>
@@ -647,7 +671,7 @@ rmmod nbd
 
 <p>Full version with 3rd party extensions</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install nginx-full
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install nginx-full nginx-extras
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    location / {
@@ -698,6 +722,11 @@ htpasswd /etc/nginx/.htpasswd another_user
 </code></pre></div></div>
 
 <p><strong>UI Client <code class="language-plaintext highlighter-rouge">Cyberduck</code></strong></p>
+
+<h4 id="backing-up-the-entire-os">Backing up the entire OS</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rsync -aAXHv / --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} /mnt
+</code></pre></div></div>
 
 </div>
 

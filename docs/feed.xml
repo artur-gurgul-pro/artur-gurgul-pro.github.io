@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-22T00:00:41+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-29T13:14:22+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
@@ -490,25 +490,27 @@ Sequence forfolding lines `Shift+V:fo`
 `zf#j` creates a fold from the cursor down # lines.
 
 :CheckHealth
--->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry><entry><title type="html">Recepies</title><link href="artur.gurgul.pro/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/recepies</id><content type="html" xml:base="artur.gurgul.pro/recepies.html"><![CDATA[<h5 id="read-a-dns-records">Read a DNS records</h5>
+-->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry><entry><title type="html">Recepies</title><link href="artur.gurgul.pro/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/recepies</id><content type="html" xml:base="artur.gurgul.pro/recepies.html"><![CDATA[<h4 id="read-a-dns-records">Read a DNS records</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
 </code></pre></div></div>
 
-<h5 id="io-stats">I/O Stats</h5>
+<h4 id="io-stats">I/O Stats</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iostat
 </code></pre></div></div>
 
-<h5 id="checking-type-of-executable-files">Checking type of executable files</h5>
+<h4 id="checking-type-of-executable-files">Checking type of executable files</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>otool -hv test.so
 </code></pre></div></div>
 
-<h5 id="gzip-of-image">Gzip of image</h5>
+<h4 id="gzip-of-image">Gzip of image</h4>
+
 <div class="language-shell highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">dd </span><span class="k">if</span><span class="o">=</span>/dev/sdb | <span class="nb">gzip</span> <span class="o">&gt;</span> ~/backup.img.gz
 </code></pre></div></div>
-<h5 id="get-directory-size">Get directory size</h5>
+
+<h4 id="get-directory-size">Get directory size</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>du -sh MacOSBackup
 </code></pre></div></div>
@@ -545,14 +547,14 @@ mcdiff file1 file2
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>udisksctl power-off -b /dev/sdX
 </code></pre></div></div>
-<h5 id="generate-random-password">Generate random password</h5>
+<h4 id="generate-random-password">Generate random password</h4>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pwgen <span class="nt">-s</span> <span class="nt">-1</span> 32
 </code></pre></div></div>
 <p>or</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>openssl rand -hex 12
 </code></pre></div></div>
-<h5 id="list-block-devices">List block devices</h5>
+<h4 id="list-block-devices">List block devices</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsblk
 </code></pre></div></div>
@@ -576,6 +578,28 @@ apt search linux-headers-$(uname -r)
 </code></pre></div></div>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount <span class="nt">-i</span> <span class="nt">-t</span> vfat <span class="nt">-oumask</span><span class="o">=</span>0000,iocharset<span class="o">=</span>utf8 /dev/sdb4 /root
+</code></pre></div></div>
+
+<h4 id="see-what-processes-are-using-the-drive">See what processes are using the drive</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsof /where/drive/is/mounted
+</code></pre></div></div>
+
+<h4 id="see-the-stats-of-io">See the stats of IO</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install sysstat iotop
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iostat -dh 2
+iotop -o
+sar -p -d -b 1
+vmstat -d 1
+vmstat -p /dev/sda2 1
+</code></pre></div></div>
+
+<h3 id="rsync">Rsync</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync -ah --progress /Volumes/Data /Volumes/Data\ 1/Junk/1TB\ Drive
 </code></pre></div></div>
 
 <h4 id="reloading-local-dns">reloading local DNS</h4>
@@ -1026,7 +1050,7 @@ rmmod nbd
 
 <p>Full version with 3rd party extensions</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install nginx-full
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt install nginx-full nginx-extras
 </code></pre></div></div>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    location / {
@@ -1076,7 +1100,12 @@ openssl passwd <span class="nt">-apr1</span> <span class="o">&gt;&gt;</span> /et
 htpasswd /etc/nginx/.htpasswd another_user
 </code></pre></div></div>
 
-<p><strong>UI Client <code class="language-plaintext highlighter-rouge">Cyberduck</code></strong></p>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
+<p><strong>UI Client <code class="language-plaintext highlighter-rouge">Cyberduck</code></strong></p>
+
+<h4 id="backing-up-the-entire-os">Backing up the entire OS</h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rsync -aAXHv / --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} /mnt
+</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.</code> → any char except newline</li>
@@ -1123,6 +1152,13 @@ squash df71a27
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
 git merge <span class="nt">--squash</span> bugfix
 git commit
+</code></pre></div></div>
+
+<h3 id="checkout-bare-repository">Checkout bare repository</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone --bare https://github.com/nextcloud/server.git /var/www/nextcloud.git --recursive
+
+git --work-tree=/var/www/nextcloud --git dir=/home/artur/pub/drive/nextcloud.git checkout -f v27.1.4 --recursive
 </code></pre></div></div>]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Squash the last three commits]]></summary></entry><entry><title type="html">Linux installation</title><link href="artur.gurgul.pro/linux/installation.html" rel="alternate" type="text/html" title="Linux installation" /><published>2020-03-26T00:00:00+01:00</published><updated>2020-03-26T00:00:00+01:00</updated><id>artur.gurgul.pro/linux/installation</id><content type="html" xml:base="artur.gurgul.pro/linux/installation.html"><![CDATA[<p>In case of installation on VM make the disk image</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
@@ -1930,7 +1966,7 @@ ar rc ./libexample.a ./lib.o
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="s">"value1"</span><span class="p">,</span> <span class="s">"value2"</span><span class="p">)</span><span class="o">.</span><span class="mi">0</span>
 </code></pre></div></div>
 
-<h4 id="pattern-matchiung">Pattern matchiung</h4>
+<h4 id="pattern-matching">Pattern matching</h4>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">enum</span> <span class="kt">Example</span> <span class="p">{</span>
     <span class="k">case</span> <span class="nf">first</span><span class="p">(</span><span class="kt">String</span><span class="p">)</span>

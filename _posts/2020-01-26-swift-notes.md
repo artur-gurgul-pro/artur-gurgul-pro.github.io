@@ -41,7 +41,7 @@ if (100...101).contains(i) {
 ("value1", "value2").0
 ```
 
-#### Pattern matchiung 
+#### Pattern matching 
 
 ```swift
 enum Example {
