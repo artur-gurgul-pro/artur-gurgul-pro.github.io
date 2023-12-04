@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-11-29T13:14:22+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-12-04T17:17:08+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
 </subtitle><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
@@ -1105,6 +1105,11 @@ htpasswd /etc/nginx/.htpasswd another_user
 <h4 id="backing-up-the-entire-os">Backing up the entire OS</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo rsync -aAXHv / --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} /mnt
+</code></pre></div></div>
+
+<p>Python</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install python3-full
 </code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
 <ul>
@@ -1158,7 +1163,10 @@ git commit
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone --bare https://github.com/nextcloud/server.git /var/www/nextcloud.git --recursive
 
-git --work-tree=/var/www/nextcloud --git dir=/home/artur/pub/drive/nextcloud.git checkout -f v27.1.4 --recursive
+cd nextcloud.git; git worktree add /var/www/nextcloud
+cd /var/www/nextcloud; checkout -f v27.1.4
+
+git --work-tree=/var/www/nextcloud --git dir=/home/artur/pub/drive/repos/nextcloud.git checkout -f v27.1.4 --recursive
 </code></pre></div></div>]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Squash the last three commits]]></summary></entry><entry><title type="html">Linux installation</title><link href="artur.gurgul.pro/linux/installation.html" rel="alternate" type="text/html" title="Linux installation" /><published>2020-03-26T00:00:00+01:00</published><updated>2020-03-26T00:00:00+01:00</updated><id>artur.gurgul.pro/linux/installation</id><content type="html" xml:base="artur.gurgul.pro/linux/installation.html"><![CDATA[<p>In case of installation on VM make the disk image</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
@@ -2270,6 +2278,36 @@ ar rc ./libexample.a ./lib.o
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">subscriber</span> <span class="o">=</span> <span class="n">timer</span><span class="o">.</span><span class="nf">prefix</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div></div>
 
+<h4 id="assign">Assign</h4>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">Dog</span> <span class="p">{</span>
+	<span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="s">""</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">dog</span> <span class="o">=</span> <span class="kt">Dog</span><span class="p">()</span>
+<span class="k">let</span> <span class="nv">publisher</span> <span class="o">=</span> <span class="kt">Just</span><span class="p">(</span><span class="s">"Snow"</span><span class="p">)</span>
+<span class="n">publisher</span><span class="o">.</span><span class="nf">assign</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span><span class="o">/.</span><span class="n">name</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="n">dog</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyModel</span><span class="p">:</span> <span class="kt">ObservableObject</span> <span class="p">{</span>
+	<span class="kd">@Published</span> <span class="k">var</span> <span class="nv">lastUpdated</span><span class="p">:</span> <span class="kt">Date</span> <span class="o">=</span> <span class="kt">Date</span><span class="p">()</span>
+	<span class="nf">init</span><span class="p">()</span> <span class="p">{</span>
+		<span class="kt">Timer</span>
+			<span class="o">.</span><span class="nf">publish</span><span class="p">(</span><span class="nv">every</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span> <span class="nv">on</span><span class="p">:</span> <span class="o">.</span><span class="n">main</span><span class="p">,</span> <span class="nv">in</span><span class="p">:</span> <span class="o">.</span><span class="n">common</span><span class="p">)</span>
+			<span class="o">.</span><span class="nf">autoconnect</span><span class="p">()</span>
+			<span class="o">.</span><span class="nf">assign</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">&amp;</span><span class="err">$</span><span class="n">lastUpdated</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">class</span> <span class="kt">MyModel</span><span class="p">:</span> <span class="kt">ObservableObject</span> <span class="p">{</span>
+	<span class="kd">@Published</span> <span class="k">var</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">Int</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="p">}</span>
+
+<span class="k">let</span> <span class="nv">model</span> <span class="o">=</span> <span class="kt">MyModel</span><span class="p">()</span>
+<span class="kt">Just</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="nf">assign</span><span class="p">(</span><span class="nv">to</span><span class="p">:</span> <span class="o">&amp;</span><span class="n">model</span><span class="o">.</span><span class="err">$</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div></div>
+
 <p>Here’s an example of using the <code class="language-plaintext highlighter-rouge">@dynamicMemberLookup</code> attribute in Swift:</p>
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@dynamicMemberLookup</span>
@@ -2296,6 +2334,22 @@ ar rc ./libexample.a ./lib.o
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">object</span><span class="o">.</span><span class="nf">setValue</span><span class="p">(</span><span class="s">"New name"</span><span class="p">,</span> <span class="nv">forKey</span><span class="p">:</span> <span class="s">"name"</span><span class="p">)</span>
 </code></pre></div></div>
+
+<h3 id="create-map">Create map</h3>
+
+<pre><code class="language-Swift">extension Sequence {
+    func dictionay&lt;T&gt;(keyPath: KeyPath&lt;Element, T&gt;) -&gt; [T: Element] {
+        var dictionary =  [T: Element]()
+        
+        for elemement in self {
+            let key = elemement[keyPath: keyPath]
+            dictionary[key] = elemement
+        }
+        
+        return dictionary
+    }
+}
+</code></pre>
 
 <h3 id="swift---currying">Swift - currying</h3>
 

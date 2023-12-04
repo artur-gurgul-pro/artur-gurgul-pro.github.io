@@ -365,6 +365,38 @@ subscriber = timer.prefix(5)
 ```
 
 
+#### Assign 
+
+```swift
+class Dog {
+	var name: String = ""
+}
+
+let dog = Dog()
+let publisher = Just("Snow")
+publisher.assign(to:/.name, on: dog)
+```
+
+```swift
+class MyModel: ObservableObject {
+	@Published var lastUpdated: Date = Date()
+	init() {
+		Timer
+			.publish(every: 1.0, on: .main, in: .common)
+			.autoconnect()
+			.assign(to: &$lastUpdated)
+	}
+}
+```
+
+```swift
+class MyModel: ObservableObject {
+	@Published var id: Int = 0
+}
+
+let model = MyModel()
+Just(100).assign(to: &model.$id)
+```
 
 Here's an example of using the `@dynamicMemberLookup` attribute in Swift:
 
@@ -397,6 +429,23 @@ object.value(forKey: "name") as String
 object.setValue("New name", forKey: "name")
 ```
 
+
+### Create map
+
+```Swift
+extension Sequence {
+    func dictionay<T>(keyPath: KeyPath<Element, T>) -> [T: Element] {
+        var dictionary =  [T: Element]()
+        
+        for elemement in self {
+            let key = elemement[keyPath: keyPath]
+            dictionary[key] = elemement
+        }
+        
+        return dictionary
+    }
+}
+```
 
 
 ### Swift - currying
