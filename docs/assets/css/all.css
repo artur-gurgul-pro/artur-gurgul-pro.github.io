@@ -969,8 +969,19 @@ pre {
     visibility: hidden;
   }
 
-.contact-box {
+  .head-box {
 	padding-bottom: 4em !important;
+	justify-content: space-between;
+}
+
+.contact-box {
+	
+}
+
+.links-box {
+	position: relative;
+  	right: 0px !important;
+	top: 0px !important;
 }
 
 .job-item h3 {

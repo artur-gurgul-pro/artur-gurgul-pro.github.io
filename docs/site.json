@@ -63,6 +63,12 @@
 {"date": "Thu, 02 Jan 2020 00:00:00 +0100",
 "categories": ["swift"],
 "tags": [],
+"title": "Modularisation of an iOS app",
+"url": "/swift/xcode-modularisation.html"},
+
+{"date": "Thu, 02 Jan 2020 00:00:00 +0100",
+"categories": ["swift"],
+"tags": [],
 "title": "Threading",
 "url": "/swift/threading.html"},
 

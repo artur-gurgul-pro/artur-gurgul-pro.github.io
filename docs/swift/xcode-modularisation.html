@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Artur Gurgul - Git - notes</title>
+  <title>Artur Gurgul - Modularisation of an iOS app</title>
   <meta name="author" content="Artur Gurgul" />
   <meta name="description" content="The blog of Artur Gurgul" />
   
@@ -46,8 +46,6 @@
     
     <li><span>&raquo;</span><a href="/software/git-notes.html"
       
-      
-        style="font-weight: bold;"
       
 
       >Git - notes</a></li>
@@ -98,6 +96,8 @@
     <li><span>&raquo;</span><a href="/swift/xcode-modularisation.html"
       
       
+        style="font-weight: bold;"
+      
 
       >Modularisation of an iOS app</a></li>
   
@@ -115,59 +115,18 @@
 
     <div class="scroll">
       <div class="content">
-        <h1 class="title">Git - notes</h1>
+        <h1 class="title">Modularisation of an iOS app</h1>
 
 <div id="post">
-  <p>Squash the last three commits</p>
+  <h3 id="creating-shared-product">Creating shared product</h3>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~3
-</code></pre></div></div>
+<ol>
+  <li>add submodule to your product <code class="language-plaintext highlighter-rouge">git submodule add git@github.com:artur-gurgul-pro/sharepack.git Sharepack</code></li>
+  <li>Extract shared code to multi-module package. See <code class="language-plaintext highlighter-rouge">Sharepack</code></li>
+  <li>Add local package</li>
+</ol>
 
-<p>You will see something like this</p>
-
-<pre><code class="language-plain">pick f392171 Added new feature X
-pick ba9dd9a Added new elements to page design
-pick df71a27 Updated CSS for new elements
-</code></pre>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">pick</code> <code class="language-plaintext highlighter-rouge">p</code> the commit will be taken</li>
-  <li><code class="language-plaintext highlighter-rouge">squash</code> <code class="language-plaintext highlighter-rouge">s</code>, the commit will be blended with the above.</li>
-</ul>
-
-<p>Edit to something like this</p>
-
-<pre><code class="language-plain">pick f392171 New message for this three commit!
-squash ba9dd9a
-squash df71a27
-</code></pre>
-
-<p>Now you can accept the change by continuing the rebase:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">--continue</span>
-</code></pre></div></div>
-
-<p>After that you need to force override the history using this command:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push origin master <span class="nt">--force</span>
-</code></pre></div></div>
-
-<h2 id="squash-merge">Squash merge</h2>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git checkout master
-git merge <span class="nt">--squash</span> bugfix
-git commit
-</code></pre></div></div>
-
-<h3 id="checkout-bare-repository">Checkout bare repository</h3>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone --bare https://github.com/nextcloud/server.git /var/www/nextcloud.git --recursive
-
-cd nextcloud.git; git worktree add /var/www/nextcloud
-cd /var/www/nextcloud; checkout -f v27.1.4
-
-git --work-tree=/var/www/nextcloud --git dir=/home/artur/pub/drive/repos/nextcloud.git checkout -f v27.1.4 --recursive
-</code></pre></div></div>
+<p>TBD</p>
 
 </div>
 
