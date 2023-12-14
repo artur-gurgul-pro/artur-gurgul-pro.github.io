@@ -7,9 +7,13 @@ about: >
   I like to share my knowledge with others and I find discussing new ideas very interesting. </p>
 
 experience:
-  - date: July 2022 — Present
+  - date: December 2023 — Present
+    title: tvOS Developer at Redge Sp. z o. o., Remote/Katowice
+    description: I am working on a VOD platform on tvOS. My responsibility is to develop and fix errors on version for TVP VOD and CKF Warszawa. We are working in git flow, focusing on the code quality and giving constructive feedback.
+
+  - date: iOS Developer at Alten, Remote/Katowice
     title: iOS Developer at Alten, Kraków
-    description: I am working on the iOS banking application for NatWest. The application is usinga very complex architecture that was designed by the Backbase experts. My main responsibility is to fix the bugs. I got experience working in a very large team that is divided into “squads”.
+    description: I was working on the iOS banking application for NatWest. The application is using a very complex architecture that was designed by the Backbase experts.<br/>My main responsibility was to fix the bugs. I got experience working in a very large team that was divided into many “squads”.
 
   - date: April 2017 — June 2022
     title: iOS Developer at Vattenfall, Katowice

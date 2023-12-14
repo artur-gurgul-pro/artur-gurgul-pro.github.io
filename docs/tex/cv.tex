@@ -1,0 +1,41 @@
+
+\documentclass[10pt]{article}
+
+\usepackage[top=0.5in, bottom=0.5in, left=0.5in, right=0.5in]{geometry}
+
+% https://tug.org/FontCatalogue/allfonts.html
+\usepackage[defaultfam,tabular,lining]{montserrat}
+\usepackage[T1]{fontenc}
+\renewcommand*\oldstylenums[1]{{\fontfamily{Montserrat-TOsF}\selectfont #1}}
+
+\usepackage[showboxes, absolute]{textpos}
+\usepackage{calc}
+
+\begin{document}
+
+
+\begin{textblock*}{7cm}(0cm,0cm)
+
+            \begin{minipage}[t][34cm][t]{5cm}
+            \vspace{1cm}
+            \noindent Katowice, ul. Fijewskiego 5 \linebreak
+            artur@gurgul.pro\linebreak
+            /gurgul\linebreak
+            https://artur.gurgul.pro
+            \vspace{1cm}
+            SKILLS
+            \end{minipage}
+
+\end{textblock*}
+
+\begin{textblock*}{13cm}(7cm,0cm)
+
+            \begin{minipage}[t][34cm][t]{4cm}
+            \vspace{1cm}
+            \noindent Katowice, ul. Fijewskiego 5
+            \end{minipage}
+
+\end{textblock*}
+
+\end{document}
+
