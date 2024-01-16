@@ -535,3 +535,26 @@ final class NewAppIntroduction {
 @available(iOS, deprecated: 12, obsoleted: 13, message: "We no longer show an app introduction on iOS 14 and up")
 @available(*, unavailable, renamed: "launchOnboarding")
 ```
+
+Mapping
+
+```swift
+func maping<T>(keyPath: KeyPath<Element, T>) -> [T: Element] {
+	var dictionary =  [T: Element]()
+	
+	for elemement in self {
+		let key = elemement[keyPath: keyPath]
+		dictionary[key] = elemement
+	}
+	
+	return dictionary
+}
+```
+
+### Type aliases
+
+```swift
+public typealias Point<T: Numeric> = (x: T, y: T)
+public typealias MyResult<T> = Result<T, Error>
+```
+
