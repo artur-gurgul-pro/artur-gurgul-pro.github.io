@@ -447,6 +447,16 @@ extension Sequence {
 }
 ```
 
+### Compact
+
+```swift
+extension Array {
+  public func compact<T>() -> [T] where Element == Optional<T> {
+    compactMap { $0 }
+  }
+}
+
+```
 
 ### Swift - currying
 

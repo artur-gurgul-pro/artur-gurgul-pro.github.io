@@ -420,6 +420,42 @@ then `exit` and
 - `umount -a`
 - `poweroff`
 
+
+## Install any Linux out from VM
+
+Create OS archive locally using rsync
+
+```bash
+rsync -aAXHSv /* /root/winux --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/root/*,/media/*,/lost+found,/home/*/.gvfs}
+tar -cvjSf winux.tar.bz2 winux
+```
+
+or
+
+```bash
+tar -cvjSf winux.tar.bz2 / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/root/*,/media/*,/lost+found,/home/*/.gvfs}
+```
+
+Create archive and move it to the host
+
+```
+ssh -p 2222 root@localhost 'tar -cvjS / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/root/*,/media/*,/lost+found,/home/*/.gvfs} --to-stdout' > winux.tar.bz2
+```
+
+#### Extract files to the destination drive
+
+```bash
+tar -xvjf winux.tar.bz2 -C /mnt/sys
+```
+
+https://wiki.archlinux.org/title/Moving_an_existing_install_into_(or_out_of)_a_virtual_machine
+
+Then generate fstab
+
+```bash
+genfstab -U /mnt/sys > /mnt/sys/etc/fstab
+```
+
 <!--
 ## More customisation
 

@@ -3,6 +3,109 @@ layout: post
 title:  "My links"
 categories: notes
 ---
+
+slonik library for postgress connection
+https://www.npmjs.com/package/slonik/v/18.11.1#slonik-recipes-using-sql-raw-to-generate-dynamic-queries
+
+
+		`insert into "users"("role", "email")
+			values ('admin', 'artur.gurgul@onmenu.app')
+			returning *`
+		
+		SELECT ARRAY[1,2] || ARRAY[3,4];
+
+
+		create table "venues" (
+			"staff" bigint[] default '{}'
+	);
+	insert into "venues"("business_name", "owner", "menu", "staff") values 
+	  ('Pijalnie piwa i wódki', 1, '["fg"]', '{1}')
+	returning *;
+
+
+```ts
+
+import { MenuItem } from '../shared/menu';
+import DI from './di';
+
+declare module '../shared/models' {
+
+	export interface MenuItem {
+	
+		priceString(): string
+	
+		getAmount(): number | null
+	
+	}
+}
+
+MenuItem.prototype.priceString = function() {
+
+	if (Array.isArray(this.price)) {
+	
+		return this.price.map((p: Number)=>`${p}zł`).join(' / ')
+	
+	} else {
+	
+		return `${this.price}zł`
+	
+	}
+
+}
+
+  
+
+MenuItem.prototype.getAmount = function() {
+
+	return DI.bag.menuClient.getAmountForMenuItem(this)
+
+}
+```
+
+diskutil list
+sudo diskutil eraseDisk ExFAT "WIN11" GPT /dev/disk18
+hdiutil mount Win11_23H2_EnglishInternational_x64v2.iso
+rsync -ahv --progress /Volumes/CCCOMA_X64FRE_EN-GB_DV9/* /Volumes/WIN11
+
+
+// https://www.assemblyscript.org/introduction.html#from-a-webassembly-perspective
+
+// https://www.freecodecamp.org/news/postgresql-and-json-use-json-data-in-postgresql/
+https://node-postgres.com/apis/pool
+
+
+
+
+
+```json
+//import * as XmlStream from 'xml-stream'
+const XmlStream = require("xml-stream")
+
+//import { request } from 'http'
+const {request} = require('http')
+
+//import { createWriteStream, createReadStream } from 'fs'
+const { createWriteStream, createReadStream } = require('fs')
+
+//const xmlFileReadStream = request('http://external.path/to/xml')
+
+const xmlFileReadStream = createReadStream('../map.osm')
+const xmlFileWriteStream = new XmlStream(xmlFileReadStream)
+
+//const databaseWriteStream = createWriteStream('/path/to/file.csv')
+
+xmlFileWriteStream.on('endElement: node', (o) =>
+	//databaseWriteStream.write(`"${name}","${phone}","${age}"\n`)
+	console.log(o)
+)
+
+//xmlFileWriteStream.on('end', () => databaseWriteStream.end())
+```
+
+
+
+
+
 https://hg.sr.ht/~scoopta/wofi
 https://github.com/sjiveson/nfs-server-alpine
 https://www.passwordstore.org/
@@ -122,3 +225,117 @@ https://www.avanderlee.com/
 https://github.com/uber/RIBs
 https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
 https://medium.com/mackmobile/getting-started-with-redux-in-swift-54e00f323e2b
+
+
+### React native
+
+```tsx
+
+{device != null && (
+
+	<Camera
+		style={styles.camera}
+		device={device}
+		isActive={isActive}
+		codeScanner={codeScanner}
+		torch={torch ? 'on' : 'off'}
+		onError={handleCameraError}
+		enableZoomGesture={true}
+/>)}
+
+```
+
+
+```python
+class Swim:
+    def swim(self):
+        print('swim')
+
+def car_init(self, brand):
+    self.brand = brand
+
+def drive(self):
+    print(f'{self.brand} drive')
+
+Car = type('Car', (), {
+    '__init__': car_init,
+    'drive': drive
+})
+
+car = Car('test')
+
+car.drive()
+# car.swim()
+```
+
+
+
+
+```ruby
+project '1Nozbe', {
+  'iOS 1 Dev Debug' => :debug,
+  'iOS 2 Dev AdHoc' => :release,
+  'iOS 3 Release Debug' => :debug,
+  'iOS 4 Release AdHoc' => :release,
+  'iOS 5 Release AppStore' => :release,
+}
+```
+
+```ruby
+ use_react_native!(
+    :path => config[:reactNativePath],
+    :hermes_enabled => true,
+    :flipper_configuration => FlipperConfiguration.enabled(['DevDebug','ProdDebug','DevRelease', 'ProdRelease']),
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+```
+
+```ruby
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+
+project 'Project',
+  'Staging.Debug' => :debug,
+  'Staging.Release' => :release,
+  'Production.Debug' => :debug,
+  'Production.Release' => :release
+
+target 'Project' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  # STRIPE
+  pod 'Stripe', '~> 19.0.1'
+  pod 'tipsi-stripe', :path => '../node_modules/tipsi-stripe'
+
+  # PERMISSIONS
+  permissions_path = '../node_modules/react-native-permissions/ios'
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
+  pod 'Permission-Notifications', :path => "#{permissions_path}/Notifications.podspec"
+
+  target 'ProjectTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  use_flipper!
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end
+```
+
+
+```sh
+python3 -m venv env
+source env/bin/activate
+python3 -m pip install msoffcrypto-tool
+```
+ 

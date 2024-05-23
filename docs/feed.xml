@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="artur.gurgul.pro/feed.xml" rel="self" type="application/atom+xml" /><link href="artur.gurgul.pro/" rel="alternate" type="text/html" /><updated>2023-12-14T19:36:57+01:00</updated><id>artur.gurgul.pro/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
-</subtitle><entry><title type="html">Regex - notes</title><link href="artur.gurgul.pro/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/regex-notes</id><content type="html" xml:base="artur.gurgul.pro/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-02-05T14:50:51+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Artur Gurgul</title><subtitle>Here you can find all about me and my experience in software development.
+</subtitle><entry><title type="html">Regex - notes</title><link href="http://localhost:4000/regex-notes.html" rel="alternate" type="text/html" title="Regex - notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/regex-notes</id><content type="html" xml:base="http://localhost:4000/regex-notes.html"><![CDATA[<p>How to match “any character” in the regular expression</p>
 
 <ul>
   <li><code class="language-plaintext highlighter-rouge">.</code> → any char except newline</li>
@@ -7,7 +7,7 @@
   <li><code class="language-plaintext highlighter-rouge">.?</code> = <code class="language-plaintext highlighter-rouge">.{0,1}</code> → match any char except newline zero or one times</li>
   <li><code class="language-plaintext highlighter-rouge">.*</code> = <code class="language-plaintext highlighter-rouge">.{0,}</code> → match any char except newline zero or more times</li>
   <li><code class="language-plaintext highlighter-rouge">.+</code> = <code class="language-plaintext highlighter-rouge">.{1,}</code> → match any char except newline one or more times</li>
-</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[How to match “any character” in the regular expression]]></summary></entry><entry><title type="html">Recepies</title><link href="artur.gurgul.pro/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/recepies</id><content type="html" xml:base="artur.gurgul.pro/recepies.html"><![CDATA[<h4 id="read-a-dns-records">Read a DNS records</h4>
+</ul>]]></content><author><name></name></author><summary type="html"><![CDATA[How to match “any character” in the regular expression]]></summary></entry><entry><title type="html">Recepies</title><link href="http://localhost:4000/recepies.html" rel="alternate" type="text/html" title="Recepies" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/recepies</id><content type="html" xml:base="http://localhost:4000/recepies.html"><![CDATA[<h4 id="read-a-dns-records">Read a DNS records</h4>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dig artgur.net +nostats +nocomments +nocmd
 </code></pre></div></div>
@@ -627,7 +627,35 @@ htpasswd /etc/nginx/.htpasswd another_user
 <p>Python</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install python3-full
-</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Vim notes</title><link href="artur.gurgul.pro/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>artur.gurgul.pro/software/vim</id><content type="html" xml:base="artur.gurgul.pro/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
+</code></pre></div></div>
+
+<h3 id="check-battery">Check battery</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upower <span class="nt">-i</span> /org/freedesktop/UPower/devices/battery_BAT0
+upower <span class="nt">-i</span> <span class="sb">`</span>upower <span class="nt">-e</span> | <span class="nb">grep</span> <span class="s1">'BAT'</span><span class="sb">`</span>
+upower <span class="nt">-i</span> <span class="si">$(</span>upower <span class="nt">-e</span> | <span class="nb">grep </span>BAT<span class="si">)</span> | <span class="nb">grep</span> <span class="nt">--color</span><span class="o">=</span>never <span class="nt">-E</span> <span class="s2">"state|to</span><span class="se">\ </span><span class="s2">full|to</span><span class="se">\ </span><span class="s2">empty|percentage"</span>
+</code></pre></div></div>
+
+<p>Battery capacity</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /sys/class/power_supply/BAT0/capacity
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">apt install acpi</code></p>
+
+<p>acpi -V
+acpi -t</p>
+
+<p>Watch the status for example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>watch --interval=5 acpi -V
+</code></pre></div></div>
+
+<h3 id="how-to-scan-open-ports">How to scan open ports</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap -sT -p- 10.10.8.8
+nmap -p 80 127.0.0.1
+</code></pre></div></div>]]></content><author><name></name></author><summary type="html"><![CDATA[Read a DNS records]]></summary></entry><entry><title type="html">Vim notes</title><link href="http://localhost:4000/software/vim.html" rel="alternate" type="text/html" title="Vim notes" /><published>2020-12-26T00:00:00+01:00</published><updated>2020-12-26T00:00:00+01:00</updated><id>http://localhost:4000/software/vim</id><content type="html" xml:base="http://localhost:4000/software/vim.html"><![CDATA[<h4 id="symbols-and-meanings">Symbols and meanings</h4>
 <ul>
   <li><code class="language-plaintext highlighter-rouge">%</code> → current file. An example:  <code class="language-plaintext highlighter-rouge">:so %</code> → Source the current file</li>
   <li><code class="language-plaintext highlighter-rouge">$</code> → end of line</li>
@@ -1118,7 +1146,7 @@ Sequence forfolding lines `Shift+V:fo`
 `zf#j` creates a fold from the cursor down # lines.
 
 :CheckHealth
--->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry><entry><title type="html">Git - notes</title><link href="artur.gurgul.pro/software/git-notes.html" rel="alternate" type="text/html" title="Git - notes" /><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><id>artur.gurgul.pro/software/git-notes</id><content type="html" xml:base="artur.gurgul.pro/software/git-notes.html"><![CDATA[<p>Squash the last three commits</p>
+-->]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Symbols and meanings % → current file. An example: :so % → Source the current file $ → end of line . → Current line An example: :.!sh → Pipe current line to sh and replace it with the output]]></summary></entry><entry><title type="html">Git - notes</title><link href="http://localhost:4000/software/git-notes.html" rel="alternate" type="text/html" title="Git - notes" /><published>2020-04-26T00:00:00+02:00</published><updated>2020-04-26T00:00:00+02:00</updated><id>http://localhost:4000/software/git-notes</id><content type="html" xml:base="http://localhost:4000/software/git-notes.html"><![CDATA[<p>Squash the last three commits</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git rebase <span class="nt">-i</span> HEAD~3
 </code></pre></div></div>
@@ -1167,7 +1195,7 @@ cd nextcloud.git; git worktree add /var/www/nextcloud
 cd /var/www/nextcloud; checkout -f v27.1.4
 
 git --work-tree=/var/www/nextcloud --git dir=/home/artur/pub/drive/repos/nextcloud.git checkout -f v27.1.4 --recursive
-</code></pre></div></div>]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Squash the last three commits]]></summary></entry><entry><title type="html">Linux installation</title><link href="artur.gurgul.pro/linux/installation.html" rel="alternate" type="text/html" title="Linux installation" /><published>2020-03-26T00:00:00+01:00</published><updated>2020-03-26T00:00:00+01:00</updated><id>artur.gurgul.pro/linux/installation</id><content type="html" xml:base="artur.gurgul.pro/linux/installation.html"><![CDATA[<p>In case of installation on VM make the disk image</p>
+</code></pre></div></div>]]></content><author><name></name></author><category term="software" /><summary type="html"><![CDATA[Squash the last three commits]]></summary></entry><entry><title type="html">Linux installation</title><link href="http://localhost:4000/linux/installation.html" rel="alternate" type="text/html" title="Linux installation" /><published>2020-03-26T00:00:00+01:00</published><updated>2020-03-26T00:00:00+01:00</updated><id>http://localhost:4000/linux/installation</id><content type="html" xml:base="http://localhost:4000/linux/installation.html"><![CDATA[<p>In case of installation on VM make the disk image</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>qemu-img create -f qcow2 debian.qcow2 16G
 </code></pre></div></div>
@@ -1649,7 +1677,7 @@ apt install -y libnvidia-egl-wayland-dev   meson libwlroots-dev wayland-utils wa
   coreutils  libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libxml2-dev libsqlite3-dev libicu-dev libxslt-dev \
   libjpeg-dev libpng-dev libwebp-dev libsecret-1-dev
 ```
--->]]></content><author><name></name></author><category term="linux" /><summary type="html"><![CDATA[In case of installation on VM make the disk image]]></summary></entry><entry><title type="html">SOLID principles</title><link href="artur.gurgul.pro/programming/solid.html" rel="alternate" type="text/html" title="SOLID principles" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/solid</id><content type="html" xml:base="artur.gurgul.pro/programming/solid.html"><![CDATA[<h3 id="single-responsibility-principle">Single responsibility principle</h3>
+-->]]></content><author><name></name></author><category term="linux" /><summary type="html"><![CDATA[In case of installation on VM make the disk image]]></summary></entry><entry><title type="html">SOLID principles</title><link href="http://localhost:4000/programming/solid.html" rel="alternate" type="text/html" title="SOLID principles" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>http://localhost:4000/programming/solid</id><content type="html" xml:base="http://localhost:4000/programming/solid.html"><![CDATA[<h3 id="single-responsibility-principle">Single responsibility principle</h3>
 
 <p>This mean if the one thing in specification is changed you only need to change the code in the single place or class</p>
 
@@ -1667,7 +1695,7 @@ apt install -y libnvidia-egl-wayland-dev   meson libwlroots-dev wayland-utils wa
 
 <h3 id="dependency-inversion-principle">Dependency inversion principle</h3>
 
-<p>The lower module must not depends on higher module. In order to achieve this the code must to relay on abstractions (in other words the code has to use interfaces/protocols)</p>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[Single responsibility principle]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="artur.gurgul.pro/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/bridging</id><content type="html" xml:base="artur.gurgul.pro/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
+<p>The lower module must not depends on higher module. In order to achieve this the code must to relay on abstractions (in other words the code has to use interfaces/protocols)</p>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[Single responsibility principle]]></summary></entry><entry><title type="html">Bridging between languages</title><link href="http://localhost:4000/programming/bridging.html" rel="alternate" type="text/html" title="Bridging between languages" /><published>2020-02-26T00:00:00+01:00</published><updated>2020-02-26T00:00:00+01:00</updated><id>http://localhost:4000/programming/bridging</id><content type="html" xml:base="http://localhost:4000/programming/bridging.html"><![CDATA[<p>We can cross call functions from languages that:</p>
 
 <ul>
   <li>Both are compilable → Strategy: Create a binary library and call function from it.</li>
@@ -1862,7 +1890,7 @@ ar rc ./libexample.a ./lib.o
 <ul>
   <li><a href="https://blog.filippo.io/building-python-modules-with-go-1-5/">https://blog.filippo.io/building-python-modules-with-go-1-5/</a></li>
   <li><a href="https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/">https://id-rsa.pub/post/go15-calling-go-shared-libs-from-firefox-addon/</a></li>
-</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry><entry><title type="html">Javascript - notes</title><link href="artur.gurgul.pro/programming/javascript-notes.html" rel="alternate" type="text/html" title="Javascript - notes" /><published>2020-02-11T00:00:00+01:00</published><updated>2020-02-11T00:00:00+01:00</updated><id>artur.gurgul.pro/programming/javascript-notes</id><content type="html" xml:base="artur.gurgul.pro/programming/javascript-notes.html"><![CDATA[<h3 id="currying---javascript">Currying - JavaScript</h3>
+</ul>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[We can cross call functions from languages that:]]></summary></entry><entry><title type="html">Javascript - notes</title><link href="http://localhost:4000/programming/javascript-notes.html" rel="alternate" type="text/html" title="Javascript - notes" /><published>2020-02-11T00:00:00+01:00</published><updated>2020-02-11T00:00:00+01:00</updated><id>http://localhost:4000/programming/javascript-notes</id><content type="html" xml:base="http://localhost:4000/programming/javascript-notes.html"><![CDATA[<h3 id="currying---javascript">Currying - JavaScript</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">currying</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(...</span><span class="nx">_arg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -1941,7 +1969,7 @@ ar rc ./libexample.a ./lib.o
 <span class="nx">element</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="dl">"</span><span class="s2">fill</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">black</span><span class="dl">"</span><span class="p">)</span>
 <span class="kd">let</span> <span class="nx">display</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">display</span><span class="dl">"</span><span class="p">)</span>
 <span class="nx">display</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[Currying - JavaScript]]></summary></entry><entry><title type="html">Swift - notes</title><link href="artur.gurgul.pro/swift/swift-notes.html" rel="alternate" type="text/html" title="Swift - notes" /><published>2020-01-26T00:00:00+01:00</published><updated>2020-01-26T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/swift-notes</id><content type="html" xml:base="artur.gurgul.pro/swift/swift-notes.html"><![CDATA[<h4 id="autoclosure">Autoclosure</h4>
+</code></pre></div></div>]]></content><author><name></name></author><category term="programming" /><summary type="html"><![CDATA[Currying - JavaScript]]></summary></entry><entry><title type="html">Swift - notes</title><link href="http://localhost:4000/swift/swift-notes.html" rel="alternate" type="text/html" title="Swift - notes" /><published>2020-01-26T00:00:00+01:00</published><updated>2020-01-26T00:00:00+01:00</updated><id>http://localhost:4000/swift/swift-notes</id><content type="html" xml:base="http://localhost:4000/swift/swift-notes.html"><![CDATA[<h4 id="autoclosure">Autoclosure</h4>
 
 <p>Lazy evaluation of the function’s arguments. Instead of eager calculation of values, the clousure is passed, and executed only when needed.</p>
 
@@ -2428,7 +2456,27 @@ ar rc ./libexample.a ./lib.o
 
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span><span class="p">,</span> <span class="nv">deprecated</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nv">obsoleted</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"We no longer show an app introduction on iOS 14 and up"</span><span class="p">)</span>
 <span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">unavailable</span><span class="p">,</span> <span class="nv">renamed</span><span class="p">:</span> <span class="s">"launchOnboarding"</span><span class="p">)</span>
-</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Autoclosure]]></summary></entry><entry><title type="html">iOS Architecture Patterns</title><link href="artur.gurgul.pro/swift/ios-architecture-patterns.html" rel="alternate" type="text/html" title="iOS Architecture Patterns" /><published>2020-01-11T00:00:00+01:00</published><updated>2020-01-11T00:00:00+01:00</updated><id>artur.gurgul.pro/swift/ios-architecture-patterns</id><content type="html" xml:base="artur.gurgul.pro/swift/ios-architecture-patterns.html"><![CDATA[<h3 id="remove-story-board-dependency">Remove story board dependency</h3>
+</code></pre></div></div>
+
+<p>Mapping</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="n">maping</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="kt">KeyPath</span><span class="o">&lt;</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Element</span><span class="p">]</span> <span class="p">{</span>
+	<span class="k">var</span> <span class="nv">dictionary</span> <span class="o">=</span>  <span class="p">[</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Element</span><span class="p">]()</span>
+	
+	<span class="k">for</span> <span class="n">elemement</span> <span class="k">in</span> <span class="k">self</span> <span class="p">{</span>
+		<span class="k">let</span> <span class="nv">key</span> <span class="o">=</span> <span class="n">elemement</span><span class="p">[</span><span class="nv">keyPath</span><span class="p">:</span> <span class="n">keyPath</span><span class="p">]</span>
+		<span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">elemement</span>
+	<span class="p">}</span>
+	
+	<span class="k">return</span> <span class="n">dictionary</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="type-aliases">Type aliases</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Point</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Numeric</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">MyResult</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span>
+</code></pre></div></div>]]></content><author><name></name></author><category term="swift" /><summary type="html"><![CDATA[Autoclosure]]></summary></entry><entry><title type="html">iOS Architecture Patterns</title><link href="http://localhost:4000/swift/ios-architecture-patterns.html" rel="alternate" type="text/html" title="iOS Architecture Patterns" /><published>2020-01-11T00:00:00+01:00</published><updated>2020-01-11T00:00:00+01:00</updated><id>http://localhost:4000/swift/ios-architecture-patterns</id><content type="html" xml:base="http://localhost:4000/swift/ios-architecture-patterns.html"><![CDATA[<h3 id="remove-story-board-dependency">Remove story board dependency</h3>
 
 <ol>
   <li>Remove <code class="language-plaintext highlighter-rouge">Main.storyboard</code> file</li>

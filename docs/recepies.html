@@ -8,7 +8,7 @@
   <meta name="description" content="The blog of Artur Gurgul" />
   
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 </head>
 <body>
@@ -107,6 +107,13 @@
       
 
       >Threading</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/test/test.htm"
+      
+      
+
+      >test</a></li>
   
   </ul>
 </nav>
@@ -740,6 +747,33 @@ htpasswd /etc/nginx/.htpasswd another_user
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>install python3-full
 </code></pre></div></div>
 
+<h3 id="check-battery">Check battery</h3>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>upower <span class="nt">-i</span> /org/freedesktop/UPower/devices/battery_BAT0
+upower <span class="nt">-i</span> <span class="sb">`</span>upower <span class="nt">-e</span> | <span class="nb">grep</span> <span class="s1">'BAT'</span><span class="sb">`</span>
+upower <span class="nt">-i</span> <span class="si">$(</span>upower <span class="nt">-e</span> | <span class="nb">grep </span>BAT<span class="si">)</span> | <span class="nb">grep</span> <span class="nt">--color</span><span class="o">=</span>never <span class="nt">-E</span> <span class="s2">"state|to</span><span class="se">\ </span><span class="s2">full|to</span><span class="se">\ </span><span class="s2">empty|percentage"</span>
+</code></pre></div></div>
+
+<p>Battery capacity</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cat</span> /sys/class/power_supply/BAT0/capacity
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">apt install acpi</code></p>
+
+<p>acpi -V
+acpi -t</p>
+
+<p>Watch the status for example:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>watch --interval=5 acpi -V
+</code></pre></div></div>
+
+<h3 id="how-to-scan-open-ports">How to scan open ports</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nmap -sT -p- 10.10.8.8
+nmap -p 80 127.0.0.1
+</code></pre></div></div>
 
 </div>
 

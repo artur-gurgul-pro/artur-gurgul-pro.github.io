@@ -8,7 +8,7 @@
   <meta name="description" content="The blog of Artur Gurgul" />
   
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 </head>
 <body>
@@ -107,6 +107,13 @@
       
 
       >Threading</a></li>
+  
+    
+    <li><span>&raquo;</span><a href="/test/test.htm"
+      
+      
+
+      >test</a></li>
   
   </ul>
 </nav>
@@ -606,6 +613,27 @@
 <div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">@available</span><span class="p">(</span><span class="n">iOS</span><span class="p">,</span> <span class="nv">deprecated</span><span class="p">:</span> <span class="mi">12</span><span class="p">,</span> <span class="nv">obsoleted</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span> <span class="nv">message</span><span class="p">:</span> <span class="s">"We no longer show an app introduction on iOS 14 and up"</span><span class="p">)</span>
 <span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">unavailable</span><span class="p">,</span> <span class="nv">renamed</span><span class="p">:</span> <span class="s">"launchOnboarding"</span><span class="p">)</span>
 </code></pre></div></div>
+
+<p>Mapping</p>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">func</span> <span class="n">maping</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">keyPath</span><span class="p">:</span> <span class="kt">KeyPath</span><span class="o">&lt;</span><span class="kt">Element</span><span class="p">,</span> <span class="kt">T</span><span class="o">&gt;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Element</span><span class="p">]</span> <span class="p">{</span>
+	<span class="k">var</span> <span class="nv">dictionary</span> <span class="o">=</span>  <span class="p">[</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Element</span><span class="p">]()</span>
+	
+	<span class="k">for</span> <span class="n">elemement</span> <span class="k">in</span> <span class="k">self</span> <span class="p">{</span>
+		<span class="k">let</span> <span class="nv">key</span> <span class="o">=</span> <span class="n">elemement</span><span class="p">[</span><span class="nv">keyPath</span><span class="p">:</span> <span class="n">keyPath</span><span class="p">]</span>
+		<span class="n">dictionary</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">elemement</span>
+	<span class="p">}</span>
+	
+	<span class="k">return</span> <span class="n">dictionary</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="type-aliases">Type aliases</h3>
+
+<div class="language-swift highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">Point</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt">Numeric</span><span class="o">&gt;</span> <span class="o">=</span> <span class="p">(</span><span class="nv">x</span><span class="p">:</span> <span class="kt">T</span><span class="p">,</span> <span class="nv">y</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span>
+<span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">MyResult</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="o">=</span> <span class="kt">Result</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">,</span> <span class="kt">Error</span><span class="o">&gt;</span>
+</code></pre></div></div>
+
 
 </div>
 
