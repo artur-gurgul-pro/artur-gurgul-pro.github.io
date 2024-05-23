@@ -8,7 +8,7 @@
   <meta name="description" content="The blog of Artur Gurgul" />
   
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 </head>
 <body>
@@ -499,6 +499,36 @@ grub-mkconfig <span class="nt">-o</span> /boot/grub/grub.cfg
   <li><code class="language-plaintext highlighter-rouge">umount -a</code></li>
   <li><code class="language-plaintext highlighter-rouge">poweroff</code></li>
 </ul>
+
+<h2 id="install-any-linux-out-from-vm">Install any Linux out from VM</h2>
+
+<p>Create OS archive locally using rsync</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rsync <span class="nt">-aAXHSv</span> /<span class="k">*</span> /root/winux <span class="nt">--exclude</span><span class="o">={</span>/dev/<span class="k">*</span>,/proc/<span class="k">*</span>,/sys/<span class="k">*</span>,/tmp/<span class="k">*</span>,/run/<span class="k">*</span>,/mnt/<span class="k">*</span>,/root/<span class="k">*</span>,/media/<span class="k">*</span>,/lost+found,/home/<span class="k">*</span>/.gvfs<span class="o">}</span>
+<span class="nb">tar</span> <span class="nt">-cvjSf</span> winux.tar.bz2 winux
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-cvjSf</span> winux.tar.bz2 / <span class="nt">--exclude</span><span class="o">={</span>/dev/<span class="k">*</span>,/proc/<span class="k">*</span>,/sys/<span class="k">*</span>,/tmp/<span class="k">*</span>,/run/<span class="k">*</span>,/mnt/<span class="k">*</span>,/root/<span class="k">*</span>,/media/<span class="k">*</span>,/lost+found,/home/<span class="k">*</span>/.gvfs<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Create archive and move it to the host</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssh -p 2222 root@localhost 'tar -cvjS / --exclude={/dev/*,/proc/*,/sys/*,/tmp/*,/run/*,/mnt/*,/root/*,/media/*,/lost+found,/home/*/.gvfs} --to-stdout' &gt; winux.tar.bz2
+</code></pre></div></div>
+
+<h4 id="extract-files-to-the-destination-drive">Extract files to the destination drive</h4>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">tar</span> <span class="nt">-xvjf</span> winux.tar.bz2 <span class="nt">-C</span> /mnt/sys
+</code></pre></div></div>
+
+<p>https://wiki.archlinux.org/title/Moving_an_existing_install_into_(or_out_of)_a_virtual_machine</p>
+
+<p>Then generate fstab</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genfstab <span class="nt">-U</span> /mnt/sys <span class="o">&gt;</span> /mnt/sys/etc/fstab
+</code></pre></div></div>
 
 <!--
 ## More customisation

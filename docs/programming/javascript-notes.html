@@ -8,7 +8,7 @@
   <meta name="description" content="The blog of Artur Gurgul" />
   
   <link rel="shortcut icon" href="/favicon.png">
-  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="http://localhost:4000/atom.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Artur Gurgul" href="artur.gurgul.pro/atom.xml" />
   <link rel="stylesheet" href="/assets/css/all.css">
 </head>
 <body>
@@ -125,7 +125,10 @@
         <h1 class="title">Javascript - notes</h1>
 
 <div id="post">
-  <h3 id="currying---javascript">Currying - JavaScript</h3>
+  <p>Useful tool:  Why did you render
+https://react.dev/learn/react-developer-tools</p>
+
+<h3 id="currying---javascript">Currying - JavaScript</h3>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">currying</span><span class="p">(</span><span class="nx">fn</span><span class="p">,</span> <span class="p">...</span><span class="nx">args</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">(...</span><span class="nx">_arg</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
@@ -206,6 +209,228 @@
 <span class="nx">display</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">element</span><span class="p">)</span>
 </code></pre></div></div>
 
+<h3 id="operations-on-arrays">Operations on arrays</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">test</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span> <span class="c1">// [ 3, 4, 5, 6, 7 ]</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">test</span><span class="p">)</span> <span class="c1">// [ 1, 2 ]</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">test.splice(-5, 5)</code> counting from the end</li>
+  <li><code class="language-plaintext highlighter-rouge">test.splice(5)</code> from 5th to the end of the array</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Take just first element</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">argv</span><span class="p">.</span><span class="nx">shift</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="call-function-in-place">Call function in place</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="kd">function</span> <span class="nx">waitForAsync</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="nx">end</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Synchronous operation can proceed now</span><span class="dl">"</span><span class="p">)</span>
+	<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+		<span class="nx">setImmediate</span><span class="p">(</span><span class="nx">waitForAsync</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">})()</span>
+</code></pre></div></div>
+
+<h2 id="spawn-process">Spawn process</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="p">{</span> <span class="nx">spawn</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">child_process</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">child</span> <span class="o">=</span> <span class="nx">spawn</span><span class="p">(</span><span class="nx">command</span><span class="p">,</span> <span class="nx">params</span><span class="p">,</span> <span class="p">{</span><span class="na">cwd</span><span class="p">:</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()});</span>
+
+<span class="c1">//for text chunks</span>
+<span class="nx">child</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">setEncoding</span><span class="p">(</span><span class="dl">'</span><span class="s1">utf8</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="nx">child</span><span class="p">.</span><span class="nx">stdout</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">data</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">chunk</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="c1">//process.stdout.write(chunk)</span>
+<span class="p">})</span>
+
+<span class="c1">// since these are streams, you can pipe them elsewhere</span>
+<span class="c1">// child.stderr.pipe(dest);</span>
+
+<span class="nx">child</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="dl">'</span><span class="s1">close</span><span class="dl">'</span><span class="p">,</span> <span class="p">(</span><span class="nx">code</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`ENDED: </span><span class="p">${</span><span class="nx">command</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">params</span><span class="p">.</span><span class="nx">join</span><span class="p">(</span><span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">)}</span><span class="s2"> $ =&gt; </span><span class="p">${</span><span class="nx">code</span><span class="p">}</span><span class="s2">`</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<h2 id="handling-working-directory">Handling working directory</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">dir</span><span class="p">(</span><span class="nx">wd</span><span class="p">,</span> <span class="nx">commands</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">saveWD</span> <span class="o">=</span> <span class="nx">process</span><span class="p">.</span><span class="nx">cwd</span><span class="p">()</span>
+	<span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span><span class="p">(</span><span class="nx">wd</span><span class="p">)</span>
+	<span class="nx">commands</span><span class="p">()</span>
+	<span class="nx">process</span><span class="p">.</span><span class="nx">chdir</span><span class="p">(</span><span class="nx">saveWD</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="execute-script-loaded-from-string">Execute script loaded from string</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">util</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">util</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">vm</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">'</span><span class="s1">vm</span><span class="dl">'</span><span class="p">)</span>
+
+<span class="kd">const</span> <span class="nx">sandbox</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">animal</span><span class="p">:</span> <span class="dl">'</span><span class="s1">cat</span><span class="dl">'</span><span class="p">,</span>
+	<span class="na">count</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">script</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">Script</span><span class="p">(</span><span class="dl">'</span><span class="s1">count += 1; name = "kitty"</span><span class="dl">'</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">context</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">vm</span><span class="p">.</span><span class="nx">createContext</span><span class="p">(</span><span class="nx">sandbox</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="nx">i</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">script</span><span class="p">.</span><span class="nx">runInContext</span><span class="p">(</span><span class="nx">context</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">util</span><span class="p">.</span><span class="nx">inspect</span><span class="p">(</span><span class="nx">sandbox</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>or</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">primes</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">11</span> <span class="p">]</span>
+<span class="nx">subset</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="dl">'</span><span class="s1">primes.filter(each =&gt; each &gt; 5)</span><span class="dl">'</span><span class="p">)</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">subset</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">(</span><span class="k">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+	<span class="kd">let</span> <span class="nx">file</span> <span class="o">=</span> <span class="k">await</span> <span class="nx">readSource</span><span class="p">()</span>
+<span class="p">})()</span>
+</code></pre></div></div>
+
+<p>mjs =&gt; node module, allows to use await/async at the top level</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"om"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"main"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dist/index.js"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"module"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"test"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo </span><span class="se">\"</span><span class="s2">Error: no test specified</span><span class="se">\"</span><span class="s2"> &amp;&amp; exit 1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ts-node src/index.ts"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"build"</span><span class="p">:</span><span class="w"> </span><span class="s2">"tsc &amp;&amp; cp src/om dist/om"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"run"</span><span class="p">:</span><span class="w"> </span><span class="s2">"node dist/index.js"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"watch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"nodemon --watch 'src/**' --ext 'ts,json' --ignore 'src/**/*.spec.ts' --exec 'tsc || true'"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"license"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ISC"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"commander"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^12.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"pg"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^8.11.5"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"devDependencies"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"nodemon"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^3.1.0"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"ts-node"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^10.9.2"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"typescript"</span><span class="p">:</span><span class="w"> </span><span class="s2">"^5.3.3"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h2 id="make-executable">Make executable</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#!/usr/bin/env node
+</span><span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">.</span><span class="dl">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="get-all-function-argments">Get all function argments</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="string-literals-and-parentheses-less-calls">String literals and parentheses-less calls</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">showstring</span> <span class="o">=</span> <span class="p">(</span><span class="nx">str</span><span class="p">,</span> <span class="p">...</span><span class="nx">values</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">str</span><span class="p">);</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">values</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="kd">const</span> <span class="nx">name</span> <span class="o">=</span> <span class="dl">'</span><span class="s1">John</span><span class="dl">'</span>
+<span class="nx">showstring</span><span class="s2">`Hello World </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="nx">name</span><span class="p">}</span><span class="s2"> </span><span class="p">${</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">}</span><span class="s2"> and more`</span><span class="p">;</span>
+</code></pre></div></div>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// str</span>
+<span class="p">[</span>
+  <span class="dl">"</span><span class="s2">Hello World </span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2"> </span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2"> and more</span><span class="dl">"</span>
+<span class="p">]</span>
+
+<span class="c1">// values</span>
+<span class="p">[</span>
+  <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span>
+  <span class="dl">"</span><span class="s2">John</span><span class="dl">"</span><span class="p">,</span>
+  <span class="mi">3</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<h2 id="generators">Generators</h2>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span><span class="o">*</span> <span class="nx">zip</span><span class="p">(...</span><span class="nx">arrays</span><span class="p">){</span>
+  <span class="kd">const</span> <span class="nx">maxLength</span> <span class="o">=</span> <span class="nx">arrays</span><span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">max</span><span class="p">,</span> <span class="nx">curIterable</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">curIterable</span><span class="p">.</span><span class="nx">length</span> <span class="o">&gt;</span> <span class="nx">max</span> <span class="p">?</span> <span class="nx">curIterable</span><span class="p">.</span><span class="nx">length</span><span class="p">:</span> <span class="nx">max</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kd">let</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">maxLength</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">yield</span> <span class="nx">arrays</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">array</span> <span class="o">=&gt;</span> <span class="nx">array</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h2 id="this-and-inheritance"><code class="language-plaintext highlighter-rouge">this</code> and inheritance</h2>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="nx">sum</span><span class="p">(</span><span class="nx">b</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">sum</span><span class="p">.</span><span class="nx">call</span><span class="p">({</span><span class="na">a</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="mi">5</span><span class="p">)</span> <span class="c1">// 9</span>
+<span class="kd">const</span> <span class="nx">newSum</span> <span class="o">=</span> <span class="nx">sum</span><span class="p">.</span><span class="nx">bind</span><span class="p">({</span><span class="na">a</span><span class="p">:</span> <span class="mi">4</span><span class="p">})</span>
+<span class="nx">newSum</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c1">// 7</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">function</span> <span class="nx">User</span><span class="p">()</span> <span class="p">{</span>
+	<span class="k">this</span><span class="p">.</span><span class="nx">id</span> <span class="o">=</span> <span class="mi">5</span>
+
+	<span class="k">this</span><span class="p">.</span><span class="nx">test1</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+	<span class="p">}</span>
+
+	<span class="k">this</span><span class="p">.</span><span class="nx">test2</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">User</span><span class="p">.</span><span class="nx">prototype</span> <span class="o">=</span> <span class="p">{</span>
+	
+    <span class="na">show</span><span class="p">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+	    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`user id = </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">id</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">let</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">()</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">show</span><span class="p">()</span> <span class="c1">// user id = 5</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">test1</span><span class="p">()</span> <span class="c1">// 5</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">test2</span><span class="p">()</span> <span class="c1">// 5</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">=</span> <span class="p">{</span> 
+	<span class="na">show</span><span class="p">:</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`user: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">=</span> <span class="dl">"</span><span class="s2">Artur</span><span class="dl">"</span>
+<span class="nx">user</span><span class="p">.</span><span class="nx">show</span><span class="p">()</span> <span class="c1">// user: Artur</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">__proto__</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="na">show</span><span class="p">:</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> 
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`user: </span><span class="p">${</span><span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="p">}</span><span class="s2">`</span><span class="p">)</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">user</span><span class="p">.</span><span class="nx">show</span><span class="p">()</span> <span class="c1">// user:</span>
+
+</code></pre></div></div>
 
 </div>
 
