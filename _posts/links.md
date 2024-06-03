@@ -4,6 +4,25 @@ title:  "My links"
 categories: notes
 ---
 
+
+https://learn.opengeoedu.de/en/opendata/vorlesung/freiwillig-erhobene-daten/openstreetmap/datenmodell
+https://2018.stateofthemap.org/2018/T107-Modding_the_OSM_Data_Model/
+https://en.wikipedia.org/wiki/GNU_Multiple_Precision_Arithmetic_Library
+
+https://en.wikipedia.org/wiki/List_of_arbitrary-precision_arithmetic_software
+
+	Math.sin(Math.PI).toFixed(3)
+
+``` plain https://v8.dev/features/bigint
+➜  maps git:(main) ✗ node
+Welcome to Node.js v22.0.0.
+Type ".help" for more information.
+> 123n
+123n
+> 123n + 34n
+```
+
+
 slonik library for postgress connection
 https://www.npmjs.com/package/slonik/v/18.11.1#slonik-recipes-using-sql-raw-to-generate-dynamic-queries
 
@@ -22,6 +41,16 @@ https://www.npmjs.com/package/slonik/v/18.11.1#slonik-recipes-using-sql-raw-to-g
 	  ('Pijalnie piwa i wódki', 1, '["fg"]', '{1}')
 	returning *;
 
+
+https://developer.apple.com/documentation/metal/performing_calculations_on_a_gpu
+
+```javascript
+const fs = require('fs');
+const bz2 = require('unbzip2-stream');
+const tarfs = require('tar-fs');
+
+fs.createReadStream('foo.tar.bz2').pipe(bz2()).pipe(tarfs.extract('data'));
+```
 
 ```ts
 
@@ -226,6 +255,45 @@ https://github.com/uber/RIBs
 https://medium.com/@vladislavshkodich/architectures-comparing-for-swiftui-6351f1fb3605
 https://medium.com/mackmobile/getting-started-with-redux-in-swift-54e00f323e2b
 
+
+       -- --slurp json lines, each line correct json
+       cat kato.json | jq -sc
+       
+       -- no new lines allowed
+       \copy json_table FROM PROGRAM 'jq --stream -nc -f myfile.json';
+
+
+```sql
+-- https://medium.com/@ValentinMouret/batch-inserts-in-postgresql-1b65f083fdc
+copy batch_user (id, document)
+	from '/Users/valentinmouret/Desktop/users.csv'
+	with (format 'csv',
+		  header,
+		  delimiter ',');   
+```
+
+
+odwrotna rzecz:
+
+```json data1.json
+[ 
+{ "id":"1", 
+  "metadata":{"version":"1.0","author":"user1"}
+},
+{ "id":"2", 
+  "metadata":{"version":"1.0","author":"user2","timestamp":"2019-02-05"}
+},
+{ "id":"3", 
+  "metadata":{"version":"1.0","author":"user3","price":"10.0"}
+}]
+```
+
+```bash
+$ jq -c '.[] | .metadata' data1.json
+{"version":"1.0","author":"user1"}
+{"version":"1.0","author":"user2","timestamp":"2019-02-05"}
+{"version":"1.0","author":"user3","price":"10.0"}
+```
 
 ### React native
 
