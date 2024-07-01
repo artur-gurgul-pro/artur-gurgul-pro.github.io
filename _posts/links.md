@@ -3,6 +3,25 @@ layout: post
 title:  "My links"
 categories: notes
 ---
+Project with custom language
+
+https://webkit.org/wpe/
+https://forums.swift.org/t/ast-a-small-repo-to-build-abstract-syntax-trees/68214
+
+Swift AST
+https://github.com/yanagiba/swift-ast
+https://swift-ast-explorer.com/
+
+
+
+
+// Alternative
+
+// https://reactnavigation.org/docs/link/
+
+// import { Link } from '@react-navigation/native'
+
+
 
 
 https://learn.opengeoedu.de/en/opendata/vorlesung/freiwillig-erhobene-daten/openstreetmap/datenmodell

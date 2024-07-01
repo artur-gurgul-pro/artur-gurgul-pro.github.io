@@ -1,0 +1,1 @@
+// dodać cienie do skanera
